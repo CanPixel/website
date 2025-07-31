@@ -15,7 +15,7 @@ export default function PortfolioPage() {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const querySnapshot = await getDocs(collection(db, 'projects'));
+        const querySnapshot = await getDocs(collection(db, 'portfolioItems'));
         const projectData = querySnapshot.docs.map(doc => ({
           id: doc.id,
           ...(doc.data() as Omit<Project, 'id'>),
