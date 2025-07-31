@@ -36,7 +36,6 @@ export function ProjectCard({ project }: { project: Project }) {
       }}
     >
       <CardHeader>
-        <div className="flex justify-between items-start">
           <div>
             <CardTitle className="text-2xl font-bold" style={{ color: styling.textColor }}>{project.name}</CardTitle>
             <Badge
@@ -50,21 +49,22 @@ export function ProjectCard({ project }: { project: Project }) {
               {project.type}
             </Badge>
           </div>
-          <div className="w-1/3 h-auto relative aspect-video">
-            <Image
-              src={project.image || 'https://placehold.co/600x400.png'}
-              alt={project.name}
-              fill
-              className="object-cover rounded-md"
-              data-ai-hint={project.dataAiHint}
-            />
-          </div>
-        </div>
       </CardHeader>
       <CardContent className="flex-grow flex flex-col justify-between">
-        <CardDescription style={{ color: styling.textColor, opacity: 0.8 }} className="h-24 overflow-hidden">
-          {project.description}
-        </CardDescription>
+        <div>
+            <div className="w-full h-auto relative aspect-video mb-4">
+                <Image
+                src={project.image || 'https://placehold.co/600x400.png'}
+                alt={project.name}
+                fill
+                className="object-cover rounded-md"
+                data-ai-hint={project.dataAiHint}
+                />
+            </div>
+            <CardDescription style={{ color: styling.textColor, opacity: 0.8 }} className="h-24 overflow-hidden">
+                {project.description}
+            </CardDescription>
+        </div>
         <Button variant="link" className="p-0 h-auto mt-4 text-inherit group-hover:underline self-start">
           Explore Realm
           <ArrowRight className="ml-2 h-4 w-4" />
