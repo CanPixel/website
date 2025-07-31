@@ -7,28 +7,40 @@ import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
 
 export function ProjectCard({ project }: { project: Project }) {
+  // Provide default styling for projects that may not have it (e.g., from DB)
+  const styling = project.styling ?? {
+    backgroundColor: 'hsl(var(--card))',
+    textColor: 'hsl(var(--card-foreground))',
+    fontFamily: 'var(--font-body)',
+    borderColor: 'hsl(var(--border))',
+    animationClass: '',
+  };
+
   return (
     <Card
-      className={cn("overflow-hidden transition-all duration-300 ease-in-out border-2", project.styling.animationClass)}
+      className={cn(
+        'overflow-hidden transition-all duration-300 ease-in-out border-2',
+        styling.animationClass
+      )}
       style={{
-        backgroundColor: project.styling.backgroundColor,
-        color: project.styling.textColor,
-        fontFamily: project.styling.fontFamily,
-        backgroundImage: project.styling.backgroundImage,
-        backgroundSize: project.styling.backgroundSize,
-        borderColor: project.styling.borderColor,
+        backgroundColor: styling.backgroundColor,
+        color: styling.textColor,
+        fontFamily: styling.fontFamily,
+        backgroundImage: styling.backgroundImage,
+        backgroundSize: styling.backgroundSize,
+        borderColor: styling.borderColor,
       }}
     >
       <CardHeader>
         <div className="flex justify-between items-start">
           <div>
-            <CardTitle className="text-2xl font-bold" style={{ color: project.styling.textColor }}>{project.name}</CardTitle>
+            <CardTitle className="text-2xl font-bold" style={{ color: styling.textColor }}>{project.name}</CardTitle>
             <Badge
               variant="outline"
               className="mt-2"
               style={{
-                borderColor: project.styling.borderColor,
-                color: project.styling.textColor,
+                borderColor: styling.borderColor,
+                color: styling.textColor,
               }}
             >
               {project.type}
@@ -36,7 +48,7 @@ export function ProjectCard({ project }: { project: Project }) {
           </div>
           <div className="w-1/3 h-auto relative aspect-video">
             <Image
-              src={project.image}
+              src={project.image || 'https://placehold.co/600x400.png'}
               alt={project.name}
               fill
               className="object-cover rounded-md"
@@ -46,7 +58,7 @@ export function ProjectCard({ project }: { project: Project }) {
         </div>
       </CardHeader>
       <CardContent>
-        <CardDescription style={{ color: project.styling.textColor, opacity: 0.8 }}>
+        <CardDescription style={{ color: styling.textColor, opacity: 0.8 }}>
           {project.description}
         </CardDescription>
       </CardContent>
