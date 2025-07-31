@@ -15,14 +15,16 @@ export function ProjectCard({ project }: { project: Project }) {
     textColor: 'hsl(var(--card-foreground))',
     fontFamily: 'var(--font-body)',
     borderColor: 'hsl(var(--border))',
-    animationClass: '',
+    animationClass: 'group-hover:scale-105',
+    className: '',
   };
 
   return (
     <Card
       className={cn(
         'overflow-hidden transition-all duration-300 ease-in-out border-2 group flex flex-col h-full',
-        styling.animationClass
+        styling.animationClass,
+        styling.className
       )}
       style={{
         backgroundColor: styling.backgroundColor,
