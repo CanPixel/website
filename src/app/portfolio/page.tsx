@@ -5,13 +5,14 @@ import { useEffect, useState } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '@/lib/firebase';
 import type { Project } from '@/data/projects';
+import { projects as hardcodedProjects } from '@/data/projects';
 import { ProjectCard } from './ProjectCard';
 import Link from 'next/link';
 import './ProjectCard.css';
-
+import { Separator } from '@/components/ui/separator';
 
 export default function PortfolioPage() {
-  const [projects, setProjects] = useState<Project[]>([]);
+  const [dbProjects, setDbProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -23,7 +24,7 @@ export default function PortfolioPage() {
           id: doc.id,
           ...(doc.data() as Omit<Project, 'id'>),
         }));
-        setProjects(projectData);
+        setDbProjects(projectData);
       } catch (err) {
         console.error(err);
         setError('Failed to load projects. Please try again later.');
@@ -40,16 +41,33 @@ export default function PortfolioPage() {
       <p className="text-lg text-muted-foreground mb-12 text-center max-w-2xl mx-auto">
         Explore the diverse worlds crafted by Can Ur, each a unique blend of code, story, and philosophy.
       </p>
-      {loading && <p className="text-center">Loading realms...</p>}
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {hardcodedProjects.map((project) => (
+          <Link href={`/portfolio/${project.id}`} key={project.id}>
+              <ProjectCard project={project} />
+          </Link>
+        ))}
+      </div>
+
+      {(loading || error || dbProjects.length > 0) && (
+        <Separator className="my-16 bg-border/40" />
+      )}
+
+      {loading && <p className="text-center">Loading more realms...</p>}
       {error && <p className="text-center text-destructive">{error}</p>}
-      {!loading && !error && (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {projects.map((project) => (
-            <Link href={`/portfolio/${project.id}`} key={project.id}>
-                <ProjectCard project={project} />
-            </Link>
-          ))}
-        </div>
+      
+      {!loading && !error && dbProjects.length > 0 && (
+        <>
+          <h2 className="font-headline text-3xl font-bold tracking-tighter mb-8 text-center">More From The Archives</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {dbProjects.map((project) => (
+              <Link href={`/portfolio/${project.id}`} key={project.id}>
+                  <ProjectCard project={project} />
+              </Link>
+            ))}
+          </div>
+        </>
       )}
     </div>
   );
