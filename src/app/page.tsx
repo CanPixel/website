@@ -39,10 +39,9 @@ export default function Home() {
   return (
     <div className="container mx-auto px-4 py-12">
       <h1 className="font-headline text-5xl font-bold tracking-tighter mb-4 text-center shiny-text">CANPIXEL REALMS</h1>
-      <div className="text-center mb-12">
-        <p className="text-3xl font-light tracking-wider uppercase text-accent">Diverse Worlds</p>
-        <p className="font-headline text-lg text-muted-foreground mt-2">
-          A unique blend of code, story, and philosophy.
+      <div className="text-center mb-12 max-w-2xl mx-auto">
+        <p className="font-headline text-base text-muted-foreground tracking-wider">
+          Each project is a world unto itself, a unique blend of design, code, story, and philosophy.
         </p>
       </div>
 
