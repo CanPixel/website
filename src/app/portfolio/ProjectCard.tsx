@@ -18,6 +18,11 @@ export function ProjectCard({ project }: { project: Project }) {
 
     let animation: gsap.core.Tween | null = null;
 
+    const cleanup = () => {
+      animation?.kill();
+      gsap.set(cardElement, { clearProps: 'all' });
+    };
+
     if (project.animation === 'flicker') {
       animation = gsap.to(cardElement, {
         opacity: 0.9,
@@ -54,13 +59,13 @@ export function ProjectCard({ project }: { project: Project }) {
       });
     }
 
-    return () => {
-      animation?.kill();
-      gsap.set(cardElement, { clearProps: 'all' });
-    };
+    return cleanup;
   }, [project]);
 
   const animationClass = project.styling?.animationClass || '';
+
+  // Check if the background is a data URI (SVG) or a URL
+  const isDataUri = project.styling?.backgroundImage?.startsWith('data:');
 
   return (
     <Card
@@ -71,6 +76,9 @@ export function ProjectCard({ project }: { project: Project }) {
         color: project.styling?.textColor,
         fontFamily: project.styling?.fontFamily,
         borderColor: project.styling?.borderColor,
+        backgroundImage: isDataUri ? `url("${project.styling.backgroundImage}")` : 'none',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
       }}
     >
       <CardHeader>
@@ -79,7 +87,7 @@ export function ProjectCard({ project }: { project: Project }) {
       </CardHeader>
       <CardContent className="flex-grow">
         <div className="relative aspect-video mb-4 rounded-md overflow-hidden">
-          {project.styling?.backgroundImage && (
+          {project.styling?.backgroundImage && !isDataUri && (
             <Image 
               src={project.styling.backgroundImage} 
               alt={project.name}
