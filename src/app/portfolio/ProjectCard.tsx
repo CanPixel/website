@@ -39,18 +39,19 @@ export function ProjectCard({ project }: { project: Project }) {
         borderColor: styling.borderColor,
       }}
     >
-      <CardHeader>
+      <CardHeader className="flex flex-row items-start justify-between">
           <div>
             <CardTitle className="text-2xl font-bold" 
             style={{ color: styling.textColor }}>{isDb(project) ? 
             project.title : project.name}
             </CardTitle>
 
-            {isDb(project) ?
+            {isDb(project) && project.properties.genre && Array.isArray(project.properties.genre) ?
               project.properties.genre.map((genre, index) => (
               <Badge
                 variant="outline"
-                className="mt-2"
+                key={index} // Added key prop
+                className="mt-2 mr-1" // Added margin right
                 style={{
                   borderColor: styling.borderColor,
                   color: styling.textColor,
@@ -59,7 +60,45 @@ export function ProjectCard({ project }: { project: Project }) {
                 {genre}
               </Badge>
             )) :
-              <Badge
+              isDb(project) && project.properties.genre ? (
+                <Badge
+                  variant="outline"
+                  className="mt-2"
+                  style={{
+                    borderColor: styling.borderColor,
+                    color: styling.textColor,
+                  }}
+                >
+                  {project.properties.genre}
+                </Badge>
+              ) : (
+                <Badge
+                  variant="outline"
+                  className="mt-2"
+                  style={{
+                    borderColor: styling.borderColor,
+                    color: styling.textColor,
+                  }}
+                >
+                  {project.type}
+                </Badge>
+              )}
+
+          </div>
+          {
+            <Badge
+            variant="outline"
+            className="mt-2 p-2 px-3 bg-white/30"
+            style={{
+              borderColor: styling.borderColor,
+              color: styling.textColor,
+            }}
+            >
+              {project.releaseDate ?? 'Coming Soon'}
+            </Badge>
+          }
+          {isDb(project) && project.properties.releaseDate && (
+            <Badge
               variant="outline"
               className="mt-2"
               style={{
@@ -67,13 +106,9 @@ export function ProjectCard({ project }: { project: Project }) {
                 color: styling.textColor,
               }}
             >
-              {project.type}
+              {project.properties.releaseDate}
             </Badge>
-            }
-
-            
-
-          </div>
+          )}
       </CardHeader>
       <CardContent className="flex-grow flex flex-col justify-between">
         <div>

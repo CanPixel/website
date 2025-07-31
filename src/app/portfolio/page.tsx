@@ -45,7 +45,7 @@ export default function PortfolioPage() {
       {/* Modified grid classes for responsive layout */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {allProjects.map((project) => (
-          <Link key={project.id} href={`/portfolio/${project.id}`} className="block transition-transform hover:scale-[1.02]">
+          <Link key={project.id} href={`/portfolio/${project.properties ? project.properties.webDemoLink : ''}`} className="block transition-transform hover:scale-[1.02]">
             <ProjectCard project={project} />
           </Link>
         ))}
