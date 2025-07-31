@@ -26,8 +26,8 @@ export const projects: Project[] = [
       textColor: '#8B4513',
       fontFamily: "'Cinzel', serif",
       borderColor: '#D4AC79',
-      animationClass: 'hover:shadow-[0_0_30px_5px_rgba(255,165,0,0.5)]',
       backgroundImage: 'https://placehold.co/600x400.png',
+      animationClass: 'hover:shadow-[0_0_20px_rgba(212,172,121,0.7)]',
     },
   },
   {
@@ -41,8 +41,8 @@ export const projects: Project[] = [
       textColor: '#4A4A4A',
       fontFamily: "'Courier Prime', monospace",
       borderColor: '#B0B0B0',
-      animationClass: 'transition-transform duration-500 hover:[transform:rotateY(10deg)_rotateX(5deg)]',
       backgroundImage: 'https://placehold.co/600x400.png',
+      animationClass: 'transition-transform duration-500 hover:[transform:rotateY(5deg)_rotateX(2deg)]',
     },
   },
   {
@@ -66,11 +66,10 @@ export const projects: Project[] = [
     summary: 'A hacking game with procedural generation and glitch filters, styled with circuit aesthetics.',
     animation: 'sweep',
     styling: {
-      backgroundColor: '#0A2F0A',
+      backgroundColor: '#0D110D',
       textColor: '#00FF00',
       fontFamily: "'Space Grotesk', sans-serif",
       borderColor: '#00FF00',
-      animationClass: 'animate-pulse',
     },
   },
 ];

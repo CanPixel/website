@@ -23,20 +23,7 @@ export function ProjectCard({ project }: { project: Project }) {
       gsap.set(cardElement, { clearProps: 'all' });
     };
 
-    if (project.animation === 'flicker' && project.id === 'kernel-sweep') {
-      // More natural, random glitch animation for Kernel.Sweep
-      animation = gsap.timeline({ repeat: -1, repeatDelay: 2 });
-      animation
-        .to(cardElement, { opacity: 0.7, duration: 0.1, ease: 'power2.inOut' })
-        .to(cardElement, { opacity: 1, duration: 0.2 })
-        .to(cardElement, { opacity: 0.8, duration: 0.1, delay: 0.5 })
-        .to(cardElement, { opacity: 1, duration: 0.15 })
-        // Electrical spark
-        .to(cardElement, { opacity: 0.5, duration: 0.05, ease: 'power1.in' })
-        .to(cardElement, { opacity: 1, duration: 0.05 })
-        .to(cardElement, { opacity: 0.9, duration: 0.1, delay: 1.5 })
-        .to(cardElement, { opacity: 1, duration: 0.3 });
-    } else if (project.animation === 'flicker') {
+    if (project.animation === 'flicker') {
       animation = gsap.to(cardElement, {
         opacity: 0.9,
         duration: 1.5,
@@ -47,7 +34,7 @@ export function ProjectCard({ project }: { project: Project }) {
     } else if (project.animation === 'fold') {
       gsap.set(cardElement, { transformStyle: 'preserve-3d', transformPerspective: 1000 });
       animation = gsap.to(cardElement, {
-        rotationY: -5,
+        rotationY: -2,
         duration: 2,
         yoyo: true,
         repeat: -1,
@@ -55,17 +42,17 @@ export function ProjectCard({ project }: { project: Project }) {
       });
     } else if (project.animation === 'typewriter') {
       animation = gsap.to(cardElement, {
-        x: 2,
-        y: -2,
+        x: 1,
+        y: -1,
         duration: 0.7,
         yoyo: true,
         repeat: -1,
         ease: 'sine.inOut',
       });
     } else if (project.animation === 'sweep' && project.styling?.borderColor) {
-      animation = gsap.to(cardElement, {
-        boxShadow: `0 0 20px ${project.styling.borderColor}`,
-        duration: 1.2,
+       animation = gsap.to(cardElement, {
+        boxShadow: `0 0 15px 0px ${project.styling.borderColor}`,
+        duration: 1.5,
         yoyo: true,
         repeat: -1,
         ease: 'sine.inOut',
@@ -75,7 +62,6 @@ export function ProjectCard({ project }: { project: Project }) {
     return cleanup;
   }, [project]);
 
-  const isDataUri = project.styling?.backgroundImage?.startsWith('data:');
   const isKernelSweep = project.id === 'kernel-sweep';
 
   const cardClasses = cn(
@@ -104,7 +90,7 @@ export function ProjectCard({ project }: { project: Project }) {
       </CardHeader>
       <CardContent className="flex-grow">
         <div className="relative aspect-video mb-4 rounded-md overflow-hidden">
-          {project.styling?.backgroundImage && !isDataUri && !isKernelSweep && (
+          {project.styling?.backgroundImage && project.styling.backgroundImage.startsWith('https') && (
             <Image
               src={project.styling.backgroundImage}
               alt={project.name}
@@ -117,7 +103,7 @@ export function ProjectCard({ project }: { project: Project }) {
         <CardDescription style={{ color: project.styling?.textColor }}>{project.summary}</CardDescription>
       </CardContent>
       <CardFooter>
-        <p className="text-xs text-muted-foreground font-code" style={{ color: project.styling?.textColor }}>Explore Realm &rarr;</p>
+        <p className="text-xs font-code" style={{ color: project.styling?.textColor }}>Explore Realm &rarr;</p>
       </CardFooter>
     </Card>
   );
