@@ -64,31 +64,31 @@ export function ProjectCard({ project }: { project: Project }) {
   return (
     <Card
       ref={cardRef}
-      className={cn("overflow-hidden transition-all duration-300 ease-in-out border-2 project-card", project.styling.animationClass)}
+      className={cn("overflow-hidden transition-all duration-300 ease-in-out border-2 project-card", project.styling?.animationClass)}
       style={{
-        backgroundColor: project.styling.backgroundColor,
-        color: project.styling.textColor,
-        fontFamily: project.styling.fontFamily,
-        backgroundImage: `url(${project.styling.backgroundImage})`,
+        backgroundColor: project.styling?.backgroundColor,
+        color: project.styling?.textColor,
+        fontFamily: project.styling?.fontFamily,
+        backgroundImage: project.styling?.backgroundImage ? `url(${project.styling.backgroundImage})` : undefined,
         backgroundSize: 'cover',
-        borderColor: project.styling.borderColor,
+        borderColor: project.styling?.borderColor,
       }}
     >
       <CardHeader>
-          <CardTitle className="text-2xl font-bold" style={{ color: project.styling.textColor }}>{project.name}</CardTitle>
+          <CardTitle className="text-2xl font-bold" style={{ color: project.styling?.textColor }}>{project.name}</CardTitle>
           <Badge
             variant="outline"
             className="mt-2 w-fit"
             style={{
-              borderColor: project.styling.borderColor,
-              color: project.styling.textColor,
+              borderColor: project.styling?.borderColor,
+              color: project.styling?.textColor,
             }}
           >
             {project.type}
           </Badge>
       </CardHeader>
       <CardContent>
-        <CardDescription style={{ color: project.styling.textColor, opacity: 0.8 }}>
+        <CardDescription style={{ color: project.styling?.textColor, opacity: 0.8 }}>
           {project.summary}
         </CardDescription>
       </CardContent>
