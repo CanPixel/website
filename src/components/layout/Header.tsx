@@ -6,8 +6,7 @@ import { Logo } from '@/components/Logo';
 import { cn } from '@/lib/utils';
 
 const navLinks = [
-  { href: '/', label: 'HOME' },
-  { href: '/portfolio', label: 'REALMS' },
+  { href: '/', label: 'REALMS' },
   { href: '/music', label: 'MUSE' },
   { href: '/about', label: 'ABOUT' },
 ];

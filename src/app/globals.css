@@ -78,3 +78,17 @@
     z-index: 1000;
   }
 }
+
+@layer utilities {
+  .shiny-text {
+    @apply bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent;
+    background-size: 200% auto;
+    animation: shine 5s linear infinite;
+  }
+
+  @keyframes shine {
+    to {
+      background-position: 200% center;
+    }
+  }
+}
