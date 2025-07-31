@@ -39,13 +39,11 @@ export default function Home() {
   return (
     <div className="container mx-auto px-4 py-12">
       <h1 className="font-headline text-5xl font-bold tracking-tighter mb-4 text-center shiny-text">CANPIXEL REALMS</h1>
-      <div className="flex items-center justify-center gap-4 text-center mb-12">
-         <p className="text-sm font-light uppercase tracking-widest text-muted-foreground">Code</p>
-         <Separator orientation="vertical" className="h-4" />
-         <p className="text-sm font-light uppercase tracking-widest text-muted-foreground">Story</p>
-         <Separator orientation="vertical" className="h-4" />
-         <p className="text-sm font-light uppercase tracking-widest text-muted-foreground">Philosophy</p>
+      <div className="text-center mb-12">
+        <p className="text-lg font-light uppercase tracking-widest text-muted-foreground">DIVERSE WORLDS</p>
+        <p className="text-sm text-accent">A unique blend of code, story, and philosophy.</p>
       </div>
+
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {allProjects.map((project) => (
