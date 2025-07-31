@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -33,9 +34,9 @@ export default function PortfolioPage() {
 
   return (
     <div className="container mx-auto px-4 py-12">
-      <h1 className="font-headline text-5xl font-bold tracking-tighter mb-2 text-center">My Realms</h1>
+      <h1 className="font-headline text-5xl font-bold tracking-tighter mb-2 text-center">Realms of Creation</h1>
       <p className="text-lg text-muted-foreground mb-12 text-center max-w-2xl mx-auto">
-        Each project is a distinct world, crafted with a unique soul and purpose.
+        Explore the diverse worlds crafted by Can Ur, each a unique blend of code, story, and philosophy.
       </p>
       {loading && <p className="text-center">Loading realms...</p>}
       {error && <p className="text-center text-destructive">{error}</p>}
