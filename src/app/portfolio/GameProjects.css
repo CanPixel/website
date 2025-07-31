@@ -1,0 +1,27 @@
+.game-projects {
+  padding: 40px;
+  background: #1A1A1A; /* Neutral black */
+  text-align: center;
+  font-family: 'Cinzel', serif;
+  color: #E0E0E0;
+}
+
+.game-projects h1 {
+  font-size: 28px;
+  color: #00FFFF; /* Teal */
+  text-shadow: 2px 2px #FF00FF; /* Magenta */
+}
+
+.game-projects p {
+  font-family: 'Courier Prime', monospace;
+  font-size: 14px;
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
