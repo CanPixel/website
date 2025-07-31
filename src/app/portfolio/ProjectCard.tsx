@@ -4,9 +4,6 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import './ProjectCard.css';
 import type { Project } from '@/data/projects';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { cn } from '@/lib/utils';
 
 export function ProjectCard({ project }: { project: Project }) {
   const cardRef = useRef<HTMLDivElement>(null);
@@ -46,7 +43,7 @@ export function ProjectCard({ project }: { project: Project }) {
       });
     } else if (project.animation === 'sweep') {
       animationRef.current = gsap.to(cardRef.current, {
-        boxShadow: '0 0 15px #00FF00',
+        boxShadow: `0 0 15px ${project.styling?.borderColor || '#00FF00'}`,
         duration: 1,
         yoyo: true,
         repeat: -1,
@@ -62,36 +59,17 @@ export function ProjectCard({ project }: { project: Project }) {
   }, [project]);
 
   return (
-    <Card
+    <div
+      className="project-card"
       ref={cardRef}
-      className={cn("overflow-hidden transition-all duration-300 ease-in-out border-2 project-card", project.styling?.animationClass)}
       style={{
-        backgroundColor: project.styling?.backgroundColor,
+        backgroundImage: `url(${project.styling?.backgroundImage})`,
         color: project.styling?.textColor,
         fontFamily: project.styling?.fontFamily,
-        backgroundImage: project.styling?.backgroundImage ? `url(${project.styling.backgroundImage})` : undefined,
-        backgroundSize: 'cover',
-        borderColor: project.styling?.borderColor,
       }}
     >
-      <CardHeader>
-          <CardTitle className="text-2xl font-bold" style={{ color: project.styling?.textColor }}>{project.name}</CardTitle>
-          <Badge
-            variant="outline"
-            className="mt-2 w-fit"
-            style={{
-              borderColor: project.styling?.borderColor,
-              color: project.styling?.textColor,
-            }}
-          >
-            {project.type}
-          </Badge>
-      </CardHeader>
-      <CardContent>
-        <CardDescription style={{ color: project.styling?.textColor, opacity: 0.8 }}>
-          {project.summary}
-        </CardDescription>
-      </CardContent>
-    </Card>
+      <h3>{project.name}</h3>
+      <p>{project.summary}</p>
+    </div>
   );
 }
