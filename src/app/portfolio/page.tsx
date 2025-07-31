@@ -16,13 +16,20 @@ export default function PortfolioPage() {
     const fetchProjects = async () => {
       const projectsCollection = collection(db, 'portfolioItems');
       const projectSnapshot = await getDocs(projectsCollection);
-      const projectList = projectSnapshot.docs.map(doc => ({
-        id: doc.id,
-        ...(doc.data() as Omit<Project, 'id'>),
-      }));
+      const projectList = projectSnapshot.docs
+      .filter(doc => {
+        const projectData = doc.data() as Omit<Project, 'id'>;
+        return projectData.type === 'game';
+      })
+      .map(doc => {
+        const projectData = doc.data() as Omit<Project, 'id'>;
+        return {
+          id: doc.id,
+          ...projectData,
+        };
+      });
       setDbProjects(projectList);
     };
-
     fetchProjects();
   }, []);
 
@@ -35,7 +42,8 @@ export default function PortfolioPage() {
       Explore diverse worlds <br></br>
       each with a unique blend of code, story, and philosophy.
       </p>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {/* Modified grid classes for responsive layout */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {allProjects.map((project) => (
           <Link key={project.id} href={`/portfolio/${project.id}`} className="block transition-transform hover:scale-[1.02]">
             <ProjectCard project={project} />

@@ -8,6 +8,10 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
+const isDb = (project: Project): boolean => {
+  return project.properties ? true : false;
+};
+
 export function ProjectCard({ project }: { project: Project }) {
   // Provide default styling for projects that may not have it (e.g., from DB)
   const styling = project.styling ?? {
@@ -37,8 +41,25 @@ export function ProjectCard({ project }: { project: Project }) {
     >
       <CardHeader>
           <div>
-            <CardTitle className="text-2xl font-bold" style={{ color: styling.textColor }}>{project.name}</CardTitle>
-            <Badge
+            <CardTitle className="text-2xl font-bold" 
+            style={{ color: styling.textColor }}>{isDb(project) ? 
+            project.title : project.name}
+            </CardTitle>
+
+            {isDb(project) ?
+              project.properties.genre.map((genre, index) => (
+              <Badge
+                variant="outline"
+                className="mt-2"
+                style={{
+                  borderColor: styling.borderColor,
+                  color: styling.textColor,
+                }}
+              >
+                {genre}
+              </Badge>
+            )) :
+              <Badge
               variant="outline"
               className="mt-2"
               style={{
@@ -48,13 +69,17 @@ export function ProjectCard({ project }: { project: Project }) {
             >
               {project.type}
             </Badge>
+            }
+
+            
+
           </div>
       </CardHeader>
       <CardContent className="flex-grow flex flex-col justify-between">
         <div>
             <div className="w-full h-auto relative aspect-video mb-4">
                 <Image
-                src={project.image || 'https://placehold.co/600x400.png'}
+                src={project.thumbnailUrl || 'https://placehold.co/600x400.png'}
                 alt={project.name}
                 fill
                 className="object-cover rounded-md"
@@ -62,7 +87,8 @@ export function ProjectCard({ project }: { project: Project }) {
                 />
             </div>
             <CardDescription style={{ color: styling.textColor, opacity: 0.8 }} className="h-24 overflow-hidden">
-                {project.description}
+                {isDb(project) ? 
+                project.shortDescription : project.description}
             </CardDescription>
         </div>
         <Button variant="link" className="p-0 h-auto mt-4 text-inherit group-hover:underline self-start">
