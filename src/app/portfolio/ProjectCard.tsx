@@ -64,11 +64,12 @@ export function ProjectCard({ project }: { project: Project }) {
 
   const animationClass = project.styling?.animationClass || '';
   const isDataUri = project.styling?.backgroundImage?.startsWith('data:');
+  const isKernelSweep = project.id === 'kernel-sweep';
 
   const cardClasses = cn(
     "overflow-hidden transition-all duration-300 ease-in-out border-2 h-full flex flex-col project-card",
     animationClass,
-    { 'kernel-sweep-card': project.id === 'kernel-sweep' }
+    { 'kernel-sweep-card': isKernelSweep }
   );
 
   return (
@@ -80,7 +81,7 @@ export function ProjectCard({ project }: { project: Project }) {
         color: project.styling?.textColor,
         fontFamily: project.styling?.fontFamily,
         borderColor: project.styling?.borderColor,
-        backgroundImage: (project.styling?.backgroundImage && isDataUri) ? `url("${project.styling.backgroundImage}")` : 'none',
+        backgroundImage: (project.styling?.backgroundImage && isDataUri && !isKernelSweep) ? `url("${project.styling.backgroundImage}")` : 'none',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
