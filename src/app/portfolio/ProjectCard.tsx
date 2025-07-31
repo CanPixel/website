@@ -97,15 +97,13 @@ export function ProjectCard({ project }: { project: Project }) {
       </CardHeader>
       <CardContent className="flex-grow">
         <div className="relative aspect-video mb-4 rounded-md overflow-hidden">
-          {project.styling?.backgroundImage && project.styling.backgroundImage.startsWith('https') && (
-            <Image
-              src={project.styling.backgroundImage}
+          <Image
+              src="https://placehold.co/600x400.png"
               alt={project.name}
               fill
               className="object-cover"
               data-ai-hint="gameplay screenshot"
             />
-          )}
         </div>
         <CardDescription style={{ color: project.styling?.textColor }}>{project.summary}</CardDescription>
       </CardContent>
