@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Logo } from '@/components/Logo';
 import { cn } from '@/lib/utils';
-import { Button } from '../ui/button';
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -32,7 +31,7 @@ export function Header() {
                 key={href}
                 href={href}
                 className={cn(
-                  'text-sm font-medium transition-colors hover:text-primary uppercase tracking-widest',
+                  'text-sm font-medium transition-colors hover:text-primary uppercase tracking-widest font-headline',
                   pathname === href ? 'text-primary' : 'text-muted-foreground'
                 )}
               >

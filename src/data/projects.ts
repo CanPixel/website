@@ -22,12 +22,11 @@ export const projects: Project[] = [
     summary: 'A medieval cooking game blending chivalry and culinary artistry, with a cozy, parchment aesthetic.',
     animation: 'flicker',
     styling: {
-      backgroundColor: '#fdf6e3',
-      textColor: '#584b3d',
-      fontFamily: "'serif'",
-      borderColor: '#d3c0a4',
+      backgroundColor: '#F5E8C7',
+      textColor: '#8B4513',
+      fontFamily: "'Cinzel', serif",
+      borderColor: '#D3B88C',
       backgroundImage: 'https://www.transparenttextures.com/patterns/old-wall.png',
-      animationClass: 'hover:shadow-[0_0_20px_#d3c0a4]',
     },
   },
   {
@@ -37,12 +36,11 @@ export const projects: Project[] = [
     summary: 'A multiperspective stealth game with a paper feel, exploring confinement and strategy.',
     animation: 'fold',
     styling: {
-      backgroundColor: '#ffffff',
-      textColor: '#222222',
-      fontFamily: "'sans-serif'",
-      borderColor: '#cccccc',
+      backgroundColor: '#E8E8E8',
+      textColor: '#4A4A4A',
+      fontFamily: "'Inter', sans-serif",
+      borderColor: '#BDBDBD',
       backgroundImage: 'https://www.transparenttextures.com/patterns/paper.png',
-      animationClass: 'transition-transform duration-500 hover:[transform:rotateY(-5deg)_rotateX(2deg)]',
     },
   },
   {
@@ -52,10 +50,10 @@ export const projects: Project[] = [
     summary: 'A satirical political analysis game critiquing perception, with a newsprint aesthetic.',
     animation: 'typewriter',
     styling: {
-      backgroundColor: '#f2f2f2',
-      textColor: '#1a1a1a',
-      fontFamily: "'Courier New', monospace",
-      borderColor: '#bbbbbb',
+      backgroundColor: '#E0DED8',
+      textColor: '#2F2F2F',
+      fontFamily: "'Space Grotesk', monospace",
+      borderColor: '#A9A9A9',
       backgroundImage: 'https://www.transparenttextures.com/patterns/diagmonds.png'
     },
   },
@@ -66,10 +64,10 @@ export const projects: Project[] = [
     summary: 'A hacking game with procedural generation and glitch filters, styled with circuit aesthetics.',
     animation: 'sweep',
     styling: {
-      backgroundColor: '#000',
-      textColor: 'hsl(var(--accent))',
-      fontFamily: "'Roboto Mono', monospace",
-      borderColor: 'hsl(var(--accent))',
+      backgroundColor: '#0A1A0A',
+      textColor: '#00FF00',
+      fontFamily: "'Space Grotesk', monospace",
+      borderColor: '#00FF00',
     },
   },
 ];

@@ -4,7 +4,7 @@ import { PlayCircle, PauseCircle, Music } from 'lucide-react';
 
 export default function MusicPage() {
   return (
-    <div className="container mx-auto px-4 py-12">
+    <div className="container mx-auto px-4 py-16">
       <div className="text-center mb-12">
         <h1 className="font-headline text-5xl font-bold tracking-tighter text-primary">ZIGGURATH</h1>
         <p className="text-lg text-muted-foreground mt-2">Modern-Oriental Grungepop</p>
@@ -12,13 +12,13 @@ export default function MusicPage() {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2">
-          <Card className="bg-card/50 backdrop-blur-sm">
+          <Card className="bg-card/50 backdrop-blur-sm border-primary/20">
             <CardHeader>
               <CardTitle className="font-headline text-2xl">Featured Track</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="bg-secondary/30 p-4 rounded-lg border border-border flex items-center gap-4 relative overflow-hidden">
-                <div className="absolute inset-0 bg-repeat bg-center opacity-5" style={{ backgroundImage: `url('/grain-texture.png')` }}></div>
+                <div className="absolute inset-0 bg-repeat bg-center opacity-5" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}></div>
                 <Music className="w-12 h-12 text-primary" />
                 <div className="flex-grow">
                   <h3 className="font-bold text-lg">Echoes of the Soul</h3>
@@ -33,7 +33,7 @@ export default function MusicPage() {
               </div>
             </CardContent>
           </Card>
-          <Card className="mt-8 bg-card/50 backdrop-blur-sm">
+          <Card className="mt-8 bg-card/50 backdrop-blur-sm border-primary/20">
             <CardHeader>
               <CardTitle className="font-headline text-2xl">Bio</CardTitle>
             </CardHeader>
@@ -46,7 +46,7 @@ export default function MusicPage() {
         </div>
 
         <div className="lg:col-span-1">
-          <Card className="bg-card/50 backdrop-blur-sm">
+          <Card className="bg-card/50 backdrop-blur-sm border-primary/20">
             <CardHeader>
               <CardTitle className="font-headline text-2xl">Visuals</CardTitle>
             </CardHeader>
@@ -61,7 +61,7 @@ export default function MusicPage() {
                     data-ai-hint="concert punk"
                   />
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
-                  <div className="absolute inset-0 grainy-effect opacity-30"></div>
+                   <div className="absolute inset-0 bg-repeat bg-center opacity-10" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}></div>
                 </div>
               ))}
             </CardContent>
