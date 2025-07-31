@@ -1,5 +1,6 @@
 {
   "firebase_hosting": {
     "deploymentHostingUrl": "https://canpixel.web.app"
-  }
+  },
+  "gemini_api": {}
 }
