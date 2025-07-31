@@ -21,7 +21,7 @@ export function ProjectCard({ project }: { project: Project }) {
   return (
     <Card
       className={cn(
-        'overflow-hidden transition-all duration-300 ease-in-out border-2 group',
+        'overflow-hidden transition-all duration-300 ease-in-out border-2 group flex flex-col h-full',
         styling.animationClass
       )}
       style={{
@@ -59,11 +59,11 @@ export function ProjectCard({ project }: { project: Project }) {
           </div>
         </div>
       </CardHeader>
-      <CardContent>
-        <CardDescription style={{ color: styling.textColor, opacity: 0.8 }}>
+      <CardContent className="flex-grow flex flex-col justify-between">
+        <CardDescription style={{ color: styling.textColor, opacity: 0.8 }} className="h-24 overflow-hidden">
           {project.description}
         </CardDescription>
-        <Button variant="link" className="p-0 h-auto mt-4 text-inherit group-hover:underline">
+        <Button variant="link" className="p-0 h-auto mt-4 text-inherit group-hover:underline self-start">
           Explore Realm
           <ArrowRight className="ml-2 h-4 w-4" />
         </Button>

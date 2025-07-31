@@ -34,7 +34,7 @@ export default function PortfolioPage() {
       <p className="text-lg text-muted-foreground mb-12 text-center max-w-2xl mx-auto">
         Each project is a distinct world, crafted with a unique soul and purpose.
       </p>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {allProjects.map((project) => (
           <Link key={project.id} href={`/portfolio/${project.id}`} className="block transition-transform hover:scale-[1.02]">
             <ProjectCard project={project} />
