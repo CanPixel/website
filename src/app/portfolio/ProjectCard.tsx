@@ -17,46 +17,53 @@ export function ProjectCard({ project }: { project: Project }) {
     if (!cardElement || !project.animation) return;
 
     let animation: gsap.core.Timeline | gsap.core.Tween | null = null;
-
-    const cleanup = () => {
+    let cleanup = () => {
       animation?.kill();
       gsap.set(cardElement, { clearProps: 'all' });
     };
 
-    if (project.animation === 'flicker') {
-      animation = gsap.to(cardElement, {
-        opacity: 0.9,
-        duration: 1.5,
-        yoyo: true,
-        repeat: -1,
-        ease: 'power1.inOut',
-      });
-    } else if (project.animation === 'fold') {
-      gsap.set(cardElement, { transformStyle: 'preserve-3d', transformPerspective: 1000 });
-      animation = gsap.to(cardElement, {
-        rotationY: -2,
-        duration: 2,
-        yoyo: true,
-        repeat: -1,
-        ease: 'sine.inOut',
-      });
-    } else if (project.animation === 'typewriter') {
-      animation = gsap.to(cardElement, {
-        x: 1,
-        y: -1,
-        duration: 0.7,
-        yoyo: true,
-        repeat: -1,
-        ease: 'sine.inOut',
-      });
-    } else if (project.animation === 'sweep' && project.styling?.borderColor) {
-       animation = gsap.to(cardElement, {
-        boxShadow: `0 0 15px 0px ${project.styling.borderColor}`,
-        duration: 1.5,
-        yoyo: true,
-        repeat: -1,
-        ease: 'sine.inOut',
-      });
+    gsap.set(cardElement, { transformPerspective: 1000 }); // Common perspective for 3D transforms
+
+    switch (project.animation) {
+      case 'flicker':
+        animation = gsap.timeline({ repeat: -1, yoyo: true })
+          .to(cardElement, { opacity: 0.95, duration: 1.2, ease: 'power1.inOut' })
+          .to(cardElement, { opacity: 1, duration: 0.3 })
+          .to(cardElement, { opacity: 0.9, duration: 0.5 });
+        break;
+
+      case 'fold':
+        animation = gsap.to(cardElement, {
+          rotationY: -3,
+          duration: 2.5,
+          yoyo: true,
+          repeat: -1,
+          ease: 'sine.inOut',
+        });
+        break;
+
+      case 'typewriter':
+        animation = gsap.to(cardElement, {
+          x: 1,
+          y: -1,
+          duration: 0.6,
+          yoyo: true,
+          repeat: -1,
+          ease: 'power1.inOut',
+        });
+        break;
+
+      case 'sweep':
+        if (project.styling?.borderColor) {
+          animation = gsap.to(cardElement, {
+            boxShadow: `0 0 15px 0px ${project.styling.borderColor}`,
+            duration: 1.8,
+            yoyo: true,
+            repeat: -1,
+            ease: 'sine.inOut',
+          });
+        }
+        break;
     }
 
     return cleanup;

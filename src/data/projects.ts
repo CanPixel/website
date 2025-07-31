@@ -42,7 +42,7 @@ export const projects: Project[] = [
       fontFamily: "'Courier Prime', monospace",
       borderColor: '#B0B0B0',
       backgroundImage: 'https://placehold.co/600x400.png',
-      animationClass: 'transition-transform duration-500 hover:[transform:rotateY(5deg)_rotateX(2deg)]',
+      animationClass: 'transition-transform duration-500 hover:[transform:rotateY(-5deg)_rotateX(2deg)]',
     },
   },
   {
