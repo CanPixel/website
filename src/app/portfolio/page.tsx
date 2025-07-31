@@ -1,32 +1,10 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { collection, getDocs } from 'firebase/firestore';
-import { db } from '@/lib/firebase';
-import { projects, type Project } from '@/data/projects';
+import { projects } from '@/data/projects';
 import { ProjectCard } from './ProjectCard';
 import './ProjectCard.css';
 
 export default function PortfolioPage() {
-  const [dbProjects, setDbProjects] = useState<Project[]>([]);
-
-  useEffect(() => {
-    const fetchProjects = async () => {
-      try {
-        const querySnapshot = await getDocs(collection(db, 'portfolioItems'));
-        const projectsData = querySnapshot.docs.map(doc => ({
-          id: doc.id,
-          ...doc.data(),
-        })) as Project[];
-        setDbProjects(projectsData);
-      } catch (error) {
-        console.error("Error fetching projects from Firestore:", error);
-      }
-    };
-
-    fetchProjects();
-  }, []);
-
   return (
     <div className="container mx-auto px-4 py-12">
       <h1 className="font-headline text-5xl font-bold tracking-tighter mb-2 text-center">My Realms</h1>
@@ -35,9 +13,6 @@ export default function PortfolioPage() {
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
         {projects.map((project) => (
-          <ProjectCard key={project.id} project={project} />
-        ))}
-        {dbProjects.map((project) => (
           <ProjectCard key={project.id} project={project} />
         ))}
       </div>
