@@ -4,6 +4,8 @@ import Image from 'next/image';
 import type { Project } from '@/data/projects';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 export function ProjectCard({ project }: { project: Project }) {
@@ -19,7 +21,7 @@ export function ProjectCard({ project }: { project: Project }) {
   return (
     <Card
       className={cn(
-        'overflow-hidden transition-all duration-300 ease-in-out border-2',
+        'overflow-hidden transition-all duration-300 ease-in-out border-2 group',
         styling.animationClass
       )}
       style={{
@@ -61,6 +63,10 @@ export function ProjectCard({ project }: { project: Project }) {
         <CardDescription style={{ color: styling.textColor, opacity: 0.8 }}>
           {project.description}
         </CardDescription>
+        <Button variant="link" className="p-0 h-auto mt-4 text-inherit group-hover:underline">
+          Explore Realm
+          <ArrowRight className="ml-2 h-4 w-4" />
+        </Button>
       </CardContent>
     </Card>
   );
