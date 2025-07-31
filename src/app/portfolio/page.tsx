@@ -7,6 +7,8 @@ import { db } from '@/lib/firebase';
 import type { Project } from '@/data/projects';
 import { ProjectCard } from './ProjectCard';
 import Link from 'next/link';
+import './ProjectCard.css';
+
 
 export default function PortfolioPage() {
   const [projects, setProjects] = useState<Project[]>([]);

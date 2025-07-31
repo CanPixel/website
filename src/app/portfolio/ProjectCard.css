@@ -1,0 +1,5 @@
+
+.project-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
