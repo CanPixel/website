@@ -63,20 +63,24 @@ export function ProjectCard({ project }: { project: Project }) {
   }, [project]);
 
   const animationClass = project.styling?.animationClass || '';
-
-  // Check if the background is a data URI (SVG) or a URL
   const isDataUri = project.styling?.backgroundImage?.startsWith('data:');
+
+  const cardClasses = cn(
+    "overflow-hidden transition-all duration-300 ease-in-out border-2 h-full flex flex-col project-card",
+    animationClass,
+    { 'kernel-sweep-card': project.id === 'kernel-sweep' }
+  );
 
   return (
     <Card
       ref={cardRef}
-      className={cn("overflow-hidden transition-all duration-300 ease-in-out border-2 h-full flex flex-col project-card", animationClass)}
+      className={cardClasses}
       style={{
         backgroundColor: project.styling?.backgroundColor,
         color: project.styling?.textColor,
         fontFamily: project.styling?.fontFamily,
         borderColor: project.styling?.borderColor,
-        backgroundImage: isDataUri ? `url("${project.styling.backgroundImage}")` : 'none',
+        backgroundImage: (project.styling?.backgroundImage && isDataUri) ? `url("${project.styling.backgroundImage}")` : 'none',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
