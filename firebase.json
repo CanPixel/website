@@ -7,6 +7,12 @@
   },
   "hosting": {
     "site": "canpixel",
-    "public": "out"
+    "public": "out",
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
   }
 }
