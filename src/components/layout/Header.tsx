@@ -6,10 +6,10 @@ import { Logo } from '@/components/Logo';
 import { cn } from '@/lib/utils';
 
 const navLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/portfolio', label: 'Portfolio' },
-  { href: '/music', label: 'Music' },
-  { href: '/about', label: 'About' },
+  { href: '/', label: 'HOME' },
+  { href: '/portfolio', label: 'REALMS' },
+  { href: '/music', label: 'MUSE' },
+  { href: '/about', label: 'ABOUT' },
 ];
 
 export function Header() {
