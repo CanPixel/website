@@ -16,14 +16,27 @@ export function ProjectCard({ project }: { project: Project }) {
     const cardElement = cardRef.current;
     if (!cardElement || !project.animation) return;
 
-    let animation: gsap.core.Tween | null = null;
+    let animation: gsap.core.Timeline | gsap.core.Tween | null = null;
 
     const cleanup = () => {
       animation?.kill();
       gsap.set(cardElement, { clearProps: 'all' });
     };
 
-    if (project.animation === 'flicker') {
+    if (project.animation === 'flicker' && project.id === 'kernel-sweep') {
+      // More natural, random glitch animation for Kernel.Sweep
+      animation = gsap.timeline({ repeat: -1, repeatDelay: 2 });
+      animation
+        .to(cardElement, { opacity: 0.7, duration: 0.1, ease: 'power2.inOut' })
+        .to(cardElement, { opacity: 1, duration: 0.2 })
+        .to(cardElement, { opacity: 0.8, duration: 0.1, delay: 0.5 })
+        .to(cardElement, { opacity: 1, duration: 0.15 })
+        // Electrical spark
+        .to(cardElement, { opacity: 0.5, duration: 0.05, ease: 'power1.in' })
+        .to(cardElement, { opacity: 1, duration: 0.05 })
+        .to(cardElement, { opacity: 0.9, duration: 0.1, delay: 1.5 })
+        .to(cardElement, { opacity: 1, duration: 0.3 });
+    } else if (project.animation === 'flicker') {
       animation = gsap.to(cardElement, {
         opacity: 0.9,
         duration: 1.5,
@@ -62,13 +75,12 @@ export function ProjectCard({ project }: { project: Project }) {
     return cleanup;
   }, [project]);
 
-  const animationClass = project.styling?.animationClass || '';
   const isDataUri = project.styling?.backgroundImage?.startsWith('data:');
   const isKernelSweep = project.id === 'kernel-sweep';
 
   const cardClasses = cn(
     "overflow-hidden transition-all duration-300 ease-in-out border-2 h-full flex flex-col project-card",
-    animationClass,
+    project.styling?.animationClass,
     { 'kernel-sweep-card': isKernelSweep }
   );
 
@@ -81,7 +93,7 @@ export function ProjectCard({ project }: { project: Project }) {
         color: project.styling?.textColor,
         fontFamily: project.styling?.fontFamily,
         borderColor: project.styling?.borderColor,
-        backgroundImage: (project.styling?.backgroundImage && isDataUri && !isKernelSweep) ? `url("${project.styling.backgroundImage}")` : 'none',
+        backgroundImage: (project.styling?.backgroundImage && !isKernelSweep) ? `url("${project.styling.backgroundImage}")` : 'none',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
@@ -92,9 +104,9 @@ export function ProjectCard({ project }: { project: Project }) {
       </CardHeader>
       <CardContent className="flex-grow">
         <div className="relative aspect-video mb-4 rounded-md overflow-hidden">
-          {project.styling?.backgroundImage && !isDataUri && (
-            <Image 
-              src={project.styling.backgroundImage} 
+          {project.styling?.backgroundImage && !isDataUri && !isKernelSweep && (
+            <Image
+              src={project.styling.backgroundImage}
               alt={project.name}
               fill
               className="object-cover"
