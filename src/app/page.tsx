@@ -40,8 +40,9 @@ export default function Home() {
     <div className="container mx-auto px-4 py-12">
       <h1 className="font-headline text-5xl font-bold tracking-tighter mb-4 text-center shiny-text">CANPIXEL REALMS</h1>
       <div className="text-center mb-12">
-        <p className="text-lg font-light uppercase tracking-widest text-muted-foreground">DIVERSE WORLDS</p>
-        <p className="text-sm text-accent">A unique blend of code, story, and philosophy.</p>
+        <p className="font-headline text-lg uppercase tracking-widest text-muted-foreground">
+          CODE <span className="text-primary/50 mx-2">|</span> STORY <span className="text-primary/50 mx-2">|</span> PHILOSOPHY
+        </p>
       </div>
 
 
