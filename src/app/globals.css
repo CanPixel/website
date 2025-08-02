@@ -31,7 +31,7 @@
     --radius: 0.5rem;
   }
   .dark {
-    --background: 0 0% 10%; /* #1A1A1A */
+    --background: 220 10% 2%;
     --foreground: 0 0% 98%;
     --card: 0 0% 12%;
     --card-foreground: 0 0% 98%;
@@ -43,8 +43,8 @@
     --secondary-foreground: 0 0% 98%;
     --muted: 0 0% 15%;
     --muted-foreground: 0 0% 63.9%;
-    --accent: 322 26% 65%; /* #C494B3 */
-    --accent-foreground: 0 0% 10%;
+    --accent: 260 80% 70%;
+    --accent-foreground: 220 15% 95%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
     --border: 0 0% 20%;

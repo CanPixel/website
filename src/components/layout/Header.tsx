@@ -10,16 +10,11 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Code2, Code, Music, Palette } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
-// const navLinks = [
-//   { href: '/', label: 'REALMS' },
-//   { href: '/music', label: 'MUSE' },
-//   { href: '/about', label: 'ABOUT' },
-// ];
 const navLinks = [
-  { href: "/", label: "REALMS" },
-  { href: "/music", label: "MUSE" },
-  { href: "/about", label: "LORE" },
-  { href: "/contact", label: "REACH" },
+  { href: "/", label: "Realms" },
+  { href: "/music", label: "Muse" },
+  { href: "/about", label: "Lore" },
+  { href: "/contact", label: "Reach" },
 ];
 
 export function Header() {

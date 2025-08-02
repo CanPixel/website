@@ -10,8 +10,7 @@ import { useRef } from "react";
 function SubmitButton() {
   const { pending } = useFormStatus();
   return (
-    <Button type="submit" disabled={pending} 
-    className="w-full">
+    <Button type="submit" disabled={pending} className="w-full">
       {pending ? "Sending..." : "Send Message"}
     </Button>
   );
