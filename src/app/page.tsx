@@ -4,16 +4,16 @@ import { useState, useEffect } from 'react';
 import { db } from '@/lib/firebase';
 import { collection, getDocs } from 'firebase/firestore';
 import { projects } from '@/data/projects';
+//import { projects, musicProjects } from "@/lib/data";
 import { ProjectCard } from './portfolio/ProjectCard';
+//import ProjectCard from "@/components/project-card";
 import type { Project } from '@/data/projects';
 import './portfolio/ProjectCard.css';
 import Link from 'next/link';
 
 import { Button } from "@/components/ui/button";
-//import ProjectCard from "@/components/project-card";
 import MusicProjectCard from "@/components/music-project-card";
 import ProjectsPreview from "@/components/projects-preview";
-//import { projects, musicProjects } from "@/lib/data";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
@@ -66,7 +66,7 @@ export default function Home() {
 
   return (
     <div className="container mx-auto px-4 py-12">
-      <section className="text-center pt-24 pb-2 md:pt-32 md:pb-6">
+      <section className="text-center pt-24 pb-16">
         <nav className={cn(
           "fixed top-8 left-1/2 -translate-x-1/2 z-40 transition-all duration-500 ease-in-out",
           isAtTop ? "opacity-100" : "opacity-0 pointer-events-none"
