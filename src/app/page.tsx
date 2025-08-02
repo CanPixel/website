@@ -38,7 +38,7 @@ export default function Home() {
 
   return (
     <div className="container mx-auto px-4 py-12">
-      <h1 className="font-headline text-5xl font-bold tracking-tighter mb-4 text-center shiny-text">CANPIXEL REALMS</h1>
+      <h1 className="font-headline text-5xl font-bold tracking-tighter mb-4 text-center shiny-text text-[#C494B3]">REALMS</h1>
       <div className="text-center mb-12 max-w-3xl mx-auto">
         <p className="font-headline text-xl text-primary tracking-wider">
             Each project is a world unto itself
