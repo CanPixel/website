@@ -1,13 +1,13 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { db } from '@/lib/firebase';
-import { collection, getDocs } from 'firebase/firestore';
+// import { db } from '@/lib/firebase';
+// import { collection, getDocs } from 'firebase/firestore';
 import { projects } from '@/data/projects';
 //import { projects, musicProjects } from "@/lib/data";
 import { ProjectCard } from './portfolio/ProjectCard';
 //import ProjectCard from "@/components/project-card";
-import type { Project } from '@/data/projects';
+// import type { Project } from '@/data/projects';
 import './portfolio/ProjectCard.css';
 import Link from 'next/link';
 
@@ -37,10 +37,7 @@ export default function Home() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  //
-
   const [dbProjects, setDbProjects] = useState<Project[]>([]);
-
   useEffect(() => {
     const fetchProjects = async () => {
       const projectsCollection = collection(db, 'portfolioItems');
@@ -61,7 +58,6 @@ export default function Home() {
     };
     fetchProjects();
   }, []);
-
   const allProjects = [...projects, ...dbProjects];
 
   return (
