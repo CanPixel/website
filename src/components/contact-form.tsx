@@ -11,7 +11,7 @@ function SubmitButton() {
   const { pending } = useFormStatus();
   return (
     <Button type="submit" disabled={pending} className="w-full">
-      {pending ? "Sending..." : "Send Message"}
+      {pending ? "Transmitting..." : "Transmit"}
     </Button>
   );
 }
@@ -21,7 +21,7 @@ export default function ContactForm() {
 
   return (
     <form ref={formRef} className="space-y-6 p-8 rounded-lg bg-card border">
-      <h2 className="font-headline text-3xl font-bold">Send me a message</h2>
+      <h2 className="font-headline text-3xl font-bold">Reach out to me</h2>
       <div className="space-y-2">
         <Label htmlFor="name">Name</Label>
         <Input id="name" name="name" type="text" placeholder="Your Name" required />
@@ -35,7 +35,7 @@ export default function ContactForm() {
         <Textarea
           id="message"
           name="message"
-          placeholder="I'd like to talk about..."
+          placeholder="I'd like to give you a hundred million dollars because..."
           rows={5}
           required
         />
