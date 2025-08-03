@@ -17,23 +17,7 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from 'next/link';
 
-// const navLinks = [
-//   { href: "/projects", label: "Realms" },
-//   { href: "/about", label: "About" },
-//   { href: "/music", label: "Muse" },
-//   { href: "/contact", label: "Reach" },
-// ];
-
 export default function Home() {
-  // const [isAtTop, setIsAtTop] = useState(true);
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     setIsAtTop(window.scrollY < 50);
-  //   };
-  //   window.addEventListener("scroll", handleScroll);
-  //   return () => window.removeEventListener("scroll", handleScroll);
-  // }, []);
-
   const [projects, setProjects] = useState<Project[]>([]);
   useEffect(() => {
     const fetchProjects = async () => {

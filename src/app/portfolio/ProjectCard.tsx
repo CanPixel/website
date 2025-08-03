@@ -6,7 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { projectStyles, ProjectStyling } from '@/data/projects';
+import { projectStyles } from '@/data/projects';
 import { Key } from 'react';
 
 export function ProjectCard({ project }: { project : any }) {

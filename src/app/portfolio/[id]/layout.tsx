@@ -1,23 +1,55 @@
 import { db } from '@/lib/firebase';
-import { collection, getDocs } from 'firebase/firestore';
-import { projects } from '@/data/projects';
+import { collection, getDocs, doc, getDoc } from 'firebase/firestore';
+import { notFound } from 'next/navigation';
+import { Project, ProjectStyling, projectStyles } from '@/data/projects';
+import ProjectDetailPage from './page';
 
 export async function generateStaticParams() {
-    // Fetch project IDs from Firebase
-    const projectsCollection = collection(db, 'portfolioItems');
-    const projectSnapshot = await getDocs(projectsCollection);
-    const dbProjectIds = projectSnapshot.docs.map(doc => doc.id);
-  
-    // Get IDs from local projects
-    const localProjectIds = projects.map(project => project.id);
-  
-    // Combine all project IDs
-    const allProjectIds = [...localProjectIds, ...dbProjectIds];
-  
-    // Map IDs to the format expected by generateStaticParams
-    return allProjectIds.map(id => ({
-      id: id,
-    }));
+  const projectsCollection = collection(db, 'portfolioItems');
+  const projectSnapshot = await getDocs(projectsCollection);
+  const params = projectSnapshot.docs.map(doc => ({
+    id: doc.id,
+  }));
+  return params;
+}
+
+export default async function ProjectLayout({
+  children, params,
+}: {
+  children: React.ReactNode;
+  params: { id: string };
+}) {
+  const projectId = params.id;
+  const projectDoc = await getDoc(doc(db, 'portfolioItems', projectId));
+
+  let project: Project | null = null;
+
+  if (projectDoc.exists()) {
+    const dbProjectData = projectDoc.data() as Omit<Project, 'id' | 'styling'>;
+    const styling : ProjectStyling = projectStyles[projectId] || {
+      backgroundColor: 'hsl(var(--card))',
+      textColor: 'hsl(var(--card-foreground))',
+      fontFamily: 'var(--font-body)',
+      borderColor: 'hsl(var(--border))',
+      animationClass: 'group-hover:scale-105',
+      className: '',
+    };
+
+    project = { 
+      id: projectDoc.id, 
+      ...dbProjectData,
+      styling,
+    };
   }
 
-  export default function ProjectLayout({ children }) {children}
+  if (!project) {
+    notFound();
+  }
+
+  return (
+    <>
+      <ProjectDetailPage project={project} />
+      {children}
+    </>
+  );
+}

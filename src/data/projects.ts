@@ -20,6 +20,16 @@ export interface Project {
     midiFileUrl?: string;
     moodTags?: string[];
   };
+  styling: {
+    backgroundSize?: string | number;
+    backgroundColor: string;
+    textColor: string;
+    fontFamily: string;
+    backgroundImage?: string;
+    borderColor?: string;
+    animationClass?: string;
+    className?: string;
+  }
 }
 
 export interface ProjectStyling {
