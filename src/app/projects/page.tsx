@@ -7,7 +7,7 @@ import { Project } from '@/data/projects';
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { db } from '@/lib/firebase';
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs, query, orderBy } from 'firebase/firestore';
 import {
   Carousel,
   CarouselContent,
@@ -78,7 +78,9 @@ export default function ProjectsPage() {
   useEffect(() => {
     const fetchProjects = async () => {
       const projectsCollection = collection(db, 'portfolioItems');
-      const projectSnapshot = await getDocs(projectsCollection);
+      const q = query(projectsCollection, orderBy('releaseDate', 'desc'));
+
+      const projectSnapshot = await getDocs(q);
       const projectList = projectSnapshot.docs
       .filter(doc => {
         const projectData = doc.data() as Omit<Project, 'id'>;
