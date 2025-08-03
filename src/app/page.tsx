@@ -3,20 +3,16 @@
 import { useState, useEffect } from 'react';
 import { db } from '@/lib/firebase';
 import { collection, getDocs } from 'firebase/firestore';
-import { projects } from '@/data/projects';
-// import { blogData } from "@/lib/blogData";
-// import { ProjectCard } from './portfolio/ProjectCard';
-import ProjectCard from "@/components/project-card"; //ugly
-import type { Project } from '@/data/projects';
-import './portfolio/ProjectCard.css';
-import Link from 'next/link';
-
+import { ProjectCard } from './portfolio/ProjectCard';
+import { Project } from '@/data/projects';
+import ProjectsPreview from "@/components/projects-preview";
 import { Button } from "@/components/ui/button";
 import MusicProjectCard from "@/components/music-project-card";
-import ProjectsPreview from "@/components/projects-preview";
+// import { blogData } from "@/lib/blogData";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import Link from 'next/link';
 
 const navLinks = [
   { href: "/projects", label: "Realms" },
@@ -36,7 +32,7 @@ export default function Home() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const [dbProjects, setDbProjects] = useState<Project[]>([]);
+  const [projects, setProjects] = useState<Project[]>([]);
   useEffect(() => {
     const fetchProjects = async () => {
       const projectsCollection = collection(db, 'portfolioItems');
@@ -50,18 +46,23 @@ export default function Home() {
         const projectData = doc.data() as Omit<Project, 'id'>;
         return {
           id: doc.id,
-          ...projectData,
+          ...projectData
         };
       });
-      setDbProjects(projectList);
+      setProjects(projectList);
     };
     fetchProjects();
   }, []);
-  const allProjects = [...projects /*...dbProjects*/];
   
-  const featuredProjectIds = ["avoid", "chivalry-chef", "bad-optics", 'epicinium'];
-  const featuredProjects = dbProjects.filter(project => 
-    featuredProjectIds.includes(project.id)
+  const featuredProjects = projects.filter(project => 
+    [
+      "avoid", "orbital-resonance", "bad-optics", 'epicinium'
+    ].includes(project.id)
+  );
+  const featuredRealms = projects.filter(project => 
+    [
+      "kernel-sweep", "chivalry-chef", "bad-optics"
+    ].includes(project.id)
   );
 
   return (
@@ -128,10 +129,8 @@ export default function Home() {
           </Link>
         </Button>
       </div>
-      
-      {/* REAL PROJECTS */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {allProjects.map((project) => (
+        {featuredRealms.map((project) => (
           <Link key={project.id} href={`/portfolio/${project.id}`} className="block transition-transform hover:scale-[1.02] group">
             <ProjectCard project={project} />
           </Link>
@@ -139,68 +138,4 @@ export default function Home() {
       </div>
     </div>
   );
-
-  /*return (
-    <div className="container mx-auto px-4">
-      <section className="text-center pt-24 pb-2 md:pt-32 md:pb-6">
-         <nav className={cn(
-            "fixed top-8 left-1/2 -translate-x-1/2 z-40 transition-all duration-500 ease-in-out",
-            isAtTop ? "opacity-100" : "opacity-0 pointer-events-none"
-          )}>
-            <div className="flex items-center gap-6 text-sm text-muted-foreground">
-                 {navLinks.map((link) => (
-                    <Link key={link.href} href={link.href} className="relative transition-colors hover:text-accent group">
-                        <span>{link.label}</span>
-                        <span className="absolute bottom-[-4px] left-0 h-0.5 w-full bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out"></span>
-                    </Link>
-                ))}
-            </div>
-         </nav>
-        <div className="flex justify-center items-center gap-4">
-            <h1 className="font-headline text-6xl md:text-8xl font-black tracking-tighter bg-gradient-to-br from-primary/80 via-primary to-accent bg-clip-text text-transparent drop-shadow-lg">
-              CanPixel
-            </h1>
-            <Image 
-                src="/PixelCan.png"
-                alt="CanPixel Logo"
-                width={125}
-                height={125}
-                className="h-25 w-25 md:h-30 md:w-30"
-             />
-        </div>
-
-        <h2 className="font-headline text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-4 mt-4">
-          Engaging Digital Experiences
-        </h2>
-        <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-          Method Developer weaving soulful, interactive experiences from the threads of code and creativity
-        </p>
-        <div className="flex gap-4 justify-center">
-          <Button asChild size="lg">
-            <Link href="/projects">Explore Realms</Link>
-          </Button>
-        </div>
-      </section>
-
-      <ProjectsSection />
-
-      <section id="projects">
-        <div className="flex justify-between items-center mb-8">
-           <h2 className="text-3xl md:text-4xl font-headline font-bold">
-            REALMS
-          </h2>
-          <Button asChild variant="link" className="text-accent">
-            <Link href="/projects">
-              View All <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
-          </Button>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {featuredProjects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
-        </div>
-      </section>
-    </div>
-  );*/
 }

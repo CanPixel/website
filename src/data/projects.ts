@@ -1,66 +1,73 @@
-//FAKE PROJECTS (but in style!)
-
 export interface Project {
   id: string;
-  liveUrl?: string;
-  repoUrl?: string;
-  // categories?: string[];
-  // date: string;
-  // releaseType?: 'steam' | 'web';
-  styling: {
-    backgroundColor: string;
-    textColor: string;
-    fontFamily: string;
-    backgroundImage?: string;
-    borderColor?: string;
-    animationClass?: string;
-    className?: string;
+  type: string;
+  title: string;
+  url?: string;
+  description: string;
+  shortDescription: string;
+  thumbnailUrl: string;
+  label?: string;
+  releaseDate: string;
+  releaseType?: 'steam' | 'web';
+  properties?: {
+    repoLink?: string;
+    genre?: string[];
+    platforms?: string[];
+    skills?: string[];
+    audioFileUrl?: string;
+    spotifyLink?: string;
+    trailerUrl?: string;
+    midiFileUrl?: string;
+    moodTags?: string[];
   };
 }
 
-export const projects: Project[] = [
+export interface ProjectStyling {
+  backgroundSize?: string | number;
+  backgroundColor: string;
+  textColor: string;
+  fontFamily: string;
+  backgroundImage?: string;
+  borderColor?: string;
+  animationClass?: string;
+  className?: string;
+}
+
+export const projectStyles: { [id: string]: ProjectStyling } = {
+  'chivalry-chef':
   {
-    id: 'chivalry-chef',
-    styling: {
-      backgroundColor: '#F5E8C7',
-      textColor: '#8B4513',
-      fontFamily: "'Cinzel', serif",
-      borderColor: '#D4AC79',
-      animationClass: 'group-hover:shadow-[0_0_30px_5px_rgba(255,165,0,0.5)]',
-    },
+    backgroundColor: '#F5E8C7',
+    textColor: '#8B4513',
+    fontFamily: "'Cinzel', serif",
+    borderColor: '#D4AC79',
+    animationClass: 'group-hover:shadow-[0_0_30px_5px_rgba(255,165,0,0.5)]',
   },
+  'life-sentence':
   {
-    id: 'life-sentence',
-    styling: {
-      backgroundColor: '#E8E8E8',
-      textColor: '#4A4A4A',
-      fontFamily: "'Courier Prime', monospace",
-      borderColor: '#B0B0B0',
-      animationClass: 'transition-transform duration-500 group-hover:[transform:rotateY(10deg)_rotateX(5deg)]',
-      className: 'rounded-none',
-    },
+    backgroundColor: '#E8E8E8',
+    textColor: '#4A4A4A',
+    fontFamily: "'Courier Prime', monospace",
+    borderColor: '#B0B0B0',
+    animationClass: 'transition-transform duration-500 group-hover:[transform:rotateY(10deg)_rotateX(5deg)]',
+    className: 'rounded-none',
   },
+  'bad-optics':
   {
-    id: 'bad-optics',
-    styling: {
-      backgroundColor: '#E0DED8',
-      textColor: '#2F2F2F',
-      fontFamily: 'serif',
-      backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-      borderColor: '#C0C0C0',
-      className: 'rounded-none',
-    },
+    backgroundColor: '#E0DED8',
+    textColor: '#2F2F2F',
+    fontFamily: 'serif',
+    backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+    borderColor: '#C0C0C0',
+    className: 'rounded-none',
   },
+  'kernel-sweep':
   {
-    id: 'kernel-sweep',
-    styling: {
-      backgroundColor: '#0A2F0A',
-      textColor: '#00FF00',
-      fontFamily: "'Space Grotesk', sans-serif",
-      backgroundImage: `linear-gradient(hsl(var(--primary)) 1px, transparent 1px), linear-gradient(to right, hsl(var(--primary)) 1px, #0A2F0A 1px)`,
-      backgroundSize: '20px 20px',
-      borderColor: '#00FF00',
-      animationClass: 'group-hover:animate-pulse',
-    },
+    backgroundColor: '#0A2F0A',
+    textColor: '#00FF00',
+    fontFamily: "'Space Grotesk', sans-serif",
+    backgroundImage: `linear-gradient(hsl(var(--primary)) 1px, transparent 1px), linear-gradient(to right, hsl(var(--primary)) 1px, #0A2F0A 1px)`,
+    backgroundSize: '20px 20px',
+    borderColor: '#00FF00',
+    animationClass: 'group-hover:animate-pulse',
   },
-];
+};

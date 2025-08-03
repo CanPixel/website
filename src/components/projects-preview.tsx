@@ -48,7 +48,6 @@ const skillColors: { [key: string]: string } = {
   "Java": "bg-red-700",
 };
 
-
 export default function ProjectsPreview({projects} : any) {
   return (
     <section id="projects">

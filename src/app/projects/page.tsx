@@ -2,11 +2,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import ProjectCard from "@/components/project-card";
-// import { ProjectCard } from '@/app/portfolio/ProjectCard';
+import { ProjectCard } from '@/app/portfolio/ProjectCard';
 // import { blogData } from "@/lib/blogData";
-import { projects } from '@/data/projects';
-import type { Project } from '@/data/projects';
+import { projectStyles, ProjectStyling } from '@/data/projects';
+// import type { Project } from '@/data/projectStyles';
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { db } from '@/lib/firebase';
