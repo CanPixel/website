@@ -1,6 +1,8 @@
 import Image from 'next/image';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card } from '@/components/ui/card';
 import NavMenu from "@/components/navigation";
+import { Button } from "@/components/ui/button";
+import Link from 'next/link';
 
 const timelineEvents = [
   {
@@ -30,7 +32,7 @@ export default function AboutPage() {
     <div className="container mx-auto px-4 py-16">
       <NavMenu/>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start mt-12">
         <div className="md:col-span-1 flex flex-col items-center text-center">
           <Card className="w-full bg-card/50 backdrop-blur-sm p-4 border-primary/20">
             <div className="relative w-48 h-48 mx-auto rounded-full overflow-hidden border-2 border-primary shadow-lg">
@@ -65,6 +67,11 @@ export default function AboutPage() {
             ))}
           </div>
         </div>
+      </div>
+      <div className="flex gap-4 justify-center mt-16">
+        <Button asChild size="lg">
+          <Link href="/projects">Explore Realms</Link>
+        </Button>
       </div>
     </div>
   );

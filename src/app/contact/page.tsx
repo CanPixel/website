@@ -34,7 +34,7 @@ export default function ContactPage() {
     <div className="container mx-auto px-4 py-16">
       <NavMenu/>
 
-      <header className="text-center mb-12">
+      <header className="text-center my-12">
         <h1 className="font-headline text-5xl font-bold tracking-tighter mb-4">
           Get In Touch
         </h1>
