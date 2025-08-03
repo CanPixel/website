@@ -1,17 +1,17 @@
 import Image from "next/image";
-import { projects } from "@/lib/museData";
-import { notFound } from "next/navigation";
+// import { Project } from '@/data/projects';
+// import { notFound } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Globe, Github } from "lucide-react";
 import Link from "next/link";
 
-export default function ProjectDetailPage() {
-  const project = projects.find(p => p.slug === "cosmic-odyssey");
+export default function ProjectDetailPage(project : any) {
+  // const project = projects.find(p => p.id === "avoid");
 
-  if (!project) {
-    notFound();
-  }
+  // if (!project) {
+  //   notFound();
+  // }
 
   return (
     <div className="container mx-auto px-4 py-16">
@@ -50,7 +50,7 @@ export default function ProjectDetailPage() {
           <div className="p-6 rounded-lg bg-card border">
             <h3 className="font-headline text-2xl font-bold mb-4">Tech Stack</h3>
             <div className="flex flex-wrap gap-2">
-              {project.technologies.map((tech) => (
+              {project.properties?.skills?.map((tech : string) => (
                 <Badge key={tech} variant="secondary">{tech}</Badge>
               ))}
             </div>

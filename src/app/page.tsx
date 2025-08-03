@@ -6,6 +6,7 @@ import { collection, getDocs } from 'firebase/firestore';
 import { ProjectCard } from './portfolio/ProjectCard';
 import { Project } from '@/data/projects';
 import ProjectsPreview from "@/components/projects-preview";
+import NavMenu from "@/components/navigation";
 import { Button } from "@/components/ui/button";
 
 import MusicProjectCard from "@/components/music-project-card";
@@ -16,23 +17,22 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from 'next/link';
 
-const navLinks = [
-  { href: "/projects", label: "Realms" },
-  { href: "/music", label: "Muse" },
-  { href: "/about", label: "Lore" },
-  { href: "/contact", label: "Reach" },
-];
+// const navLinks = [
+//   { href: "/projects", label: "Realms" },
+//   { href: "/about", label: "About" },
+//   { href: "/music", label: "Muse" },
+//   { href: "/contact", label: "Reach" },
+// ];
 
 export default function Home() {
-  const [isAtTop, setIsAtTop] = useState(true);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsAtTop(window.scrollY < 50);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  // const [isAtTop, setIsAtTop] = useState(true);
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     setIsAtTop(window.scrollY < 50);
+  //   };
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, []);
 
   const [projects, setProjects] = useState<Project[]>([]);
   useEffect(() => {
@@ -70,19 +70,7 @@ export default function Home() {
   return (
     <div className="container mx-auto px-4 py-12">
       <section className="text-center pt-24 pb-16">
-        <nav className={cn(
-          "fixed top-8 left-1/2 -translate-x-1/2 z-40 transition-all duration-500 ease-in-out",
-          isAtTop ? "opacity-100" : "opacity-0 pointer-events-none"
-        )}>
-        <div className="flex items-center gap-6 text-sm text-muted-foreground">
-              {navLinks.map((link) => (
-                <Link key={link.href} href={link.href} className="relative transition-colors hover:text-accent group">
-                    <span>{link.label}</span>
-                    <span className="absolute bottom-[-4px] left-0 h-0.5 w-full bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out"></span>
-                </Link>
-            ))}
-          </div>
-        </nav>
+        <NavMenu/>
         <div className="flex justify-center items-center gap-4">
           <h1 className="font-headline text-6xl md:text-8xl font-black tracking-tighter bg-gradient-to-br from-primary/80 via-primary to-accent bg-clip-text text-transparent drop-shadow-lg">
             CanPixel

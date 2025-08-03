@@ -1,5 +1,6 @@
 import ContactForm from "@/components/contact-form";
 import { Mail, Github, Linkedin, Instagram } from "lucide-react";
+import NavMenu from "@/components/navigation";
 
 const socialLinks = [
     {
@@ -31,6 +32,8 @@ const socialLinks = [
 export default function ContactPage() {
   return (
     <div className="container mx-auto px-4 py-16">
+      <NavMenu/>
+
       <header className="text-center mb-12">
         <h1 className="font-headline text-5xl font-bold tracking-tighter mb-4">
           Get In Touch

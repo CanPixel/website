@@ -5,16 +5,13 @@ import Link from "next/link";
 import { Logo } from '@/components/Logo';
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, Code2, Code, Music, Palette } from "lucide-react";
+import { Code2, Code, Music, Palette } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { useIsMobile } from "@/hooks/use-mobile";
 
 const navLinks = [
+  { href: "/about", label: "About" },
   { href: "/projects", label: "Realms" },
   { href: "/music", label: "Muse" },
-  { href: "/about", label: "Lore" },
   { href: "/contact", label: "Reach" },
 ];
 

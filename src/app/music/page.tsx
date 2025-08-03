@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { PlayCircle, PauseCircle, Music } from 'lucide-react';
+import NavMenu from "@/components/navigation";
 
 import BlogPostCard from '@/components/blog-post-card';
 import { posts as blogData } from "@/lib/museData";
@@ -8,6 +9,8 @@ import { posts as blogData } from "@/lib/museData";
 export default function MusicPage() {
   return (
     <div className="container mx-auto px-4 py-16">
+      <NavMenu/>
+
       <div className="text-center mb-12">
         <h1 className="font-headline text-5xl font-bold tracking-tighter text-primary">ZIGGURATH</h1>
         <p className="text-lg text-muted-foreground mt-2">Modern-Oriental Grungepop</p>
