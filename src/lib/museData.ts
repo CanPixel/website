@@ -7,6 +7,7 @@
   export type MusicProject = {
     id: string;
     title: string;
+    description?: string;
     shortDescription: string;
     image: string;
     label: string;

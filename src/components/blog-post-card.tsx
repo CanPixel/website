@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import type { MusicProject } from "@/lib/blogData";
+import type { MusicProject } from "@/lib/museData";
 import {
   Card,
   CardContent,

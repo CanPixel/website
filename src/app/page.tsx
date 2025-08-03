@@ -7,8 +7,10 @@ import { ProjectCard } from './portfolio/ProjectCard';
 import { Project } from '@/data/projects';
 import ProjectsPreview from "@/components/projects-preview";
 import { Button } from "@/components/ui/button";
+
 import MusicProjectCard from "@/components/music-project-card";
 // import { blogData } from "@/lib/blogData";
+
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";

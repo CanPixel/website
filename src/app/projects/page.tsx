@@ -3,9 +3,7 @@
 
 import { useState, useEffect } from "react";
 import { ProjectCard } from '@/app/portfolio/ProjectCard';
-// import { blogData } from "@/lib/blogData";
-import { projectStyles, ProjectStyling } from '@/data/projects';
-// import type { Project } from '@/data/projectStyles';
+import { Project } from '@/data/projects';
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { db } from '@/lib/firebase';
@@ -76,7 +74,7 @@ const carouselItems = [
 ]
 
 export default function ProjectsPage() {
-  const [dbProjects, setDbProjects] = useState<Project[]>([]);
+  const [projects, setProjects] = useState<Project[]>([]);
   useEffect(() => {
     const fetchProjects = async () => {
       const projectsCollection = collection(db, 'portfolioItems');
@@ -93,17 +91,16 @@ export default function ProjectsPage() {
           ...projectData,
         };
       });
-      setDbProjects(projectList);
+      setProjects(projectList);
     };
     fetchProjects();
   }, []);
-  const allProjects = [...projects, ...dbProjects];
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const filteredProjects = selectedCategory
-    ? dbProjects.filter((project) =>
-        project.properties.genre.includes(selectedCategory)
+    ? projects.filter((project) =>
+        project.properties?.genre?.includes(selectedCategory)
       )
-    : dbProjects;
+    : projects;
 
   return (
     <div className="container mx-auto px-4 py-16">
@@ -141,7 +138,6 @@ export default function ProjectsPage() {
           </Carousel>
       </div>
 
-
       <div className="flex flex-wrap justify-center gap-3 mb-12">
         <Button
           variant={selectedCategory === null ? "default" : "outline"}
@@ -163,22 +159,15 @@ export default function ProjectsPage() {
           </Button>
         ))}
       </div>
-      
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {filteredProjects.map((project) => (
-          <ProjectCard key={project.id} project={project} />
-        ))}
-      </div>
-
-      {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {allProjects.map((project) => (
           <Link key={project.id} href={`/portfolio/${project.id}`} 
-          className="block transition-transform hover:scale-[1.02] group">
+          className="block transition-transform hover:scale-[1.01] group">
             <ProjectCard project={project} />
           </Link>
         ))}
-      </div> */}
+      </div>
     </div>    
   );
 }

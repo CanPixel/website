@@ -2,6 +2,9 @@ import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { PlayCircle, PauseCircle, Music } from 'lucide-react';
 
+import BlogPostCard from '@/components/blog-post-card';
+import { posts as blogData } from "@/lib/museData";
+
 export default function MusicPage() {
   return (
     <div className="container mx-auto px-4 py-16">
