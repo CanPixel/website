@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import type { Project } from "@/lib/data";
+import type { blogData } from "@/lib/blogData"; //missing projects
 import {
   Card,
   CardContent,
@@ -10,7 +10,6 @@ import {
 } from "@/components/ui/card";
 import SkillBadge from "./skill-badge";
 import { Calendar, Globe } from "lucide-react";
-
 
 const SteamIcon = () => (
     <svg
@@ -30,16 +29,14 @@ type ProjectCardProps = {
 
 export default function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <Link href={`/projects/${project.slug}`} className="group">
+    <Link href={`/projects/${project.id}`} className="group">
       <Card className="relative h-full flex flex-col transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-1 overflow-hidden">
-        
         <CardHeader>
           <div className="relative aspect-video w-full overflow-hidden rounded-md">
             <Image
               src={project.image}
               alt={project.title}
               fill
-              data-ai-hint={project.aiHint}
               className="object-cover transition-transform duration-300 group-hover:scale-105"
             />
           </div>
@@ -54,7 +51,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         </CardContent>
         <CardFooter className="relative">
           <div className="flex flex-wrap gap-2">
-            {project.technologies.map((tech) => (
+            {project.properties?.skills?.map((tech) => (
               <SkillBadge key={tech} technology={tech} />
             ))}
           </div>

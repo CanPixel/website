@@ -1,10 +1,12 @@
+//FAKE PROJECTS (but in style!)
+
 export interface Project {
   id: string;
-  name: string;
-  type: string;
-  description: string;
-  image: string;
-  dataAiHint: string;
+  liveUrl?: string;
+  repoUrl?: string;
+  // categories?: string[];
+  // date: string;
+  // releaseType?: 'steam' | 'web';
   styling: {
     backgroundColor: string;
     textColor: string;
@@ -19,11 +21,6 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: 'chivalry-chef',
-    name: 'Chivalry Chef',
-    type: 'Unity 3D',
-    description: 'A medieval cooking game blending chivalry and culinary artistry, with a cozy, parchment aesthetic.',
-    image: 'https://placehold.co/600x400.png',
-    dataAiHint: 'medieval cooking',
     styling: {
       backgroundColor: '#F5E8C7',
       textColor: '#8B4513',
@@ -34,11 +31,6 @@ export const projects: Project[] = [
   },
   {
     id: 'life-sentence',
-    name: 'Life Sentence',
-    type: '2.5D Stealth',
-    description: 'A multiperspective stealth game with a paper feel, exploring confinement and strategy.',
-    image: 'https://placehold.co/600x400.png',
-    dataAiHint: 'paper cutout',
     styling: {
       backgroundColor: '#E8E8E8',
       textColor: '#4A4A4A',
@@ -50,11 +42,6 @@ export const projects: Project[] = [
   },
   {
     id: 'bad-optics',
-    name: 'Bad Optics',
-    type: '2D Sprite Web Game',
-    description: 'A satirical political analysis game critiquing perception, with a newsprint aesthetic.',
-    image: 'https://placehold.co/600x400.png',
-    dataAiHint: 'newsprint collage',
     styling: {
       backgroundColor: '#E0DED8',
       textColor: '#2F2F2F',
@@ -66,11 +53,6 @@ export const projects: Project[] = [
   },
   {
     id: 'kernel-sweep',
-    name: 'Kernel.Sweep',
-    type: 'Unity 3D',
-    description: 'A hacking game with procedural generation and glitch filters, styled with circuit aesthetics.',
-    image: 'https://placehold.co/600x400.png',
-    dataAiHint: 'circuit board',
     styling: {
       backgroundColor: '#0A2F0A',
       textColor: '#00FF00',

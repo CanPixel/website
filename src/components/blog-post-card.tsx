@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import type { MusicProject } from "@/lib/data";
+import type { MusicProject } from "@/lib/blogData";
 import {
   Card,
   CardContent,
@@ -26,7 +26,6 @@ export default function MusicProjectCard({ project }: MusicProjectCardProps) {
                 src={project.image}
                 alt={project.title}
                 fill
-                data-ai-hint={project.aiHint}
                 className="object-cover transition-transform duration-300 group-hover:scale-105"
             />
           </div>
@@ -37,20 +36,20 @@ export default function MusicProjectCard({ project }: MusicProjectCardProps) {
         </CardHeader>
         <CardContent className="flex-grow">
           <CardDescription>{project.description}</CardDescription>
-            {project.soundcloudUrl && (
+            {project.spotifyUrl && (
               <div className="mt-4">
                 <iframe
                   width="100%"
                   height="166"
                   allow="autoplay"
-                  src={project.soundcloudUrl}
+                  src={project.spotifyUrl}
                 ></iframe>
               </div>
             )}
         </CardContent>
          <CardFooter>
             <Button asChild variant="link" className="p-0 text-accent">
-                <Link href={`/music/${project.slug}`}>
+                <Link href={`/music/${project.id}`}>
                     View Details
                     <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </Link>

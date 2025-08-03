@@ -1,13 +1,13 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-// import { db } from '@/lib/firebase';
-// import { collection, getDocs } from 'firebase/firestore';
+import { db } from '@/lib/firebase';
+import { collection, getDocs } from 'firebase/firestore';
 import { projects } from '@/data/projects';
-//import { projects, musicProjects } from "@/lib/data";
-import { ProjectCard } from './portfolio/ProjectCard';
-//import ProjectCard from "@/components/project-card";
-// import type { Project } from '@/data/projects';
+// import { blogData } from "@/lib/blogData";
+// import { ProjectCard } from './portfolio/ProjectCard';
+import ProjectCard from "@/components/project-card"; //ugly
+import type { Project } from '@/data/projects';
 import './portfolio/ProjectCard.css';
 import Link from 'next/link';
 
@@ -26,7 +26,6 @@ const navLinks = [
 ];
 
 export default function Home() {
-  const featuredProjects = projects.slice(0, 3);
   const [isAtTop, setIsAtTop] = useState(true);
 
   useEffect(() => {
@@ -58,7 +57,12 @@ export default function Home() {
     };
     fetchProjects();
   }, []);
-  const allProjects = [...projects, ...dbProjects];
+  const allProjects = [...projects /*...dbProjects*/];
+  
+  const featuredProjectIds = ["avoid", "chivalry-chef", "bad-optics", 'epicinium'];
+  const featuredProjects = dbProjects.filter(project => 
+    featuredProjectIds.includes(project.id)
+  );
 
   return (
     <div className="container mx-auto px-4 py-12">
@@ -112,7 +116,7 @@ export default function Home() {
         </p>
       </div>
 
-      <ProjectsPreview />
+      <ProjectsPreview projects={featuredProjects}/>
 
       <div className="flex justify-between items-center mt-12 mb-8">
           <h2 className="text-3xl md:text-4xl font-headline font-bold">
@@ -124,7 +128,8 @@ export default function Home() {
           </Link>
         </Button>
       </div>
-
+      
+      {/* REAL PROJECTS */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {allProjects.map((project) => (
           <Link key={project.id} href={`/portfolio/${project.id}`} className="block transition-transform hover:scale-[1.02] group">

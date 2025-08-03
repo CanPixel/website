@@ -4,8 +4,8 @@
 import { useState, useEffect } from "react";
 import ProjectCard from "@/components/project-card";
 // import { ProjectCard } from '@/app/portfolio/ProjectCard';
-import { projects } from "@/lib/data";
-// import { projects } from '@/data/projects';
+// import { blogData } from "@/lib/blogData";
+import { projects } from '@/data/projects';
 import type { Project } from '@/data/projects';
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -99,14 +99,12 @@ export default function ProjectsPage() {
     fetchProjects();
   }, []);
   const allProjects = [...projects, ...dbProjects];
-
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-
   const filteredProjects = selectedCategory
-    ? projects.filter((project) =>
-        project.categories.includes(selectedCategory)
+    ? dbProjects.filter((project) =>
+        project.properties.genre.includes(selectedCategory)
       )
-    : projects;
+    : dbProjects;
 
   return (
     <div className="container mx-auto px-4 py-16">
@@ -170,7 +168,7 @@ export default function ProjectsPage() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {filteredProjects.map((project) => (
-          <ProjectCard key={project.slug} project={project} />
+          <ProjectCard key={project.id} project={project} />
         ))}
       </div>
 

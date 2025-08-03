@@ -1,7 +1,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import type { MusicProject } from "@/lib/data";
+import type { MusicProject } from "@/lib/blogData";
 import {
   Card,
   CardContent,
