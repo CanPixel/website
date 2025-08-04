@@ -59,7 +59,7 @@ export default function Header() {
               <Code2 className="h-5 w-5 text-yellow-400 group-hover:scale-110 group-hover:text-accent transition-all duration-300 ease-in-out" />
             </Link>
             <div className="flex flex-col group">
-              <Link href="/" className="group font-bold font-headline text-2xl bg-gradient-to-br from-primary from-30% to-accent bg-clip-text text-transparent group-hover:text-accent transition-colors duration-300 ease-in-out transform scale-y-125 origin-center">CanPixel</Link>
+              <Link href="/" className="group font-bold font-headline text-2xl bg-gradient-to-br from-primary from-30% to-accent bg-clip-text text-transparent group-hover:text-accent transition-colors duration-300 ease-in-out transform scale-y-120 origin-center">CanPixel</Link>
               <div className="hidden md:flex items-center text-xs gap-3" style={{ color: '#7099C2' }}>
                   <div className="flex items-center gap-1">
                       <Code className="h-3 w-3" />
