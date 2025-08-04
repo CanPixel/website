@@ -18,7 +18,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'CanPixel Realms',
+  title: 'CanPixel',
   description: 'Worlds of a Method Developer',
 };
 

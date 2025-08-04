@@ -16,7 +16,7 @@ export function ProjectCard({ project }: { project : any }) {
     <div className="group">
     <Card
       className={cn(
- 'overflow-hidden transition-all duration-300 ease-in-out border-2 flex flex-col h-full test-hover',
+ 'overflow-hidden transition-all duration-300 ease-in-out border-2 flex flex-col h-[530px]',
         styling.animationClass,
         styling.className
       )}
