@@ -52,7 +52,7 @@ export default function Header() {
       "fixed top-0 z-50 w-full transition-all duration-500 ease-in-out",
       isScrolled ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full"
     )}>
-       <div className="container mx-auto px-4 flex h-16 items-center justify-between bg-card/80 backdrop-blur-lg border-b-border">
+       <div className="px-4 sm:px-6 lg:px-8 flex h-16 items-center justify-between bg-card/80 backdrop-blur-lg border-b-border">
           <div className="flex items-center gap-4">
             <Link href="/" className="group flex flex-col items-center">
               <Logo className="h-8 w-8" />

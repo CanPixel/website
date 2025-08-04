@@ -1,8 +1,10 @@
+
 import Image from 'next/image';
 import { Card } from '@/components/ui/card';
 import NavMenu from "@/components/navigation";
 import { Button } from "@/components/ui/button";
 import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 
 const timelineEvents = [
   {
@@ -69,8 +71,11 @@ export default function AboutPage() {
         </div>
       </div>
       <div className="flex gap-4 justify-center mt-16">
-        <Button asChild size="lg">
-          <Link href="/projects">Explore Realms</Link>
+        <Button asChild size="lg" className="group transition-all duration-300 ease-in-out hover:bg-accent/90 hover:-translate-y-1">
+          <Link href="/projects">
+            Explore Realms
+             <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 ease-in-out group-hover:translate-x-1" />
+            </Link>
         </Button>
       </div>
     </div>
