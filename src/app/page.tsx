@@ -56,7 +56,7 @@ export default function Home() {
       <section className="text-center pt-24 pb-16">
         <NavMenu/>
         <div className="flex justify-center items-center gap-4">
-          <h1 className="font-headline text-6xl md:text-8xl font-black tracking-tighter bg-gradient-to-br from-primary/80 via-primary to-accent bg-clip-text text-transparent drop-shadow-lg">
+          <h1 className="font-headline text-6xl md:text-8xl font-black tracking-tighter bg-gradient-to-br from-primary/80 via-primary to-accent bg-clip-text text-transparent drop-shadow-lg transform scale-y-120 origin-center">
             CanPixel
           </h1>
           <Image 
