@@ -81,16 +81,21 @@ export default function MidiWidget({midi} : any) {
 
   return (
     <Card className="w-full max-w-md overflow-hidden shadow-2xl">
-      <CardHeader className="text-center p-4 pb-2">
-        <div className="flex justify-center items-center gap-2 mb-1">
+      <CardHeader className="p-4 pb-2">
+        <div className="flex items-center gap-2 mb-1">
           <Pyramid className="text-primary-purple" />
-          <CardTitle className="font-headline text-xl">{midi.title}</CardTitle>
+           <div className="flex justify-between items-end w-full">
+            <CardTitle className="font-headline text-xl">{midi.title}</CardTitle>
+            {midi.releaseDate && (
+              <span className="text-xs text-muted-foreground">{midi.releaseDate}</span>
+            )}
+          </div>
         </div>
-        <CardDescription className="text-xs">
+        <CardDescription className="text-xs text-left ml-8 -mt-2">
           {midi.properties?.genre?.join(' / ')}
           </CardDescription>
       </CardHeader>
-      <CardContent className="p-4 pt-2">
+      <CardContent className="p-4 pt-0">
         <div className="bg-background/50 rounded-lg p-3">
           <div className="flex justify-between items-center mb-2">
             <p className="font-bold font-mono text-sm truncate">{midi.title}</p>
@@ -108,7 +113,7 @@ export default function MidiWidget({midi} : any) {
         </div>
         
         <div className="mt-2">
-          <h4 className="font-mono text-xs text-muted-foreground mb-2 px-2">MOOD TAGS</h4>
+          <h4 className="font-mono text-xs text-muted-foreground mb-2 px-2 text-center">MOOD TAGS</h4>
            <div className="flex flex-wrap justify-center gap-1">
             {midi.properties?.moodTags?.map((tag: string) => (
               <div
