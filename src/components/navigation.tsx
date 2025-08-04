@@ -19,6 +19,9 @@ export default function NavMenu() {
 
   const [isAtTop, setIsAtTop] = useState(true);
   useEffect(() => {
+    // Set initial state after mount to avoid hydration mismatch
+    setIsAtTop(window.scrollY < 50);
+
     const handleScroll = () => {
       setIsAtTop(window.scrollY < 50);
     };

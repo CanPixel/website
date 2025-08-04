@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -19,6 +20,9 @@ export default function Header() {
   const pathname = usePathname();
 
   useEffect(() => {
+    // Set initial state after mount to avoid hydration mismatch
+    setIsScrolled(window.scrollY > 50);
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
