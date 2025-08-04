@@ -24,17 +24,29 @@ export default function MidiWidget({midi} : any) {
 
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [duration, setDuration] = useState<string | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  const formatTime = (seconds: number) => {
+    const minutes = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+  };
 
   useEffect(() => {
     if (midi?.properties?.midiFileUrl) {
       audioRef.current = new Audio(midi.properties.midiFileUrl);
-
       const audio = audioRef.current;
 
       const updateProgress = () => {
         if (audio.duration > 0) {
           setProgress((audio.currentTime / audio.duration) * 100);
+        }
+      };
+
+      const onLoadedMetadata = () => {
+        if (audio.duration) {
+          setDuration(formatTime(audio.duration));
         }
       };
 
@@ -45,11 +57,13 @@ export default function MidiWidget({midi} : any) {
       
       audio.addEventListener('timeupdate', updateProgress);
       audio.addEventListener('ended', onEnded);
+      audio.addEventListener('loadedmetadata', onLoadedMetadata);
       
       return () => {
         audio.pause();
         audio.removeEventListener('timeupdate', updateProgress);
         audio.removeEventListener('ended', onEnded);
+        audio.removeEventListener('loadedmetadata', onLoadedMetadata);
       };
     }
   }, [midi?.properties?.midiFileUrl]);
@@ -80,7 +94,9 @@ export default function MidiWidget({midi} : any) {
         <div className="bg-background/50 rounded-lg p-3">
           <div className="flex justify-between items-center mb-2">
             <p className="font-bold font-mono text-sm truncate">{midi.title}</p>
-            <p className="text-xs text-muted-foreground font-mono">{midi.duration}</p>
+            {duration && (
+                <p className="text-xs text-muted-foreground font-mono">{duration}</p>
+            )}
           </div>
           <Progress value={progress} className="h-2" />
         </div>
