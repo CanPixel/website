@@ -104,27 +104,29 @@ export default function ProjectDetailPage({ project }: { project: Project | null
             </p>
         </div>
         <aside className="md:col-span-1 space-y-8">
-          <div className="p-6 rounded-lg bg-card border">
-             <h3 className="font-headline text-2xl font-bold mb-4">Project Links</h3>
-             <div className="space-y-4">
-                 {project.url && (
-                     <Button asChild className="w-full">
-                         <Link href={project.url} target="_blank" rel="noopener noreferrer">
-                             <Globe className="mr-2 h-4 w-4" />
-                             Live Demo
-                         </Link>
-                     </Button>
-                 )}
-                 {project.properties?.repoLink && (
-                     <Button asChild variant="outline" className="w-full">
-                         <Link href={project.properties.repoLink} target="_blank" rel="noopener noreferrer">
-                             <Github className="mr-2 h-4 w-4" />
-                             Source Code
-                         </Link>
-                     </Button>
-                 )}
-             </div>
-          </div>
+          {(project.url || project.properties?.repoLink) && (
+            <div className="p-6 rounded-lg bg-card border">
+              <h3 className="font-headline text-2xl font-bold mb-4">Project Links</h3>
+              <div className="space-y-4">
+                  {project.url && (
+                      <Button asChild className="w-full">
+                          <Link href={project.url} target="_blank" rel="noopener noreferrer">
+                              <Globe className="mr-2 h-4 w-4" />
+                              Live Demo
+                          </Link>
+                      </Button>
+                  )}
+                  {project.properties?.repoLink && (
+                      <Button asChild variant="outline" className="w-full">
+                          <Link href={project.properties.repoLink} target="_blank" rel="noopener noreferrer">
+                              <Github className="mr-2 h-4 w-4" />
+                              Source Code
+                          </Link>
+                      </Button>
+                  )}
+              </div>
+            </div>
+          )}
         </aside>
       </div>
     </div>
