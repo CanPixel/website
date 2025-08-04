@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useState, useEffect } from 'react';
@@ -29,7 +30,7 @@ export default function NavMenu() {
           "fixed top-8 left-1/2 -translate-x-1/2 z-40 transition-all duration-500 ease-in-out",
           isAtTop ? "opacity-100" : "opacity-0 pointer-events-none"
           )}>
-      <div className="flex items-center gap-6 text-sm text-muted-foreground">
+      <div className="flex items-center gap-6 text-sm text-muted-foreground font-headline">
           {navLinks.map((link : any) => (
               pathname.startsWith(link.href) ?
               <Link key={link.href} href={link.href} 

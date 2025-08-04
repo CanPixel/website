@@ -34,7 +34,7 @@ export default function Header() {
         <Link
             href={href}
             className={cn(
-                "relative text-md font-nav transition-colors hover:text-accent group",
+                "relative text-md font-headline transition-colors hover:text-accent group",
                 isActive ? "text-accent" : "text-foreground/80"
             )}
         >
