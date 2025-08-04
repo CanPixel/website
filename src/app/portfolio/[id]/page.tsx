@@ -1,5 +1,4 @@
 
-
 'use client';
 
 import Image from 'next/image';
@@ -11,6 +10,12 @@ import { Button } from '@/components/ui/button';
 import { Github, Calendar, Globe, ArrowLeft } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
+
+const SteamIcon = (props: React.SVGProps<SVGSVGElement>) => (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" {...props}>
+        <path fill="currentColor" d="M372.4 345.2c-7.4 0-14.8-1.5-21.1-4.5 -6.4-3-12.8-7.5-18.1-12.8 -5.4-5.4-9.8-11.7-12.8-18.1 -3-6.4-4.5-13.7-4.5-21.1 0-7.4 1.5-14.8 4.5-21.1 3-6.4 7.5-12.8 12.8-18.1 5.4-5.4 11.7-9.8 18.1-12.8 6.4-3 13.7-4.5 21.1-4.5 16.7 0 32.5 6.4 44.2 18.2 11.8 11.8 18.2 27.5 18.2 44.2 0 16.7-6.4 32.5-18.2 44.2 -11.8 11.8-27.5 18.2-44.2 18.2zm-12.4-118.9l-58.4 29.2c-15.3 7.6-26.6 22.1-31.5 39.1l-3.3 11.3c-2.4-12.9-7.2-24.8-14.3-35.1 -11.3-16.5-27.6-29-46.7-35.9l-12-4.4c16.5-12.1 36.4-18.9 57.2-18.9 20.3 0 39.7 6.6 55.4 18.3 1.9-1.3 3.8-2.5 5.7-3.6 15.6-9.1 32.8-13.8 50.4-13.8 2.3 0 4.6.1 6.9.3 -20.6-24.9-49.9-41.9-82.5-41.9 -34.5 0-66 18.1-84.1 45.4 -36.6 55.2-27.3 129.2 21.6 172.5l29.4 26.2c61.9-21.7 101.9-80.4 101.9-145.2 0-21.6-4.2-42.3-12.3-61.5zM211.2 419.5c-41.4 0-77-22.1-96.8-54.7l-29.2-25.9c-49.9-44.3-59.4-119.9-22-176.3 37.8-57 110.4-80.4 175.7-60.9 29.5 9 55.4 26.1 76.2 49.3 6.1 6.8 11.5 14.2 16.1 22.2 -23.1-9.9-48.5-15.3-75-15.3 -51.3 0-96.3 22-127.3 57.5 -27.6 31.6-44.1 72.4-44.1 116.7 0 24.5 6.3 47.7 17.5 68.1l20.4 36.3c10.3 18.2 28.6 30.9 49.9 33.6 2.5.3 5 .5 7.5.5z"/>
+    </svg>
+);
 
 export default function ProjectDetailPage({ project }: { project: Project | null | undefined }) {
   if (project === undefined || project === null) {
@@ -129,7 +134,15 @@ export default function ProjectDetailPage({ project }: { project: Project | null
             <div className="p-6 rounded-lg bg-card border">
               <h3 className="font-headline text-2xl font-bold mb-4">Project Links</h3>
               <div className="space-y-4">
-                  {project.url && (
+                  {project.releaseType === 'steam' && project.url && (
+                    <Button asChild className="w-full bg-[#1b2838] hover:bg-[#2c435a] text-white">
+                        <Link href={project.url} target="_blank" rel="noopener noreferrer">
+                            <SteamIcon className="mr-2 h-5 w-5" />
+                            View on Steam
+                        </Link>
+                    </Button>
+                  )}
+                  {project.releaseType !== 'steam' && project.url && (
                       <Button asChild className="w-full">
                           <Link href={project.url} target="_blank" rel="noopener noreferrer">
                               <Globe className="mr-2 h-4 w-4" />
@@ -153,3 +166,5 @@ export default function ProjectDetailPage({ project }: { project: Project | null
     </div>
   );
 }
+
+    
