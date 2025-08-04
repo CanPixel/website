@@ -19,8 +19,7 @@ const SteamIcon = (props: React.SVGProps<SVGSVGElement>) => (
 
 export default function ProjectDetailPage({ project }: { project: Project | null | undefined }) {
   if (project === undefined || project === null) {
-    console.log(project);
-    return (<div>Error loading project data.</div>);
+    return null;
   }
   
   return (
