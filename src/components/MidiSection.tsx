@@ -44,7 +44,7 @@ export default function MidiSection() {
         const q = query(projectsCollection, where('type', '==', 'midi'));
         const projectSnapshot = await getDocs(q);
         const projectsList = projectSnapshot.docs.map(doc => ({
-        //   id: doc.id,
+          id: doc.id,
           ...doc.data() as Project
         }));
         setMidiProjects(projectsList);
@@ -175,8 +175,8 @@ export default function MidiSection() {
           <p>No MIDI projects found matching your criteria.</p>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredProjects.map((project, index) => (
-              <div key={`${project.id}-${index}`}>
+            {filteredProjects.map((project) => (
+              <div key={project.id}>
                 <MidiWidget midi={project} />
               </div>
             ))}
