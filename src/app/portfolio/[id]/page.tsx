@@ -165,5 +165,3 @@ export default function ProjectDetailPage({ project }: { project: Project | null
     </div>
   );
 }
-
-    
