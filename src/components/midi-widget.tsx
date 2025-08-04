@@ -17,6 +17,10 @@ import {
   Pyramid,
   Volume2,
 } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Calendar, Globe } from "lucide-react";
+// import { cn } from "@/lib/utils";
+// import { skillColors, genreColors } from "@/data/projects";
 import { Progress } from "@/components/ui/progress";
 
 const tracks = [
@@ -26,7 +30,11 @@ const tracks = [
   { title: "Subroutine Valley", duration: "2:58" },
 ];
 
-export default function MidiWidget() {
+export default function MidiWidget({midi} : any) {
+  if (!midi || midi.length === 0) {
+    return null;
+  }
+
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
 
@@ -41,15 +49,15 @@ export default function MidiWidget() {
   const currentTrack = tracks[currentTrackIndex];
 
   return (
-    <section id="music" className="py-16 md:py-24 bg-card/50">
+    <section className="py-16 md:py-24 bg-card/50">
       <div className="container mx-auto px-4 flex justify-center">
         <Card className="w-full max-w-md grainy overflow-hidden shadow-2xl">
           <CardHeader className="text-center">
             <div className="flex justify-center items-center gap-2 mb-2">
               <Pyramid className="text-primary-purple" />
-              <CardTitle className="font-headline text-2xl">MIDI Sorcery</CardTitle>
+              <CardTitle className="font-headline text-2xl">{midi.title}</CardTitle>
             </div>
-            <CardDescription>Esoteric Digital Compositions</CardDescription>
+            <CardDescription>{midi.properties.genre}</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="bg-background/50 rounded-lg p-4">
@@ -73,25 +81,20 @@ export default function MidiWidget() {
             </div>
             
             <div className="mt-8">
-              <h4 className="font-mono text-sm text-muted-foreground mb-2 px-2">TRACKLIST</h4>
+              <h4 className="font-mono text-sm text-muted-foreground mb-2 px-2">TRACK</h4>
               <ul className="space-y-1">
-                {tracks.map((track, index) => (
-                  <li key={track.title}>
+                {/* {tracks.map((track, index) => ( */}
+                  <li /*key={track.title}*/>
                     <button
-                      onClick={() => setCurrentTrackIndex(index)}
-                      className={`w-full text-left p-2 rounded-md transition-colors ${
-                        index === currentTrackIndex
-                          ? "bg-primary-purple/20 text-primary-purple"
-                          : "hover:bg-muted/50"
-                      }`}
+                      className='w-full text-left p-2 rounded-md transition-colors bg-primary-purple/20 text-primary-purple'
                     >
                       <div className="flex justify-between items-center">
-                        <span className="font-medium">{track.title}</span>
-                        <span className="text-xs text-muted-foreground">{track.duration}</span>
+                        <span className="font-medium">{midi.title}</span>
+                        <span className="text-xs text-muted-foreground">{midi.title}</span>
                       </div>
                     </button>
                   </li>
-                ))}
+                {/* ))} */}
               </ul>
             </div>
           </CardContent>

@@ -1,79 +1,73 @@
-import Image from 'next/image';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { PlayCircle, Music } from 'lucide-react';
-import NavMenu from "@/components/navigation";
+"use client";
 
-// import BlogPostCard from '@/components/blog-post-card';
-// import { posts as blogData } from "@/lib/museData";
+import MusicProjectCard from "@/components/music-project-card";
+import { useState, useEffect } from "react";
+// import { ProjectCard } from '@/app/portfolio/ProjectCard';
+import { type Project } from "@/data/projects";
+import { db } from '@/lib/firebase';
+import { collection, getDocs, query, orderBy } from 'firebase/firestore';
+import MidiSection from "@/components/MidiSection";
 
 export default function MusicPage() {
+  const [projects, setProjects] = useState<Project[]>([]);
+  useEffect(() => {
+    const fetchProjects = async () => {
+      const projectsCollection = collection(db, 'portfolioItems');
+      const q = query(projectsCollection, orderBy('releaseDate', 'desc'));
+
+      const projectSnapshot = await getDocs(q);
+      const projectList = projectSnapshot.docs
+      .filter(doc => {
+        const projectData = doc.data() as Omit<Project, 'id'>;
+        return projectData.type === 'midi';
+      })
+      .map(doc => {
+        const projectData = doc.data() as Omit<Project, 'id'>;
+        return {
+          id: doc.id,
+          ...projectData,
+        };
+      });
+      setProjects(projectList);
+    };
+
+    fetchProjects();
+  }, []);
+    // const projectsByCategory = allMusicCategories.map(category => ({
+    //     ...category,
+    //     projects: musicProjects.filter(p => p.category === category.name)
+    // })).filter(category => category.projects.length > 0);
+
   return (
-    <div className="container mx-auto px-4 py-16">
-      <NavMenu/>
+    <div className="container mx-auto px-4 py-16 bg-background">
+      <header className="text-center mb-6">
+        <h1 className="font-headline text-5xl font-bold tracking-tighter mb-4">
+          Music & Sound
+        </h1>
+        <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          A collection of my compositions, sound design, and other audio adventures.
+        </p>
+      </header>
 
-      <div className="text-center my-12">
-        <h1 className="font-headline text-5xl font-bold tracking-tighter text-primary">ZIGGURATH</h1>
-        <p className="text-lg text-muted-foreground mt-2">Modern-Oriental Grungepop</p>
-      </div>
+      <MidiSection />
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <div className="lg:col-span-2">
-          <Card className="bg-card/50 backdrop-blur-sm border-primary/20">
-            <CardHeader>
-              <CardTitle className="font-headline text-2xl">Featured Track</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="bg-secondary/30 p-4 rounded-lg border border-border flex items-center gap-4 relative overflow-hidden">
-                <div className="absolute inset-0 bg-repeat bg-center opacity-5" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}></div>
-                <Music className="w-12 h-12 text-primary" />
-                <div className="flex-grow">
-                  <h3 className="font-bold text-lg">Echoes of the Soul</h3>
-                  <p className="text-sm text-muted-foreground">ZIGGURATH</p>
-                  <div className="w-full bg-muted-foreground/30 rounded-full h-1.5 mt-2">
-                    <div className="bg-primary h-1.5 rounded-full" style={{ width: '45%' }}></div>
-                  </div>
+      {/* <div className="space-y-16">
+        {projectsByCategory.map(category => (
+            <section key={category.name} id={category.slug} className="scroll-mt-24">
+                 <h2 className="font-headline text-3xl font-bold mb-8 flex items-center gap-3">
+                    <category.icon className="w-7 h-7 text-accent" />
+                    {category.name}
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    {category.projects.map((project) => (
+                      <MusicProjectCard key={project.slug} project={project} />
+                    ))}
                 </div>
-                <button className="text-primary hover:text-accent transition-colors">
-                  <PlayCircle className="w-10 h-10" />
-                </button>
-              </div>
-            </CardContent>
-          </Card>
-          <Card className="mt-8 bg-card/50 backdrop-blur-sm border-primary/20">
-            <CardHeader>
-              <CardTitle className="font-headline text-2xl">Bio</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground leading-relaxed">
-                With a punk/metal ethos, ZIGGURATH channels rebellious energy into a sound that is both modern and ancient. We craft sonic realms that are mysterious, philosophical, and unapologetically meta, inviting listeners into a pluralistic, soulful experience.
-              </p>
-            </CardContent>
-          </Card>
-        </div>
-
-        <div className="lg:col-span-1">
-          <Card className="bg-card/50 backdrop-blur-sm border-primary/20">
-            <CardHeader>
-              <CardTitle className="font-headline text-2xl">Visuals</CardTitle>
-            </CardHeader>
-            <CardContent className="grid grid-cols-2 gap-4">
-              {[...Array(4)].map((_, i) => (
-                <div key={i} className="relative aspect-square rounded-lg overflow-hidden group">
-                  <Image
-                    src={`https://placehold.co/400x400.png`}
-                    alt={`Concert visual ${i + 1}`}
-                    fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
-                    data-ai-hint="concert punk"
-                  />
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
-                   <div className="absolute inset-0 bg-repeat bg-center opacity-10" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}></div>
-                </div>
-              ))}
-            </CardContent>
-          </Card>
-        </div>
-      </div>
+            </section>
+        ))}
+      </div> */}
     </div>
   );
 }
+
+  
