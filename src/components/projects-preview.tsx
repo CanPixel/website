@@ -61,9 +61,9 @@ export default function ProjectsPreview({projects} : any) {
       <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-background to-transparent z-10"></div>
       <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-background to-transparent z-10"></div>
       <div className="flex">
-        <div className="flex w-max animate-scroll-x">
+        <div className="flex animate-scroll-x">
           {duplicatedProjects.map((project: any, index: number) => (
-            <div key={`${project.id}-${index}`} className="w-[500px] md:w-[50%] p-4 flex-shrink-0">
+            <div key={`${project.id}-${index}`} className="w-[450px] p-4 flex-shrink-0">
               <Link href={`/projects/${project.id}`} className="block h-full">
                 <Card
                   className="h-full flex flex-col overflow-hidden transition-all duration-300 ease-in-out hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/20"
@@ -109,15 +109,15 @@ export default function ProjectsPreview({projects} : any) {
                             {project.releaseType === 'steam' && (
                                 <div className="bg-blue-800 p-2 rounded-full shadow-lg" title="Released on Steam">
                                     <Image 
-                                      width={27}
-                                      height={27}
+                                      width={20}
+                                      height={20}
                                       src="/steam-logo.svg" 
                                       alt="steam icon" />
                                 </div>
                             )}
                             {project.releaseType === 'web' && (
                                 <div className="bg-blue-600 text-white p-2 rounded-full shadow-lg" title="Playable on Web">
-                                    <Globe className="w-7 h-7" />
+                                    <Globe className="w-5 h-5" />
                                 </div>
                             )}
                         </div>
