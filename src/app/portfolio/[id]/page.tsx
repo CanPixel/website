@@ -27,7 +27,7 @@ export default function ProjectDetailPage({ project }: { project: Project | null
       <NavMenu/>
       
       <div className="flex items-center justify-between gap-8 mt-8">
-        <Button asChild variant="link" className="p-0 h-auto text-accent group-hover:underline flex-shrink-0 top-px relative">
+        <Button asChild variant="link" className="p-0 h-auto text-accent group-hover:underline flex-shrink-0 relative">
           <Link href="/projects">
             <ArrowLeft className="mr-2 h-4 w-4" />
             Realms
@@ -64,7 +64,7 @@ export default function ProjectDetailPage({ project }: { project: Project | null
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-12">
         <div className='md:col-span-2'>
-          <Card className='overflow-hidden border-2 shadow-lg rounded-lg transition-all duration-300' style={{borderColor: project.styling.borderColor, boxShadow: `0 10px 25px -5px ${project.styling.borderColor}30, 0 8px 10px -6px ${project.styling.borderColor}20`}}>
+          <Card className='overflow-hidden border-2 shadow-lg rounded-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl' style={{borderColor: project.styling.borderColor, boxShadow: `0 10px 25px -5px ${project.styling.borderColor}30, 0 8px 10px -6px ${project.styling.borderColor}20`}}>
             <div className="relative aspect-video w-full"> 
               <Image 
                 src={"/images/" + project.thumbnailUrl}
