@@ -76,7 +76,7 @@ export default function Home() {
           Method Developer weaving soulful, interactive experiences from the threads of code and creativity
         </p>
         <div className="flex gap-4 justify-center">
-          <Button asChild size="lg" className="group transition-all duration-300 ease-in-out hover:bg-accent/90 hover:-translate-y-1">
+          <Button asChild size="lg" className="group transition-all duration-300 ease-in-out hover:bg-accent/90 hover:-translate-y-1 hover:scale-105">
             <Link href="/projects">
               Explore Realms
               <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 ease-in-out group-hover:translate-x-1" />
