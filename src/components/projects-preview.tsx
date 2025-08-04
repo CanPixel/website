@@ -19,7 +19,7 @@ const genreColors: { [key: string]: string } = {
   "Battle Royale": "bg-purple-600",
   "Bullet Hell": "bg-pink-500",
   "FPS": "bg-orange-500",
-  "Horror": "bg-red-500",
+  "Horror": "bg-red-600",
   "Cooking": "text-black bg-yellow-200",
   "Racing": "bg-teal-500",
   "Endless Runner": "bg-cyan-500",
@@ -28,7 +28,7 @@ const genreColors: { [key: string]: string } = {
   "Stealth": "bg-gray-700",
   "Survival": "bg-brown-500",
   "Collect-A-Thon": "bg-emerald-600",
-  "Strategy": "bg-rose-500",
+  "Strategy": "bg-rose-700",
   "Audio": "bg-violet-500",
   "Handheld": "bg-fuchsia-500",
   "Interactive Installation": "bg-sky-500",
@@ -37,10 +37,10 @@ const genreColors: { [key: string]: string } = {
 };
 const skillColors: { [key: string]: string } = {
   "Unity": "bg-teal-600",
-  "C#": "bg-purple-600",
+  "C#": "bg-purple-700",
   "Html": "bg-orange-500",
-  "C++": "bg-blue-500",
-  "Audio Design": "bg-pink-500",
+  "C++": "bg-blue-700",
+  "Audio Design": "bg-pink-700",
   "Editor Script": "bg-yellow-500",
   "Arduino": "bg-cyan-500",
   "PICO-8": "bg-red-500",
@@ -68,7 +68,7 @@ export default function ProjectsPreview({projects} : any) {
                 className="h-full flex flex-col overflow-hidden transition-all duration-300 ease-in-out hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/20"
               >
                 <CardHeader className="flex-grow flex flex-col">
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 mb-2">
                     {project.properties?.genre?.map((tag : string) => (
                       <Badge key={tag} variant="secondary"
                       className={cn(genreColors[tag] || "bg-gray-500", "text-white")}>
@@ -108,8 +108,8 @@ export default function ProjectsPreview({projects} : any) {
                           {project.releaseType === 'steam' && (
                               <div className="bg-blue-800 p-2 rounded-full shadow-lg" title="Released on Steam">
                                   <Image 
-                                    width={28}
-                                    height={28}
+                                    width={27}
+                                    height={27}
                                     src="/steam-logo.svg" 
                                     alt="steam icon" />
                               </div>
