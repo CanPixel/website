@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from "react";
@@ -29,7 +30,7 @@ import { Progress } from "@/components/ui/progress";
 // ];
 
 export default function MidiWidget({midi} : any) {
-  if (!midi || midi.length === 0) {
+  if (!midi) {
     return null;
   }
 
@@ -38,7 +39,7 @@ export default function MidiWidget({midi} : any) {
   const handlePlayPause = () => setIsPlaying(!isPlaying);
 
   return (
-    <Card className="w-full max-w-md grainy overflow-hidden shadow-2xl">
+    <Card className="w-full max-w-md overflow-hidden shadow-2xl">
       <CardHeader className="text-center">
         <div className="flex justify-center items-center gap-2 mb-2">
           <Pyramid className="text-primary-purple" />
