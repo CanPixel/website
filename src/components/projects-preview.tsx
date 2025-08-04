@@ -57,7 +57,7 @@ export default function ProjectsPreview({projects} : any) {
   const duplicatedProjects = [...projects, ...projects];
 
   return (
-    <section id="projects" className="w-full overflow-hidden relative group">
+    <section id="projects" className="w-full overflow-hidden relative">
       <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-background to-transparent z-10"></div>
       <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-background to-transparent z-10"></div>
       <div className="flex animate-scroll-x">
@@ -115,7 +115,7 @@ export default function ProjectsPreview({projects} : any) {
                     )}
                     {project.releaseType === 'web' && (
                         <div className="bg-blue-600 text-white p-2 rounded-full shadow-lg" title="Playable on Web">
-                            <Globe className="w-5 h-5" />
+                            <Globe className="w-6 h-6" />
                         </div>
                     )}
                 </div>
