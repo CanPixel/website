@@ -20,43 +20,36 @@ export default function ProjectDetailPage({ project }: { project: Project | null
     <div className="container mx-auto px-4 py-16">
       <NavMenu/>
       
-      <Button asChild variant="link" className="p-0 h-auto mt-4 text-accent group-hover:underline self-start">
-        <Link href="/projects">
-          <ArrowLeft className="mr-2 h-4 w-4" />
-          Return
-        </Link>
-      </Button>
+      <div className="flex flex-col items-center text-center">
+        <Button asChild variant="link" className="p-0 h-auto mt-4 text-accent group-hover:underline">
+          <Link href="/projects">
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Return
+          </Link>
+        </Button>
 
-      <header className="text-center">
-        <h1 className="mt-12 font-headline text-5xl font-bold tracking-tighter mb-2 text-primary">{project.title}</h1>
-        <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-          {project.shortDescription}
-        </p>
-        <Badge variant="outline" className="mb-8 mt-4">{project.label}</Badge>
-      </header>
+        <header className="mt-8">
+          <h1 className="font-headline text-5xl font-bold tracking-tighter mb-2 text-primary">{project.title}</h1>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            {project.shortDescription}
+          </p>
+          <Badge variant="outline" className="mb-8 mt-4">{project.label}</Badge>
+        </header>
 
-      {/* <div className="relative w-full h-72 md:h-[500px] rounded-lg overflow-hidden mb-12 shadow-2xl shadow-primary/20">
-        <Image
-          src={"/images/" + project.thumbnailUrl}
-          alt={project.title}
-          fill
-          className="object-cover"
-        />
-      </div> */}
+        <Badge
+          variant="outline"
+          className={cn("p-2 px-3 whitespace-nowrap", project.styling.badgeBackgroundColor)}
+          style={{
+            borderColor: project.styling.borderColor,
+            color: 'bg-white',
+          }}
+          >
+            <Calendar className='me-2'/>
+            {project.releaseDate ?? 'Coming Soon'}
+        </Badge>
+      </div>
 
-      <Badge
-        variant="outline"
-        className={cn("p-2 px-3 whitespace-nowrap", project.styling.badgeBackgroundColor)}
-        style={{
-          borderColor: project.styling.borderColor,
-          color: 'bg-white',
-        }}
-        >
-          <Calendar className='me-2'/>
-          {project.releaseDate ?? 'Coming Soon'}
-      </Badge>
-
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-12">
         <div className='md:col-span-2'>
           <Card className='overflow-hidden border-2' style={{borderColor: project.styling.borderColor}}>
             <div className="relative aspect-video w-full"> 
@@ -96,21 +89,6 @@ export default function ProjectDetailPage({ project }: { project: Project | null
                 ))}
               </div>
             </div>
-            {/* {project.url && (
-            <aside className="md:col-span-1 space-y-8 mt-4">
-              <div className="p-6 rounded-lg bg-card border">
-                <h3 className="font-headline text-2xl font-bold mb-4">Go To Website</h3>
-                <div className="space-y-4">
-                  <Button asChild className="w-full">
-                      <Link href={project.url} target="_blank" rel="noopener noreferrer">
-                          <Globe className="mr-2 h-4 w-4" />
-                          View Now
-                      </Link>
-                  </Button>
-                </div>
-              </div>
-            </aside>
-            )} */}
         </div>
     </div>
 
