@@ -62,7 +62,7 @@ export default function ProjectsPreview({projects} : any) {
       <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-background to-transparent z-10"></div>
       <div className="flex animate-scroll-x">
         {duplicatedProjects.map((project: any, index: number) => (
-          <div key={`${project.id}-${index}`} className="w-full md:w-[50%] lg:w-[40%] p-4">
+          <div key={`${project.id}-${index}`} className="w-[500px] md:w-[50%] p-4 flex-shrink-0">
             <Link href={`/projects/${project.id}`} className="block h-full">
               <Card
                 className="h-full flex flex-col overflow-hidden transition-all duration-300 ease-in-out hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/20"
