@@ -54,12 +54,12 @@ export default function ProjectsPreview({projects} : any) {
       <div className="container mx-auto px-4">
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
           {projects.map((project : any) => (
-            <Link href={`/projects/${project.id}`}>
+            <Link href={`/projects/${project.id}`} key={project.id} className="block h-full">
             <Card
               key={project.title}
-              className="overflow-hidden transition-all duration-300 ease-in-out hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/20"
+              className="h-full flex flex-col overflow-hidden transition-all duration-300 ease-in-out hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/20"
             >
-            <CardHeader>
+            <CardHeader className="flex-grow flex flex-col">
               <div className="flex flex-wrap gap-2">
                 {project.properties?.genre?.map((tag : string) => (
                   <Badge key={tag} variant="secondary" 
@@ -68,7 +68,7 @@ export default function ProjectsPreview({projects} : any) {
                   </Badge>
                 ))}
               </div>
-              <div className="relative h-60 w-full">
+              <div className="relative h-60 w-full mt-4">
                 <Image
                   src={"images/" + project.thumbnailUrl}
                   alt={`Showcase image for ${project.title}`}
@@ -77,12 +77,12 @@ export default function ProjectsPreview({projects} : any) {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
               </div>
-              <div className="flex justify-end items-center gap-2 text-sm text-muted-foreground mb-2">
+              <div className="flex justify-end items-center gap-2 text-sm text-muted-foreground mt-4 mb-2">
                 <Calendar className="w-4 h-4" />
                 <span>{project.releaseDate}</span>
               </div>
                 <CardTitle className="font-headline mt-4">{project.title}</CardTitle>
-              <CardDescription>{project.description}</CardDescription>
+              <CardDescription className="mt-2 flex-grow">{project.description}</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="flex flex-wrap gap-2">
@@ -95,7 +95,7 @@ export default function ProjectsPreview({projects} : any) {
               </div>
 
               {(project.releaseType === 'steam' || project.releaseType === 'web') && (
-            <div className="justify-end bottom-4 left-4 z-10 flex gap-2">
+            <div className="justify-end bottom-4 left-4 z-10 flex gap-2 mt-4">
                 {project.releaseType === 'steam' && (
                     <div className="bg-blue-800 p-2 rounded-full shadow-lg" title="Released on Steam">
                         <Image 
