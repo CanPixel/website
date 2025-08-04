@@ -53,10 +53,10 @@ export default function Header() {
       isScrolled ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full"
     )}>
        <div className="container mx-auto px-4 flex h-16 items-center justify-between bg-card/80 backdrop-blur-lg border-b-border">
-          <div className="flex items-center gap-2">
-            <Link href="/" className="group flex items-center">
-              <Logo className="h-10 w-10" />
-              <Code2 className="h-7 w-7 text-yellow-400 group-hover:scale-110 group-hover:text-accent transition-all duration-300 ease-in-out" />
+          <div className="flex items-center gap-4">
+            <Link href="/" className="group flex flex-col items-center">
+              <Logo className="h-8 w-8" />
+              <Code2 className="h-5 w-5 text-yellow-400 group-hover:scale-110 group-hover:text-accent transition-all duration-300 ease-in-out" />
             </Link>
             <div className="flex flex-col group">
               <Link href="/" className="group font-bold font-headline text-xl bg-gradient-to-br from-primary from-30% to-accent bg-clip-text text-transparent group-hover:text-accent transition-colors duration-300 ease-in-out">CanPixel</Link>
