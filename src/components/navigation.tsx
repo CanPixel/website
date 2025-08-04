@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import { usePathname } from "next/navigation";
 import Link from 'next/link';
 import { cn } from "@/lib/utils";
+import { Fragment } from 'react';
 
 const navLinks = [
   { href: "/about", label: "About" },
@@ -33,7 +34,7 @@ export default function NavMenu() {
       <div className="flex items-center gap-6 text-sm text-muted-foreground font-headline">
           {navLinks.map((link: any) => (
               link.label === "Realms" ? (
-                <>
+                <Fragment key={link.href}>
                   <Link key={link.href} href={link.href}
                     className={cn(
                       "relative transition-colors hover:text-accent group",
@@ -49,7 +50,7 @@ export default function NavMenu() {
                     ></span>
                   </Link>
                   <div className="h-4 w-px bg-muted-foreground mx-1"></div> {/* Reduced spacing around separator */}
-                </>
+                </Fragment>
               ) : link.label === "Muse" ? (
                 <Link key={link.href} href={link.href}
                   className={cn(
@@ -70,7 +71,7 @@ export default function NavMenu() {
                   className={cn(
                     "relative transition-colors hover:text-accent group",
                     pathname.startsWith(link.href) ? "text-accent" : "text-foreground/80",
-                    link.label === "Home" || link.label === "About" ? "mr-12" : link.label === "Reach" ? "ml-12" : "" // Increased spacing
+                    link.label === "About" ? "mr-auto" : link.label === "Reach" ? "ml-auto" : ""
                   )}
                 >
                   <span>{link.label}</span>

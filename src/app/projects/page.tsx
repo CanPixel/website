@@ -119,7 +119,7 @@ export default function ProjectsPage() {
       </header>
 
       <div className="mb-12 flex justify-center">
-          <Carousel className="w-full max-w-md"
+          <Carousel className="w-full max-w-sm"
             opts={{
                 loop: true,
             }}

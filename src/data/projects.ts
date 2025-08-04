@@ -51,7 +51,7 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
     textColor: '#8B4513',
     fontFamily: "'Cinzel', serif",
     borderColor: '#D4AC79',
-    animationClass: 'group-hover:shadow-[0_0_30px_5px_rgba(255,165,0,0.5)]',
+    animationClass: 'group-hover:scale-105 group-hover:shadow-[0_0_30px_5px_rgba(255,165,0,0.5)]',
     backgroundImage: 'none',
   },
   'life-sentence':
