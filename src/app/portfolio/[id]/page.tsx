@@ -35,6 +35,13 @@ export default function ProjectDetailPage({ project }: { project: Project | null
             {project.shortDescription}
           </p>
           {project.label && <Badge variant="outline" className="mt-4">{project.label}</Badge>}
+          <div className="flex flex-wrap gap-2 justify-center mt-2">
+            {project.properties?.genre?.map((g: string) => (
+                <Badge key={g} className={cn(genreColors[g] || 'bg-gray-400', 'text-white')}>
+                {g}
+                </Badge>
+            ))}
+          </div>
         </header>
 
         <Badge
@@ -62,9 +69,19 @@ export default function ProjectDetailPage({ project }: { project: Project | null
               <div className="absolute inset-0 bg-repeat bg-center opacity-5" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E\")" }}></div>
             </div>
           </Card>
+
+            <div className="prose prose-lg dark:prose-invert max-w-none text-foreground/90 mt-8 space-y-6">
+                 <h3 className="font-headline text-2xl font-bold mb-4">Technical Details</h3>
+                <p>
+                    The game was developed in Unity, leveraging C# for all gameplay logic, AI behavior, and system management. One of the core technical challenges was creating an efficient procedural generation system for the galaxy map. I used a combination of Perlin noise for star distribution and a custom algorithm to ensure playable paths and interesting clusters of systems. This allows for a unique galaxy in every playthrough, greatly enhancing replayability.
+                </p>
+                <p>
+                    For the real-time combat, I implemented a component-based ship system, allowing for easy customization of weapons, shields, and engines. The UI was built using Unity's UGUI system, with a focus on creating a clean, readable interface that evokes classic sci-fi tropes while remaining modern and intuitive.
+                </p>
+            </div>
         </div>
 
-        <div className='md:col-span-1'>
+        <aside className='md:col-span-1 space-y-8'>
             <Card style={{
                 backgroundColor: project.styling.backgroundColor,
                 color: project.styling.textColor,
@@ -82,7 +99,7 @@ export default function ProjectDetailPage({ project }: { project: Project | null
                     </CardDescription> 
                 </CardContent>
             </Card>
-             <div className="p-6 mt-6 rounded-lg bg-card border">
+             <div className="p-6 rounded-lg bg-card border">
               <h3 className="font-headline text-2xl font-bold mb-4">Tech Stack</h3>
               <div className="flex flex-wrap gap-2">
                 {project.properties?.skills?.map((tech : string) => (
@@ -90,13 +107,7 @@ export default function ProjectDetailPage({ project }: { project: Project | null
                 ))}
               </div>
             </div>
-        </div>
-    </div>
-
-      <div className="grid md:grid-cols-3 gap-12 mt-8">
-        <div className="md:col-span-2 space-y-6 prose prose-lg dark:prose-invert max-w-none text-foreground/90">
-            
-            {project.properties?.platforms && project.properties.platforms.length > 0 && (
+             {project.properties?.platforms && project.properties.platforms.length > 0 && (
             <div className="p-6 rounded-lg bg-card border">
                 <h3 className="font-headline text-2xl font-bold mb-4">Platforms</h3>
                 <div className="flex flex-wrap gap-2">
@@ -108,30 +119,7 @@ export default function ProjectDetailPage({ project }: { project: Project | null
                 </div>
             </div>
             )}
-
-            {project.properties?.genre && project.properties.genre.length > 0 && (
-            <div className="p-6 rounded-lg bg-card border">
-                <h3 className="font-headline text-2xl font-bold mb-4">Tags</h3>
-                <div className="flex flex-wrap gap-2">
-                {project.properties.genre.map((g: string) => (
-                    <Badge key={g} className={cn(genreColors[g] || 'bg-gray-400', 'text-white')}>
-                    {g}
-                    </Badge>
-                ))}
-                </div>
-            </div>
-            )}
-
-            <h3 className="font-headline text-2xl font-bold mb-4">Technical Details</h3>
-            <p>
-                The game was developed in Unity, leveraging C# for all gameplay logic, AI behavior, and system management. One of the core technical challenges was creating an efficient procedural generation system for the galaxy map. I used a combination of Perlin noise for star distribution and a custom algorithm to ensure playable paths and interesting clusters of systems. This allows for a unique galaxy in every playthrough, greatly enhancing replayability.
-            </p>
-            <p>
-                For the real-time combat, I implemented a component-based ship system, allowing for easy customization of weapons, shields, and engines. The UI was built using Unity's UGUI system, with a focus on creating a clean, readable interface that evokes classic sci-fi tropes while remaining modern and intuitive.
-            </p>
-        </div>
-        <aside className="md:col-span-1 space-y-8">
-          {(project.url || project.properties?.repoLink) && (
+            {(project.url || project.properties?.repoLink) && (
             <div className="p-6 rounded-lg bg-card border">
               <h3 className="font-headline text-2xl font-bold mb-4">Project Links</h3>
               <div className="space-y-4">
@@ -155,7 +143,7 @@ export default function ProjectDetailPage({ project }: { project: Project | null
             </div>
           )}
         </aside>
-      </div>
+    </div>
     </div>
   );
 }
