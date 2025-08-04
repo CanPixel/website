@@ -1,15 +1,15 @@
 import { db } from '@/lib/firebase';
 import { collection, getDocs, doc, getDoc } from 'firebase/firestore';
 import { notFound } from 'next/navigation';
-import { Project, ProjectStyling, projectStyles } from '@/data/projects';
+import { Project, getProjectStyling } from '@/data/projects';
 import ProjectDetailPage from './page';
 
 export async function generateStaticParams() {
   const projectsCollection = collection(db, 'portfolioItems');
   const projectSnapshot = await getDocs(projectsCollection);
-  const params = projectSnapshot.docs.map(doc => ({
-    id: doc.id,
-  }));
+  const params = projectSnapshot.docs.map(doc => {
+    return { id: doc.data().id };
+  });
   return params;
 }
 
@@ -26,14 +26,7 @@ export default async function ProjectLayout({
 
   if (projectDoc.exists()) {
     const dbProjectData = projectDoc.data() as Omit<Project, 'id' | 'styling'>;
-    const styling : ProjectStyling = projectStyles[projectId] || {
-      backgroundColor: 'hsl(var(--card))',
-      textColor: 'hsl(var(--card-foreground))',
-      fontFamily: 'var(--font-body)',
-      borderColor: 'hsl(var(--border))',
-      animationClass: 'group-hover:scale-105',
-      className: '',
-    };
+    const styling = getProjectStyling(projectDoc.id);
 
     project = { 
       id: projectDoc.id, 

@@ -109,7 +109,8 @@ export default function Home() {
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {featuredRealms.map((project) => (
-          <Link key={project.id} href={`/portfolio/${project.id}`} className="block transition-transform hover:scale-[1.02] group">
+          <Link key={project.id} href={`/portfolio/${project.id}`} 
+          className="block transition-transform hover:scale-[1.02] group">
             <ProjectCard project={project} />
           </Link>
         ))}
