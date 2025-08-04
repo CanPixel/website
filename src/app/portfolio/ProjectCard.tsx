@@ -104,7 +104,7 @@ export function ProjectCard({ project }: { project : any }) {
                 className="object-cover rounded-md"
                 />
             </div>
-            <CardDescription style={{ color: styling.textColor, opacity: 0.8 }} className="h-24 overflow-hidden">
+            <CardDescription style={{ color: styling.textColor, opacity: 0.8 }} className="h-24 overflow-hidden text-ellipsis">
                 <b>{project.shortDescription}</b>
                 <br></br><br></br>
                 {project.description}
