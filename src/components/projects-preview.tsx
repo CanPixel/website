@@ -93,33 +93,35 @@ export default function ProjectsPreview({projects} : any) {
                   <CardDescription className="mt-2 flex-grow">{project.description}</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="flex flex-wrap gap-2">
-                    {project.properties?.skills?.map((tag : string) => (
-                      <Badge key={tag} variant="secondary"
-                      className={cn(skillColors[tag] || "bg-gray-500", "text-white")}>
-                        {tag}
-                      </Badge>
-                    ))}
-                  </div>
+                  <div className="flex justify-between items-center">
+                    <div className="flex flex-wrap gap-2">
+                      {project.properties?.skills?.map((tag : string) => (
+                        <Badge key={tag} variant="secondary"
+                        className={cn(skillColors[tag] || "bg-gray-500", "text-white")}>
+                          {tag}
+                        </Badge>
+                      ))}
+                    </div>
 
-                  {(project.releaseType === 'steam' || project.releaseType === 'web') && (
-                <div className="justify-end bottom-4 left-4 z-10 flex gap-2 mt-4">
-                    {project.releaseType === 'steam' && (
-                        <div className="bg-blue-800 p-2 rounded-full shadow-lg" title="Released on Steam">
-                            <Image 
-                              width={28}
-                              height={28}
-                              src="/steam-logo.svg" 
-                              alt="steam icon" />
-                        </div>
+                    {(project.releaseType === 'steam' || project.releaseType === 'web') && (
+                      <div className="flex gap-2">
+                          {project.releaseType === 'steam' && (
+                              <div className="bg-blue-800 p-2 rounded-full shadow-lg" title="Released on Steam">
+                                  <Image 
+                                    width={28}
+                                    height={28}
+                                    src="/steam-logo.svg" 
+                                    alt="steam icon" />
+                              </div>
+                          )}
+                          {project.releaseType === 'web' && (
+                              <div className="bg-blue-600 text-white p-2 rounded-full shadow-lg" title="Playable on Web">
+                                  <Globe className="w-7 h-7" />
+                              </div>
+                          )}
+                      </div>
                     )}
-                    {project.releaseType === 'web' && (
-                        <div className="bg-blue-600 text-white p-2 rounded-full shadow-lg" title="Playable on Web">
-                            <Globe className="w-7 h-7" />
-                        </div>
-                    )}
-                </div>
-            )}
+                  </div>
                 </CardContent>
               </Card>
             </Link>
