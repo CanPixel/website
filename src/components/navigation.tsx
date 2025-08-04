@@ -17,7 +17,7 @@ const navLinks = [
 export default function NavMenu() {
   const pathname = usePathname();
 
-  const [isAtTop, setIsAtTop] = useState(true);
+  const [isAtTop, setIsAtTop] = useState(false);
   useEffect(() => {
     // Set initial state after mount to avoid hydration mismatch
     const checkScroll = () => setIsAtTop(window.scrollY < 50);
@@ -71,6 +71,7 @@ export default function NavMenu() {
                 <Link key={link.href} href={link.href}
                   className={cn(
                     "relative transition-colors hover:text-accent group",
+                     "text-lg",
                     pathname.startsWith(link.href) ? "text-accent" : "text-foreground/80",
                     link.label === "About" ? "mr-auto" : link.label === "Reach" ? "ml-auto" : ""
                   )}
