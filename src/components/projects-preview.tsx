@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, Globe } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const genreColors: { [key: string]: string } = {
   "Action": "bg-red-500",
@@ -49,74 +50,81 @@ const skillColors: { [key: string]: string } = {
 };
 
 export default function ProjectsPreview({projects} : any) {
-  return (
-    <section id="projects">
-      <div className="container mx-auto px-4">
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
-          {projects.map((project : any) => (
-            <Link href={`/projects/${project.id}`} key={project.id} className="block h-full">
-            <Card
-              key={project.title}
-              className="h-full flex flex-col overflow-hidden transition-all duration-300 ease-in-out hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/20"
-            >
-            <CardHeader className="flex-grow flex flex-col">
-              <div className="flex flex-wrap gap-2">
-                {project.properties?.genre?.map((tag : string) => (
-                  <Badge key={tag} variant="secondary" 
-                  className={genreColors[tag] || "bg-gray-500"}>
-                    {tag}
-                  </Badge>
-                ))}
-              </div>
-              <div className="relative h-60 w-full mt-4">
-                <Image
-                  src={"images/" + project.thumbnailUrl}
-                  alt={`Showcase image for ${project.title}`}
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
-              </div>
-              <div className="flex justify-end items-center gap-2 text-sm text-muted-foreground mt-4 mb-2">
-                <Calendar className="w-4 h-4" />
-                <span>{project.releaseDate}</span>
-              </div>
-                <CardTitle className="font-headline mt-4">{project.title}</CardTitle>
-              <CardDescription className="mt-2 flex-grow">{project.description}</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="flex flex-wrap gap-2">
-                {project.properties?.skills?.map((tag : string) => (
-                  <Badge key={tag} variant="secondary"
-                  className={skillColors[tag] || "bg-gray-500"}>
-                    {tag}
-                  </Badge>
-                ))}
-              </div>
+  if (!projects || projects.length === 0) {
+    return null;
+  }
 
-              {(project.releaseType === 'steam' || project.releaseType === 'web') && (
-            <div className="justify-end bottom-4 left-4 z-10 flex gap-2 mt-4">
-                {project.releaseType === 'steam' && (
-                    <div className="bg-blue-800 p-2 rounded-full shadow-lg" title="Released on Steam">
-                        <Image 
-                          width={30}
-                          height={30}
-                          src="/steam-logo.svg" 
-                          alt="steam icon" />
-                    </div>
-                )}
-                {project.releaseType === 'web' && (
-                    <div className="bg-blue-600 text-white p-2 rounded-full shadow-lg" title="Playable on Web">
-                        <Globe className="w-5 h-5" />
-                    </div>
-                )}
-            </div>
-        )}
-            </CardContent>
-            </Card>
+  const duplicatedProjects = [...projects, ...projects];
+
+  return (
+    <section id="projects" className="w-full overflow-hidden relative group">
+      <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-background to-transparent z-10"></div>
+      <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-background to-transparent z-10"></div>
+      <div className="flex animate-scroll-x hover-pause-animation">
+        {duplicatedProjects.map((project: any, index: number) => (
+          <div key={`${project.id}-${index}`} className="flex-shrink-0 w-full md:w-[45%] lg:w-[30%] p-4">
+            <Link href={`/projects/${project.id}`} className="block h-full">
+              <Card
+                className="h-full flex flex-col overflow-hidden transition-all duration-300 ease-in-out hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/20"
+              >
+                <CardHeader className="flex-grow flex flex-col">
+                  <div className="flex flex-wrap gap-2">
+                    {project.properties?.genre?.map((tag : string) => (
+                      <Badge key={tag} variant="secondary"
+                      className={cn(genreColors[tag] || "bg-gray-500", "text-white")}>
+                        {tag}
+                      </Badge>
+                    ))}
+                  </div>
+                  <div className="relative h-60 w-full mt-4">
+                    <Image
+                      src={"/images/" + project.thumbnailUrl}
+                      alt={`Showcase image for ${project.title}`}
+                      fill
+                      className="object-cover rounded-md"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
+                  </div>
+                  <div className="flex justify-end items-center gap-2 text-sm text-muted-foreground mt-4 mb-2">
+                    <Calendar className="w-4 h-4" />
+                    <span>{project.releaseDate}</span>
+                  </div>
+                    <CardTitle className="font-headline mt-4">{project.title}</CardTitle>
+                  <CardDescription className="mt-2 flex-grow">{project.description}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex flex-wrap gap-2">
+                    {project.properties?.skills?.map((tag : string) => (
+                      <Badge key={tag} variant="secondary"
+                      className={cn(skillColors[tag] || "bg-gray-500", "text-white")}>
+                        {tag}
+                      </Badge>
+                    ))}
+                  </div>
+
+                  {(project.releaseType === 'steam' || project.releaseType === 'web') && (
+                <div className="justify-end bottom-4 left-4 z-10 flex gap-2 mt-4">
+                    {project.releaseType === 'steam' && (
+                        <div className="bg-blue-800 p-2 rounded-full shadow-lg" title="Released on Steam">
+                            <Image 
+                              width={30}
+                              height={30}
+                              src="/steam-logo.svg" 
+                              alt="steam icon" />
+                        </div>
+                    )}
+                    {project.releaseType === 'web' && (
+                        <div className="bg-blue-600 text-white p-2 rounded-full shadow-lg" title="Playable on Web">
+                            <Globe className="w-5 h-5" />
+                        </div>
+                    )}
+                </div>
+            )}
+                </CardContent>
+              </Card>
             </Link>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </section>
   );
