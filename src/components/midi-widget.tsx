@@ -86,11 +86,6 @@ export default function MidiWidget({midi} : any) {
           <Pyramid className="text-primary-purple" />
           <CardTitle className="font-headline text-xl">{midi.title}</CardTitle>
         </div>
-        <div className="w-full flex justify-end">
-            {midi.releaseDate && (
-              <span className="text-xs text-muted-foreground -mt-2">{midi.releaseDate}</span>
-            )}
-        </div>
         <CardDescription className="text-xs text-center">
           {midi.properties?.genre?.join(' / ')}
         </CardDescription>
@@ -125,6 +120,12 @@ export default function MidiWidget({midi} : any) {
             ))}
           </div>
         </div>
+
+        {midi.releaseDate && (
+          <div className="text-center mt-4">
+              <span className="text-xs text-muted-foreground">{midi.releaseDate}</span>
+          </div>
+        )}
       </CardContent>
     </Card>
   );
