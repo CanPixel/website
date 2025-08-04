@@ -60,9 +60,9 @@ export default function ProjectsPreview({projects} : any) {
     <section id="projects" className="w-full overflow-hidden relative group">
       <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-background to-transparent z-10"></div>
       <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-background to-transparent z-10"></div>
-      <div className="flex animate-scroll-x hover-pause-animation">
+      <div className="flex animate-scroll-x">
         {duplicatedProjects.map((project: any, index: number) => (
-          <div key={`${project.id}-${index}`} className="flex-shrink-0 w-full md:w-[45%] lg:w-[30%] p-4">
+          <div key={`${project.id}-${index}`} className="flex-shrink-0 w-full md:w-[50%] lg:w-[40%] p-4">
             <Link href={`/projects/${project.id}`} className="block h-full">
               <Card
                 className="h-full flex flex-col overflow-hidden transition-all duration-300 ease-in-out hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/20"
