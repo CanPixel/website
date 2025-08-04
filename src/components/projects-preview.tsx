@@ -10,33 +10,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Calendar, Globe } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { skillColors } from "@/data/projects";
-
-const genreColors: { [key: string]: string } = {
-  "Action": "bg-red-500",
-  "Adventure": "bg-blue-500",
-  "Exploration": "bg-gray-700",
-  "Puzzle": "bg-green-500",
-  "Battle Royale": "bg-purple-600",
-  "Bullet Hell": "bg-pink-500",
-  "FPS": "bg-orange-500",
-  "Horror": "bg-red-600",
-  "Cooking": "text-black bg-yellow-200",
-  "Racing": "bg-teal-500",
-  "Endless Runner": "bg-cyan-500",
-  "Platformer": "bg-lime-500",
-  "Roguelike": "bg-indigo-500",
-  "Stealth": "bg-gray-700",
-  "Survival": "bg-brown-500",
-  "Collect-A-Thon": "bg-emerald-600",
-  "Strategy": "bg-rose-700",
-  "Audio": "bg-violet-500",
-  "Handheld": "bg-fuchsia-500",
-  "Interactive Installation": "bg-sky-500",
-  "Unity Tool": "bg-red-700",
-  "Misc": "bg-neutral-500"
-};
-
+import { skillColors, genreColors } from "@/data/projects";
 
 export default function ProjectsPreview({projects} : any) {
   if (!projects || projects.length === 0) {

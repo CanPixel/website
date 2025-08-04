@@ -99,6 +99,39 @@ export const skillColors: { [key: string]: string } = {
   "Java": "bg-red-700",
 };
 
+export const genreColors: { [key: string]: string } = {
+  "Action": "bg-red-500",
+  "Adventure": "bg-blue-500",
+  "Exploration": "bg-gray-700",
+  "Puzzle": "bg-green-500",
+  "Battle Royale": "bg-purple-600",
+  "Bullet Hell": "bg-pink-500",
+  "FPS": "bg-orange-500",
+  "Horror": "bg-red-600",
+  "Cooking": "text-black bg-yellow-200",
+  "Racing": "bg-teal-500",
+  "Endless Runner": "bg-cyan-500",
+  "Platformer": "bg-lime-500",
+  "Roguelike": "bg-indigo-500",
+  "Stealth": "bg-gray-700",
+  "Survival": "bg-brown-500",
+  "Collect-A-Thon": "bg-emerald-600",
+  "Strategy": "bg-rose-700",
+  "Audio": "bg-violet-500",
+  "Handheld": "bg-fuchsia-500",
+  "Interactive Installation": "bg-sky-500",
+  "Unity Tool": "bg-red-700",
+  "Misc": "bg-neutral-500"
+};
+
+export const platformColors: { [key: string]: string } = {
+    "Windows": "bg-blue-600",
+    "macOS": "bg-gray-500",
+    "Linux": "bg-yellow-500",
+    "Web": "bg-green-500",
+    "Mobile": "bg-purple-500",
+    "Steam": "bg-gray-800",
+};
 
 export function getProjectStyling(projectId: string): ProjectStyling {
   const projectSpecificStyling = projectStyles[projectId];

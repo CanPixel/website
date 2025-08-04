@@ -2,7 +2,7 @@
 'use client';
 
 import Image from 'next/image';
-import { Project, skillColors } from '@/data/projects';
+import { Project, skillColors, platformColors, genreColors } from '@/data/projects';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import NavMenu from "@/components/navigation";
@@ -82,7 +82,7 @@ export default function ProjectDetailPage({ project }: { project: Project | null
                     </CardDescription> 
                 </CardContent>
             </Card>
-            <div className="p-6 mt-6 rounded-lg bg-card border">
+             <div className="p-6 mt-6 rounded-lg bg-card border">
               <h3 className="font-headline text-2xl font-bold mb-4">Tech Stack</h3>
               <div className="flex flex-wrap gap-2">
                 {project.properties?.skills?.map((tech : string) => (
@@ -95,6 +95,33 @@ export default function ProjectDetailPage({ project }: { project: Project | null
 
       <div className="grid md:grid-cols-3 gap-12 mt-8">
         <div className="md:col-span-2 space-y-6 prose prose-lg dark:prose-invert max-w-none text-foreground/90">
+            
+            {project.properties?.platforms && project.properties.platforms.length > 0 && (
+            <div className="p-6 rounded-lg bg-card border">
+                <h3 className="font-headline text-2xl font-bold mb-4">Platforms</h3>
+                <div className="flex flex-wrap gap-2">
+                {project.properties.platforms.map((platform: string) => (
+                    <Badge key={platform} className={cn(platformColors[platform] || 'bg-gray-400', 'text-white')}>
+                    {platform}
+                    </Badge>
+                ))}
+                </div>
+            </div>
+            )}
+
+            {project.properties?.genre && project.properties.genre.length > 0 && (
+            <div className="p-6 rounded-lg bg-card border">
+                <h3 className="font-headline text-2xl font-bold mb-4">Tags</h3>
+                <div className="flex flex-wrap gap-2">
+                {project.properties.genre.map((g: string) => (
+                    <Badge key={g} className={cn(genreColors[g] || 'bg-gray-400', 'text-white')}>
+                    {g}
+                    </Badge>
+                ))}
+                </div>
+            </div>
+            )}
+
             <h3 className="font-headline text-2xl font-bold mb-4">Technical Details</h3>
             <p>
                 The game was developed in Unity, leveraging C# for all gameplay logic, AI behavior, and system management. One of the core technical challenges was creating an efficient procedural generation system for the galaxy map. I used a combination of Perlin noise for star distribution and a custom algorithm to ensure playable paths and interesting clusters of systems. This allows for a unique galaxy in every playthrough, greatly enhancing replayability.
