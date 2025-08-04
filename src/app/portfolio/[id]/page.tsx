@@ -27,7 +27,7 @@ export default function ProjectDetailPage({ project }: { project: Project | null
       <NavMenu/>
       
       <div className="flex items-center justify-between gap-8 mt-8">
-        <Button asChild variant="link" className="p-0 h-auto text-accent group-hover:underline flex-shrink-0">
+        <Button asChild variant="link" className="p-0 h-auto text-accent group-hover:underline flex-shrink-0 top-px relative">
           <Link href="/projects">
             <ArrowLeft className="mr-2 h-4 w-4" />
             Realms
@@ -70,7 +70,7 @@ export default function ProjectDetailPage({ project }: { project: Project | null
                 src={"/images/" + project.thumbnailUrl}
                 alt={project.title}
                 fill
-                className="object-cover"/>
+                className="object-contain"/>
               <div className="absolute inset-0 bg-repeat bg-center opacity-5" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E\")" }}></div>
             </div>
           </Card>
@@ -165,5 +165,3 @@ export default function ProjectDetailPage({ project }: { project: Project | null
     </div>
   );
 }
-
-    
