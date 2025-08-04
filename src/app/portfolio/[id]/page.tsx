@@ -11,8 +11,7 @@ import Link from 'next/link';
 
 export default function ProjectDetailPage({ project }: { project: Project | null | undefined }) {
   if (project === undefined || project === null) {
-    console.error("Project data is missing");
-    return <div>Error loading project data.</div>;
+    return (<div>Error loading project data.</div>);
   }
 
   return (

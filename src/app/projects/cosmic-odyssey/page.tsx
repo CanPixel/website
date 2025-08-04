@@ -1,14 +1,23 @@
-import Image from "next/image";
-// import { Project } from '@/data/projects';
-// import { notFound } from "next/navigation";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Globe, Github } from "lucide-react";
-import Link from "next/link";
+'use client';
 
-export default function ProjectDetailPage(project : any) {
+import Image from "next/image";
+import { Project } from '@/data/projects';
+import { Badge } from "@/components/ui/badge";
+import { Globe, Github } from "lucide-react";
+import { Button } from '@/components/ui/button';
+import { ArrowLeft } from 'lucide-react';
+import Link from 'next/link';
+import NavMenu from "@/components/navigation";
+
+export default function ProjectDetailPage({ project }: { project: Project | null | undefined }) {
+  if (project === undefined || project === null) {
+    return (<div>Error loading project data.</div>);
+  }
+  
   return (
     <div className="container mx-auto px-4 py-16">
+      <NavMenu/>
+
       <header className="text-center mb-12">
         <h1 className="font-headline text-5xl font-bold tracking-tighter mb-4">{project.title}</h1>
         <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -18,10 +27,9 @@ export default function ProjectDetailPage(project : any) {
 
       <div className="relative w-full h-72 md:h-[500px] rounded-lg overflow-hidden mb-12 shadow-2xl shadow-primary/20">
         <Image
-          src={project.image}
+          src={"images/" + project.thumbnailUrl}
           alt={project.title}
           fill
-          data-ai-hint={project.aiHint}
           className="object-cover"
         />
       </div>
@@ -30,7 +38,7 @@ export default function ProjectDetailPage(project : any) {
         <div className="md:col-span-2 space-y-6 prose prose-lg dark:prose-invert max-w-none text-foreground/90">
             <h3>About The Project</h3>
             <p>
-              {project.longDescription}
+              {project.description}
             </p>
             <h3>Technical Details</h3>
             <p>
@@ -52,17 +60,17 @@ export default function ProjectDetailPage(project : any) {
           <div className="p-6 rounded-lg bg-card border">
              <h3 className="font-headline text-2xl font-bold mb-4">Project Links</h3>
              <div className="space-y-4">
-                 {project.liveUrl && (
+                 {project.url && (
                      <Button asChild className="w-full">
-                         <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                         <Link href={project.url} target="_blank" rel="noopener noreferrer">
                              <Globe className="mr-2 h-4 w-4" />
                              Live Demo
                          </Link>
                      </Button>
                  )}
-                 {project.repoUrl && (
+                 {project.url && (
                      <Button asChild variant="outline" className="w-full">
-                         <Link href={project.repoUrl} target="_blank" rel="noopener noreferrer">
+                         <Link href={project.url} target="_blank" rel="noopener noreferrer">
                              <Github className="mr-2 h-4 w-4" />
                              Source Code
                          </Link>
