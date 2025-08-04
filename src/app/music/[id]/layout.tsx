@@ -1,7 +1,7 @@
 import { db } from '@/lib/firebase';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { notFound } from 'next/navigation';
-import { Project, getProjectStyling } from '@/data/music';
+import { Project, getProjectStyling } from '@/data/projects';
 import ProjectDetailPage from './page';
 
 export async function generateStaticParams() {
@@ -57,7 +57,7 @@ export default async function ProjectLayout({
 
   return (
     <>
-      <ProjectDetailPage project={project} />
+      {/* <ProjectDetailPage /> */}
       {children}
     </>
   );

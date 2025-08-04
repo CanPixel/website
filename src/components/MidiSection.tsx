@@ -12,7 +12,7 @@ import { Button } from '@/components/ui/button'; // Assuming you have a Button c
 // Define possible genres and tags based on your requirements
 const allGenres = [
   "Indie", "Progressive Rock", "Instrumental Narrative", "Funk",
-  "Experimental", "Blues", "Metal", "Hardcore", "Symphonic Metal",
+  "Experimental", "Blues", "Metal", "Hardcore", "Symphonic",
 ];
 
 const allTags = [
