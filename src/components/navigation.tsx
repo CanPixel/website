@@ -20,13 +20,11 @@ export default function NavMenu() {
   const [isAtTop, setIsAtTop] = useState(true);
   useEffect(() => {
     // Set initial state after mount to avoid hydration mismatch
-    setIsAtTop(window.scrollY < 50);
+    const checkScroll = () => setIsAtTop(window.scrollY < 50);
+    checkScroll();
 
-    const handleScroll = () => {
-      setIsAtTop(window.scrollY < 50);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", checkScroll);
+    return () => window.removeEventListener("scroll", checkScroll);
   }, []);
 
   return (    
@@ -72,7 +70,7 @@ export default function NavMenu() {
               ) : (
                 <Link key={link.href} href={link.href}
                   className={cn(
-                    "relative transition-colors hover:text-accent group",
+                    "relative transition-colors hover:text-accent group top-1",
                     pathname.startsWith(link.href) ? "text-accent" : "text-foreground/80",
                     link.label === "About" ? "mr-auto" : link.label === "Reach" ? "ml-auto" : ""
                   )}
