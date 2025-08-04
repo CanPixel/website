@@ -25,11 +25,9 @@ export default async function ProjectLayout({
   let project: Project | null = null;
 
   if (projectDoc.exists()) {
-    const dbProjectData = projectDoc.data() as Omit<Project, 'id' | 'styling'>;
-    const styling = getProjectStyling(projectDoc.id);
-
+    const dbProjectData = projectDoc.data() as Project;
+    const styling = getProjectStyling(dbProjectData.id);
     project = { 
-      id: projectDoc.id, 
       ...dbProjectData,
       styling,
     };

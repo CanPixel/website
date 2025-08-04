@@ -7,12 +7,6 @@ import { Globe, Github } from "lucide-react";
 import Link from "next/link";
 
 export default function ProjectDetailPage(project : any) {
-  // const project = projects.find(p => p.id === "avoid");
-
-  // if (!project) {
-  //   notFound();
-  // }
-
   return (
     <div className="container mx-auto px-4 py-16">
       <header className="text-center mb-12">
