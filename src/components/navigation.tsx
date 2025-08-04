@@ -70,7 +70,7 @@ export default function NavMenu() {
               ) : (
                 <Link key={link.href} href={link.href}
                   className={cn(
-                    "relative transition-colors hover:text-accent group top-1",
+                    "relative transition-colors hover:text-accent group top-px",
                     pathname.startsWith(link.href) ? "text-accent" : "text-foreground/80",
                     link.label === "About" ? "mr-auto" : link.label === "Reach" ? "ml-auto" : ""
                   )}
