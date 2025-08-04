@@ -176,23 +176,8 @@ export default function MidiSection() {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredProjects.map(project => (
-              <div key={project.id} className="border p-4 rounded-lg">
+              <div key={project.id}>
                 <MidiWidget midi={project} />
-                
-                {/* You can render a simplified card or list item for each project */}
-                <h4 className="text-lg font-bold">{project.title}</h4>
-                <p className="text-muted-foreground text-sm">{project.shortDescription}</p>
-                 {/* Display genre and tags */}
-                 <div className="flex flex-wrap gap-1 mt-2">
-                     {project.properties?.genre?.map((genre : string) => (
-                         <Badge key={genre} variant="secondary">{genre}</Badge>
-                     ))}
-                     {project.properties?.moodTags?.map((tag : string) => (
-                         <Badge key={tag} variant="outline">{tag}</Badge>
-                     ))}
-                 </div>
-                 {/* Add a link to the project detail page if applicable */}
-                 {/* <Link href={`/portfolio/${project.id}`}>View Details</Link> */}
               </div>
             ))}
           </div>
