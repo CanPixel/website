@@ -19,6 +19,7 @@ export interface Project {
     trailerUrl?: string;
     midiFileUrl?: string;
     moodTags?: string[];
+    steamUrl?: string;
   };
   styling: ProjectStyling;
 }

@@ -1,4 +1,5 @@
 
+
 'use client';
 
 import Image from 'next/image';
@@ -79,6 +80,11 @@ export default function ProjectDetailPage({ project }: { project: Project | null
                     For the real-time combat, I implemented a component-based ship system, allowing for easy customization of weapons, shields, and engines. The UI was built using Unity's UGUI system, with a focus on creating a clean, readable interface that evokes classic sci-fi tropes while remaining modern and intuitive.
                 </p>
             </div>
+          {project.properties?.steamUrl && (
+            <div className="mt-8">
+              <iframe src={project.properties.steamUrl} frameBorder="0" width="100%" height="190"></iframe>
+            </div>
+          )}
         </div>
 
         <aside className='md:col-span-1 space-y-8'>
