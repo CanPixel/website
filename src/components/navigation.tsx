@@ -73,7 +73,7 @@ export default function NavMenu() {
                     "relative transition-colors hover:text-accent group",
                      "text-lg",
                     pathname.startsWith(link.href) ? "text-accent" : "text-foreground/80",
-                    link.label === "About" ? "mr-auto" : link.label === "Reach" ? "ml-auto" : ""
+                    link.label === "About" ? "mr-11" : link.label === "Reach" ? "ml-11" : ""
                   )}
                 >
                   <span>{link.label}</span>
