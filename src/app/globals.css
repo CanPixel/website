@@ -102,6 +102,11 @@
   }
 
   .animate-scroll-x {
-    animation: scroll-x 60s linear infinite;
+    animation: scroll-x 120s linear infinite;
+    transition: animation-duration 0.5s ease-out;
+  }
+
+  .group:hover .animate-scroll-x {
+    animation-duration: 360s;
   }
 }

@@ -57,14 +57,14 @@ export default function ProjectsPreview({projects} : any) {
   const duplicatedProjects = [...projects, ...projects, ...projects, ...projects];
 
   return (
-    <section id="projects" className="w-full overflow-hidden relative">
+    <section id="projects" className="w-full overflow-hidden relative group">
       <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-background to-transparent z-10"></div>
       <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-background to-transparent z-10"></div>
       <div className="flex">
-        <div className="flex animate-scroll-x">
+        <div className="flex w-max animate-scroll-x">
           {duplicatedProjects.map((project: any, index: number) => (
             <div key={`${project.id}-${index}`} className="w-[450px] p-4 flex-shrink-0">
-              <Link href={`/projects/${project.id}`} className="block h-full">
+              <Link href={`/portfolio/${project.id}`} className="block h-full">
                 <Card
                   className="h-full flex flex-col overflow-hidden transition-all duration-300 ease-in-out hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/20"
                 >
