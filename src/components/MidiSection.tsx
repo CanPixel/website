@@ -11,9 +11,8 @@ import { Button } from '@/components/ui/button'; // Assuming you have a Button c
 
 // Define possible genres and tags based on your requirements
 const allGenres = [
-  "Indie Rock", "Progressive Rock", "Instrumental Narrative", "Funk",
-  "Experimental", "Blues", "Metal", "Hardcore Metal", "Symphonic Metal",
-  "Thrash Metal"
+  "Indie", "Progressive Rock", "Instrumental Narrative", "Funk",
+  "Experimental", "Blues", "Metal", "Hardcore", "Symphonic Metal",
 ];
 
 const allTags = [
@@ -44,7 +43,7 @@ export default function MidiSection() {
         const q = query(projectsCollection, where('type', '==', 'midi'));
         const projectSnapshot = await getDocs(q);
         const projectsList = projectSnapshot.docs.map(doc => ({
-          id: doc.id,
+          // id: doc.id,
           ...doc.data() as Project
         }));
         setMidiProjects(projectsList);
@@ -106,11 +105,11 @@ export default function MidiSection() {
   };
 
   if (loading) {
-    return <div>Loading MIDI projects...</div>;
+    return <div className="mt-6">Loading MIDI projects...</div>;
   }
 
   if (error) {
-    return <div>Error loading MIDI projects: {error}</div>;
+    return <div className="mt-6">Error loading MIDI projects: {error}</div>;
   }
 
   return (
