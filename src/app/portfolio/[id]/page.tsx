@@ -2,7 +2,7 @@
 'use client';
 
 import Image from 'next/image';
-import { Project } from '@/data/projects';
+import { Project, skillColors } from '@/data/projects';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import NavMenu from "@/components/navigation";
@@ -86,7 +86,7 @@ export default function ProjectDetailPage({ project }: { project: Project | null
               <h3 className="font-headline text-2xl font-bold mb-4">Tech Stack</h3>
               <div className="flex flex-wrap gap-2">
                 {project.properties?.skills?.map((tech : string) => (
-                  <Badge key={tech}>{tech}</Badge>
+                  <Badge key={tech} className={cn(skillColors[tech] || "bg-gray-500", "text-white")}>{tech}</Badge>
                 ))}
               </div>
             </div>

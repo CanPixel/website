@@ -10,6 +10,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Calendar, Globe } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { skillColors } from "@/data/projects";
 
 const genreColors: { [key: string]: string } = {
   "Action": "bg-red-500",
@@ -35,19 +36,7 @@ const genreColors: { [key: string]: string } = {
   "Unity Tool": "bg-red-700",
   "Misc": "bg-neutral-500"
 };
-const skillColors: { [key: string]: string } = {
-  "Unity": "bg-teal-600",
-  "C#": "bg-purple-700",
-  "Html": "bg-orange-500",
-  "C++": "bg-blue-700",
-  "Audio Design": "bg-pink-700",
-  "Editor Script": "bg-yellow-500",
-  "Arduino": "bg-cyan-500",
-  "PICO-8": "bg-red-500",
-  "LUA": "bg-indigo-500",
-  "Construct 2": "bg-green-500",
-  "Java": "bg-red-700",
-};
+
 
 export default function ProjectsPreview({projects} : any) {
   if (!projects || projects.length === 0) {

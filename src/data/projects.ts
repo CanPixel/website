@@ -85,6 +85,21 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
   },
 };
 
+export const skillColors: { [key: string]: string } = {
+  "Unity": "bg-teal-600",
+  "C#": "bg-purple-700",
+  "Html": "bg-orange-500",
+  "C++": "bg-blue-700",
+  "Audio Design": "bg-pink-700",
+  "Editor Script": "bg-yellow-500",
+  "Arduino": "bg-cyan-500",
+  "PICO-8": "bg-red-500",
+  "LUA": "bg-indigo-500",
+  "Construct 2": "bg-green-500",
+  "Java": "bg-red-700",
+};
+
+
 export function getProjectStyling(projectId: string): ProjectStyling {
   const projectSpecificStyling = projectStyles[projectId];
 
