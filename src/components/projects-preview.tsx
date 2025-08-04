@@ -60,7 +60,7 @@ export default function ProjectsPreview({projects} : any) {
     <section id="projects" className="w-full overflow-hidden relative">
       <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-background to-transparent z-10"></div>
       <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-background to-transparent z-10"></div>
-      <div className="flex animate-scroll-x">
+      <div className="flex animate-scroll-x w-max">
         {duplicatedProjects.map((project: any, index: number) => (
           <div key={`${project.id}-${index}`} className="flex-shrink-0 w-full md:w-[50%] lg:w-[40%] p-4">
             <Link href={`/projects/${project.id}`} className="block h-full">
@@ -107,15 +107,15 @@ export default function ProjectsPreview({projects} : any) {
                     {project.releaseType === 'steam' && (
                         <div className="bg-blue-800 p-2 rounded-full shadow-lg" title="Released on Steam">
                             <Image 
-                              width={30}
-                              height={30}
+                              width={28}
+                              height={28}
                               src="/steam-logo.svg" 
                               alt="steam icon" />
                         </div>
                     )}
                     {project.releaseType === 'web' && (
                         <div className="bg-blue-600 text-white p-2 rounded-full shadow-lg" title="Playable on Web">
-                            <Globe className="w-6 h-6" />
+                            <Globe className="w-7 h-7" />
                         </div>
                     )}
                 </div>
