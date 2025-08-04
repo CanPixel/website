@@ -1,3 +1,4 @@
+
 'use client';
 
 import Image from 'next/image';
@@ -20,25 +21,25 @@ export default function ProjectDetailPage({ project }: { project: Project | null
     <div className="container mx-auto px-4 py-16">
       <NavMenu/>
       
-      <div className="text-center">
-        <Button asChild variant="link" className="p-0 h-auto mt-4 text-accent group-hover:underline">
+      <div className="flex items-center justify-between gap-8 mt-8">
+        <Button asChild variant="link" className="p-0 h-auto text-accent group-hover:underline flex-shrink-0">
           <Link href="/projects">
             <ArrowLeft className="mr-2 h-4 w-4" />
             Return
           </Link>
         </Button>
 
-        <header className="mt-8">
+        <header className="text-center flex-grow">
           <h1 className="font-headline text-5xl font-bold tracking-tighter mb-2 text-primary">{project.title}</h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             {project.shortDescription}
           </p>
-          <Badge variant="outline" className="mb-8 mt-4">{project.label}</Badge>
+          {project.label && <Badge variant="outline" className="mt-4">{project.label}</Badge>}
         </header>
 
         <Badge
           variant="outline"
-          className={cn("p-2 px-3 whitespace-nowrap", project.styling.badgeBackgroundColor)}
+          className={cn("p-2 px-3 whitespace-nowrap flex-shrink-0", project.styling.badgeBackgroundColor)}
           style={{
             borderColor: project.styling.borderColor,
             color: 'bg-white',
