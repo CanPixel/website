@@ -20,18 +20,8 @@ export interface Project {
     midiFileUrl?: string;
     moodTags?: string[];
   };
-  styling: {
-    backgroundSize?: string | number;
-    backgroundColor: string;
-    textColor: string;
-    fontFamily: string;
-    backgroundImage?: string;
-    borderColor?: string;
-    animationClass?: string;
-    className?: string;
-  }
+  styling: ProjectStyling;
 }
-
 export interface ProjectStyling {
   backgroundSize?: string | number;
   backgroundColor: string;
@@ -41,9 +31,20 @@ export interface ProjectStyling {
   borderColor?: string;
   animationClass?: string;
   className?: string;
+  badgeBackgroundColor?: string;
 }
+const defaultStyling: ProjectStyling = {
+  backgroundColor: 'hsl(var(--card))',
+  textColor: 'hsl(var(--card-foreground))',
+  fontFamily: 'var(--font-body)',
+  borderColor: 'hsl(var(--border))',
+  animationClass: 'group-hover:scale-105',
+  className: '',
+  badgeBackgroundColor: 'bg-white/20', 
+};
 
-export const projectStyles: { [id: string]: ProjectStyling } = {
+
+export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
   'chivalry-chef':
   {
     backgroundColor: '#F5E8C7',
@@ -80,5 +81,19 @@ export const projectStyles: { [id: string]: ProjectStyling } = {
     backgroundSize: '20px 20px',
     borderColor: '#00FF00',
     animationClass: 'group-hover:animate-pulse',
+    badgeBackgroundColor: 'bg-black/30',
   },
 };
+
+export function getProjectStyling(projectId: string): ProjectStyling {
+  const projectSpecificStyling = projectStyles[projectId];
+
+  return {
+    ...defaultStyling,
+    ...(projectSpecificStyling || {}),
+    // If you had properties that you wanted to merge deeply or had specific default logic,
+    // you would add them here, potentially checking if the property exists in projectSpecificStyling
+    // For example:
+    // badgeBackgroundColor: projectSpecificStyling?.badgeBackgroundColor ?? defaultStyling.badgeBackgroundColor
+  };
+}

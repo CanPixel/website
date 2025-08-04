@@ -10,11 +10,11 @@ import ProjectsPreview from "@/components/projects-preview";
 import NavMenu from "@/components/navigation";
 import { Button } from "@/components/ui/button";
 
-import MusicProjectCard from "@/components/music-project-card";
+// import MusicProjectCard from "@/components/music-project-card";
 // import { blogData } from "@/lib/blogData";
 
 import { ArrowRight } from "lucide-react";
-import { cn } from "@/lib/utils";
+// import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from 'next/link';
 

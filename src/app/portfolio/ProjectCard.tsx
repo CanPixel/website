@@ -6,24 +6,17 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { projectStyles } from '@/data/projects';
+import { getProjectStyling } from '@/data/projects';
 import { Key } from 'react';
 
 export function ProjectCard({ project }: { project : any }) {
-  const styling = projectStyles[project.id] || {
-    // Provide default styling here if no match is found in projectStyles
-    backgroundColor: 'hsl(var(--card))',
-    textColor: 'hsl(var(--card-foreground))',
-    fontFamily: 'var(--font-body)',
-    borderColor: 'hsl(var(--border))',
-    animationClass: 'group-hover:scale-105',
-    className: '',
-  };
+  const styling = getProjectStyling(project.id);
 
-  return (
+ return (
+    <div className="group">
     <Card
       className={cn(
-        'overflow-hidden transition-all duration-300 ease-in-out border-2 group flex flex-col h-full',
+ 'overflow-hidden transition-all duration-300 ease-in-out border-2 flex flex-col h-full test-hover',
         styling.animationClass,
         styling.className
       )}
@@ -43,7 +36,7 @@ export function ProjectCard({ project }: { project : any }) {
               </CardTitle>
               <Badge
                 variant="outline"
-                className="p-2 px-3 bg-white/30 whitespace-nowrap"
+                className={cn("p-2 px-3 whitespace-nowrap", styling.badgeBackgroundColor)}
                 style={{
                   borderColor: styling.borderColor,
                   color: styling.textColor,
@@ -58,7 +51,7 @@ export function ProjectCard({ project }: { project : any }) {
               <Badge
                 variant="outline"
                 key={index}
-                className="mt-2 mr-1"
+                className={cn("mt-2 mr-1", styling.badgeBackgroundColor)}
                 style={{
                   borderColor: styling.borderColor,
                   color: styling.textColor,
@@ -70,7 +63,7 @@ export function ProjectCard({ project }: { project : any }) {
               project.properties?.genre ? (
                 <Badge
                   variant="outline"
-                  className="mt-2"
+                  className={cn("mt-2", styling.badgeBackgroundColor)}
                   style={{
                     borderColor: styling.borderColor,
                     color: styling.textColor,
@@ -81,7 +74,7 @@ export function ProjectCard({ project }: { project : any }) {
               ) : (
                 <Badge
                   variant="outline"
-                  className="mt-2"
+                  className={cn("mt-2", styling.badgeBackgroundColor)}
                   style={{
                     borderColor: styling.borderColor,
                     color: styling.textColor,
@@ -114,5 +107,6 @@ export function ProjectCard({ project }: { project : any }) {
         </Button>
       </CardContent>
     </Card>
-  );
+ </div>
+ );
 }
