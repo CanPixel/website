@@ -70,15 +70,16 @@ export default function MidiWidget({midi} : any) {
         
         <div className="mt-8">
           <h4 className="font-mono text-sm text-muted-foreground mb-2 px-2">MOOD TAGS</h4>
-          <ul className="space-y-1">
-              <li>
-                {midi.properties?.moodTags?.map((tag : string) => (
-                  <div key={tag} className="text-left p-2 rounded-md transition-colors bg-primary-purple/20 text-primary-purple">
-                    {tag}
-                  </div>
-                ))}
-              </li>
-          </ul>
+           <div className="flex flex-wrap gap-1">
+            {midi.properties?.moodTags?.map((tag: string) => (
+              <div
+                key={tag}
+                className="text-left p-1 px-2 rounded-md transition-colors bg-primary-purple/20 text-primary-purple text-xs"
+              >
+                {tag}
+              </div>
+            ))}
+          </div>
         </div>
       </CardContent>
     </Card>
