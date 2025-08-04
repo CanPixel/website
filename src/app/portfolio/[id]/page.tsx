@@ -35,7 +35,7 @@ export default function ProjectDetailPage({ project }: { project: Project | null
         </Button>
 
         <header className="text-center flex-grow">
-          <h1 className="font-headline text-5xl font-bold tracking-tighter mb-2 text-primary">{project.title}</h1>
+          <h1 className={cn("font-headline text-5xl font-bold tracking-tighter mb-2 shiny-text", project.styling.textColor ? "" : "text-primary")}>{project.title}</h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             {project.shortDescription}
           </p>
@@ -64,7 +64,7 @@ export default function ProjectDetailPage({ project }: { project: Project | null
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-12">
         <div className='md:col-span-2'>
-          <Card className='overflow-hidden border-2' style={{borderColor: project.styling.borderColor}}>
+          <Card className='overflow-hidden border-2 shadow-lg rounded-lg transition-all duration-300' style={{borderColor: project.styling.borderColor, boxShadow: `0 10px 25px -5px ${project.styling.borderColor}30, 0 8px 10px -6px ${project.styling.borderColor}20`}}>
             <div className="relative aspect-video w-full"> 
               <Image 
                 src={"/images/" + project.thumbnailUrl}
@@ -165,3 +165,5 @@ export default function ProjectDetailPage({ project }: { project: Project | null
     </div>
   );
 }
+
+    
