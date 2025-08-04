@@ -18,7 +18,7 @@ export default function ProjectDetailPage({ project }: { project: Project | null
     <div className="container mx-auto px-4 py-16">
       <NavMenu/>
 
-      <Button variant="link" className="p-0 h-auto mt-4 text-inherit group-hover:underline self-start">
+      <Button variant="link" className="p-0 h-auto mt-4 text-accent group-hover:underline self-start">
         <ArrowLeft className="ml-2 h-4 w-4" />
         Return
       </Button>
