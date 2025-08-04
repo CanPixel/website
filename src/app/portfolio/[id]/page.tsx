@@ -20,7 +20,7 @@ export default function ProjectDetailPage({ project }: { project: Project | null
     <div className="container mx-auto px-4 py-16">
       <NavMenu/>
       
-      <div className="flex flex-col items-center text-center">
+      <div className="text-center">
         <Button asChild variant="link" className="p-0 h-auto mt-4 text-accent group-hover:underline">
           <Link href="/projects">
             <ArrowLeft className="mr-2 h-4 w-4" />
