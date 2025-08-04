@@ -81,19 +81,19 @@ export default function MidiWidget({midi} : any) {
 
   return (
     <Card className="w-full max-w-md overflow-hidden shadow-2xl">
-      <CardHeader className="p-4 pb-2">
+      <CardHeader className="p-4 pb-2 flex flex-col items-center">
         <div className="flex items-center gap-2 mb-1">
           <Pyramid className="text-primary-purple" />
-           <div className="flex justify-between items-end w-full">
-            <CardTitle className="font-headline text-xl">{midi.title}</CardTitle>
-            {midi.releaseDate && (
-              <span className="text-xs text-muted-foreground">{midi.releaseDate}</span>
-            )}
-          </div>
+          <CardTitle className="font-headline text-xl">{midi.title}</CardTitle>
         </div>
-        <CardDescription className="text-xs text-left ml-8 -mt-2">
+        <div className="w-full flex justify-end">
+            {midi.releaseDate && (
+              <span className="text-xs text-muted-foreground -mt-2">{midi.releaseDate}</span>
+            )}
+        </div>
+        <CardDescription className="text-xs text-center">
           {midi.properties?.genre?.join(' / ')}
-          </CardDescription>
+        </CardDescription>
       </CardHeader>
       <CardContent className="p-4 pt-0">
         <div className="bg-background/50 rounded-lg p-3">
