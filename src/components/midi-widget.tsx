@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import {
   Card,
   CardContent,
@@ -14,20 +14,8 @@ import {
   Play,
   Pause,
   Pyramid,
-  Volume2,
 } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import { Calendar } from "lucide-react";
-// import { cn } from "@/lib/utils";
-// import { skillColors, genreColors } from "@/data/projects";
 import { Progress } from "@/components/ui/progress";
-
-// const tracks = [
-//   { title: "Neon Ziggurat", duration: "3:41" },
-//   { title: "Crystal Algorithm", duration: "4:22" },
-//   { title: "Hex-Code Ritual", duration: "5:01" },
-//   { title: "Subroutine Valley", duration: "2:58" },
-// ];
 
 export default function MidiWidget({midi} : any) {
   if (!midi) {
@@ -35,12 +23,51 @@ export default function MidiWidget({midi} : any) {
   }
 
   const [isPlaying, setIsPlaying] = useState(false);
-  // const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
-  const handlePlayPause = () => setIsPlaying(!isPlaying);
+  const [progress, setProgress] = useState(0);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  useEffect(() => {
+    if (midi?.properties?.midiFileUrl) {
+      audioRef.current = new Audio(midi.properties.midiFileUrl);
+
+      const audio = audioRef.current;
+
+      const updateProgress = () => {
+        if (audio.duration > 0) {
+          setProgress((audio.currentTime / audio.duration) * 100);
+        }
+      };
+
+      const onEnded = () => {
+        setIsPlaying(false);
+        setProgress(0);
+      };
+      
+      audio.addEventListener('timeupdate', updateProgress);
+      audio.addEventListener('ended', onEnded);
+      
+      return () => {
+        audio.pause();
+        audio.removeEventListener('timeupdate', updateProgress);
+        audio.removeEventListener('ended', onEnded);
+      };
+    }
+  }, [midi?.properties?.midiFileUrl]);
+
+  const handlePlayPause = () => {
+    if (audioRef.current) {
+        if (isPlaying) {
+            audioRef.current.pause();
+        } else {
+            audioRef.current.play();
+        }
+        setIsPlaying(!isPlaying);
+    }
+  };
 
   return (
     <Card className="w-full max-w-md overflow-hidden shadow-2xl">
-      <CardHeader className="text-center p-4">
+      <CardHeader className="text-center p-4 pb-2">
         <div className="flex justify-center items-center gap-2 mb-1">
           <Pyramid className="text-primary-purple" />
           <CardTitle className="font-headline text-xl">{midi.title}</CardTitle>
@@ -49,22 +76,22 @@ export default function MidiWidget({midi} : any) {
           {midi.properties?.genre?.join(' / ')}
           </CardDescription>
       </CardHeader>
-      <CardContent className="p-4 pt-0">
+      <CardContent className="p-4 pt-2">
         <div className="bg-background/50 rounded-lg p-3">
           <div className="flex justify-between items-center mb-2">
             <p className="font-bold font-mono text-sm truncate">{midi.title}</p>
             <p className="text-xs text-muted-foreground font-mono">{midi.duration}</p>
           </div>
-          <Progress value={isPlaying ? 33 : 0} className="h-2" />
+          <Progress value={progress} className="h-2" />
         </div>
 
-        <div className="flex justify-center items-center gap-4 mt-4">
+        <div className="flex justify-center items-center gap-4 mt-2">
           <Button variant="default" size="icon" className="bg-primary-purple hover:bg-primary-purple/80 h-14 w-14 rounded-full" onClick={handlePlayPause}>
             {isPlaying ? <Pause size={28} /> : <Play size={28} />}
           </Button>
         </div>
         
-        <div className="mt-4">
+        <div className="mt-2">
           <h4 className="font-mono text-xs text-muted-foreground mb-2 px-2">MOOD TAGS</h4>
            <div className="flex flex-wrap justify-center gap-1">
             {midi.properties?.moodTags?.map((tag: string) => (
