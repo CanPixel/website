@@ -36,12 +36,23 @@ export function ProjectCard({ project }: { project : any }) {
         borderColor: styling.borderColor,
       }}
     >
-      <CardHeader className="flex flex-row items-start justify-between">
+      <CardHeader>
+          <div className="flex justify-between items-start">
+              <CardTitle className="text-2xl font-bold" 
+              style={{ color: styling.textColor }}>{project.title}
+              </CardTitle>
+              <Badge
+                variant="outline"
+                className="p-2 px-3 bg-white/30 whitespace-nowrap"
+                style={{
+                  borderColor: styling.borderColor,
+                  color: styling.textColor,
+                }}
+                >
+                  {project.releaseDate ?? 'Coming Soon'}
+              </Badge>
+          </div>
           <div>
-            <CardTitle className="text-2xl font-bold" 
-            style={{ color: styling.textColor }}>{project.title}
-            </CardTitle>
-
             {project.properties?.genre && Array.isArray(project.properties?.genre) ?
               project.properties?.genre.map((genre : string, index: Key) => (
               <Badge
@@ -79,20 +90,7 @@ export function ProjectCard({ project }: { project : any }) {
                   {project.type}
                 </Badge>
               )}
-
           </div>
-          {
-            <Badge
-            variant="outline"
-            className="mt-2 p-2 px-3 bg-white/30"
-            style={{
-              borderColor: styling.borderColor,
-              color: styling.textColor,
-            }}
-            >
-              {project.releaseDate ?? 'Coming Soon'}
-            </Badge>
-          }
       </CardHeader>
       <CardContent className="flex-grow flex flex-col justify-between">
         <div>
