@@ -7,6 +7,7 @@ import { Badge } from '@/components/ui/badge';
 import NavMenu from "@/components/navigation";
 import { Button } from '@/components/ui/button';
 import { ArrowLeft } from 'lucide-react';
+import Link from 'next/link';
 
 export default function ProjectDetailPage({ project }: { project: Project | null | undefined }) {
   if (project === undefined || project === null) {
@@ -18,9 +19,11 @@ export default function ProjectDetailPage({ project }: { project: Project | null
     <div className="container mx-auto px-4 py-16">
       <NavMenu/>
 
-      <Button variant="link" className="p-0 h-auto mt-4 text-accent group-hover:underline self-start">
-        <ArrowLeft className="ml-2 h-4 w-4" />
-        Return
+      <Button asChild variant="link" className="p-0 h-auto mt-4 text-accent group-hover:underline self-start">
+        <Link href="/projects">
+          <ArrowLeft className="mr-2 h-4 w-4" />
+          Return to Realms
+        </Link>
       </Button>
 
        <h1 className="mt-12 font-headline text-5xl font-bold tracking-tighter mb-2 text-primary">{project.title}</h1>

@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useRef } from "react";
+import { useToast } from "@/hooks/use-toast";
 
 function SubmitButton() {
   const { pending } = useFormStatus();
@@ -18,9 +19,28 @@ function SubmitButton() {
 
 export default function ContactForm() {
   const formRef = useRef<HTMLFormElement>(null);
+  const { toast } = useToast();
+
+  async function handleAction(formData: FormData) {
+    // Here you would typically send the form data to a server
+    console.log("Form submitted with:", {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      message: formData.get("message"),
+    });
+
+    // Simulate a delay
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    
+    toast({
+        title: "Message Sent!",
+        description: "Thank you for reaching out. I'll get back to you soon.",
+    });
+    formRef.current?.reset();
+  }
 
   return (
-    <form ref={formRef} className="space-y-6 p-8 rounded-lg bg-card border">
+    <form ref={formRef} action={handleAction} className="space-y-6 p-8 rounded-lg bg-card border">
       <h2 className="font-headline text-3xl font-bold">Reach out to me</h2>
       <div className="space-y-2">
         <Label htmlFor="name">Name</Label>
