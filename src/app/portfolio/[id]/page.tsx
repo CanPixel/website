@@ -25,7 +25,7 @@ export default function ProjectDetailPage({ project }: { project: Project | null
         <Button asChild variant="link" className="p-0 h-auto text-accent group-hover:underline flex-shrink-0">
           <Link href="/projects">
             <ArrowLeft className="mr-2 h-4 w-4" />
-            Return
+            Realms
           </Link>
         </Button>
 
