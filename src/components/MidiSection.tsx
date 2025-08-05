@@ -1,3 +1,4 @@
+
 'use client';
 
 import MidiWidget from "@/components/midi-widget";
@@ -43,8 +44,8 @@ export default function MidiSection() {
         const q = query(projectsCollection, where('type', '==', 'midi'));
         const projectSnapshot = await getDocs(q);
         const projectsList = projectSnapshot.docs.map(doc => ({
-          // id: doc.id,
-          ...doc.data() as Project
+          id: doc.id,
+          ...doc.data() as Omit<Project, 'id'>
         }));
         setMidiProjects(projectsList);
         setFilteredProjects(projectsList);
@@ -105,23 +106,23 @@ export default function MidiSection() {
   };
 
   if (loading) {
-    return <div className="mt-6">Loading MIDI projects...</div>;
+    return <div className="mt-6 text-center">Loading MIDI projects...</div>;
   }
 
   if (error) {
-    return <div className="mt-6">Error loading MIDI projects: {error}</div>;
+    return <div className="mt-6 text-center text-destructive">Error loading MIDI projects: {error}</div>;
   }
 
   return (
     <div className="container mx-auto px-4 py-16 bg-background">
-      <header className="text-center mb-6">
-        <h1 className="font-headline text-5xl font-bold tracking-tighter mb-4">
-          MIDI Sorcery
-        </h1>
-        <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-          A collection of my old-school audio adventures.
-        </p>
-      </header>
+       <div className="relative mt-12 rounded-lg border-2 border-primary-purple p-8">
+            <h1 className="absolute -top-7 left-1/2 -translate-x-1/2 bg-background px-4 font-headline text-5xl font-bold tracking-tighter text-primary-purple">
+                MIDI Sorcery
+            </h1>
+            <p className="text-center text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+                A collection of my old-school audio adventures.
+            </p>
+      
       {/* Search Bar */}
       <div className="mb-8">
         <Input
@@ -135,8 +136,8 @@ export default function MidiSection() {
 
       {/* Genre Filters */}
       <div className="mb-8">
-        <h3 className="text-xl font-bold mb-4">Filter by Genre</h3>
-        <div className="flex flex-wrap gap-2">
+        <h3 className="text-xl font-bold mb-4 text-center">Filter by Genre</h3>
+        <div className="flex flex-wrap justify-center gap-2">
           {allGenres.map(genre => (
             <Button
               key={genre}
@@ -152,8 +153,8 @@ export default function MidiSection() {
 
       {/* Tag Filters */}
       <div className="mb-8">
-        <h3 className="text-xl font-bold mb-4">Filter by Tags</h3>
-        <div className="flex flex-wrap gap-2">
+        <h3 className="text-xl font-bold mb-4 text-center">Filter by Tags</h3>
+        <div className="flex flex-wrap justify-center gap-2">
           {allTags.map(tag => (
             <Button
               key={tag}
@@ -169,18 +170,19 @@ export default function MidiSection() {
 
       {/* Display Filtered Projects */}
       <div>
-        <h3 className="text-xl font-bold mb-4">MIDI Tracks</h3>
+        <h3 className="text-xl font-bold mb-4 text-center">MIDI Tracks</h3>
         {filteredProjects.length === 0 ? (
-          <p>No MIDI projects found matching your criteria.</p>
+          <p className="text-center text-muted-foreground">No MIDI projects found matching your criteria.</p>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredProjects.map((project) => (
-              <div key={project.id}>
+              <div key={project.id} className="flex justify-center">
                 <MidiWidget midi={project} />
               </div>
             ))}
           </div>
         )}
+      </div>
       </div>
     </div>
   );
