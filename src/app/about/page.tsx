@@ -69,7 +69,7 @@ export default function AboutPage() {
           <Card className="w-full bg-card/50 backdrop-blur-sm p-4 border-primary/20">
             <div className="relative w-48 h-48 mx-auto rounded-full overflow-hidden border-2 border-primary shadow-lg transition-all duration-300 ease-in-out hover:shadow-xl hover:shadow-primary/50 hover:scale-105">
               <Image
-                src="images/program.jpg"
+                src="/images/program.jpg"
                 alt="Can Ur Avatar"
                 fill
                 className="object-cover"
@@ -93,7 +93,7 @@ export default function AboutPage() {
               {['work.jpg', 'Canwork.jpg', 'Can.jpg', 'Jabrils.jpg'].map((_, i) => (
                 <div key={i} className="relative aspect-square rounded-lg overflow-hidden group">
                   <Image
-                    src={`images/` + _}
+                    src={`/images/` + _}
                     alt={`Can Ur developer ${i + 1}`}
                     fill
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
@@ -122,20 +122,22 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <div className="w-64 h-64 relative border-l-2 border-primary/30 pl-8">
-        <Image
-          src={`images/cancorp (2).JPG`}
-          alt={`Most corporate pic I could find of Can Ur developer`}
-          fill
-          className="object-cover transition-transform duration-300"
-        />
+      <div className="mt-12 flex justify-center">
+        <div className="w-80 h-80 relative rounded-lg overflow-hidden shadow-lg border-2 border-primary/30">
+          <Image
+            src={`/images/Can.jpg`}
+            alt={`A professional photo of Can Ur`}
+            fill
+            className="object-cover transition-transform duration-300 group-hover:scale-105"
+          />
+        </div>
       </div>
 
-      <div className="flex gap-4 justify-center mt-16">
+      <div className="flex gap-4 justify-center mt-8">
         <Button asChild size="lg" className="group transition-all duration-300 ease-in-out hover:bg-accent/90 hover:-translate-y-1 hover:scale-105">
-          <Link href="pdf/resume.pdf">
+          <Link href="/pdf/resume.pdf" target="_blank">
             Resume
-              <Download className="ml-2 h-4 w-4 transition-transform duration-300 ease-in-out group-hover:translate-x-1" /> {/* Used the same classes for consistency */}
+              <Download className="ml-2 h-4 w-4 transition-transform duration-300 ease-in-out group-hover:translate-x-1" />
           </Link>
         </Button>
       </div>
