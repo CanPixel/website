@@ -61,8 +61,8 @@ export default function MusicPage() {
 
       <div className="py-4 mb-8 flex flex-wrap justify-center gap-4 rounded-lg border">
           {sections.map(section => (
-            <Button key={section.id} onClick={() => scrollToSection(section.id)} variant="ghost" className="group">
-                <section.icon className="mr-2 h-5 w-5 text-primary transition-colors group-hover:text-accent" />
+            <Button key={section.id} onClick={() => scrollToSection(section.id)} variant="ghost" className="group text-muted-foreground hover:text-foreground">
+                <section.icon className="mr-2 h-5 w-5 text-primary transition-colors group-hover:text-primary" />
                 {section.name}
             </Button>
           ))}
