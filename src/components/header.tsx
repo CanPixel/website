@@ -5,19 +5,21 @@ import Link from "next/link";
 import { Logo } from '@/components/Logo';
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
-import { Code2, Code, Music, Palette } from "lucide-react";
+import { Code2, Code, Music, Palette, User, Hexagon, MessageSquare } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const navLinks = [
-  { href: "/about", label: "About" },
-  { href: "/projects", label: "Realms" },
-  { href: "/music", label: "Muse" },
-  { href: "/contact", label: "Reach" },
+  { href: "/about", label: "About", icon: User },
+  { href: "/projects", label: "Realms", icon: Hexagon },
+  { href: "/music", label: "Muse", icon: Music },
+  { href: "/contact", label: "Reach", icon: MessageSquare },
 ];
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     // Set initial state after mount to avoid hydration mismatch
@@ -31,7 +33,7 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const NavLink = ({ href, label }: { href: string; label: string }) => {
+  const NavLink = ({ href, label, icon: Icon }: { href: string; label: string; icon: React.ElementType }) => {
     const isActive = pathname.startsWith(href);
     return (
         <Link
@@ -48,7 +50,25 @@ export default function Header() {
             )}></span>
         </Link>
     );
-};
+  };
+  
+  const MobileNavLink = ({ href, label, icon: Icon }: { href: string; label: string; icon: React.ElementType }) => {
+    const isActive = pathname.startsWith(href);
+    return (
+      <Link href={href} className="flex flex-col items-center gap-1 text-xs text-muted-foreground">
+        <div className={cn(
+          "relative p-2 rounded-full transition-all duration-300",
+          isActive ? "bg-accent/20" : ""
+        )}>
+          <Icon className={cn(
+            "w-6 h-6 transition-all duration-300 transform group-hover:scale-110",
+             isActive ? "text-accent" : "text-foreground/80"
+          )} />
+           {isActive && <span className="absolute -bottom-1 left-1/2 h-1 w-4 -translate-x-1/2 rounded-full bg-accent"></span>}
+        </div>
+      </Link>
+    );
+  };
  
   return (
     <header className={cn(
@@ -79,10 +99,11 @@ export default function Header() {
               </div>
             </div>
           </div>
-          <nav className="md:flex items-center space-x-6">
-              {navLinks.map((link) => (
-                  <NavLink key={link.href} {...link} />
-              ))}
+           <nav className="flex items-center space-x-2 md:space-x-6">
+              {isMobile
+                ? navLinks.map((link) => <MobileNavLink key={link.href} {...link} />)
+                : navLinks.map((link) => <NavLink key={link.href} {...link} />)
+              }
           </nav>
         </div>
     </header>
