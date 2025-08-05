@@ -67,27 +67,39 @@ const TimelineItem = ({ event, index }: { event: (typeof timelineEvents)[0], ind
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
 
-  const variants = {
+  const contentVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0 },
+  };
+
+  const dotVariants = {
+    hidden: { scale: 0 },
+    visible: {
+      scale: 1,
+      transition: { type: 'spring', stiffness: 400, damping: 10, delay: index * 0.1 + 0.3 },
+    },
   };
 
   return (
     <motion.div
       ref={ref}
-      variants={variants}
+      variants={contentVariants}
       initial="hidden"
       animate={isInView ? 'visible' : 'hidden'}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="relative pl-8"
     >
-      <div className="absolute -left-2 top-1.5 h-4 w-4 rounded-full bg-accent ring-4 ring-background z-10"></div>
+      <motion.div
+        variants={dotVariants}
+        className="absolute -left-2 top-1.5 h-4 w-4 rounded-full bg-accent ring-4 ring-background z-10"
+      ></motion.div>
       <p className="font-headline text-2xl font-bold text-primary">{event.year}</p>
       <h3 className="text-xl font-semibold mt-1">{event.title}</h3>
       <p className="text-muted-foreground mt-2">{event.description}</p>
     </motion.div>
   );
 };
+
 
 export default function AboutPage() {
     const timelineRef = useRef(null);
