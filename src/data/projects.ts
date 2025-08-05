@@ -1,3 +1,4 @@
+
 export interface Project {
   id: string;
   type: string;
@@ -97,7 +98,7 @@ export const skillColors: { [key: string]: string } = {
   "PICO-8": "bg-red-500",
   "LUA": "bg-indigo-500",
   "Construct 2": "bg-green-500",
-  "Java": "bg-red-700",
+  "Java": "bg-orange-600",
 };
 
 export const genreColors: { [key: string]: string } = {
