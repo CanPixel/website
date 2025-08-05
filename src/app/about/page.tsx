@@ -136,7 +136,7 @@ export default function AboutPage() {
       <div className="flex gap-4 justify-center mt-8">
         <Button asChild size="lg" className="group transition-all duration-300 ease-in-out hover:bg-accent/90 hover:-translate-y-1 hover:scale-105">
           <Link href="/pdf/resume.pdf" target="_blank">
-            Resume
+            Download Resume
               <Download className="ml-2 h-4 w-4 transition-transform duration-300 ease-in-out group-hover:translate-x-1" />
           </Link>
         </Button>
