@@ -122,10 +122,10 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <div className="relative border-l-2 border-primary/30 pl-8">
+      <div className="w-64 h-64 relative border-l-2 border-primary/30 pl-8">
         <Image
           src={`images/cancorp (2).JPG`}
-          alt={`Can Ur developer`}
+          alt={`Most corporate pic I could find of Can Ur developer`}
           fill
           className="object-cover transition-transform duration-300"
         />
