@@ -4,23 +4,53 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import NavMenu from "@/components/navigation";
 import { Button } from "@/components/ui/button";
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Download } from 'lucide-react';
 
 const timelineEvents = [
   {
-    year: '2015',
-    title: 'The Spark',
-    description: 'First foray into game development, discovering a passion for creating worlds.',
+    year: '2014',
+    title: 'The Dawn of Coding: Minecraft Modding',
+    description: 'Began coding by creating the famous Minecraft mods "SCPCraft" and "CreepyPastaCraft" under the name "Phuck Yu Too". I worked as the main coder on these projects.',
   },
   {
-    year: '2018',
-    title: 'Founding of ZIGGURATH',
-    description: 'Co-founded the band ZIGGURATH, merging music with philosophical concepts.',
+    year: '2015',
+    title: 'First Foray into Game Development',
+    description: 'Began exploring game development and discovering a passion for creating worlds.',
+  },
+  {
+    year: '2017-2023',
+    title: 'Higher Education',
+    description: 'Attended the University of the Arts Utrecht, graduating with a HBO Bachelor diploma in Game Development with Honors.',
+  },
+  {
+    year: '2019',
+    title: 'Game Developers Conference',
+    description: 'Successfully exhibited a game project (Koo-Koo) at the Game Developers Conference in San Francisco as part of Alt.Ctrl.',
   },
   {
     year: '2020',
     title: 'The Method Developer',
     description: 'Embraced the "Method Developer" philosophy, treating each project as an immersive realm.',
+  },
+  {
+    year: '2020-2021',
+    title: 'Audio Programming & Design',
+    description: 'Worked for Coöperation A Bunch of Hacks U.A., developing nuanced audio systems and creating music and sound effects for the game Epicinium on Steam.',
+  },
+  {
+    year: '2021-2022',
+    title: 'Bad Optics! Solo Game Development',
+    description: 'Completely developed a full web game project as a solo indie game developer, from concept to publication, including marketing and community building.',
+  },
+  {
+    year: '2022',
+    title: 'Founding of ZIGGURATH',
+    description: 'Co-founded the band ZIGGURATH, merging music with philosophical concepts. Also plays guitar in two bands.',
+  },
+  {
+    year: '2024-2025',
+    title: 'University of Amsterdam - Full-Stack Web Programmer',
+    description: 'Contributed to the development and implementation of the new Lab Tool web platform for research within the Faculty of Social and Behavioural Sciences.',
   },
   {
     year: 'Present',
@@ -92,21 +122,21 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <div className="relative border-l-2 border-primary/30 pl-8 space-y-12">
+      <div className="relative border-l-2 border-primary/30 pl-8">
         <Image
           src={`images/cancorp (2).JPG`}
           alt={`Can Ur developer`}
           fill
-          className="object-cover transition-transform duration-300 group-hover:scale-105"
+          className="object-cover transition-transform duration-300"
         />
       </div>
 
       <div className="flex gap-4 justify-center mt-16">
         <Button asChild size="lg" className="group transition-all duration-300 ease-in-out hover:bg-accent/90 hover:-translate-y-1 hover:scale-105">
-          <Link href="/projects">
-            Explore Realms
-             <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 ease-in-out group-hover:translate-x-1" />
-            </Link>
+          <Link href="pdf/resume.pdf">
+            Resume
+              <Download className="ml-2 h-4 w-4 transition-transform duration-300 ease-in-out group-hover:translate-x-1" /> {/* Used the same classes for consistency */}
+          </Link>
         </Button>
       </div>
     </div>
