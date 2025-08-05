@@ -177,7 +177,7 @@ export default function AboutPage() {
       <div className="mt-12 flex justify-center">
         <div className="w-80 h-80 relative rounded-lg overflow-hidden shadow-lg border-2 border-primary/30">
           <Image
-            src={`/images/cancorp (2).jpg`}
+            src={`images/cancorp (1).JPG`}
             alt={`A professional photo of Can Ur`}
             fill
             className="object-cover transition-transform duration-300 group-hover:scale-105"

@@ -143,7 +143,7 @@ export default function MidiSection() {
 
       <div className="mb-6">
         <h3 className="text-lg font-bold mb-3 text-center">Filter by Tags</h3>
-        <ScrollArea className="h-32 rounded-md border p-2">
+        <div className="rounded-md border p-2">
             <div className="flex flex-wrap justify-center gap-2">
             {allTags.map(tag => (
                 <Button
@@ -157,7 +157,7 @@ export default function MidiSection() {
                 </Button>
             ))}
             </div>
-        </ScrollArea>
+        </div>
       </div>
 
       <div>

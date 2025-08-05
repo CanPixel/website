@@ -40,7 +40,7 @@ export default function CannemenSection() {
   return (
     <div className="relative rounded-lg border-2 border-primary p-8 pt-12">
         <h2 className="absolute -top-5 left-1/2 -translate-x-1/2 bg-background px-4 font-headline text-4xl font-bold tracking-tighter text-primary">
-            CANNEMEN (SOLO)
+            CANNEMEN
         </h2>
         <p className="text-center text-lg text-muted-foreground max-w-3xl mx-auto mb-6">
             A showcase of my solo work, featuring a blend of electronic and acoustic elements.

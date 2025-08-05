@@ -1,42 +1,25 @@
-
 "use client";
 
 import dynamic from 'next/dynamic';
 import { Button } from '@/components/ui/button';
 import { Music, Headphones, User, Users, Pyramid } from 'lucide-react';
 import NavMenu from '@/components/navigation';
+import NemsisSection from '@/components/NemsisSection'; 
+import ZiggurathSection from '@/components/ZiggurathSection'; 
+import CannemenSection from '@/components/CannemenSection'; 
+import OrchestratedOstSection from '@/components/OrchestratedOstSection'; 
 
 const MidiSection = dynamic(() => import('@/components/MidiSection'), {
   loading: () => <div className="mt-6 text-center">Loading MIDI projects...</div>,
   ssr: false
 });
 
-const NemsisSection = dynamic(() => import('@/components/NemsisSection'), {
-  loading: () => <div className="mt-6 text-center">Loading NEMSIS projects...</div>,
-  ssr: false
-});
-
-const ZiggurathSection = dynamic(() => import('@/components/ZiggurathSection'), {
-  loading: () => <div className="mt-6 text-center">Loading ZIGGURATH projects...</div>,
-  ssr: false
-});
-
-const CannemenSection = dynamic(() => import('@/components/CannemenSection'), {
-  loading: () => <div className="mt-6 text-center">Loading CANNEMEN projects...</div>,
-  ssr: false
-});
-
-const OrchestratedOstSection = dynamic(() => import('@/components/OrchestratedOstSection'), {
-  loading: () => <div className="mt-6 text-center">Loading Orchestrated OSTs...</div>,
-  ssr: false
-});
-
 const sections = [
+  { id: 'ziggurath', name: 'ZIGGURATH (Band)', icon: Music },
   { id: 'midi', name: 'MIDI Sorcery', icon: Pyramid },
   { id: 'orchestrated-ost', name: 'Orchestrated Game OST', icon: Headphones },
   { id: 'cannemen', name: 'CANNEMEN (Solo)', icon: User },
   { id: 'nemsis', name: 'NEMSIS (Band)', icon: Users },
-  { id: 'ziggurath', name: 'ZIGGURATH (Band)', icon: Music },
 ];
 
 export default function MusicPage() {
