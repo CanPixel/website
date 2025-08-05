@@ -65,10 +65,10 @@ const timelineEvents = [
 
 const TimelineItem = ({ event, index }: { event: (typeof timelineEvents)[0], index: number }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const isInView = useInView(ref, { once: false, amount: 0.3 });
 
   const contentVariants = {
-    hidden: { opacity: 0, y: 50 },
+    hidden: { opacity: 0.5, y: 20 },
     visible: { opacity: 1, y: 0 },
   };
 
@@ -76,7 +76,7 @@ const TimelineItem = ({ event, index }: { event: (typeof timelineEvents)[0], ind
     hidden: { scale: 0 },
     visible: {
       scale: 1,
-      transition: { type: 'spring', stiffness: 400, damping: 10, delay: index * 0.1 + 0.3 },
+      transition: { type: 'spring', stiffness: 400, damping: 10, delay: 0.2 },
     },
   };
 
@@ -86,11 +86,12 @@ const TimelineItem = ({ event, index }: { event: (typeof timelineEvents)[0], ind
       variants={contentVariants}
       initial="hidden"
       animate={isInView ? 'visible' : 'hidden'}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+      transition={{ duration: 0.5 }}
       className="relative pl-8"
     >
       <motion.div
         variants={dotVariants}
+        animate={isInView ? 'visible' : 'hidden'}
         className="absolute -left-2 top-1.5 h-4 w-4 rounded-full bg-accent ring-4 ring-background z-10"
       ></motion.div>
       <p className="font-headline text-2xl font-bold text-primary">{event.year}</p>
