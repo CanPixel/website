@@ -77,6 +77,25 @@
     pointer-events: none;
     z-index: 1000;
   }
+
+  /* Custom Scrollbar for MidiSection */
+  .midi-scroll-area [data-radix-scroll-area-viewport] > div {
+    scrollbar-width: thin;
+    scrollbar-color: theme(colors.primary.purple) hsl(var(--background));
+  }
+  .midi-scroll-area [data-radix-scroll-area-viewport] > div::-webkit-scrollbar {
+    width: 8px;
+  }
+  .midi-scroll-area [data-radix-scroll-area-viewport] > div::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+    border-radius: 10px;
+  }
+  .midi-scroll-area [data-radix-scroll-area-viewport] > div::-webkit-scrollbar-thumb {
+    background-color: theme(colors.primary.purple);
+    border-radius: 10px;
+    border: 2px solid hsl(var(--background));
+  }
+
 }
 
 @layer utilities {

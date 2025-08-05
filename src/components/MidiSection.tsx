@@ -9,6 +9,7 @@ import { Project } from '@/data/projects'; // Assuming Project type is defined h
 import { Badge } from '@/components/ui/badge'; // Assuming you have a Badge component
 import { Input } from '@/components/ui/input'; // Assuming you have an Input component
 import { Button } from '@/components/ui/button'; // Assuming you have a Button component
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 // Define possible genres and tags based on your requirements
 const allGenres = [
@@ -171,17 +172,19 @@ export default function MidiSection() {
       {/* Display Filtered Projects */}
       <div>
         <h3 className="text-xl font-bold mb-4 text-center">MIDI Tracks</h3>
-        {filteredProjects.length === 0 ? (
-          <p className="text-center text-muted-foreground">No MIDI projects found matching your criteria.</p>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredProjects.map((project) => (
-              <div key={project.id} className="flex justify-center">
-                <MidiWidget midi={project} />
+          <ScrollArea className="h-[40rem] rounded-md border p-4">
+            {filteredProjects.length === 0 ? (
+              <p className="text-center text-muted-foreground">No MIDI projects found matching your criteria.</p>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {filteredProjects.map((project) => (
+                  <div key={project.id} className="flex justify-center">
+                    <MidiWidget midi={project} />
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-        )}
+            )}
+          </ScrollArea>
       </div>
       </div>
     </div>
