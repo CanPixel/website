@@ -1,10 +1,14 @@
 
+"use client";
+
 import Image from 'next/image';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import NavMenu from "@/components/navigation";
 import { Button } from "@/components/ui/button";
 import Link from 'next/link';
-import { ArrowRight, Download } from 'lucide-react';
+import { Download } from 'lucide-react';
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
 
 const timelineEvents = [
   {
@@ -59,6 +63,32 @@ const timelineEvents = [
   },
 ];
 
+const TimelineItem = ({ event, index }: { event: (typeof timelineEvents)[0], index: number }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
+
+  const variants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0 },
+  };
+
+  return (
+    <motion.div
+      ref={ref}
+      variants={variants}
+      initial="hidden"
+      animate={isInView ? 'visible' : 'hidden'}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      className="relative"
+    >
+      <div className="absolute -left-[42px] top-1.5 h-4 w-4 rounded-full bg-accent ring-4 ring-background"></div>
+      <p className="font-headline text-2xl font-bold text-primary">{event.year}</p>
+      <h3 className="text-xl font-semibold mt-1">{event.title}</h3>
+      <p className="text-muted-foreground mt-2">{event.description}</p>
+    </motion.div>
+  );
+};
+
 export default function AboutPage() {
   return (
     <div className="container mx-auto px-4 py-16">
@@ -111,12 +141,7 @@ export default function AboutPage() {
           <div className="relative border-l-2 border-primary/30 pl-8 space-y-12 max-w-3xl mx-auto">
             <div className="absolute -left-[2px] top-0 h-full w-0.5 bg-primary/30"></div>
             {timelineEvents.map((event, index) => (
-              <div key={index} className="relative">
-                <div className="absolute -left-[42px] top-1.5 h-4 w-4 rounded-full bg-accent ring-4 ring-background"></div>
-                <p className="font-headline text-2xl font-bold text-primary">{event.year}</p>
-                <h3 className="text-xl font-semibold mt-1">{event.title}</h3>
-                <p className="text-muted-foreground mt-2">{event.description}</p>
-              </div>
+              <TimelineItem key={index} event={event} index={index} />
             ))}
           </div>
         </div>
