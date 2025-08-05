@@ -24,7 +24,7 @@ export default function ProjectsPreview({projects} : any) {
       <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-background to-transparent z-10"></div>
       <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-background to-transparent z-10"></div>
       <div className="flex">
-        <div className="flex w-max animate-scroll-x">
+        <div className="flex w-max">
           {duplicatedProjects.map((project: any, index: number) => (
             <div key={`${project.id}-${index}`} 
             className="w-[450px] p-4 flex-shrink-0">
