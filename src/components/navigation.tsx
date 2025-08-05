@@ -38,8 +38,8 @@ export default function NavMenu() {
                 <Fragment key={link.href}>
                   <Link key={link.href} href={link.href}
                     className={cn(
-                      "relative transition-colors hover:text-accent group",
-                      pathname.startsWith(link.href) ? "text-accent" : "text-foreground/80 text-lg",
+                      "relative transition-colors hover:text-accent group text-lg",
+                      pathname.startsWith(link.href) ? "text-accent" : "text-foreground/80",
                       "mr-1" 
                     )}
                   >
@@ -55,8 +55,8 @@ export default function NavMenu() {
               ) : link.label === "Muse" ? (
                 <Link key={link.href} href={link.href}
                   className={cn(
-                    "relative transition-colors hover:text-accent group",
-                    pathname.startsWith(link.href) ? "text-accent" : "text-foreground/80 text-lg",
+                    "relative transition-colors hover:text-accent group text-lg",
+                    pathname.startsWith(link.href) ? "text-accent" : "text-foreground/80",
                     "ml-1"
                   )}
                 >
@@ -70,8 +70,7 @@ export default function NavMenu() {
               ) : (
                 <Link key={link.href} href={link.href}
                   className={cn(
-                    "relative transition-colors hover:text-accent group",
-                     "text-lg",
+                    "relative transition-colors hover:text-accent group text-lg",
                     pathname.startsWith(link.href) ? "text-accent" : "text-foreground/80",
                     link.label === "About" ? "mr-11" : link.label === "Reach" ? "ml-11" : ""
                   )}
