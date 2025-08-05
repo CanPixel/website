@@ -64,8 +64,8 @@ export default function AboutPage() {
     <div className="container mx-auto px-4 py-16">
       <NavMenu/>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start mt-12">
-        <div className="md:col-span-1 flex flex-col items-center text-center">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 items-start mt-12">
+        <div className="lg:col-span-2 flex flex-col items-center text-center">
           <Card className="w-full bg-card/50 backdrop-blur-sm p-4 border-primary/20">
             <div className="relative w-48 h-48 mx-auto rounded-full overflow-hidden border-2 border-primary shadow-lg transition-all duration-300 ease-in-out hover:shadow-xl hover:shadow-primary/50 hover:scale-105">
               <Image
@@ -85,7 +85,7 @@ export default function AboutPage() {
           </Card>
         </div>
 
-        <div className="lg:col-span-1">
+        <div className="lg:col-span-2">
           <Card className="bg-card/50 backdrop-blur-sm border-primary/20">
             <CardHeader>
             </CardHeader>
@@ -106,9 +106,9 @@ export default function AboutPage() {
           </Card>
         </div>
 
-        <div className="md:col-span-2">
-          <h1 className="font-headline text-5xl font-bold tracking-tighter mb-8">My Journey</h1>
-          <div className="relative border-l-2 border-primary/30 pl-8 space-y-12">
+        <div className="lg:col-span-4 mt-8">
+           <h1 className="font-headline text-5xl font-bold tracking-tighter mb-8 text-center">My Journey</h1>
+          <div className="relative border-l-2 border-primary/30 pl-8 space-y-12 max-w-3xl mx-auto">
             <div className="absolute -left-[2px] top-0 h-full w-0.5 bg-primary/30"></div>
             {timelineEvents.map((event, index) => (
               <div key={index} className="relative">
