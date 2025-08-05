@@ -1,6 +1,6 @@
 
 import Image from 'next/image';
-import { Card } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import NavMenu from "@/components/navigation";
 import { Button } from "@/components/ui/button";
 import Link from 'next/link';
@@ -37,9 +37,9 @@ export default function AboutPage() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start mt-12">
         <div className="md:col-span-1 flex flex-col items-center text-center">
           <Card className="w-full bg-card/50 backdrop-blur-sm p-4 border-primary/20">
-            <div className="relative w-48 h-48 mx-auto rounded-full overflow-hidden border-2 border-primary shadow-lg">
+            <div className="relative w-48 h-48 mx-auto rounded-full overflow-hidden border-2 border-primary shadow-lg transition-all duration-300 ease-in-out hover:shadow-xl hover:shadow-primary/50 hover:scale-105">
               <Image
-                src="https://placehold.co/300x300.png"
+                src="images/program.jpg"
                 alt="Can Ur Avatar"
                 fill
                 className="object-cover"
@@ -50,8 +50,29 @@ export default function AboutPage() {
             <h2 className="font-headline text-3xl font-bold mt-6 text-primary">Can Ur</h2>
             <p className="text-accent">Method Developer</p>
             <p className="text-muted-foreground mt-4 text-sm leading-relaxed">
-              A philosopher at heart, weaving soulful, rebellious, and mysterious narratives through code and sound.
+              A philosophically deep thinker at heart, weaving soulful, rebellious, and mysterious narratives through code and sound.
             </p>
+          </Card>
+        </div>
+
+        <div className="lg:col-span-1">
+          <Card className="bg-card/50 backdrop-blur-sm border-primary/20">
+            <CardHeader>
+            </CardHeader>
+            <CardContent className="grid grid-cols-2 gap-4">
+              {['work.jpg', 'Canwork.jpg', 'Can.jpg', 'Jabrils.jpg'].map((_, i) => (
+                <div key={i} className="relative aspect-square rounded-lg overflow-hidden group">
+                  <Image
+                    src={`images/` + _}
+                    alt={`Can Ur developer ${i + 1}`}
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
+                   <div className="absolute inset-0 bg-repeat bg-center opacity-10" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}></div>
+                </div>
+              ))}
+            </CardContent>
           </Card>
         </div>
 
@@ -70,6 +91,16 @@ export default function AboutPage() {
           </div>
         </div>
       </div>
+
+      <div className="relative border-l-2 border-primary/30 pl-8 space-y-12">
+        <Image
+          src={`images/cancorp (2).JPG`}
+          alt={`Can Ur developer`}
+          fill
+          className="object-cover transition-transform duration-300 group-hover:scale-105"
+        />
+      </div>
+
       <div className="flex gap-4 justify-center mt-16">
         <Button asChild size="lg" className="group transition-all duration-300 ease-in-out hover:bg-accent/90 hover:-translate-y-1 hover:scale-105">
           <Link href="/projects">
