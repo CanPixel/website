@@ -7,7 +7,7 @@ import NavMenu from "@/components/navigation";
 import { Button } from "@/components/ui/button";
 import Link from 'next/link';
 import { Download } from 'lucide-react';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, useScroll, useSpring } from 'framer-motion';
 import { useRef } from 'react';
 
 const timelineEvents = [
@@ -79,9 +79,9 @@ const TimelineItem = ({ event, index }: { event: (typeof timelineEvents)[0], ind
       initial="hidden"
       animate={isInView ? 'visible' : 'hidden'}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="relative"
+      className="relative pl-8"
     >
-      <div className="absolute -left-[42px] top-1.5 h-4 w-4 rounded-full bg-accent ring-4 ring-background"></div>
+      <div className="absolute -left-2 top-1.5 h-4 w-4 rounded-full bg-accent ring-4 ring-background z-10"></div>
       <p className="font-headline text-2xl font-bold text-primary">{event.year}</p>
       <h3 className="text-xl font-semibold mt-1">{event.title}</h3>
       <p className="text-muted-foreground mt-2">{event.description}</p>
@@ -90,6 +90,17 @@ const TimelineItem = ({ event, index }: { event: (typeof timelineEvents)[0], ind
 };
 
 export default function AboutPage() {
+    const timelineRef = useRef(null);
+    const { scrollYProgress } = useScroll({
+      target: timelineRef,
+      offset: ["start center", "end end"]
+    });
+    const scaleY = useSpring(scrollYProgress, {
+        stiffness: 100,
+        damping: 30,
+        restDelta: 0.001
+      });
+
   return (
     <div className="container mx-auto px-4 py-16">
       <NavMenu/>
@@ -138,11 +149,14 @@ export default function AboutPage() {
 
         <div className="lg:col-span-4 mt-8">
            <h1 className="font-headline text-5xl font-bold tracking-tighter mb-8 text-center">My Journey</h1>
-          <div className="relative border-l-2 border-primary/30 pl-8 space-y-12 max-w-3xl mx-auto">
-            <div className="absolute -left-[2px] top-0 h-full w-0.5 bg-primary/30"></div>
-            {timelineEvents.map((event, index) => (
-              <TimelineItem key={index} event={event} index={index} />
-            ))}
+          <div ref={timelineRef} className="relative max-w-3xl mx-auto">
+            <div className="absolute left-0 top-0 h-full w-0.5 bg-primary/30 ml-[7px]"></div>
+            <motion.div style={{ scaleY }} className="absolute left-0 top-0 h-full w-0.5 bg-primary origin-top ml-[7px]" />
+            <div className="space-y-12">
+                {timelineEvents.map((event, index) => (
+                <TimelineItem key={index} event={event} index={index} />
+                ))}
+            </div>
           </div>
         </div>
       </div>
