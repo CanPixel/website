@@ -1,46 +1,40 @@
+
 "use client";
 
-import { useFormStatus } from "react-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { useRef } from "react";
+import { useRef, FormEvent } from "react";
 import { useToast } from "@/hooks/use-toast";
-
-function SubmitButton() {
-  const { pending } = useFormStatus();
-  return (
-    <Button type="submit" disabled={pending} className="w-full">
-      {pending ? "Transmitting..." : "Transmit"}
-    </Button>
-  );
-}
 
 export default function ContactForm() {
   const formRef = useRef<HTMLFormElement>(null);
   const { toast } = useToast();
 
-  async function handleAction(formData: FormData) {
-    // Here you would typically send the form data to a server
-    console.log("Form submitted with:", {
-      name: formData.get("name"),
-      email: formData.get("email"),
-      message: formData.get("message"),
-    });
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    const name = formData.get("name") as string;
+    const email = formData.get("email") as string;
+    const message = formData.get("message") as string;
 
-    // Simulate a delay
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    const subject = `Contact Form Submission from ${name}`;
+    const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+    
+    const mailtoLink = `mailto:canur@canpixel.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    window.location.href = mailtoLink;
     
     toast({
-        title: "Message Sent!",
-        description: "Thank you for reaching out. I'll get back to you soon.",
+        title: "Email Client Opened",
+        description: "Your email is ready to be sent.",
     });
     formRef.current?.reset();
   }
 
   return (
-    <form ref={formRef} action={handleAction} className="space-y-6 p-8 rounded-lg bg-card border">
+    <form ref={formRef} onSubmit={handleSubmit} className="space-y-6 p-8 rounded-lg bg-card border">
       <h2 className="font-headline text-3xl font-bold">Reach out to me</h2>
       <div className="space-y-2">
         <Label htmlFor="name">Name</Label>
@@ -60,7 +54,9 @@ export default function ContactForm() {
           required
         />
       </div>
-      <SubmitButton />
+      <Button type="submit" className="w-full">
+      Transmit
+    </Button>
     </form>
   );
 }
