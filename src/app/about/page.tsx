@@ -119,15 +119,13 @@ export default function AboutPage() {
       <NavMenu/>
 
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start mt-12">
-        {/* Left Column: Intro */}
         <div className="lg:col-span-2 flex flex-col items-center text-center">
             <div className="relative w-48 h-48 mx-auto rounded-full overflow-hidden border-2 border-primary shadow-lg transition-all duration-300 ease-in-out hover:shadow-xl hover:shadow-primary/50 hover:scale-105">
                 <Image
                 src="/images/program.jpg"
                 alt="Can Ur Avatar"
                 fill
-                className="object-cover"
-                data-ai-hint="avatar 3d"
+                className="object-cover" 
                 />
                 <div className="absolute inset-0 bg-repeat bg-center opacity-5" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E\")" }}></div>
             </div>
@@ -144,18 +142,20 @@ export default function AboutPage() {
              </Button>
         </div>
 
-        {/* Right Column: Professional Photo */}
         <div className="lg:col-span-3 flex justify-center items-center">
-          <div className="w-full max-w-md h-96 relative rounded-lg overflow-hidden shadow-lg border-2 border-primary/30 group">
+          <div className="w-full max-w-md relative rounded-lg overflow-hidden shadow-lg group">
             <Image
               src={`/images/cancorp (2).JPG`}
               alt={`A professional photo of Can Ur`}
-              fill
+              width={4000}
+              height={6000}
               className="object-cover transition-transform duration-500 group-hover:scale-105"
             />
-             <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors"></div>
+             <div className="absolute inset-0 group-hover:bg-black/20 transition-colors"></div>
           </div>
+ <div className="absolute inset-y-0 right-0 w-60 bg-gradient-to-l from-background to-transparent pointer-events-none" />
         </div>
+ <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-background to-transparent pointer-events-none" />
       </div>
       
       {/* Timeline Section */}
@@ -172,9 +172,7 @@ export default function AboutPage() {
           </div>
       </div>
 
-       {/* Visuals Section */}
-      <div className="mt-24">
-          <h2 className="font-headline text-5xl font-bold tracking-tighter mb-12 text-center">Visuals</h2>
+      <div className="mt-20">
           <Card className="bg-card/50 backdrop-blur-sm border-primary/20 max-w-4xl mx-auto">
             <CardContent className="p-6 grid grid-cols-2 md:grid-cols-4 gap-4">
               {['work.jpg', 'Canwork.jpg', 'Can.jpg', 'Jabrils.jpg'].map((img, i) => (
