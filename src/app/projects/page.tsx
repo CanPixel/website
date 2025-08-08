@@ -110,7 +110,7 @@ export default function ProjectsPage() {
       <NavMenu/>
       <header className="text-center mb-12 mt-12">
         <h1 className="font-headline text-5xl font-bold tracking-tighter mb-4">
-          CanPixel's Portfolio Realms
+          Portfolio Realms
         </h1>
         <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
           A collection of projects I've built, from game prototypes to
