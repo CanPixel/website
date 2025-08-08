@@ -2,7 +2,7 @@
 "use client";
 
 import Image from 'next/image';
-import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import NavMenu from "@/components/navigation";
 import { Button } from "@/components/ui/button";
 import Link from 'next/link';
@@ -65,7 +65,7 @@ const timelineEvents = [
 
 const TimelineItem = ({ event, index }: { event: (typeof timelineEvents)[0], index: number }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: false, amount: 0.3 });
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   const contentVariants = {
     hidden: { opacity: 0.5, y: 20 },
@@ -118,40 +118,49 @@ export default function AboutPage() {
     <div className="container mx-auto px-4 py-16">
       <NavMenu/>
 
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 items-start mt-12">
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start mt-12">
+        {/* Left Column: Intro */}
         <div className="lg:col-span-2 flex flex-col items-center text-center">
-          <Card className="w-full bg-card/50 backdrop-blur-sm p-4 border-primary/20">
             <div className="relative w-48 h-48 mx-auto rounded-full overflow-hidden border-2 border-primary shadow-lg transition-all duration-300 ease-in-out hover:shadow-xl hover:shadow-primary/50 hover:scale-105">
-              <Image
+                <Image
                 src="/images/program.jpg"
                 alt="Can Ur Avatar"
                 fill
                 className="object-cover"
                 data-ai-hint="avatar 3d"
-              />
-              <div className="absolute inset-0 bg-repeat bg-center opacity-5" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E\")" }}></div>
+                />
+                <div className="absolute inset-0 bg-repeat bg-center opacity-5" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E\")" }}></div>
             </div>
-            <h2 className="font-headline text-3xl font-bold mt-6 text-primary">Can Ur</h2>
-            <p className="text-accent">Method Developer</p>
-            <p className="text-muted-foreground mt-4 text-sm leading-relaxed">
-              A philosophically deep thinker at heart, weaving soulful, rebellious, and mysterious narratives through code and sound.
+            <h1 className="font-headline text-4xl font-bold mt-6 text-primary">Can Ur</h1>
+            <p className="text-xl text-accent">Method Developer</p>
+            <p className="text-muted-foreground mt-4 leading-relaxed">
+                A philosophically deep thinker at heart, weaving soulful, rebellious, and mysterious narratives through code and sound.
             </p>
-          </Card>
+             <Button asChild size="lg" className="mt-6 group transition-all duration-300 ease-in-out hover:bg-accent/90 hover:-translate-y-1 hover:scale-105">
+                <Link href="/pdf/resume.pdf" target="_blank">
+                    Download Resume
+                    <Download className="ml-2 h-4 w-4 transition-transform duration-300 ease-in-out group-hover:translate-x-1" />
+                </Link>
+             </Button>
         </div>
 
-        <div className="mt-12 flex justify-center">
-          <div className="w-80 h-80 relative rounded-lg overflow-hidden shadow-lg border-2 border-primary/30">
+        {/* Right Column: Professional Photo */}
+        <div className="lg:col-span-3 flex justify-center items-center">
+          <div className="w-full max-w-md h-96 relative rounded-lg overflow-hidden shadow-lg border-2 border-primary/30 group">
             <Image
-              src={`images/cancorp (2).JPG`}
+              src={`/images/cancorp (2).JPG`}
               alt={`A professional photo of Can Ur`}
               fill
-              className="object-cover transition-transform duration-300 group-hover:scale-105"
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
             />
+             <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors"></div>
           </div>
         </div>
-
-        <div className="lg:col-span-4 mt-8">
-           <h1 className="font-headline text-5xl font-bold tracking-tighter mb-8 text-center">My Journey</h1>
+      </div>
+      
+      {/* Timeline Section */}
+      <div className="mt-24">
+           <h2 className="font-headline text-5xl font-bold tracking-tighter mb-12 text-center">My Journey</h2>
           <div ref={timelineRef} className="relative max-w-3xl mx-auto">
             <div className="absolute left-0 top-0 h-full w-0.5 bg-primary/30 ml-[7px]"></div>
             <motion.div style={{ scaleY }} className="absolute left-0 top-0 h-full w-0.5 bg-primary origin-top ml-[7px]" />
@@ -161,18 +170,17 @@ export default function AboutPage() {
                 ))}
             </div>
           </div>
-        </div>
       </div>
 
-      <div className="lg:col-span-2 mt-6">
-          <Card className="bg-card/50 backdrop-blur-sm border-primary/20">
-            <CardHeader>
-            </CardHeader>
-            <CardContent className="grid grid-cols-2 gap-4">
-              {['work.jpg', 'Canwork.jpg', 'Can.jpg', 'Jabrils.jpg'].map((_, i) => (
+       {/* Visuals Section */}
+      <div className="mt-24">
+          <h2 className="font-headline text-5xl font-bold tracking-tighter mb-12 text-center">Visuals</h2>
+          <Card className="bg-card/50 backdrop-blur-sm border-primary/20 max-w-4xl mx-auto">
+            <CardContent className="p-6 grid grid-cols-2 md:grid-cols-4 gap-4">
+              {['work.jpg', 'Canwork.jpg', 'Can.jpg', 'Jabrils.jpg'].map((img, i) => (
                 <div key={i} className="relative aspect-square rounded-lg overflow-hidden group">
                   <Image
-                    src={`/images/` + _}
+                    src={`/images/${img}`}
                     alt={`Can Ur developer ${i + 1}`}
                     fill
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
@@ -184,15 +192,6 @@ export default function AboutPage() {
             </CardContent>
           </Card>
         </div>
-
-      <div className="flex gap-4 justify-center mt-8">
-        <Button asChild size="lg" className="group transition-all duration-300 ease-in-out hover:bg-accent/90 hover:-translate-y-1 hover:scale-105">
-          <Link href="/pdf/resume.pdf" target="_blank">
-            Download Resume
-              <Download className="ml-2 h-4 w-4 transition-transform duration-300 ease-in-out group-hover:translate-x-1" />
-          </Link>
-        </Button>
-      </div>
     </div>
   );
 }
