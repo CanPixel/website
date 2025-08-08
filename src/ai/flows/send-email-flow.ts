@@ -1,7 +1,7 @@
 
 'use server';
 /**
- * @fileOverview A Genkit flow for sending emails via the Gmail API.
+ * @fileOverview A Genkit flow for sending emails via the Resend API.
  * 
  * - sendEmail - A function that handles sending the contact form data as an email.
  * - SendEmailSchema - The Zod schema for the email content.
@@ -9,15 +9,15 @@
 
 import { ai } from '@/ai/genkit';
 import { z } from 'zod';
-import { google } from 'googleapis';
+import { Resend } from 'resend';
 
-// IMPORTANT: Follow the setup guide to get these values.
-// You will need to set them as environment variables.
-const GMAIL_CLIENT_ID = process.env.GMAIL_CLIENT_ID;
-const GMAIL_CLIENT_SECRET = process.env.GMAIL_CLIENT_SECRET;
-const GMAIL_REDIRECT_URI = process.env.GMAIL_REDIRECT_URI;
-const GMAIL_REFRESH_TOKEN = process.env.GMAIL_REFRESH_TOKEN;
-const MY_EMAIL_ADDRESS = 'canur@canpixel.com'; // The email address you're sending from and to.
+// IMPORTANT: You need to set this environment variable.
+const RESEND_API_KEY = process.env.RESEND_API_KEY;
+// This is the email address you will send emails to.
+const TO_EMAIL_ADDRESS = 'canur11@gmail.com';
+// This is the email you will send emails from. It MUST be a verified domain in Resend.
+// For example, if your domain is canpixel.com, you could use something like 'noreply@canpixel.com'.
+const FROM_EMAIL_ADDRESS = 'noreply@canpixel.com';
 
 const SendEmailSchema = z.object({
   name: z.string().describe('The name of the person sending the message.'),
@@ -39,59 +39,33 @@ const sendEmailFlow = ai.defineFlow(
     outputSchema: z.object({ success: z.boolean(), message: z.string() }),
   },
   async (input) => {
-    if (!GMAIL_CLIENT_ID || !GMAIL_CLIENT_SECRET || !GMAIL_REDIRECT_URI || !GMAIL_REFRESH_TOKEN) {
-      console.error('Gmail API environment variables are not set.');
-      throw new Error('Server configuration error: Missing Gmail API credentials.');
+    if (!RESEND_API_KEY) {
+      console.error('Resend API key is not set.');
+      throw new Error('Server configuration error: Missing Resend API key.');
     }
 
-    const oAuth2Client = new google.auth.OAuth2(
-      GMAIL_CLIENT_ID,
-      GMAIL_CLIENT_SECRET,
-      GMAIL_REDIRECT_URI
-    );
-
-    oAuth2Client.setCredentials({ refresh_token: GMAIL_REFRESH_TOKEN });
+    const resend = new Resend(RESEND_API_KEY);
 
     try {
-      // Get a new access token.
-      const { token: accessToken } = await oAuth2Client.getAccessToken();
-      if (!accessToken) {
-        throw new Error('Failed to create access token.');
-      }
-      
-      const gmail = google.gmail({ version: 'v1', auth: oAuth2Client });
-
-      const subject = `New message from ${input.name} via canpixel.com`;
-      const utf8Subject = `=?utf-8?B?${Buffer.from(subject).toString('base64')}?=`;
-      const messageParts = [
-        `From: CanPixel <${MY_EMAIL_ADDRESS}>`,
-        `To: Can Ur <${MY_EMAIL_ADDRESS}>`,
-        'Content-Type: text/html; charset=utf-8',
-        'MIME-Version: 1.0',
-        `Subject: ${utf8Subject}`,
-        '',
-        `You've received a new message from your portfolio contact form:<br/><br/>`,
-        `<b>Name:</b> ${input.name}<br/>`,
-        `<b>Email:</b> ${input.email}<br/><br/>`,
-        `<b>Message:</b><br/>${input.message.replace(/\n/g, '<br/>')}`,
-      ];
-      const message = messageParts.join('\n');
-
-      // The body needs to be Base64-encoded.
-      const encodedMessage = Buffer.from(message).toString('base64').replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
-
-      const res = await gmail.users.messages.send({
-        userId: 'me',
-        requestBody: {
-          raw: encodedMessage,
-        },
+      const { data, error } = await resend.emails.send({
+        from: `CanPixel Contact Form <${FROM_EMAIL_ADDRESS}>`,
+        to: [TO_EMAIL_ADDRESS],
+        subject: `New message from ${input.name} via canpixel.com`,
+        html: `
+          <p>You've received a new message from your portfolio contact form:</p>
+          <p><strong>Name:</strong> ${input.name}</p>
+          <p><strong>Email:</strong> ${input.email}</p>
+          <p><strong>Message:</strong></p>
+          <p>${input.message.replace(/\n/g, '<br>')}</p>
+        `,
+        reply_to: input.email,
       });
 
-      if (res.status === 200) {
-        return { success: true, message: 'Email sent successfully.' };
-      } else {
-        throw new Error(`Gmail API responded with status: ${res.status}`);
+      if (error) {
+        throw new Error(error.message);
       }
+      
+      return { success: true, message: 'Email sent successfully.' };
 
     } catch (error: any) {
       console.error('Failed to send email:', error.message);
