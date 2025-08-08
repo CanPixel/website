@@ -10,8 +10,8 @@ export default function NemsisSection() {
       <h2 className="absolute -top-5 left-1/2 -translate-x-1/2 bg-background px-4 font-headline text-4xl font-bold tracking-tighter text-orange-500">
           NEMSIS
       </h2>
-      <p className="text-center text-lg text-muted-foreground max-w-3xl mx-auto mb-6">
-          Postmodern Oriental Grungepop
+      <p className="text-center text-md text-muted-foreground max-w-3xl mx-auto mb-6 font-serif">
+        Modern-Oriental Grungepop
       </p>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -31,8 +31,10 @@ export default function NemsisSection() {
               <CardTitle className="font-headline text-2xl text-orange-400">Bio</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-muted-foreground leading-relaxed">
-                NEMSIS is a young rock band that bites you right back! Forged in Haarlem a couple of years ago, a strong bond was created that can be seen and heard. This results in an extraordinary mix of raw guitars, vivid vocals and lunatic sounds where you can't put a finger on where they come from. They call it: Modern-Oriental Grungepop. 3v12 NH (a Dutch multimedia platform for pop music) called them ‘epic’, ‘original’ and ‘energetic’, after their performance in the finals of the Rob Acda Awards 2018, where they eventually won all the prizes. This show plus shows at Young Art festival, Indie In Town and as the opening act on the grand stage of Bevrijdingspop 2018– the reward for winning the Rob Acda Awards- resulted in a buzz, that gets louder with every performance. After a long wait the debut EP "Sugar, Why so Bitter?" has finally reached the surface of the earth, during the successful releaseshow on June 7th in Bitterzoet, Amsterdam!
+              <p className="text-sm text-muted-foreground leading-relaxed">
+NEMSIS is a young rock band that bites you right back! <br></br>
+Forged in Haarlem a couple of years ago, a strong bond was created that can be seen and heard. <br></br>
+This results in an extraordinary mix of raw guitars, vivid vocals and lunatic sounds where you can't put a finger on where they come from. They call it: Modern-Oriental Grungepop. <br></br><br></br>3v12 NH (a Dutch multimedia platform for pop music) called them ‘epic’, ‘original’ and ‘energetic’, after their performance in the finals of the Rob Acda Awards 2018, where they eventually won all the prizes. This show plus shows at Young Art festival, Indie In Town and as the opening act on the grand stage of Bevrijdingspop 2018– the reward for winning the Rob Acda Awards- resulted in a buzz, that gets louder with every performance. <br></br>After a long wait the debut EP "Sugar, Why so Bitter?" has finally reached the surface of the earth, during the successful releaseshow on June 7th in Bitterzoet, Amsterdam!
               </p>
             </CardContent>
           </Card>
@@ -44,10 +46,10 @@ export default function NemsisSection() {
               <CardTitle className="font-headline text-2xl text-orange-400">Visuals</CardTitle>
             </CardHeader>
             <CardContent className="grid grid-cols-2 gap-4">
-              {[...Array(4)].map((_, i) => (
+            {['NEMSISvinyl.jpg', 'nemsis5.jpg', 'EPRelease.jpg', 'bpop (2).jpg'].map((img, i) => (
                 <div key={i} className="relative aspect-square rounded-lg overflow-hidden group">
                   <Image
-                    src={`https://placehold.co/400x400.png`}
+                    src={`/images/${img}`}
                     alt={`Nemsis band visual ${i + 1}`}
                     fill
                     className="object-cover transition-transform duration-300 group-hover:scale-105"

@@ -13,19 +13,19 @@ import { Youtube } from 'lucide-react';
 const youtubeVideos = [
     {
         id: '3K_cHy222UU',
-        title: 'What if Hollow Knight... was Lofi?',
+        title: 'Mixed-Media Meta Format',
     },
     {
         id: 'LbaBm_RMRV8',
-        title: 'What if Undertale... was Lofi?',
+        title: 'Narrative Breakcore with Glitchy elements',
     },
     {
         id: 'PuvYd9OPqOY',
-        title: 'What if Celeste... was Lofi?',
+        title: 'An intro without a movie',
     },
     {
         id: '_9Q2uGL0_Po',
-        title: 'What if Stardew Valley... was Lofi?',
+        title: '4 GoPro angles, 4 days of editing, 225 BPM',
     }
 ]
 

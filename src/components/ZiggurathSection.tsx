@@ -16,7 +16,7 @@ export default function ZiggurathSection() {
           ZIGGURATH
       </h2>
       <p className="text-center text-lg text-gold-200/80 max-w-3xl mx-auto mb-6 font-serif">
-          BLACK DEATH 'N ROLL
+        𒀭 BLACK DEATH 'N ROLL 𒀭
       </p>
 
       <Badge
@@ -30,12 +30,21 @@ export default function ZiggurathSection() {
         <div className="lg:col-span-2">
             <Card className="bg-black/50 backdrop-blur-sm border-gold-500/50">
                 <CardHeader>
-                <CardTitle className="font-serif text-2xl text-gold-300">Astral Exorcism (Debut Album)</CardTitle>
+                  <CardTitle className="text-center font-serif text-2xl text-gold-300">Astral Exorcism (Debut Album)</CardTitle>
+                  <CardTitle className="text-center text-1xl text-gold-200">- 𒀯𒆬 -</CardTitle>
                 </CardHeader>
                 <CardContent>
                 <div className="bg-gold-900/20 p-4 rounded-lg border border-gold-500/30 flex items-center gap-4 relative overflow-hidden">
                   <iframe data-testid="embed-iframe" src="https://open.spotify.com/embed/album/0wFsqIjn2FCrqEwkym3Xri?utm_source=generator&theme=0" width="100%" height="152" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                 </div>
+
+                <p className="text-center text-sm text-gold-200/80 mt-3 leading-relaxed font-serif">
+              8 TRACKS • FULL-LENGTH<br></br> <br></br> 
+‘Astral Exorcism’ serves to sweep the listener away through harsh sonic thunder. <br></br> In a darkening, increasingly unsaturated landscape of metal, this
+metal element seeks to slam and break the skull of habit itself.
+We consist of two people and have built this record from the ground up. Fueled by spiritual worship and a strong DIY spirit, we conceived this
+record within just one year of hard work, starting in the summer of 2023 and the work and its campaign finalized and released on June 8th 2024.
+                </p>
                 </CardContent>
             </Card>
           <Card className="mt-8 bg-black/50 backdrop-blur-sm border-gold-500/50">
@@ -43,8 +52,20 @@ export default function ZiggurathSection() {
               <CardTitle className="font-serif text-2xl text-gold-300">Bio</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-gold-200/80 leading-relaxed font-serif">
-                With a punk/metal ethos, ZIGGURATH channels rebellious energy into a sound that is both modern and ancient. We craft sonic realms that are mysterious, philosophical, and unapologetically meta, inviting listeners into a pluralistic, soulful experience.
+              <p className="text-gold-200/80 leading-relaxed font-serif text-sm">
+              Hailing from the Nether Lands, a furious force of destruction forges a new sound baptized as Black Death ‘n Roll.<br></br>
+Embodying unbridled duality in power, fiery currents of bone-crushing pulses are delivered with organic precision.
+Driven by a distinctly twofold instrumental approach to musical spellcasting, a sonic tapestry is crafted that mesmerizes with intricacy,
+never once compromised on sheer unrelenting brutality.
+An ultimate blasphemy to the sound of modernity!
+For soothing discordants and thrillseekers alike, bear witness to the Voiceless Death Magick.
+<br></br><br></br>
+Influences drawn from the early Thrash scene, crushed together with Death Metal groove and brutality, emanating with
+atmospheres of Black and solidified at its core by Rock ‘n Roll:
+The ‘Astral Exorcism’ is a summoning and devotion to the unforgotten, the ancient, still to lurk among us.
+A sweet and evil alchemical cacophony of variety containing different chapters, promising to hurl its observers across its many
+realms. Carving the cosmic void with 40 minutes of runtime, there is enough to be found and beared witness to, but beware, for
+it is only for the resilient.
               </p>
             </CardContent>
           </Card>
@@ -70,7 +91,8 @@ export default function ZiggurathSection() {
               <div className="text-sm text-center text-muted-foreground">Visions by AbyssalVoid</div>
             </CardContent>
           </Card>
-          <MysticMenu/>
+          {/* <MysticMenu/> */}
+          <CardTitle className="text-center mt-6 font-serif text-4xl text-gold-300">𒅆𒂍𒉪𒋫</CardTitle>
         </div>
       </div>
     </div>

@@ -40,37 +40,35 @@ export default function OrchestratedOstSection() {
 
   return (
     <div className="relative rounded-lg border-2 border-emerald-600 p-8 pt-12 bg-background/80">
-      <h2 className="absolute -top-5 left-1/2 -translate-x-1/2 bg-background px-4 font-headline text-3xl font-bold tracking-tighter text-emerald-500">
+      <h2 className="absolute -top-5 left-1/2 text-center -translate-x-1/2 bg-background px-4 font-headline text-3xl font-bold tracking-tighter text-emerald-500">
           Orchestrated OST
       </h2>
-      <p className="text-center text-lg text-muted-foreground max-w-3xl mx-auto mb-6">
+      <p className="text-center text-md text-muted-foreground max-w-3xl mx-auto mb-6 mt-4">
           Epicinium - A Strategy Game About The Environment
       </p>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2">
-            <Card className="bg-card/50 backdrop-blur-sm border-emerald-600/30">
-                <CardHeader>
-                    <CardTitle className="font-headline text-2xl text-emerald-400">Listen on Spotify</CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <div className="bg-secondary/30 p-4 rounded-lg border border-border">
-                        <iframe data-testid="embed-iframe" src={spotifyUrl} width="100%" height="152" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                    </div>
-                </CardContent>
-            </Card>
           <Card className="mt-8 bg-card/50 backdrop-blur-sm border-emerald-600/30">
             <CardHeader>
               <CardTitle className="font-headline text-2xl text-emerald-400">About the Soundtrack</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-muted-foreground leading-relaxed">
-                The orchestral soundtrack for the nature-based strategy game Epicinium. The music chronologically features the four in-game seasons—Spring, Summer, Autumn, and Winter—composed into a single, evolving musical movement. The compositions reflect the game's core themes of environmental impact and the cyclical nature of life and decay.
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                The orchestral soundtrack for the nature-based strategy game Epicinium. The music chronologically features the four in-game seasons composed into a single, evolving musical movement. <br></br>The compositions reflect the game's core themes of environmental impact and the cyclical nature of life and decay.
                 <br/><br/>
-                Arranged by Can Ur & Daan Mulder. Composed, Mixed & Mastered by Can Ur.
+                Arranged by Can Ur & Daan Mulder. <br></br>Composed, Mixed & Mastered by Can Ur.
               </p>
             </CardContent>
           </Card>
+        </div>
+
+        <div className="lg:col-span-3 grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="w-full flex justify-center">
+             <div className="w-[646px]">
+              <iframe src="https://store.steampowered.com/widget/1442600/" width="100%" height="190"></iframe>
+            </div>
+          </div>
         </div>
 
         <div className="lg:col-span-1">
