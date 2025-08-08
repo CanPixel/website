@@ -139,7 +139,32 @@ export default function AboutPage() {
           </Card>
         </div>
 
-        <div className="lg:col-span-2">
+        <div className="mt-12 flex justify-center">
+          <div className="w-80 h-80 relative rounded-lg overflow-hidden shadow-lg border-2 border-primary/30">
+            <Image
+              src={`images/cancorp (2).JPG`}
+              alt={`A professional photo of Can Ur`}
+              fill
+              className="object-cover transition-transform duration-300 group-hover:scale-105"
+            />
+          </div>
+        </div>
+
+        <div className="lg:col-span-4 mt-8">
+           <h1 className="font-headline text-5xl font-bold tracking-tighter mb-8 text-center">My Journey</h1>
+          <div ref={timelineRef} className="relative max-w-3xl mx-auto">
+            <div className="absolute left-0 top-0 h-full w-0.5 bg-primary/30 ml-[7px]"></div>
+            <motion.div style={{ scaleY }} className="absolute left-0 top-0 h-full w-0.5 bg-primary origin-top ml-[7px]" />
+            <div className="space-y-12">
+                {timelineEvents.map((event, index) => (
+                <TimelineItem key={index} event={event} index={index} />
+                ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="lg:col-span-2 mt-6">
           <Card className="bg-card/50 backdrop-blur-sm border-primary/20">
             <CardHeader>
             </CardHeader>
@@ -159,31 +184,6 @@ export default function AboutPage() {
             </CardContent>
           </Card>
         </div>
-
-        <div className="lg:col-span-4 mt-8">
-           <h1 className="font-headline text-5xl font-bold tracking-tighter mb-8 text-center">My Journey</h1>
-          <div ref={timelineRef} className="relative max-w-3xl mx-auto">
-            <div className="absolute left-0 top-0 h-full w-0.5 bg-primary/30 ml-[7px]"></div>
-            <motion.div style={{ scaleY }} className="absolute left-0 top-0 h-full w-0.5 bg-primary origin-top ml-[7px]" />
-            <div className="space-y-12">
-                {timelineEvents.map((event, index) => (
-                <TimelineItem key={index} event={event} index={index} />
-                ))}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="mt-12 flex justify-center">
-        <div className="w-80 h-80 relative rounded-lg overflow-hidden shadow-lg border-2 border-primary/30">
-          <Image
-            src={`images/cancorp (1).JPG`}
-            alt={`A professional photo of Can Ur`}
-            fill
-            className="object-cover transition-transform duration-300 group-hover:scale-105"
-          />
-        </div>
-      </div>
 
       <div className="flex gap-4 justify-center mt-8">
         <Button asChild size="lg" className="group transition-all duration-300 ease-in-out hover:bg-accent/90 hover:-translate-y-1 hover:scale-105">
