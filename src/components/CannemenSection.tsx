@@ -12,12 +12,20 @@ import { Youtube } from 'lucide-react';
 
 const youtubeVideos = [
     {
-        id: 'jD05zQk3628',
-        title: 'What if DOOM... was Lofi?',
+        id: '3K_cHy222UU',
+        title: 'What if Hollow Knight... was Lofi?',
     },
     {
-        id: 'soEyE3K0Ie4',
-        title: 'What if Dark Souls... was Lofi?',
+        id: 'LbaBm_RMRV8',
+        title: 'What if Undertale... was Lofi?',
+    },
+    {
+        id: 'PuvYd9OPqOY',
+        title: 'What if Celeste... was Lofi?',
+    },
+    {
+        id: '_9Q2uGL0_Po',
+        title: 'What if Stardew Valley... was Lofi?',
     }
 ]
 
@@ -80,30 +88,32 @@ export default function CannemenSection() {
             </div>
             <div>
                 <h3 className="font-headline text-2xl font-bold mb-4 text-center text-sky-400">Video Features</h3>
-                <div className="space-y-6">
-                   {youtubeVideos.map(video => (
-                     <Card key={video.id} className="bg-card/50 border-sky-500/30">
-                        <CardHeader>
-                            <CardTitle className="flex items-center gap-2 text-lg">
-                                <Youtube className="w-6 h-6 text-red-500"/>
-                                {video.title}
-                            </CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            <div className="aspect-video rounded-md overflow-hidden">
-                                <iframe
-                                    src={`https://www.youtube.com/embed/${video.id}`}
-                                    title={video.title}
-                                    frameBorder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowFullScreen
-                                    className="w-full h-full"
-                                ></iframe>
-                            </div>
-                        </CardContent>
-                     </Card>
-                   ))}
-                </div>
+                <ScrollArea className="h-[40rem] rounded-md">
+                    <div className="space-y-6">
+                    {youtubeVideos.map(video => (
+                        <Card key={video.id} className="bg-card/50 border-sky-500/30">
+                            <CardHeader>
+                                <CardTitle className="flex items-center gap-2 text-lg">
+                                    <Youtube className="w-6 h-6 text-red-500"/>
+                                    {video.title}
+                                </CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <div className="aspect-video rounded-md overflow-hidden">
+                                    <iframe
+                                        src={`https://www.youtube.com/embed/${video.id}`}
+                                        title={video.title}
+                                        frameBorder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowFullScreen
+                                        className="w-full h-full"
+                                    ></iframe>
+                                </div>
+                            </CardContent>
+                        </Card>
+                    ))}
+                    </div>
+                </ScrollArea>
             </div>
         </div>
     </div>
