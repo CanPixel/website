@@ -1,3 +1,4 @@
+
 "use client";
 
 import dynamic from 'next/dynamic';
@@ -48,7 +49,7 @@ export default function MusicPage() {
               key={section.id} 
               onClick={() => scrollToSection(section.id)} 
               variant="outline" 
-              className="group text-gold-200 border-gold-700/50 hover:bg-gold-500/10 hover:border-gold-600 hover:text-gold-300"
+              className="group text-gold-500 border-gold-700/50 hover:bg-gold-500/10 hover:border-gold-600 hover:text-gold-400"
             >
                 <section.icon className="mr-2 h-5 w-5 text-gold-400 transition-colors group-hover:text-gold-300" />
                 {section.name}
@@ -57,6 +58,9 @@ export default function MusicPage() {
       </div>
 
       <div className="space-y-16">
+        <section id="ziggurath">
+            <ZiggurathSection />
+        </section>
         <section id="midi">
             <MidiSection />
         </section>
@@ -68,9 +72,6 @@ export default function MusicPage() {
         </section>
         <section id="nemsis">
             <NemsisSection />
-        </section>
-        <section id="ziggurath">
-            <ZiggurathSection />
         </section>
       </div>
     </div>
