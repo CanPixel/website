@@ -1,3 +1,4 @@
+
 'use client';
 
 import Image from 'next/image';
@@ -13,7 +14,7 @@ export function ProjectCard({ project }: { project : any }) {
   const styling = getProjectStyling(project.id);
 
  return (
-    <div className="group">
+    <div className="group mx-auto max-w-sm sm:max-w-none sm:mx-0">
     <Card
       className={cn(
  'overflow-hidden transition-all duration-300 ease-in-out border-2 flex flex-col h-[580px]',
