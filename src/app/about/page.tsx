@@ -136,7 +136,7 @@ export default function AboutPage() {
             </p>
              <Button asChild size="lg" className="mt-6 group transition-all duration-300 ease-in-out hover:bg-accent/90 hover:-translate-y-1 hover:scale-105">
                 <Link href="/pdf/resume.pdf" target="_blank">
-                    Download Resume
+                    Resume
                     <Download className="ml-2 h-4 w-4 transition-transform duration-300 ease-in-out group-hover:translate-x-1" />
                 </Link>
              </Button>
