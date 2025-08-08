@@ -6,8 +6,8 @@ const socialLinks = [
     {
         name: "Email",
         icon: Mail,
-        url: "mailto:canur@canpixel.com",
-        handle: "canur@canpixel.com",
+        url: "mailto:canur11@gmail.com",
+        handle: "canur11@gmail.com",
     },
     {
         name: "GitHub",
