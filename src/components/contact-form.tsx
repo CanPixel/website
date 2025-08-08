@@ -1,4 +1,3 @@
-
 "use client";
 
 import { Button } from "@/components/ui/button";
@@ -8,7 +7,6 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useToast } from "@/hooks/use-toast";
-import { sendEmail } from "@/ai/flows/send-email-flow";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 
 const formSchema = z.object({
@@ -29,21 +27,21 @@ export default function ContactForm() {
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    try {
-      await sendEmail(values);
-      toast({
-        title: "Message Sent!",
-        description: "Thank you for reaching out. I'll get back to you shortly.",
-      });
-      form.reset();
-    } catch (error) {
-      console.error("Failed to send email:", error);
-      toast({
-        variant: "destructive",
-        title: "Uh oh! Something went wrong.",
-        description: "There was a problem sending your message. Please try again later.",
-      });
-    }
+  //   try {
+  //     await sendEmail(values);
+  //     toast({
+  //       title: "Message Sent!",
+  //       description: "Thank you for reaching out. I'll get back to you shortly.",
+  //     });
+  //     form.reset();
+  //   } catch (error) {
+  //     console.error("Failed to send email:", error);
+  //     toast({
+  //       variant: "destructive",
+  //       title: "Uh oh! Something went wrong.",
+  //       description: "There was a problem sending your message. Please try again later.",
+  //     });
+  //   }
   }
 
   return (

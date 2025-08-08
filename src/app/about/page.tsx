@@ -7,7 +7,7 @@ import NavMenu from "@/components/navigation";
 import { Button } from "@/components/ui/button";
 import Link from 'next/link';
 import { Download } from 'lucide-react';
-import { motion, useInView, useScroll, useSpring } from 'framer-motion';
+import { motion, useInView, useScroll, useSpring, Variants } from 'framer-motion';
 import { useRef } from 'react';
 
 const timelineEvents = [
@@ -72,7 +72,7 @@ const TimelineItem = ({ event, index }: { event: (typeof timelineEvents)[0], ind
     visible: { opacity: 1, y: 0 },
   };
 
-  const dotVariants = {
+  const dotVariants: Variants = {
     hidden: { scale: 0 },
     visible: {
       scale: 1,
