@@ -62,9 +62,6 @@ export default function ContactPage() {
                 </a>
             ))}
         </div>
-        <div>
-            <ContactForm />
-        </div>
       </div>
     </div>
   );
