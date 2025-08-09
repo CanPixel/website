@@ -77,7 +77,7 @@ export default function OrchestratedOstSection() {
               <CardTitle className="font-headline text-2xl text-emerald-400">Game Visuals</CardTitle>
             </CardHeader>
             <CardContent className="grid grid-cols-2 gap-4">
-              {['images/epicinium.png', 'images/epiciniumbanner.png', 'images/epiciniumaction.png', 'images/episteamium.gif'].map((img, i) => (
+              {['epicinium.png', 'epiciniumbanner.png', 'epiciniumaction.png', 'episteamium.gif'].map((img, i) => (
                 <div key={i} className="relative aspect-square rounded-lg overflow-hidden group">
                   <Image
                     src={`/images/epicinium/${img}`}
