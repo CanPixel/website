@@ -9,6 +9,12 @@ import { Project } from '@/data/projects';
 import ProjectsPreview from "@/components/projects-preview";
 import NavMenu from "@/components/navigation";
 import { Button } from "@/components/ui/button";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 
 // import MusicProjectCard from "@/components/music-project-card";
 // import { blogData } from "@/lib/blogData";
@@ -77,8 +83,32 @@ export default function Home() {
         </p>
 
         <div className="font-mono text-left max-w-md mx-auto text-sm space-y-2 text-muted-foreground mb-8">
-            <p className='mb-4'><span className="text-primary text-md">𒆠 ki [place] : </span><span className='bg-green-950 p-1'>"place; ground, earth; underworld; land, country; lower"</span></p>
-            <p><span className="text-primary text-lg">𒌨 ur [wolf] : </span><span className='bg-green-950 p-1'>"beast of prey; (lone) wolf; <a href="https://en.wikipedia.org/wiki/Ur" target="_blank" className="hover:bg-green-700 p-1">oldest_city_in_the_world_Ur[l]</a>"</span></p>
+            <p><span className="text-primary text-md">𒆠 ki [place] : </span><span className='bg-green-950 p-1'>"place; ground, earth; underworld; land, country; lower"</span></p>
+            <TooltipProvider>
+              <Tooltip delayDuration={100}>
+                <p>
+                  <span className="text-primary text-lg">𒌨 ur [wolf] : </span>
+                  <span className='bg-green-950 p-1'>
+                    "beast of prey; (lone) wolf;{" "}
+                    <TooltipTrigger asChild>
+                      <a href="https://en.wikipedia.org/wiki/Ur" target="_blank" className="hover:bg-green-700 p-1 underline decoration-dotted">
+                        oldest_city_in_the_world_Ur[l]
+                      </a>
+                    </TooltipTrigger>
+                    "
+                  </span>
+                </p>
+                <TooltipContent className="max-w-sm bg-background border-primary/20 text-foreground">
+                  <div className="p-2">
+                    <h4 className="font-bold text-lg mb-2 font-headline">Ur, Cradle of Civilization</h4>
+                    <Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Ziggurat_of_ur.jpg/1280px-Ziggurat_of_ur.jpg" width={400} height={250} alt="Ziggurat of Ur" className="rounded-md mb-2" />
+                    <p className="text-sm">
+                      An ancient Sumerian city-state in Mesopotamia, Ur was a crucial center of trade and civilization for thousands of years. It is famously known for its impressive ziggurat and is believed to be the birthplace of Abraham.
+                    </p>
+                  </div>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
         </div>
       </section>
 
