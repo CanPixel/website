@@ -25,7 +25,7 @@ const cuneiform = Noto_Sans_Cuneiform({
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | CanPixel',
+    template: '%s',
     default: 'CanPixel - 𒌨',
   },
   description: 'Worlds of a Method Developer',

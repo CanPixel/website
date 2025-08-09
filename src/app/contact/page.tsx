@@ -4,7 +4,7 @@ import NavMenu from "@/components/navigation";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: '𒅗 Contact',
+    title: 'Contact CanPixel - 𒅗',
 };
 
 
