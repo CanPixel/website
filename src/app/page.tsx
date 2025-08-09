@@ -112,7 +112,31 @@ export default function Home() {
         </p>
 
         <div className="font-mono text-left max-w-md mx-auto text-sm space-y-2 text-muted-foreground mb-8">
-            <p><span className="text-primary text-md">𒆠 ki [place] : </span><span className='bg-green-950 p-1'>"place; ground, earth; underworld; land, country; lower"</span></p>
+            <TooltipProvider>
+              <Tooltip delayDuration={100}>
+                <p>
+                  <span className="text-primary text-md">𒆠 ki [place] : </span>
+                  <span className='bg-green-950 p-1'>
+                    "place; ground, earth;{" "}
+                    <TooltipTrigger asChild>
+                      <a href="https://en.wikipedia.org/wiki/Hell" target="_blank" className="hover:bg-green-700 p-1 underline decoration-dotted">
+                        underworld;
+                      </a>
+                    </TooltipTrigger>
+                    {" "}land, country; lower"
+                  </span>
+                </p>
+                <TooltipContent className="max-w-xs bg-background border-primary/20 text-foreground">
+                  <div className="p-2">
+                    <h4 className="font-bold text-lg mb-2 font-headline">Hell in Religion</h4>
+                    <Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Hieronymus_Bosch_-_The_Garden_of_Earthly_Delights_-_Hell.jpg/1280px-Hieronymus_Bosch_-_The_Garden_of_Earthly_Delights_-_Hell.jpg" width={400} height={250} alt="The Garden of Earthly Delights - Hell by Hieronymus Bosch" className="rounded-md mb-2" />
+                    <p className="text-sm">
+                      In many religious and folkloric traditions, Hell is an afterlife location in which evil souls are subjected to punitive suffering, most often through torture, as eternal punishment after death.
+                    </p>
+                  </div>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
             <TooltipProvider>
               <Tooltip delayDuration={100}>
                 <p>
