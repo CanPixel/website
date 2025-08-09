@@ -32,14 +32,11 @@ export function ProjectCard({ project }: { project : any }) {
     >
       <CardHeader>
           <div className="flex justify-between items-start">
-              {/* Project Title */}
               <CardTitle className="text-2xl font-bold" 
               style={{ color: styling.textColor }}>{project.title}
               </CardTitle>
 
-              {/* Container for Date Badge and Icons */}
               <div className="flex flex-col items-end gap-1">
-                {/* Release Date Badge */}
               <Badge
                 variant="outline"
                 className={cn("p-2 px-3 whitespace-nowrap", styling.badgeBackgroundColor)}
@@ -51,7 +48,6 @@ export function ProjectCard({ project }: { project : any }) {
                   {project.releaseDate ?? 'Coming Soon'}
               </Badge>
               
-              {/* Steam/Web Icons */}
              {(project.releaseType === "steam" ||
                 project.releaseType === "web") && (
                 <div className="flex gap-2">
@@ -75,7 +71,7 @@ export function ProjectCard({ project }: { project : any }) {
                   )}
                 </div>
               )}
-               </div> {/* End of container for Date Badge and Icons */}
+               </div>
           </div>
           <div>
             {project.properties?.genre && Array.isArray(project.properties?.genre) ?

@@ -53,8 +53,8 @@ export default function Home() {
   );
 
   return (
-    <div className="container mx-auto px-4 py-12">
-      <section className="text-center pt-24 pb-16">
+    <div className="container mx-auto px-4 py-10">
+      <section className="text-center pt-24 pb-2">
         <NavMenu/>
         <div className="flex justify-center items-center gap-4">
           <h1 className="font-headline text-6xl md:text-8xl font-black tracking-tighter bg-gradient-to-br from-primary/80 via-primary to-accent bg-clip-text text-transparent drop-shadow-lg transform scale-y-120 origin-center">
@@ -69,33 +69,25 @@ export default function Home() {
             />
         </div>
 
-        <h2 className="font-headline text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-4 mt-4">
+        <h2 className="font-headline text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-4 mt-0">
           Engaging Digital Experiences
         </h2>
-        <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+        <p className="text-md md:text-xl text-muted-foreground max-w-3xl mx-auto mb-10 font-mono">
           Method Developer weaving soulful, interactive experiences from the threads of code and creativity
         </p>
 
-        <div className="font-mono text-left max-w-md mx-auto text-sm space-y-2 text-muted-foreground mb-6">
-            <p><span className="text-primary text-lg">𒌨</span> ur [wolf] - "beast of prey; (lone) wolf; oldest_city_in_the_world"</p>
-            <p><span className="text-primary text-lg">𒆠</span> ki [place] - "place; ground, earth; underworld; land, country; lower"</p>
+        <div className="font-mono text-left max-w-md mx-auto text-sm space-y-2 text-muted-foreground mb-8">
+            <p className='mb-4'><span className="text-primary text-md">𒆠 ki [place] : </span><span className='bg-green-950 p-1'>"place; ground, earth; underworld; land, country; lower"</span></p>
+            <p><span className="text-primary text-lg">𒌨 ur [wolf] : </span><span className='bg-green-950 p-1'>"beast of prey; (lone) wolf; <a href="https://en.wikipedia.org/wiki/Ur" target="_blank" className="hover:bg-green-700 p-1">oldest_city_in_the_world_Ur[l]</a>"</span></p>
         </div>
-
-        <p className="font-headline text-2xl shiny-text mb-8">
-            𒆠𒌨 [ki.ur] - Realms of Ur
+        <p className="font-headline text-[1.1rem] pb-0 text-primary mb-0 font-mono">
+            𒆠𒌨 [ki.ur] :
         </p>
-
-        <div className="flex gap-4 justify-center">
-          <Button asChild size="lg" className="group transition-all duration-300 ease-in-out hover:bg-accent/90 hover:-translate-y-1 hover:scale-105">
-            <Link href="/projects">
-              Explore Realms
-              <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 ease-in-out group-hover:translate-x-1" />
-              </Link>
-          </Button>
-        </div>
       </section>
 
-      <h1 className="font-headline text-5xl font-bold tracking-tighter mb-4 text-center shiny-text text-[#C494B3]">REALMS</h1>
+      <h1 className="font-headline text-5xl font-bold tracking-tighter mb-4 text-center shiny-text text-[#C494B3]">
+        Realms of Ur
+      </h1>
       <div className="text-center mb-12 max-w-3xl mx-auto">
         <p className="font-headline text-xl text-primary tracking-wider">
             Each project is a world unto itself
@@ -105,12 +97,22 @@ export default function Home() {
         </p>
       </div>
 
+      <div className="flex gap-4 justify-center mb-10">
+        <Button asChild size="lg" className="group transition-all duration-300 ease-in-out hover:bg-accent/90 hover:-translate-y-1 hover:scale-105">
+          <Link href="/projects">
+            Explore Realms
+            <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 ease-in-out group-hover:translate-x-1" />
+            </Link>
+        </Button>
+      </div>
+
       <ProjectsPreview projects={featuredProjects}/>
 
       <div className="flex justify-between items-center mt-12 mb-8">
-          <h2 className="text-3xl md:text-4xl font-headline font-bold">
+        <h2 className="font-headline text-4xl font-bold tracking-tighter text-center shiny-text text-[#C494B3]">
           REALMS
         </h2>
+
         <Button asChild variant="link" className="text-accent">
           <Link href="/projects">
             View All <ArrowRight className="ml-2 h-4 w-4" />

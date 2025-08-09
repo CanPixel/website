@@ -102,6 +102,15 @@
     z-index: 1000;
   }
 
+  ::selection {
+    background-color: cyan; 
+    color: black;
+  }
+  ::-moz-selection {
+    background-color: cyan;
+    color: black;
+  }
+
   /* Custom Scrollbar for MidiSection */
   .midi-scroll-area [data-radix-scroll-area-viewport] > div {
     scrollbar-width: thin;
