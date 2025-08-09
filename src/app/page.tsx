@@ -98,7 +98,7 @@ export default function Home() {
                     "
                   </span>
                 </p>
-                <TooltipContent className="max-w-sm bg-background border-primary/20 text-foreground">
+                <TooltipContent className="max-w-xs bg-background border-primary/20 text-foreground">
                   <div className="p-2">
                     <h4 className="font-bold text-lg mb-2 font-headline">Ur, Cradle of Civilization</h4>
                     <Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Ziggurat_of_ur.jpg/1280px-Ziggurat_of_ur.jpg" width={400} height={250} alt="Ziggurat of Ur" className="rounded-md mb-2" />
