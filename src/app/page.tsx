@@ -107,7 +107,7 @@ export default function Home() {
         <h2 className="font-headline text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-4 mt-0">
           Engaging Digital Experiences
         </h2>
-        <p className="text-md md:text-xl text-muted-foreground max-w-3xl mx-auto mb-10 font-mono h-8">
+        <p className="mb-11 text-md md:text-xl text-muted-foreground max-w-3xl mx-auto mb-10 font-mono h-8">
           {tagline}<span className="blinking-cursor">_</span>
         </p>
 

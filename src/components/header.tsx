@@ -1,13 +1,12 @@
-
 "use client";
 
 import Link from "next/link";
 import { Logo } from '@/components/Logo';
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
-import { Code2, Code, Music, Palette, User, Hexagon, MessageSquare } from "lucide-react";
+import { Code, Music, Palette, User, Hexagon, MessageSquare } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { useIsMobile } from "@/hooks/use-mobile";
+// import { useIsMobile } from "@/hooks/use-mobile";
 
 const navLinks = [
   { href: "/about", label: "About", icon: User, cuneiform: "𒈗" },
@@ -19,7 +18,7 @@ const navLinks = [
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
-  const isMobile = useIsMobile();
+  // const isMobile = useIsMobile();
 
   useEffect(() => {
     // Set initial state after mount to avoid hydration mismatch
@@ -83,8 +82,8 @@ export default function Header() {
               </div>
             </Link>
           </div>
-           <nav className="flex w-full max-w-sm justify-between items-center md:space-x-6 md:w-auto md:justify-normal">
-              {navLinks.map((link) => <NavLink key={link.href} {...link} />)}
+          <nav className="flex w-full max-w-sm justify-between items-center md:space-x-6 md:w-auto md:justify-normal">
+            {navLinks.map((link) => <NavLink key={link.href} {...link} />)}
           </nav>
         </div>
     </header>
