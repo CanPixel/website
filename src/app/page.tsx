@@ -79,7 +79,7 @@ export default function Home() {
           𒁾𒊬 (Dub-Sar) - The Scribe
         </p>
         <p className="cuneiform-text text-sm text-muted-foreground mx-auto mb-8">
-          𒌨 (Ur) - The Hero
+          𒌨 (Ur) - The Outsider
         </p>
         <div className="flex gap-4 justify-center">
           <Button asChild size="lg" className="group transition-all duration-300 ease-in-out hover:bg-accent/90 hover:-translate-y-1 hover:scale-105">
