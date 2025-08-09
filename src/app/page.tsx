@@ -80,15 +80,16 @@ export default function Home() {
             <p className='mb-4'><span className="text-primary text-md">𒆠 ki [place] : </span><span className='bg-green-950 p-1'>"place; ground, earth; underworld; land, country; lower"</span></p>
             <p><span className="text-primary text-lg">𒌨 ur [wolf] : </span><span className='bg-green-950 p-1'>"beast of prey; (lone) wolf; <a href="https://en.wikipedia.org/wiki/Ur" target="_blank" className="hover:bg-green-700 p-1">oldest_city_in_the_world_Ur[l]</a>"</span></p>
         </div>
-        <p className="font-headline text-[1.1rem] pb-0 text-primary mb-0 font-mono">
-            𒆠𒌨 [ki.ur] :
-        </p>
       </section>
+
+      <p className="mt-2 text-center font-headline text-[1.1rem] pb-0 text-primary mb-0 font-mono">
+        𒆠𒌨 [ki.ur] :
+      </p>
 
       <h1 className="font-headline text-5xl font-bold tracking-tighter mb-4 text-center shiny-text text-[#C494B3]">
         Realms of Ur
       </h1>
-      <div className="text-center mb-12 max-w-3xl mx-auto">
+      <div className="text-center mb-8 max-w-3xl mx-auto">
         <p className="font-headline text-xl text-primary tracking-wider">
             Each project is a world unto itself
         </p>
@@ -97,7 +98,9 @@ export default function Home() {
         </p>
       </div>
 
-      <div className="flex gap-4 justify-center mb-10">
+      <ProjectsPreview projects={featuredProjects}/>
+
+      <div className="flex gap-4 justify-center mb-10 mt-12">
         <Button asChild size="lg" className="group transition-all duration-300 ease-in-out hover:bg-accent/90 hover:-translate-y-1 hover:scale-105">
           <Link href="/projects">
             Explore Realms
@@ -105,8 +108,6 @@ export default function Home() {
             </Link>
         </Button>
       </div>
-
-      <ProjectsPreview projects={featuredProjects}/>
 
       <div className="flex justify-between items-center mt-12 mb-8">
         <h2 className="font-headline text-4xl font-bold tracking-tighter text-center shiny-text text-[#C494B3]">
