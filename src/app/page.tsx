@@ -181,9 +181,7 @@ export default function Home() {
         </p>
       </div>
 
-      <ProjectsPreview projects={featuredProjects}/>
-
-      <div className="flex gap-4 justify-center mb-10 mt-12">
+      <div className="flex gap-4 justify-center mb-10">
         <Button asChild size="lg" className="group transition-all duration-300 ease-in-out hover:bg-accent/90 hover:-translate-y-1 hover:scale-105">
           <Link href="/projects">
             Explore Realms
@@ -191,6 +189,8 @@ export default function Home() {
             </Link>
         </Button>
       </div>
+
+      <ProjectsPreview projects={featuredProjects}/>
 
       <div className="flex justify-between items-center mt-12 mb-8">
         <h2 className="font-headline text-4xl font-bold tracking-tighter text-center shiny-text text-[#C494B3]">
