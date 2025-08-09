@@ -1,4 +1,5 @@
 
+
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -92,7 +93,7 @@ export default function Home() {
                     "beast of prey; (lone) wolf;{" "}
                     <TooltipTrigger asChild>
                       <a href="https://en.wikipedia.org/wiki/Ur" target="_blank" className="hover:bg-green-700 p-1 underline decoration-dotted">
-                        oldest_city_in_the_world_Ur[l]
+                        oldest_city_in_the_world;
                       </a>
                     </TooltipTrigger>
                     "
