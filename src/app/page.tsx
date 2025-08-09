@@ -72,18 +72,19 @@ export default function Home() {
         <h2 className="font-headline text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-4 mt-4">
           Engaging Digital Experiences
         </h2>
-        <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-4">
+        <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
           Method Developer weaving soulful, interactive experiences from the threads of code and creativity
         </p>
-        <p className="cuneiform-text text-sm text-muted-foreground mx-auto mb-2">
-          𒆠 𒌨 (Ki Ur) - Realms of the Outsider
+
+        <div className="font-mono text-left max-w-md mx-auto text-sm space-y-2 text-muted-foreground mb-6">
+            <p><span className="text-primary text-lg">𒌨</span> ur [wolf] - "beast of prey; (lone) wolf; oldest_city_in_the_world"</p>
+            <p><span className="text-primary text-lg">𒆠</span> ki [place] - "place; ground, earth; underworld; land, country; lower"</p>
+        </div>
+
+        <p className="font-headline text-2xl shiny-text mb-8">
+            𒆠𒌨 [ki.ur] - Realms of Ur
         </p>
-        <p className="cuneiform-text text-sm text-muted-foreground mx-auto mb-2">
-          𒌨 (Ur) - Beast of Prey, Lone Wolf
-        </p>
-        <p className="cuneiform-text text-sm text-muted-foreground mx-auto mb-8">
-          𒁾𒊬 (Dub-Sar) - The Scribe
-        </p>
+
         <div className="flex gap-4 justify-center">
           <Button asChild size="lg" className="group transition-all duration-300 ease-in-out hover:bg-accent/90 hover:-translate-y-1 hover:scale-105">
             <Link href="/projects">
