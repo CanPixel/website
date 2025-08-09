@@ -75,8 +75,11 @@ export default function Home() {
         <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-4">
           Method Developer weaving soulful, interactive experiences from the threads of code and creativity
         </p>
-        <p className="cuneiform-text text-sm text-muted-foreground mx-auto mb-8">
+        <p className="cuneiform-text text-sm text-muted-foreground mx-auto mb-2">
           𒁾𒊬 (Dub-Sar) - The Scribe
+        </p>
+        <p className="cuneiform-text text-sm text-muted-foreground mx-auto mb-8">
+          𒌨 (Ur) - The Hero
         </p>
         <div className="flex gap-4 justify-center">
           <Button asChild size="lg" className="group transition-all duration-300 ease-in-out hover:bg-accent/90 hover:-translate-y-1 hover:scale-105">
