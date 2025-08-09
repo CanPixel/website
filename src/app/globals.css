@@ -2,6 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Specific style for cuneiform text */
+.cuneiform-text {
+  font-family: 'Noto Sans Cuneiform', sans-serif;
+  letter-spacing: 0.1em; /* Add some spacing for readability */
+  font-size: 0.8em; /* Adjust size as needed */
+  color: #8a7c6b; /* Muted bronze/gold for cuneiform */
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

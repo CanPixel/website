@@ -13,9 +13,12 @@ export default function Footer() {
     <footer className="border-t">
       <div className="container mx-auto px-4 py-8 flex flex-col md:flex-row justify-between items-center gap-6">
         <div className="flex items-center gap-2">
-          <div className="text-sm text-white mb-4 sm:mb-0">
+          <div className="text-sm text-white my-0 sm:mb-0">
             &copy; {new Date().getFullYear()} CanPixel. All rights reserved.
           </div>
+        </div>
+        <div className="cuneiform-text text-sm my-0 sm:mb-0">
+          𒀭𒂗𒆠 (Enki) - God of Creation
         </div>
         <div className="flex items-center gap-2">
           {socialLinks.map((social) => (
