@@ -86,8 +86,8 @@ export default function Home() {
         𒆠𒌨 [ki.ur] :
       </p>
 
-      <h1 className="font-headline text-5xl font-bold tracking-tighter mb-4 text-center shiny-text text-[#C494B3]">
-        Realms of Ur
+      <h1 className="font-headline text-5xl font-bold tracking-tighter mb-3 text-center shiny-text text-[#C494B3]">
+        REALMS of UR
       </h1>
       <div className="text-center mb-8 max-w-3xl mx-auto">
         <p className="font-headline text-xl text-primary tracking-wider">
