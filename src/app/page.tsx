@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -50,15 +51,29 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    let index = 0;
-    const interval = setInterval(() => {
-      setTagline(fullTagline.substring(0, index));
-      index++;
-      if (index > fullTagline.length) {
-        clearInterval(interval);
+    const hesitationPoint = fullTagline.indexOf('from the') + 'from the'.length;
+    let currentIndex = 0;
+    let timeoutId: NodeJS.Timeout;
+
+    const type = () => {
+      if (currentIndex < fullTagline.length) {
+        setTagline(fullTagline.substring(0, currentIndex + 1));
+        currentIndex++;
+
+        let delay = 30; // Faster initial speed
+        if (currentIndex === hesitationPoint) {
+            delay = 700; // The "hesitation"
+        } else if (currentIndex > hesitationPoint) {
+            delay = 70; // Slower speed after hesitation
+        }
+        
+        timeoutId = setTimeout(type, delay);
       }
-    }, 50); // Adjust speed of typing here
-    return () => clearInterval(interval);
+    };
+
+    type();
+
+    return () => clearTimeout(timeoutId);
   }, [fullTagline]);
   
   const featuredProjects = projects.filter(project => 
