@@ -114,8 +114,8 @@ export function ProjectCard({ project }: { project : any }) {
           </div>
       </CardHeader>
       <CardContent className="flex-grow flex flex-col justify-between">
-        <>
-            <div className="w-full h-auto relative aspect-video mb-0">
+        <div className="flex-grow">
+            <div className="w-full h-auto relative aspect-video mb-4">
                 <Image
                 src={"images/" + project.thumbnailUrl}
                 alt={`Showcase image for ${project.title}`}
@@ -123,34 +123,31 @@ export function ProjectCard({ project }: { project : any }) {
                 className="object-cover rounded-md"
                 />
             </div>
-            <CardDescription style={{ color: styling.textColor, opacity: 0.8 }} className="h-24 mt-0 overflow-hidden text-ellipsis">
+            <CardDescription style={{ color: styling.textColor, opacity: 0.8 }} className="h-24 overflow-hidden text-ellipsis mb-4">
                 <b>{project.shortDescription}</b>
-                {/* <br></br> */}
-                
-                <div className="flex justify-between items-center">
-                  <div className="flex flex-wrap gap-2">
-                    {project.properties?.skills?.map((tag: string) => (
-                      <Badge
-                        key={tag}
-                        variant="secondary"
-                        className={cn(
-                          skillColors[tag] || "bg-gray-500",
-                          "text-white"
-                        )}
-                      >
-                        {tag}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-                
+                <br></br>
                 {project.description}
             </CardDescription>
-        </>
-        <Button variant="link" className="p-0 h-auto mt-8 text-inherit group-hover:underline self-start">
-          Explore Realm
-          <ArrowRight className="ml-2 h-4 w-4" />
-        </Button>
+        </div>
+        <div>
+            <div className="flex flex-wrap gap-2 mb-4">
+              {project.properties?.skills?.map((tag: string) => (
+                <Badge
+                  key={tag}
+                  style={{
+                    backgroundColor: skillColors[tag] || "#6b7280",
+                    color: "white"
+                  }}
+                >
+                  {tag}
+                </Badge>
+              ))}
+            </div>
+            <Button variant="link" className="p-0 h-auto text-inherit group-hover:underline self-start">
+                Explore Realm
+                <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+        </div>
       </CardContent>
     </Card>
  </div>
