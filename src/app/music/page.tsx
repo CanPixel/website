@@ -9,11 +9,6 @@ import NemsisSection from '@/components/NemsisSection';
 import ZiggurathSection from '@/components/ZiggurathSection'; 
 import CannemenSection from '@/components/CannemenSection'; 
 import OrchestratedOstSection from '@/components/OrchestratedOstSection'; 
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-    title: '𒅔 Music',
-};
 
 const MidiSection = dynamic(() => import('@/components/MidiSection'), {
   loading: () => <div className="mt-6 text-center">Loading MIDI projects...</div>,
