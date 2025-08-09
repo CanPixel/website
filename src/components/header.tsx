@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -38,12 +39,12 @@ export default function Header() {
         <Link
             href={href}
             className={cn(
-                "relative text-md font-headline transition-colors hover:text-accent group text-center",
+                "relative font-headline transition-colors hover:text-accent group text-center",
                 isActive ? "text-accent" : "text-foreground/80"
             )}
         >
-            <span className="font-cuneiform text-2xl leading-none">{cuneiform}</span>
-            <span className="block text-lg leading-tight">{label}</span>
+            <span className="font-cuneiform text-xl md:text-2xl leading-none">{cuneiform}</span>
+            <span className="block text-sm md:text-lg leading-tight">{label}</span>
             <span className={cn(
               "absolute bottom-[-2px] left-0 h-[2px] w-full bg-accent transition-all duration-300 ease-out",
               isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
@@ -82,7 +83,7 @@ export default function Header() {
               </div>
             </Link>
           </div>
-          <nav className="flex w-full max-w-sm justify-between items-center md:space-x-6 md:w-auto md:justify-normal">
+          <nav className="flex w-full max-w-xs sm:max-w-sm justify-between items-center md:space-x-6 md:w-auto md:justify-normal">
             {navLinks.map((link) => <NavLink key={link.href} {...link} />)}
           </nav>
         </div>
