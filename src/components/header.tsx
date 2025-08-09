@@ -52,24 +52,6 @@ export default function Header() {
         </Link>
     );
   };
-  
-  const MobileNavLink = ({ href, icon: Icon }: { href: string; icon: React.ElementType }) => {
-    const isActive = pathname.startsWith(href);
-    return (
-      <Link href={href} className="flex flex-col items-center gap-1 text-xs text-muted-foreground group">
-        <div className={cn(
-          "relative p-2 rounded-full transition-all duration-300",
-          isActive ? "bg-accent/20" : ""
-        )}>
-          <Icon className={cn(
-            "w-5 h-5 transition-all duration-300 transform group-hover:scale-110",
-             isActive ? "text-accent" : "text-foreground/80"
-          )} />
-           {isActive && <span className="absolute -bottom-1 left-1/2 h-1 w-4 -translate-x-1/2 rounded-full bg-accent"></span>}
-        </div>
-      </Link>
-    );
-  };
  
   return (
     <header className={cn(
@@ -83,7 +65,7 @@ export default function Header() {
               <div className="flex flex-col group">
                 <span className="font-bold font-headline text-2xl bg-gradient-to-br from-primary from-30% to-accent bg-clip-text text-transparent group-hover:text-accent transition-colors duration-300 ease-in-out transform scale-y-120 origin-center">CanPixel</span>
                   
-                <div className="hidden md:flex items-center text-xs gap-3" 
+                <div className="flex items-center text-xs gap-3" 
                   style={{ color: '#7099C2' }}>
                       <div className="flex items-center gap-1">
                           <Code className="h-3 w-3" />
@@ -102,10 +84,7 @@ export default function Header() {
             </Link>
           </div>
            <nav className="flex w-full max-w-sm justify-between items-center md:space-x-6 md:w-auto md:justify-normal">
-              {isMobile
-                ? navLinks.map((link) => <MobileNavLink key={link.href} href={link.href} icon={link.icon} />)
-                : navLinks.map((link) => <NavLink key={link.href} {...link} />)
-              }
+              {navLinks.map((link) => <NavLink key={link.href} {...link} />)}
           </nav>
         </div>
     </header>
