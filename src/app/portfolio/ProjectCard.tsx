@@ -32,9 +32,14 @@ export function ProjectCard({ project }: { project : any }) {
     >
       <CardHeader>
           <div className="flex justify-between items-start">
+              {/* Project Title */}
               <CardTitle className="text-2xl font-bold" 
               style={{ color: styling.textColor }}>{project.title}
               </CardTitle>
+
+              {/* Container for Date Badge and Icons */}
+              <div className="flex flex-col items-end gap-1">
+                {/* Release Date Badge */}
               <Badge
                 variant="outline"
                 className={cn("p-2 px-3 whitespace-nowrap", styling.badgeBackgroundColor)}
@@ -42,24 +47,19 @@ export function ProjectCard({ project }: { project : any }) {
                   borderColor: styling.borderColor,
                   color: styling.textColor,
                 }}
-                >
+              >
                   {project.releaseDate ?? 'Coming Soon'}
               </Badge>
               
-             
-          </div>
-          <div>
+              {/* Steam/Web Icons */}
              {(project.releaseType === "steam" ||
                 project.releaseType === "web") && (
-                <div className="flex gap-2 mt-2">
+                <div className="flex gap-2">
                   {project.releaseType === "steam" && (
                     <div
                       className="bg-blue-800 p-2 rounded-full shadow-lg"
                       title="Released on Steam"
-                    >
-                      <Image
-                        width={20}
-                        height={20}
+                    ><Image width={20} height={20} 
                         src="/steam-logo.svg"
                         alt="steam icon"
                       />
@@ -70,11 +70,12 @@ export function ProjectCard({ project }: { project : any }) {
                       className="bg-blue-600 text-white p-2 rounded-full shadow-lg"
                       title="Playable on Web"
                     >
-                      <Globe className="w-5 h-5" />
+                      <Globe className="w-5 h-5"/>
                     </div>
                   )}
                 </div>
               )}
+               </div> {/* End of container for Date Badge and Icons */}
           </div>
           <div>
             {project.properties?.genre && Array.isArray(project.properties?.genre) ?
