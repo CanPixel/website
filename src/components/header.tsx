@@ -77,9 +77,8 @@ export default function Header() {
     )}>
        <div className="px-4 sm:px-6 lg:px-8 flex h-16 items-center justify-between bg-card/80 backdrop-blur-lg border-b-border">
           <div className="flex items-center gap-4">
-            <Link href="/" className="group flex flex-col items-center">
-              <Logo className="h-8 w-8" />
-              <Code2 className="h-5 w-5 text-yellow-400 group-hover:scale-110 group-hover:text-accent transition-all duration-300 ease-in-out" />
+            <Link href="/" className="flex flex-col items-center">
+              <Logo className="h-12 w-12" />
             </Link>
             <div className="flex flex-col group">
               <Link href="/" className="group font-bold font-headline text-2xl bg-gradient-to-br from-primary from-30% to-accent bg-clip-text text-transparent group-hover:text-accent transition-colors duration-300 ease-in-out transform scale-y-120 origin-center">CanPixel</Link>
