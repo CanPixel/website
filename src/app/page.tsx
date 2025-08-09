@@ -25,6 +25,9 @@ import Link from 'next/link';
 
 export default function Home() {
   const [projects, setProjects] = useState<Project[]>([]);
+  const [tagline, setTagline] = useState('');
+  const fullTagline = 'Method Developer weaving soulful, interactive experiences from the threads of code and creativity';
+
   useEffect(() => {
     const fetchProjects = async () => {
       const projectsCollection = collection(db, 'portfolioItems');
@@ -45,6 +48,18 @@ export default function Home() {
     };
     fetchProjects();
   }, []);
+
+  useEffect(() => {
+    let index = 0;
+    const interval = setInterval(() => {
+      setTagline(fullTagline.substring(0, index));
+      index++;
+      if (index > fullTagline.length) {
+        clearInterval(interval);
+      }
+    }, 50); // Adjust speed of typing here
+    return () => clearInterval(interval);
+  }, [fullTagline]);
   
   const featuredProjects = projects.filter(project => 
     [
@@ -77,8 +92,8 @@ export default function Home() {
         <h2 className="font-headline text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-4 mt-0">
           Engaging Digital Experiences
         </h2>
-        <p className="text-md md:text-xl text-muted-foreground max-w-3xl mx-auto mb-10 font-mono">
-          Method Developer weaving soulful, interactive experiences from the threads of code and creativity<span className="blinking-cursor">_</span>
+        <p className="text-md md:text-xl text-muted-foreground max-w-3xl mx-auto mb-10 font-mono h-8">
+          {tagline}<span className="blinking-cursor">_</span>
         </p>
 
         <div className="font-mono text-left max-w-md mx-auto text-sm space-y-2 text-muted-foreground mb-8">
