@@ -1,6 +1,5 @@
 "use client"
 
-import type { Metadata } from 'next';
 import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import NavMenu from "@/components/navigation";
@@ -9,10 +8,6 @@ import Link from 'next/link';
 import { Download } from 'lucide-react';
 import { motion, useInView, useScroll, useSpring, Variants } from 'framer-motion';
 import { useRef } from 'react';
-
-// export const metadata: Metadata = {
-//   title: '𒇽 CanPixel | About',
-// };
 
 const timelineEvents = [
   {
