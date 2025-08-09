@@ -85,6 +85,7 @@ it is only for the resilient.
                     alt={`Ziggurath visual ${i + 1}`}
                     fill
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30 group-hover:bg-black/40 transition-colors"></div>
                 </div>
@@ -99,4 +100,5 @@ it is only for the resilient.
     </div>
   );
 }
+
 
