@@ -40,11 +40,6 @@ import {
 import * as React from "react";
 import Image from "next/image";
 import Link from 'next/link';
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-    title: '𒆠 Realms',
-};
 
 const allCategories = [
   { name: "Adventure", icon: Map, animation: "group-hover:animate-float" },
