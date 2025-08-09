@@ -76,7 +76,7 @@ export default function Home() {
           Method Developer weaving soulful, interactive experiences from the threads of code and creativity
         </p>
         <p className="cuneiform-text text-sm text-muted-foreground mx-auto mb-8">
-          𒆠𒂗𒄀 (Ki-en-gi) - The Land of Sumer
+          𒁾𒊬 (Dub-Sar) - The Scribe
         </p>
         <div className="flex gap-4 justify-center">
           <Button asChild size="lg" className="group transition-all duration-300 ease-in-out hover:bg-accent/90 hover:-translate-y-1 hover:scale-105">
