@@ -44,7 +44,7 @@ export default function Header() {
             )}
         >
             <span className="font-cuneiform text-xl md:text-2xl leading-none">{cuneiform}</span>
-            <span className="block text-sm md:text-lg leading-tight">{label}</span>
+            <span className="block text-xs md:text-lg leading-tight">{label}</span>
             <span className={cn(
               "absolute bottom-[-2px] left-0 h-[2px] w-full bg-accent transition-all duration-300 ease-out",
               isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
@@ -65,7 +65,7 @@ export default function Header() {
               <div className="flex flex-col group">
                 <span className="font-bold font-headline text-2xl bg-gradient-to-br from-primary from-30% to-accent bg-clip-text text-transparent group-hover:text-accent transition-colors duration-300 ease-in-out transform scale-y-120 origin-center">CanPixel</span>
                   
-                <div className="flex items-center text-xs gap-3" 
+                <div className="hidden md:flex items-center text-xs gap-3" 
                   style={{ color: '#7099C2' }}>
                       <div className="flex items-center gap-1">
                           <Code className="h-3 w-3" />
@@ -83,7 +83,7 @@ export default function Header() {
               </div>
             </Link>
           </div>
-          <nav className="flex w-full max-w-xs sm:max-w-sm justify-between items-center md:space-x-6 md:w-auto md:justify-normal">
+          <nav className="flex w-full max-w-[200px] sm:max-w-sm justify-between items-center md:space-x-6 md:w-auto md:justify-normal">
             {navLinks.map((link) => <NavLink key={link.href} {...link} />)}
           </nav>
         </div>
