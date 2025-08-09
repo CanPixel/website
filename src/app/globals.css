@@ -145,8 +145,6 @@
   }
 
   .blinking-cursor {
-    font-weight: 500;
-    color: hsl(var(--primary));
     animation: blink 1s step-end infinite;
   }
 
