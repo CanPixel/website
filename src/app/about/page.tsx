@@ -9,12 +9,6 @@ import Link from 'next/link';
 import { Download } from 'lucide-react';
 import { motion, useInView, useScroll, useSpring, Variants } from 'framer-motion';
 import { useRef } from 'react';
-import type { Metadata } from 'next';
-
-export const metadata: Metadata = {
-    title: '𒈗 About',
-};
-
 
 const timelineEvents = [
   {
