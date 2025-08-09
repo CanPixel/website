@@ -94,11 +94,9 @@ it is only for the resilient.
             </CardContent>
           </Card>
           {/* <MysticMenu/> */}
-          <CardTitle className="text-center mt-6 font-serif text-3xl text-gold-300">𒅆𒂍𒉪𒋫</CardTitle>
+          <CardTitle className="text-center mt-6 font-serif text-2xl text-gold-300">𒅆𒂍𒉪𒋫</CardTitle>
         </div>
       </div>
     </div>
   );
 }
-
-
