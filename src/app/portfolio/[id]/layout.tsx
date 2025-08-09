@@ -3,6 +3,34 @@ import { collection, getDocs, query, where } from 'firebase/firestore';
 import { notFound } from 'next/navigation';
 import { Project, getProjectStyling } from '@/data/projects';
 import ProjectDetailPage from './page';
+import type { Metadata, ResolvingMetadata } from 'next';
+
+const projectCuneiform: Record<string, string> = {
+  "avoid": "𒀯",
+  "chivalry-chef": "𒈬",
+}
+
+export async function generateMetadata({ params }: { params: { id: string } }, parent: ResolvingMetadata): Promise<Metadata> {
+  const projectId = params.id;
+  const projectsRef = collection(db, 'portfolioItems');
+  const q = query(projectsRef, where('id', '==', projectId));
+  const querySnapshot = await getDocs(q);
+
+  if (!querySnapshot.empty) {
+    const projectDoc = querySnapshot.docs[0];
+    const projectData = projectDoc.data() as Project;
+    const cuneiformChar = projectCuneiform[projectData.id] || ' ';
+    
+    return {
+      title: `${cuneiformChar} ${projectData.title}`.trim(),
+      description: projectData.shortDescription,
+    }
+  }
+
+  return {
+    title: 'Project Not Found',
+  }
+}
 
 export async function generateStaticParams() {
   const projectsCollection = collection(db, 'portfolioItems');

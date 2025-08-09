@@ -10,10 +10,10 @@ import { cn } from "@/lib/utils";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 const navLinks = [
-  { href: "/about", label: "About", icon: User },
-  { href: "/projects", label: "Realms", icon: Hexagon },
-  { href: "/music", label: "Muse", icon: Music },
-  { href: "/contact", label: "Reach", icon: MessageSquare },
+  { href: "/about", label: "About", icon: User, cuneiform: "𒈗" },
+  { href: "/projects", label: "Realms", icon: Hexagon, cuneiform: "𒆠" },
+  { href: "/music", label: "Muse", icon: Music, cuneiform: "𒅔" },
+  { href: "/contact", label: "Reach", icon: MessageSquare, cuneiform: "𒅗" },
 ];
 
 export default function Header() {
@@ -33,17 +33,18 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const NavLink = ({ href, label, icon: Icon }: { href: string; label: string; icon: React.ElementType }) => {
+  const NavLink = ({ href, label, icon: Icon, cuneiform }: { href: string; label: string; icon: React.ElementType, cuneiform: string }) => {
     const isActive = pathname.startsWith(href);
     return (
         <Link
             href={href}
             className={cn(
-                "relative text-md font-headline transition-colors hover:text-accent group",
+                "relative text-md font-headline transition-colors hover:text-accent group text-center",
                 isActive ? "text-accent" : "text-foreground/80"
             )}
         >
-            <span>{label}</span>
+            <span className="font-cuneiform text-2xl leading-none">{cuneiform}</span>
+            <span className="block text-lg leading-tight">{label}</span>
             <span className={cn(
               "absolute bottom-[-2px] left-0 h-[2px] w-full bg-accent transition-all duration-300 ease-out",
               isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
@@ -77,28 +78,14 @@ export default function Header() {
     )}>
        <div className="px-4 sm:px-6 lg:px-8 flex h-16 items-center justify-between bg-card/80 backdrop-blur-lg border-b-border">
           <div className="flex items-center gap-4">
-            <Link href="/" className="flex flex-col items-center">
+            <Link href="/" className="flex items-center gap-2">
               <Logo className="h-12 w-12" />
-            </Link>
-            <div className="flex flex-col group">
-              <Link href="/" className="group font-bold font-headline text-2xl bg-gradient-to-br from-primary from-30% to-accent bg-clip-text text-transparent group-hover:text-accent transition-colors duration-300 ease-in-out transform scale-y-120 origin-center">CanPixel</Link>
-              <div className="hidden md:flex items-center text-xs gap-3" style={{ color: '#7099C2' }}>
-                  <div className="flex items-center gap-1">
-                      <Code className="h-3 w-3" />
-                      <span>Developer</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                      <Music className="h-3 w-3" />
-                      <span>Musician</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                      <Palette className="h-3 w-3" />
-                      <span>Designer</span>
-                  </div>
+              <div className="flex flex-col">
+                 <span className="font-bold font-headline text-2xl bg-gradient-to-br from-primary from-30% to-accent bg-clip-text text-transparent group-hover:text-accent transition-colors duration-300 ease-in-out transform scale-y-120 origin-center">CanPixel</span>
               </div>
-            </div>
+            </Link>
           </div>
-           <nav className="flex w-full max-w-xs justify-between items-center md:space-x-6 md:w-auto md:justify-normal">
+           <nav className="flex w-full max-w-sm justify-between items-center md:space-x-6 md:w-auto md:justify-normal">
               {isMobile
                 ? navLinks.map((link) => <MobileNavLink key={link.href} href={link.href} icon={link.icon} />)
                 : navLinks.map((link) => <NavLink key={link.href} {...link} />)

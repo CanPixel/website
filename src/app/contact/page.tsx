@@ -1,6 +1,12 @@
 import ContactForm from "@/components/contact-form";
 import { Mail, Github, Linkedin, Instagram } from "lucide-react";
 import NavMenu from "@/components/navigation";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: '𒅗 Contact',
+};
+
 
 const socialLinks = [
     {

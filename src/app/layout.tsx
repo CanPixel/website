@@ -4,7 +4,7 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { cn } from "@/lib/utils";
 import { Toaster } from '@/components/ui/toaster';
-import { Inter, Space_Grotesk } from 'next/font/google';
+import { Inter, Space_Grotesk, Noto_Sans_Cuneiform } from 'next/font/google';
 import Script from "next/script";
 
 const spaceGrotesk = Space_Grotesk({
@@ -17,8 +17,17 @@ const inter = Inter({
   variable: '--font-body',
 });
 
+const cuneiform = Noto_Sans_Cuneiform({
+  subsets: ['cuneiform'],
+  variable: '--font-cuneiform',
+  weight: '400',
+});
+
 export const metadata: Metadata = {
-  title: 'CanPixel',
+  title: {
+    template: '%s | CanPixel',
+    default: '𒌨 CanPixel | Worlds of a Method Developer',
+  },
   description: 'Worlds of a Method Developer',
 };
 
@@ -28,7 +37,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`dark ${spaceGrotesk.variable} ${inter.variable}`} suppressHydrationWarning style={{scrollBehavior:'smooth'}}>
+    <html lang="en" className={`dark ${spaceGrotesk.variable} ${inter.variable} ${cuneiform.variable}`} suppressHydrationWarning style={{scrollBehavior:'smooth'}}>
       <body className="font-body bg-background text-foreground antialiased grainy" suppressHydrationWarning>
         <div className="relative flex min-h-screen flex-col">
           <Header />
