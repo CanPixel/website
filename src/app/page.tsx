@@ -79,7 +79,7 @@ export default function Home() {
           Engaging Digital Experiences
         </h2>
         <p className="text-md md:text-xl text-muted-foreground max-w-3xl mx-auto mb-10 font-mono">
-          Method Developer weaving soulful, interactive experiences from the threads of code and creativity
+          Method Developer weaving soulful, interactive experiences from the threads of code and creativity<span className="blinking-cursor">_</span>
         </p>
 
         <div className="font-mono text-left max-w-md mx-auto text-sm space-y-2 text-muted-foreground mb-8">
