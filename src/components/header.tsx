@@ -80,15 +80,24 @@ export default function Header() {
           <div className="flex items-center gap-4">
             <Link href="/" className="flex items-center gap-2">
               <Logo className="h-12 w-12" />
-              <div className="flex flex-col">
-                 <span className="font-bold font-headline text-2xl bg-gradient-to-br from-primary from-30% to-accent bg-clip-text text-transparent group-hover:text-accent transition-colors duration-300 ease-in-out transform scale-y-120 origin-center">CanPixel</span>
-                  <div className="hidden md:flex items-center gap-2 text-xs text-muted-foreground">
-                    <span>Developer</span>
-                    <span className="h-1 w-1 rounded-full bg-muted-foreground"></span>
-                    <span>Musician</span>
-                    <span className="h-1 w-1 rounded-full bg-muted-foreground"></span>
-                    <span>Designer</span>
-                  </div>
+              <div className="flex flex-col group">
+                <span className="font-bold font-headline text-2xl bg-gradient-to-br from-primary from-30% to-accent bg-clip-text text-transparent group-hover:text-accent transition-colors duration-300 ease-in-out transform scale-y-120 origin-center">CanPixel</span>
+                  
+                <div className="hidden md:flex items-center text-xs gap-3" 
+                  style={{ color: '#7099C2' }}>
+                      <div className="flex items-center gap-1">
+                          <Code className="h-3 w-3" />
+                          <span>Developer</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                          <Music className="h-3 w-3" />
+                          <span>Musician</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                          <Palette className="h-3 w-3" />
+                          <span>Designer</span>
+                      </div>
+                </div>
               </div>
             </Link>
           </div>
