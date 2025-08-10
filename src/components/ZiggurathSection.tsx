@@ -212,15 +212,15 @@ it is only for the resilient.
           </div>
 
           {/* <Separator className="bg-border/20 mb-6" /> */}
-          <div className="flex flex-row md:flex-row justify-center gap-8 pt-4 items-stretch">
-            <div className="relative w-full max-w-[100px] h-auto">
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-2 text-md font-ziggsub text-accent/70">
+          <div className="flex flex-col items-center justify-center pt-4">
+            <div className="relative w-full max-w-xs h-auto text-center">
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-2 text-md font-ziggsub text-accent/70 bg-black">
                 Portal
               </div>
-              <div className="border-b-2 border-x-2 border-accent/70 p-4 w-full shadow-inner [box-shadow:0_0_15px_rgba(0,0,0,0.5)_inset] pt-8">
+              <div className="border-b-2 border-x-2 border-accent/70 p-2 w-full shadow-inner [box-shadow:0_0_15px_rgba(0,0,0,0.5)_inset] pt-6">
                 <div className="absolute top-0 left-0 right-0 h-px bg-accent/70 w-[calc(50%-2rem)]"></div>
                 <div className="absolute top-0 right-0 h-px bg-accent/70 w-[calc(50%-2rem)]"></div>
-                <div className="flex flex-col items-center justify-center space-y-2 h-full">
+                <div className="flex flex-row items-center justify-center space-x-4 h-full">
                   {zigguratSocialLinks.map(link => {
                     const Icon = localIconMap[link.icon];
                     return Icon ? (
