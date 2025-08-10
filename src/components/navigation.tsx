@@ -40,7 +40,7 @@ export default function NavMenu() {
               )}
             >
               <span className="font-cuneiform text-2xl leading-none">{link.cuneiform}</span>
-              <span className="block text-lg leading-tight">{link.label}</span>
+              <span className="block text-lg leading-tight font-ziggsub">{link.label}</span>
               <span className={cn(
                 "absolute bottom-[-4px] left-0 h-0.5 w-full bg-accent transition-transform duration-300 ease-out",
                 pathname.startsWith(link.href) ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
