@@ -4,10 +4,11 @@ import dynamic from 'next/dynamic';
 import { Button } from '@/components/ui/button';
 import { Music, Headphones, User, Users, Pyramid } from 'lucide-react';
 import NavMenu from '@/components/navigation';
-import NemsisSection from '@/components/NemsisSection'; 
-import ZiggurathSection from '@/components/ZiggurathSection'; 
-import CannemenSection from '@/components/CannemenSection'; 
-import OrchestratedOstSection from '@/components/OrchestratedOstSection'; 
+import NemsisSection from '@/components/NemsisSection';
+import ZiggurathSection from '@/components/ZiggurathSection';
+import CannemenSection from '@/components/CannemenSection';
+import OrchestratedOstSection from '@/components/OrchestratedOstSection';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const MidiSection = dynamic(() => import('@/components/MidiSection'), {
   loading: () => <div className="mt-6 text-center">Loading MIDI projects...</div>,
@@ -23,13 +24,6 @@ const sections = [
 ];
 
 export default function MusicPage() {
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <div className="container mx-auto px-4 py-16 bg-background">
       <NavMenu />
@@ -42,37 +36,36 @@ export default function MusicPage() {
         </p>
       </header>
 
-      <div className="py-4 mb-8 flex flex-wrap justify-center gap-4 rounded-lg border">
-          {sections.map(section => (
-            <Button 
-              key={section.id} 
-              onClick={() => scrollToSection(section.id)} 
-              variant="outline" 
-              className="group text-gold-500 border-gold-700/50 hover:bg-gold-500/10 hover:border-gold-600 hover:text-gold-400"
-            >
-                <section.icon className="mr-2 h-5 w-5 text-gold-400 transition-colors group-hover:text-gold-300" />
-                {section.name}
-            </Button>
-          ))}
-      </div>
+      <Tabs defaultValue="ziggurath" className="w-full">
+        <TabsList className="py-4 mb-8 flex flex-wrap justify-center gap-4 rounded-lg border h-auto">
+            {sections.map(section => (
+              <TabsTrigger
+                key={section.id}
+                value={section.id}
+                className="group text-gold-500 border-gold-700/50 hover:bg-gold-500/10 hover:border-gold-600 hover:text-gold-400 data-[state=active]:bg-gold-500/10 data-[state=active]:text-gold-300"
+              >
+                  <section.icon className="mr-2 h-5 w-5 text-gold-400 transition-colors group-hover:text-gold-300" />
+                  {section.name}
+              </TabsTrigger>
+            ))}
+        </TabsList>
 
-      <div className="space-y-16">
-        <section id="ziggurath">
-            <ZiggurathSection />
-        </section>
-        <section id="midi">
-            <MidiSection />
-        </section>
-        <section id="orchestrated-ost">
-            <OrchestratedOstSection />
-        </section>
-        <section id="cannemen">
-            <CannemenSection />
-        </section>
-        <section id="nemsis">
-            <NemsisSection />
-        </section>
-      </div>
+        <TabsContent value="ziggurath">
+          <ZiggurathSection />
+        </TabsContent>
+        <TabsContent value="midi">
+          <MidiSection />
+        </TabsContent>
+        <TabsContent value="orchestrated-ost">
+          <OrchestratedOstSection />
+        </TabsContent>
+        <TabsContent value="cannemen">
+          <CannemenSection />
+        </TabsContent>
+        <TabsContent value="nemsis">
+          <NemsisSection />
+        </TabsContent>
+      </Tabs>
     </div>
   );
 }
