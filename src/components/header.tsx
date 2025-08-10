@@ -60,30 +60,28 @@ export default function Header() {
       isScrolled ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full"
     )}>
        <div className="px-4 sm:px-6 lg:px-8 flex h-16 items-center justify-between bg-card/80 backdrop-blur-lg border-b-border">
-          <div className="flex items-center gap-4">
-            <Link href="/" className="flex items-center gap-2">
-              <Logo className="h-12 w-12" />
-              <div className="flex flex-col group">
-                <span className="font-bold font-headline text-2xl bg-gradient-to-br from-primary from-30% to-accent bg-clip-text text-transparent group-hover:text-accent transition-colors duration-300 ease-in-out transform scale-y-120 origin-center">CanPixel</span>
-                  
-                <div className="hidden md:flex items-center text-xs gap-3" 
-                  style={{ color: '#7099C2' }}>
-                      <div className="flex items-center gap-1">
-                          <Code className="h-3 w-3" />
-                          <span>Developer</span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                          <Music className="h-3 w-3" />
-                          <span>Musician</span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                          <Palette className="h-3 w-3" />
-                          <span>Designer</span>
-                      </div>
-                </div>
+          <Link href="/" className="flex items-center gap-2 group">
+            <Logo className="h-12 w-12" />
+            <div className="flex flex-col">
+              <span className="font-bold font-headline text-2xl bg-gradient-to-br from-primary from-30% to-accent bg-clip-text text-transparent group-hover:text-accent transition-colors duration-300 ease-in-out transform scale-y-120 origin-center">CanPixel</span>
+                
+              <div className="hidden md:flex items-center text-xs gap-3 pointer-events-none" 
+                style={{ color: '#7099C2' }}>
+                    <div className="flex items-center gap-1">
+                        <Code className="h-3 w-3" />
+                        <span>Developer</span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                        <Music className="h-3 w-3" />
+                        <span>Musician</span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                        <Palette className="h-3 w-3" />
+                        <span>Designer</span>
+                    </div>
               </div>
-            </Link>
-          </div>
+            </div>
+          </Link>
           <nav className="flex w-full max-w-[200px] sm:max-w-sm justify-between items-center md:space-x-6 md:w-auto md:justify-normal">
             {navLinks.map((link) => <NavLink key={link.href} {...link} />)}
           </nav>
