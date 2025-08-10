@@ -41,11 +41,11 @@ export default function ContactPage() {
       <NavMenu/>
 
       <header className="text-center my-12">
-        <h1 className="font-headline text-5xl font-bold tracking-tighter mb-4">
-          Get In Touch
+        <h1 className="font-headline text-5xl font-bold tracking-tighter mb-4 shiny-text">
+          REACH
         </h1>
         <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-          Have a project in mind, a job opportunity, or just want to say hi? I&apos;d love to hear from you.
+          The veil is thin here. Transmit your inquiry.
         </p>
       </header>
       
