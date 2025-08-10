@@ -1,3 +1,4 @@
+
 'use client';
 
 import Image from 'next/image';
@@ -79,7 +80,7 @@ export default function ZiggurathSection() {
                       'text-xs text-white/80 [text-shadow:0_1px_1px_rgba(0,0,0,0.8)] tracking-widest font-ziggsub'>
                       Album
                     </p>
-                    <h3 className='text-4xl font-ziggtitle text-gold-200' style={{ textShadow: '0 0 8px #fef9c3' }}>
+                    <h3 className='text-4xl font-ziggtitle text-gold-200' style={{ textShadow: '0 0 10px #fef9c3' }}>
                       𒀯𒆬
                     </h3>
                   </div>
@@ -128,7 +129,7 @@ record within just one year of hard work, starting in the summer of 2023 and the
                     'text-xs text-white/80 [text-shadow:0_1px_1px_rgba(0,0,0,0.8)] tracking-widest font-ziggsub'>
                     Live Video
                   </p>
-                  <h3 className='text-4xl font-ziggtitle text-gold-200' style={{ textShadow: '0 0 8px #fef9c3' }}>
+                  <h3 className='text-4xl font-ziggtitle text-gold-200' style={{ textShadow: '0 0 10px #fef9c3' }}>
                     𒃲𒉈
                   </h3>
                 </div>
@@ -199,7 +200,7 @@ it is only for the resilient.
               ))}
             </CardContent>
           </Card>
-          <div className='mt-4'>
+          <div className='mt-4 flex justify-center'>
             <Image
                 src={`/images/ziggurath/zigg4.JPG`}
                 alt={`Ziggurath banner`}
