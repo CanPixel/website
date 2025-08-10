@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from './ui/button';
 import { MysticMenu } from './mystic-menu';
 import { Badge } from '@/components/ui/badge';
-import { Calendar } from 'lucide-react';
+import { Calendar, Youtube } from 'lucide-react';
 
 export default function ZiggurathSection() {
   return (
@@ -69,6 +69,25 @@ realms. Carving the cosmic void with 40 minutes of runtime, there is enough to b
 it is only for the resilient.
               </p>
             </CardContent>
+          </Card>
+          <Card className="mt-8 bg-black/50 backdrop-blur-sm border-gold-500/50">
+              <CardHeader>
+                  <CardTitle className="flex items-center gap-2 text-lg font-serif text-gold-300">
+                      <Youtube className="w-6 h-6 text-red-500"/>
+                      Great Fire (Live)
+                  </CardTitle>
+              </CardHeader>
+              <CardContent>
+                  <div className="aspect-video rounded-md overflow-hidden border-2 border-gold-800/50">
+                      <iframe
+                          src={`https://www.youtube.com/embed/xNvTw-TkgRY`}
+                          title="Great Fire (Live)"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                          className="w-full h-full"
+                      ></iframe>
+                  </div>
+              </CardContent>
           </Card>
         </div>
 
