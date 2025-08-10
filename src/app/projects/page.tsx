@@ -1,3 +1,4 @@
+
 "use client";
 
 import NavMenu from "@/components/navigation";
@@ -108,12 +109,11 @@ export default function ProjectsPage() {
     <div className="container mx-auto px-4 py-16">
       <NavMenu/>
       <header className="text-center mb-12 mt-12">
-        <h1 className="font-headline text-5xl font-bold tracking-tighter mb-4">
-          Portfolio Realms
+        <h1 className="font-headline text-5xl font-bold tracking-tighter mb-4 shiny-text">
+          REALMS
         </h1>
         <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-          A collection of projects I've built, from game prototypes to
-          full-stack web applications.
+          A curated collection of worlds, each a distinct digital experience.
         </p>
       </header>
 
