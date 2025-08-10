@@ -35,14 +35,14 @@ export default function MusicPage() {
         <h1 className="font-headline text-5xl font-bold tracking-tighter mb-4 shiny-text">
           MUSE
         </h1>
-        <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-          A collection of my compositions, sound design, and other audio adventures.
+        <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+          An auditory journey through constructed realities.
         </p>
       </header>
 
       <Tabs defaultValue={activeTab} onValueChange={setActiveTab} className="w-full">
         <div className="flex justify-center mb-8">
-             <TabsList className="relative p-2 h-auto flex-wrap rounded-xl bg-black/50 backdrop-blur-sm border border-gold-500/30">
+             <TabsList className="relative p-2 h-auto flex-wrap justify-center rounded-xl bg-black/50 backdrop-blur-sm border border-gold-500/30">
                 {sections.map(section => (
                 <TabsTrigger
                     key={section.id}
