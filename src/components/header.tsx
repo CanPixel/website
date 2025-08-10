@@ -1,5 +1,3 @@
-
-
 "use client";
 
 import Link from "next/link";
@@ -8,7 +6,6 @@ import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { Code, Music, Palette, User, Hexagon, MessageSquare } from "lucide-react";
 import { cn } from "@/lib/utils";
-// import { useIsMobile } from "@/hooks/use-mobile";
 
 const navLinks = [
   { href: "/about", label: "About", icon: User, cuneiform: "𒈗" },
@@ -20,10 +17,8 @@ const navLinks = [
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
-  // const isMobile = useIsMobile();
 
   useEffect(() => {
-    // Set initial state after mount to avoid hydration mismatch
     setIsScrolled(window.scrollY > 50);
 
     const handleScroll = () => {
@@ -37,13 +32,11 @@ export default function Header() {
   const NavLink = ({ href, label, icon: Icon, cuneiform }: { href: string; label: string; icon: React.ElementType, cuneiform: string }) => {
     const isActive = pathname.startsWith(href);
     return (
-        <Link
-            href={href}
+        <Link href={href}
             className={cn(
                 "relative font-headline transition-colors hover:text-accent group text-center",
                 isActive ? "text-accent" : "text-foreground/80"
-            )}
-        >
+            )}>
             <span className="font-cuneiform text-2xl leading-none">{cuneiform}</span>
             <span className="block text-sm leading-tight font-orbitron">{label}</span>
             <span className={cn(
@@ -63,7 +56,7 @@ export default function Header() {
           <Link href="/" className="flex items-center gap-2 group">
             <Logo className="h-12 w-12" />
             <div className="flex flex-col">
-              <span className="font-bold font-headline text-2xl bg-gradient-to-br from-primary from-30% to-accent bg-clip-text text-transparent group-hover:text-accent transition-colors duration-300 ease-in-out transform scale-y-120 origin-center">CanPixel</span>
+              <span className="font-bold font-headline text-2xl bg-gradient-to-br from-primary from-30% to-accent bg-clip-text text-transparent group-hover:text-primary transition-colors duration-300 ease-in-out transform scale-y-120 origin-center">CanPixel</span>
                 
               <div className="hidden md:flex items-center text-xs gap-3 pointer-events-none" 
                 style={{ color: '#7099C2' }}>
@@ -82,7 +75,7 @@ export default function Header() {
               </div>
             </div>
           </Link>
-          <nav className="flex w-full max-w-[200px] sm:max-w-sm justify-between items-center md:space-x-6 md:w-auto md:justify-normal">
+          <nav className="flex w-full max-w-[250px] md:max-w-sm justify-between items-center md:space-x-6 md:w-auto md:justify-normal">
             {navLinks.map((link) => <NavLink key={link.href} {...link} />)}
           </nav>
         </div>

@@ -49,8 +49,8 @@ export default function ContactPage() {
       </header>
       
       <div className="flex justify-center">
-        <div className="relative mt-8 border border-primary rounded-lg p-8 pt-12">
-           <h2 className="absolute -top-5 left-1/2 -translate-x-1/2 bg-background px-4 font-headline text-3xl font-bold">Contact Me Directly</h2>
+        <div className="w-full relative mt-8 border border-primary rounded-lg p-8 pt-12">
+           <h2 className="absolute -top-5 left-1/2 text-center -translate-x-1/2 bg-background px-4 font-headline text-3xl font-bold">Contact Me Directly</h2>
             <div className="space-y-8">
                 {socialLinks.map(link => (
                     <a href={link.url} key={link.name} className="flex items-center gap-4 group" target="_blank" rel="noopener noreferrer">
