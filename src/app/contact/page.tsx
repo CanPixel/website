@@ -49,7 +49,7 @@ export default function ContactPage() {
         </p>
       </header>
       
-      <div className="grid md:grid-cols-2 gap-16 items-start">
+      <div className="flex justify-center">
         <div className="space-y-8">
             <h2 className="font-headline text-3xl font-bold">Contact Me Directly</h2>
             {socialLinks.map(link => (
