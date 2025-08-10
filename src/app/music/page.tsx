@@ -10,6 +10,8 @@ import ZiggurathSection from '@/components/ZiggurathSection';
 import CannemenSection from '@/components/CannemenSection';
 import OrchestratedOstSection from '@/components/OrchestratedOstSection';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 const MidiSection = dynamic(() => import('@/components/MidiSection'), {
   loading: () => <div className="mt-6 text-center">Loading MIDI projects...</div>,
@@ -25,6 +27,8 @@ const sections = [
 ];
 
 export default function MusicPage() {
+  const [activeTab, setActiveTab] = useState(sections[0].id);
+
   return (
     <div className="container mx-auto px-4 py-16 bg-background">
       <NavMenu />
@@ -37,19 +41,33 @@ export default function MusicPage() {
         </p>
       </header>
 
-      <Tabs defaultValue="ziggurath" className="w-full">
-        <TabsList className="py-4 mb-8 flex flex-wrap justify-center gap-4 rounded-lg h-auto bg-black/50 backdrop-blur-sm border-gold-500/30">
-            {sections.map(section => (
-              <TabsTrigger
-                key={section.id}
-                value={section.id}
-                className="group text-gold-500 border-gold-700/50 hover:bg-gold-500/10 hover:border-gold-600 hover:text-gold-400 data-[state=active]:bg-gold-500/10 data-[state=active]:text-gold-300"
-              >
-                  <section.icon className="mr-2 h-5 w-5 text-gold-400 transition-colors group-hover:text-gold-300" />
-                  {section.name}
-              </TabsTrigger>
-            ))}
-        </TabsList>
+      <Tabs defaultValue={activeTab} onValueChange={setActiveTab} className="w-full">
+        <div className="flex justify-center mb-8">
+            <TabsList className="relative grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 p-2 h-auto rounded-xl bg-black/50 backdrop-blur-sm border border-gold-500/30">
+                {sections.map(section => (
+                <TabsTrigger
+                    key={section.id}
+                    value={section.id}
+                    className="relative z-10 group text-gold-500 border-transparent hover:text-gold-300 data-[state=active]:text-gold-200 transition-colors duration-300"
+                    style={{ WebkitTapHighlightColor: "transparent" }}
+                >
+                    <section.icon className="mr-2 h-5 w-5 text-gold-400 transition-colors group-hover:text-gold-300" />
+                    {section.name}
+                </TabsTrigger>
+                ))}
+                 <motion.div
+                    layoutId="active-pill"
+                    className="absolute inset-0 z-0 bg-gold-500/10 rounded-lg"
+                    transition={{ type: "spring", duration: 0.6 }}
+                    initial={false}
+                    style={{
+                        gridColumn: sections.findIndex(s => s.id === activeTab) % 2 + 1,
+                        gridRow: Math.floor(sections.findIndex(s => s.id === activeTab) / 2) + 1,
+                    }}
+                />
+            </TabsList>
+        </div>
+
 
         <TabsContent value="ziggurath">
           <ZiggurathSection />
