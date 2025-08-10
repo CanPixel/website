@@ -1,4 +1,3 @@
-
 'use client';
 
 import Image from 'next/image';
@@ -81,7 +80,7 @@ export default function ZiggurathSection() {
                       Album
                     </p>
                     <h3 className='text-4xl font-ziggtitle text-gold-200' style={{ textShadow: '0 0 8px #fef9c3' }}>
-                      𒀯kloudformation
+                      𒀯𒆬
                     </h3>
                   </div>
                 </div>
@@ -211,7 +210,6 @@ it is only for the resilient.
               />  
           </div>
 
-          {/* <Separator className="bg-border/20 mb-6" /> */}
           <div className="flex flex-col items-center justify-center pt-4">
             <div className="relative w-full max-w-xs h-auto text-center">
               <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-2 text-md font-ziggsub text-accent/70 bg-black">
@@ -243,7 +241,7 @@ it is only for the resilient.
               </div>
             </div>
           </div>
-          <CardTitle className="text-center mt-6 font-serif text-2xl text-gold-300">𒅆𒂍𒉪𒋫</CardTitle>
+          <CardTitle className="text-center mt-8 font-serif text-1xl text-gold-100/90">𒅆𒂍𒉪𒋫</CardTitle>
         </div>
       </div>
     </div>

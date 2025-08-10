@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic';
 import { Music, Headphones, User, Users, Pyramid } from 'lucide-react';
 import NavMenu from '@/components/navigation';
 import NemsisSection from '@/components/NemsisSection';
-import ZiggurathSection from '@/components/ZiggurathSection';
+import ZiggurathSection from '../../../public/images/ziggurath/ZiggurathSection';
 import CannemenSection from '@/components/CannemenSection';
 import OrchestratedOstSection from '@/components/OrchestratedOstSection';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
