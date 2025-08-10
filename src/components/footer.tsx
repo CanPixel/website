@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { Github, Linkedin, Instagram } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 
 const socialLinks = [
   { name: 'GitHub', icon: Github, url: 'https://github.com/CanPixel' },
@@ -22,12 +21,17 @@ export default function Footer() {
         </div>
         <div className="flex items-center gap-2">
           {socialLinks.map((social) => (
-            <Button key={social.name} variant="ghost" size="icon" asChild>
-              <Link href={social.url} target="_blank" rel="noopener noreferrer">
-                <social.icon className="h-5 w-5 text-white hover:text-accent transition-colors" />
-                <span className="sr-only">{social.name}</span>
-              </Link>
-            </Button>
+            <Link 
+              key={social.name} 
+              href={social.url} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="p-2 transition-colors text-white hover:text-accent"
+              aria-label={social.name}
+            >
+              <social.icon className="h-5 w-5" />
+              <span className="sr-only">{social.name}</span>
+            </Link>
           ))}
         </div>
       </div>
