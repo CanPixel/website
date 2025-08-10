@@ -183,7 +183,17 @@ it is only for the resilient.
         <div className="lg:col-span-1">
           <Card className="bg-black/50 backdrop-blur-sm border-gold-500/50">
             <CardHeader>
-              <CardTitle className="font-serif text-2xl text-gold-200/80">Visions by AbyssalVoid</CardTitle>
+              <CardTitle className="font-serif text-2xl text-gold-200/80">
+                Visions by{' '}
+                <a
+                  href="https://www.instagram.com/abyssalvoid_photo/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:text-gold-300 transition-colors"
+                >
+                  AbyssalVoid
+                </a>
+              </CardTitle>
             </CardHeader>
             <CardContent className="grid grid-cols-2 gap-4">
               {['zigg2.JPG', 'zigg3.JPG'].map((img, i) => (
