@@ -45,7 +45,7 @@ export default function ZiggurathSection() {
         <Image alt="Ziggurath Logo" 
           width={133}
           height={36}
-          src="images/ZiggLogo.png" className="w-30 h-auto" />
+          src="/images/ZiggLogo.png" className="w-30 h-auto" />
         <div className="flex-1 max-w-lg mx-auto">
           <CardTitle
             className='text-5xl font-black font-ziggtitle text-accent tracking-widest [text-shadow:0_2px_4px_rgba(0,0,0,0.5)]'>
@@ -53,7 +53,7 @@ export default function ZiggurathSection() {
               <Image alt="Ziggurath Logo" 
                 width={96}
                 height={100}
-                src="images/ZiggBM.png" className="w-30 h-auto" />
+                src="/images/ZiggBM.png" className="w-30 h-auto" />
             </div>
           </CardTitle>
           <CardDescription
@@ -80,7 +80,7 @@ export default function ZiggurathSection() {
                       Album
                     </p>
                     <h3 className=
-                      'text-4xl [text-shadow:0_1px_4px_hsl(var(--accent)/0.35)] text-gold-200/90 font-ziggtitle'>
+                      'text-4xl shiny-text font-ziggtitle'>
                       𒀯𒆬
                     </h3>
                   </div>
@@ -130,7 +130,7 @@ record within just one year of hard work, starting in the summer of 2023 and the
                     Live Video
                   </p>
                   <h3 className=
-                    'text-4xl [text-shadow:0_1px_4px_hsl(var(--accent)/0.35)] text-gold-200/90 font-ziggtitle'>
+                    'text-4xl shiny-text font-ziggtitle'>
                     𒃲𒉈
                   </h3>
                 </div>
@@ -244,7 +244,7 @@ it is only for the resilient.
               </div>
             </div>
           </div>
-          <CardTitle className="text-center mt-6 font-serif text-2xl text-accent/70">𒅆𒂍𒉪𒋫</CardTitle>
+          <CardTitle className="text-center mt-6 font-serif text-2xl text-gold-300">𒅆𒂍𒉪𒋫</CardTitle>
         </div>
       </div>
     </div>
