@@ -1,3 +1,4 @@
+
 "use client";
 
 import dynamic from 'next/dynamic';
@@ -31,8 +32,8 @@ export default function MusicPage() {
     <div className="container mx-auto px-4 py-16 bg-background">
       <NavMenu />
       <header className="text-center my-12">
-        <h1 className="font-headline text-5xl font-bold tracking-tighter mb-4">
-          Music & Sound
+        <h1 className="font-headline text-5xl font-bold tracking-tighter mb-4 bg-gradient-to-br from-primary via-[#C494B3] to-primary bg-clip-text text-transparent">
+          Muse
         </h1>
         <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
           A collection of my compositions, sound design, and other audio adventures.
