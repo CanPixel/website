@@ -4,13 +4,13 @@
 import dynamic from 'next/dynamic';
 import { Music, Headphones, User, Users, Pyramid } from 'lucide-react';
 import NavMenu from '@/components/navigation';
-import NemsisSection from '@/components/NemsisSection';
-import ZiggurathSection from '../../../public/images/ziggurath/ZiggurathSection';
+import ZiggurathSection from '@/components/ZiggurathSection';
 import CannemenSection from '@/components/CannemenSection';
 import OrchestratedOstSection from '@/components/OrchestratedOstSection';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import NemsisSection from '@/components/NemsisSection';
 
 const MidiSection = dynamic(() => import('@/components/MidiSection'), {
   loading: () => <div className="mt-6 text-center">Loading MIDI projects...</div>,
@@ -42,7 +42,7 @@ export default function MusicPage() {
 
       <Tabs defaultValue={activeTab} onValueChange={setActiveTab} className="w-full">
         <div className="flex justify-center mb-8">
-             <TabsList className="relative p-2 h-auto rounded-xl bg-black/50 backdrop-blur-sm border border-gold-500/30">
+             <TabsList className="relative p-2 h-auto flex-wrap rounded-xl bg-black/50 backdrop-blur-sm border border-gold-500/30">
                 {sections.map(section => (
                 <TabsTrigger
                     key={section.id}
