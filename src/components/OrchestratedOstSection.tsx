@@ -1,51 +1,31 @@
-
 'use client';
 
-import { useState, useEffect } from 'react';
-import { db } from '@/lib/firebase';
-import { collection, query, where, getDocs } from 'firebase/firestore';
-import { Project } from '@/data/projects';
+import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import Image from 'next/image';
+import { Badge } from '@/components/ui/badge';
 
 export default function OrchestratedOstSection() {
-  const [project, setProject] = useState<Project | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const fetchProject = async () => {
-      try {
-        setLoading(true);
-        const projectsCollection = collection(db, 'portfolioItems');
-        const q = query(projectsCollection, where('id', '==', 'epicinium-ost'));
-        const projectSnapshot = await getDocs(q);
-        
-        if (!projectSnapshot.empty) {
-          const projectData = projectSnapshot.docs[0].data() as Omit<Project, 'id'>;
-          setProject({ id: projectSnapshot.docs[0].id, ...projectData, styling: {} as any });
-        } else {
-          setError("Epicinium OST project not found.");
-        }
-      } catch (err: any) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchProject();
-  }, []);
-
-  const spotifyUrl = "https://open.spotify.com/embed/album/0p6mrosDOt4F3gCoa4F4Xh?utm_source=generator";
-
   return (
     <div className="relative rounded-lg border-2 border-emerald-600 p-8 pt-12 bg-background/80">
       <h2 className="absolute -top-5 left-1/2 text-center -translate-x-1/2 bg-background px-4 font-headline text-3xl font-bold tracking-tighter text-emerald-500">
-          Orchestrated OST
+        Orchestrated OST
       </h2>
-      <p className="text-center text-md text-muted-foreground max-w-3xl mx-auto mb-6 mt-4">
-          Epicinium - A Strategy Game About The Environment
+      <Image
+        src="images/epiciniumbanner.png"
+        alt={`Epicinium logo`}
+        className='mb-1 w-auto mt-0 p-0 mx-auto'
+        width={800}
+        height={400}
+      />
+      <p className="text-center text-md text-muted-foreground font-bold max-w-3xl mx-auto mb-2">
+          Epicinium - An Environmental War Strategy Game
       </p>
+      <div className="justify-center text-center mx-auto mt-6">
+        <Badge className='text-center mx-auto text-sm'>
+          Music Composition & Original OST
+        </Badge>
+      </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2">
@@ -63,6 +43,15 @@ export default function OrchestratedOstSection() {
           </Card>
         </div>
 
+        <div className="aspect-video relative rounded-lg shadow-md border border-border">
+        <Image
+          src="images/epicinium_soundtrack.png"
+          alt={`Epicinium banner image`}
+          width={800}
+          height={800}
+        />
+      </div>
+
         <div className="lg:col-span-3 grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="w-full flex justify-center">
              <div className="w-[646px]">
@@ -76,19 +65,25 @@ export default function OrchestratedOstSection() {
             <CardHeader>
               <CardTitle className="font-headline text-2xl text-emerald-400">Game Visuals</CardTitle>
             </CardHeader>
-            <CardContent className="grid grid-cols-2 gap-4">
-              {['epicinium.png', 'epiciniumbanner.png', 'epiciniumaction.png', 'episteamium.gif'].map((img, i) => (
-                <div key={i} className="relative aspect-square rounded-lg overflow-hidden group">
-                  <Image
-                    src={`/images/epicinium/${img}`}
-                    alt={`Epicinium game visual ${i + 1}`}
-                    fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
-                </div>
-              ))}
-            </CardContent>
+            <div className="relative aspect-square rounded-lg group mb-8 mx-auto w-1/2">
+              <Link href="/portfolio/epicinium"><Image
+                src={`/images/epicinium.png`}
+                alt={`Epicinium game visual`}
+                fill
+                className="object-cover transition-transform duration-300 group-hover:scale-105"
+              /></Link>
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
+            </div>
+
+            <div className="relative rounded-lg mx-auto">
+              <Image
+                src={`/images/Episteamium.gif`}
+                alt={`Epicinium game gif`}
+                width={800}
+                height={400}
+                className="object-cover transition-transform duration-300 hover:scale-105 mb-8"
+              />
+            </div>
           </Card>
         </div>
       </div>

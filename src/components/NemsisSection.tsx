@@ -1,8 +1,8 @@
-
 'use client';
 
 import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 
 export default function NemsisSection() {
   return (
@@ -10,7 +10,7 @@ export default function NemsisSection() {
       <h2 className="absolute -top-5 left-1/2 -translate-x-1/2 bg-background px-4 font-headline text-4xl font-bold tracking-tighter text-orange-500">
           NEMSIS
       </h2>
-      <p className="text-center text-md text-muted-foreground max-w-3xl mx-auto mb-6 font-serif">
+      <p className="text-center text-md text-gray-200/80 max-w-3xl mx-auto mb-6 font-serif">
         Modern-Oriental Grungepop
       </p>
 
@@ -18,12 +18,57 @@ export default function NemsisSection() {
         <div className="lg:col-span-2">
             <Card className="bg-card/50 backdrop-blur-sm border-orange-500/30">
                 <CardHeader>
-                <CardTitle className="font-headline text-2xl text-orange-400">Featured Music</CardTitle>
+                <CardTitle className="text-center text-1xl text-gray-300 mb-2">
+                  Released in
+                  <Badge 
+                    variant="secondary"
+                    className="bg-background/40 border border-gold-100/40 text-accent font-accent ml-2">
+                    2019
+                  </Badge>
+                </CardTitle>
                 </CardHeader>
                 <CardContent>
-                    <div className="bg-secondary/30 p-4 rounded-lg border border-border">
-                        <iframe data-testid="embed-iframe" src="https://open.spotify.com/embed/artist/3MPnL7QqlX6t93o5fSme1y?utm_source=generator" width="100%" height="152" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                    </div>
+                  <div className="mx-auto p-2 shadow-inner bg-gold-900/20 p-4 rounded-lg border border-gold-500/30 [box-shadow:0_0_15px_rgba(0,0,0,0.5)_inset] ">
+                    <iframe
+                      src="https://open.spotify.com/embed/artist/3MPnL7QqlX6t93o5fSme1y?utm_source=generator"
+                      width="100%"
+                      height="352"
+                      allowFullScreen={true}
+                      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                      loading="lazy"
+                    ></iframe>
+                  </div>
+
+                  <div className='mt-3 text-sm text-white/70 mt-1 font-serif mx-auto bg-accent/10 border-y-2 border-x border-accent/20 p-2 shadow-inner [box-shadow:0_0_15px_rgba(0,0,0,0.5)_inset]'>
+                  After a long wait the debut EP "Sugar, Why so Bitter?" has finally reached the surface of the earth, during the successful releaseshow on June 7th in Bitterzoet, Amsterdam!<br></br>
+We fully organised this event ourselves, and handled tasks such as scheduling the pre-show aswell as the breaks in-between acts, marketing the event, planning, creating visuals and more.<br></br>
+Placing Koo-Koo as an interactive installation during breaks inbetween our opener act and our own was my idea.<br></br>
+Gaming and Music during a live event seemed to work surprisingly well!<br></br>
+We had a lot of good reactions from mixed audiences (young & old), and the overall event was a success!<br></br>
+<br></br>
+<p className="mb-2">The aspects of the event I've handled:</p>
+        <ul className="list-disc list-inside">
+          <li>Playing & performing myself (Lead guitar)</li>
+          <li>Marketing the event & producing promotional content</li>
+          <li>Designing a poster, that links directly to the online event on facebook.</li>
+          <li>Designing a timetable & producing in quantities</li>
+          <li>Finding companies that can produce said posters & timetables in masses, with a discount!</li>
+          <li>Decorating the indoors for the event (custom balloons, timetables on the walls, little stand for buying our EP vinyls)</li>
+          <li>Booking & planning Koo-Koo in certain timeslots for the best flow for the event.</li>
+        </ul>
+                </div>
+
+                <div className="mt-6 w-full justify-center">
+                  <Image
+                    src="images/poster.jpg"
+                    alt="NEMSIS EP Release poster"
+                    width={584}
+                    height={824}
+                    className="w-auto h-full mx-auto border-y-2 border-x border-accent/20 p-2 shadow-inner [box-shadow:0_0_15px_rgba(0,0,0,0.5)_inset]"
+                    data-ai-hint="NEMSIS EP Release poster"
+                  />
+                </div>
+
                 </CardContent>
             </Card>
           <Card className="mt-8 bg-card/50 backdrop-blur-sm border-orange-500/30">

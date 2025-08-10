@@ -2,10 +2,9 @@ import type { Metadata } from 'next';
 import './globals.css';
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import { cn } from "@/lib/utils";
 import { Toaster } from '@/components/ui/toaster';
 import { Inter, Space_Grotesk, Noto_Sans_Cuneiform } from 'next/font/google';
-import Script from "next/script";
+import { Playfair_Display, Roboto, Uncial_Antiqua } from 'next/font/google';
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
@@ -23,6 +22,24 @@ const cuneiform = Noto_Sans_Cuneiform({
   weight: '400',
 });
 
+const roboto = Roboto({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  variable: '--font-roboto',
+});
+
+const uncial = Uncial_Antiqua({
+  subsets: ['latin'],
+  weight: ['400'],
+  variable: '--font-uncial-antiqua',
+});
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  weight: ['700', '900'],
+  variable: '--font-playfair-display',
+});
+
 export const metadata: Metadata = {
   title: {
     template: '%s',
@@ -37,7 +54,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`dark ${spaceGrotesk.variable} ${inter.variable} ${cuneiform.variable}`} suppressHydrationWarning style={{scrollBehavior:'smooth'}}>
+    <html lang="en" className={`dark ${spaceGrotesk.variable} ${inter.variable} ${cuneiform.variable} ${roboto.variable} ${uncial.variable} ${playfair.variable}`} suppressHydrationWarning style={{scrollBehavior:'smooth'}}>
       <body className="font-body bg-background text-foreground antialiased grainy" suppressHydrationWarning>
         <div className="relative flex min-h-screen flex-col">
           <Header />

@@ -13,6 +13,8 @@ export default {
       fontFamily: {
         body: ['var(--font-body)', 'sans-serif'],
         headline: ['var(--font-headline)', 'sans-serif'],
+        ziggtitle: ['var(--font-playfair-display)', 'serif'],
+        ziggsub: ['var(--font-uncial-antiqua)', 'cursive'],
       },
       colors: {
         background: 'hsl(var(--background))',
