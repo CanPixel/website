@@ -1,4 +1,3 @@
-import ContactForm from "@/components/contact-form";
 import { Mail, Github, Linkedin, Instagram } from "lucide-react";
 import NavMenu from "@/components/navigation";
 import type { Metadata } from "next";
@@ -50,17 +49,19 @@ export default function ContactPage() {
       </header>
       
       <div className="flex justify-center">
-        <div className="space-y-8">
-            <h2 className="font-headline text-3xl font-bold">Contact Me Directly</h2>
-            {socialLinks.map(link => (
-                <a href={link.url} key={link.name} className="flex items-center gap-4 group" target="_blank" rel="noopener noreferrer">
-                    <link.icon className="w-8 h-8 text-primary group-hover:text-accent transition-colors" />
-                    <div>
-                        <h3 className="font-bold text-lg">{link.name}</h3>
-                        <p className="text-muted-foreground group-hover:text-accent transition-colors">{link.handle}</p>
-                    </div>
-                </a>
-            ))}
+        <div className="relative mt-8 border border-primary rounded-lg p-8 pt-12">
+           <h2 className="absolute -top-5 left-1/2 -translate-x-1/2 bg-background px-4 font-headline text-3xl font-bold">Contact Me Directly</h2>
+            <div className="space-y-8">
+                {socialLinks.map(link => (
+                    <a href={link.url} key={link.name} className="flex items-center gap-4 group" target="_blank" rel="noopener noreferrer">
+                        <link.icon className="w-8 h-8 text-primary group-hover:text-accent transition-colors" />
+                        <div>
+                            <h3 className="font-bold text-lg">{link.name}</h3>
+                            <p className="text-muted-foreground group-hover:text-accent transition-colors">{link.handle}</p>
+                        </div>
+                    </a>
+                ))}
+            </div>
         </div>
       </div>
     </div>
