@@ -2,7 +2,6 @@
 "use client";
 
 import dynamic from 'next/dynamic';
-import { Button } from '@/components/ui/button';
 import { Music, Headphones, User, Users, Pyramid } from 'lucide-react';
 import NavMenu from '@/components/navigation';
 import NemsisSection from '@/components/NemsisSection';
@@ -43,28 +42,25 @@ export default function MusicPage() {
 
       <Tabs defaultValue={activeTab} onValueChange={setActiveTab} className="w-full">
         <div className="flex justify-center mb-8">
-            <TabsList className="relative grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 p-2 h-auto rounded-xl bg-black/50 backdrop-blur-sm border border-gold-500/30">
+             <TabsList className="relative p-2 h-auto rounded-xl bg-black/50 backdrop-blur-sm border border-gold-500/30">
                 {sections.map(section => (
                 <TabsTrigger
                     key={section.id}
                     value={section.id}
-                    className="relative z-10 group text-gold-500 border-transparent hover:text-gold-300 data-[state=active]:text-gold-200 transition-colors duration-300"
+                    className="relative z-10 group text-gold-500 border-transparent hover:text-gold-300 data-[state=active]:text-gold-200 transition-colors duration-300 px-4 py-2"
                     style={{ WebkitTapHighlightColor: "transparent" }}
                 >
+                    {activeTab === section.id && (
+                        <motion.div
+                            layoutId="active-pill"
+                            className="absolute inset-0 z-0 bg-gold-500/10 rounded-lg"
+                            transition={{ type: "spring", duration: 0.6 }}
+                        />
+                    )}
                     <section.icon className="mr-2 h-5 w-5 text-gold-400 transition-colors group-hover:text-gold-300" />
-                    {section.name}
+                    <span className="relative">{section.name}</span>
                 </TabsTrigger>
                 ))}
-                 <motion.div
-                    layoutId="active-pill"
-                    className="absolute inset-0 z-0 bg-gold-500/10 rounded-lg"
-                    transition={{ type: "spring", duration: 0.6 }}
-                    initial={false}
-                    style={{
-                        gridColumn: sections.findIndex(s => s.id === activeTab) % 2 + 1,
-                        gridRow: Math.floor(sections.findIndex(s => s.id === activeTab) / 2) + 1,
-                    }}
-                />
             </TabsList>
         </div>
 
