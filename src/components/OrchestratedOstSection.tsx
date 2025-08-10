@@ -1,9 +1,12 @@
+
 'use client';
 
 import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import Image from 'next/image';
 import { Badge } from '@/components/ui/badge';
+import { Button } from './ui/button';
+import { ArrowRight } from 'lucide-react';
 
 export default function OrchestratedOstSection() {
   return (
@@ -61,6 +64,14 @@ export default function OrchestratedOstSection() {
         </div>
 
         <div className="lg:col-span-1">
+          <div className="flex justify-center mb-4">
+              <Button asChild className="bg-emerald-600 hover:bg-emerald-700 text-white group">
+                <Link href="/portfolio/epicinium">
+                  Go to Project
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </Link>
+              </Button>
+            </div>
           <Card className="bg-card/50 backdrop-blur-sm border-emerald-600/30">
             <CardHeader>
               <CardTitle className="font-headline text-2xl text-emerald-400">Game Visuals</CardTitle>
