@@ -1,4 +1,5 @@
 
+
 "use client";
 
 import Link from "next/link";
@@ -43,8 +44,8 @@ export default function Header() {
                 isActive ? "text-accent" : "text-foreground/80"
             )}
         >
-            <span className="font-cuneiform text-xl md:text-2xl leading-none">{cuneiform}</span>
-            <span className="block text-xs md:text-sm leading-tight font-ziggsub">{label}</span>
+            <span className="font-cuneiform text-2xl leading-none">{cuneiform}</span>
+            <span className="block text-sm leading-tight font-orbitron">{label}</span>
             <span className={cn(
               "absolute bottom-[-2px] left-0 h-[2px] w-full bg-accent transition-all duration-300 ease-out",
               isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"

@@ -1,9 +1,10 @@
+
 import type { Metadata } from 'next';
 import './globals.css';
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { Toaster } from '@/components/ui/toaster';
-import { Inter, Space_Grotesk, Noto_Sans_Cuneiform } from 'next/font/google';
+import { Inter, Space_Grotesk, Noto_Sans_Cuneiform, Orbitron } from 'next/font/google';
 import { Playfair_Display, Roboto, Uncial_Antiqua } from 'next/font/google';
 
 const spaceGrotesk = Space_Grotesk({
@@ -40,6 +41,11 @@ const playfair = Playfair_Display({
   variable: '--font-playfair-display',
 });
 
+const orbitron = Orbitron({
+  subsets: ['latin'],
+  variable: '--font-orbitron',
+});
+
 export const metadata: Metadata = {
   title: {
     template: '%s',
@@ -54,7 +60,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`dark ${spaceGrotesk.variable} ${inter.variable} ${cuneiform.variable} ${roboto.variable} ${uncial.variable} ${playfair.variable}`} suppressHydrationWarning style={{scrollBehavior:'smooth'}}>
+    <html lang="en" className={`dark ${spaceGrotesk.variable} ${inter.variable} ${cuneiform.variable} ${roboto.variable} ${uncial.variable} ${playfair.variable} ${orbitron.variable}`} suppressHydrationWarning style={{scrollBehavior:'smooth'}}>
       <body className="font-body bg-background text-foreground antialiased grainy" suppressHydrationWarning>
         <div className="relative flex min-h-screen flex-col">
           <Header />

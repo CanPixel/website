@@ -15,6 +15,7 @@ export default {
         headline: ['var(--font-headline)', 'sans-serif'],
         ziggtitle: ['var(--font-playfair-display)', 'serif'],
         ziggsub: ['var(--font-uncial-antiqua)', 'cursive'],
+        orbitron: ['var(--font-orbitron)', 'sans-serif'],
       },
       colors: {
         background: 'hsl(var(--background))',
