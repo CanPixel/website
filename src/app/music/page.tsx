@@ -1,3 +1,4 @@
+
 "use client";
 
 import dynamic from 'next/dynamic';
@@ -37,7 +38,7 @@ export default function MusicPage() {
       </header>
 
       <Tabs defaultValue="ziggurath" className="w-full">
-        <TabsList className="py-4 mb-8 flex flex-wrap justify-center gap-4 rounded-lg border h-auto">
+        <TabsList className="py-4 mb-8 flex flex-wrap justify-center gap-4 rounded-lg h-auto bg-black/50 backdrop-blur-sm border-gold-500/30">
             {sections.map(section => (
               <TabsTrigger
                 key={section.id}
