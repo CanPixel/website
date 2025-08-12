@@ -1,6 +1,11 @@
 import React, { useEffect } from 'react';
 
-const InstagramEmbed = ({ profileUrl, iframelyUrl }) => {
+interface InstagramEmbedProps {
+  profileUrl: string;
+  iframelyUrl: string;
+}
+
+const InstagramEmbed: React.FC<InstagramEmbedProps> = ({ profileUrl, iframelyUrl }) => {
   useEffect(() => {
     const script = document.createElement('script');
     script.src = "//iframely.net/embed.js";
