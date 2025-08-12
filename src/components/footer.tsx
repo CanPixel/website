@@ -34,6 +34,11 @@ export default function Footer() {
             </Link>
           ))}
         </div>
+        <code>
+          <div className="cuneiform-text text-sm my-0 sm:mb-0 hover:text-white">
+            <Link href="/figma">Page not corporate enough?</Link>
+          </div>
+        </code>
       </div>
     </footer>
   );

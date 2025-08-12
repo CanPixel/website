@@ -17,7 +17,7 @@ export async function generateStaticParams() {
       id: projectData.id,
     };
   });
-  console.log("Generated static params using custom id:", params);
+  // console.log("Generated static params using custom id:", params);
   return params;
 }
 
@@ -28,7 +28,7 @@ export default async function ProjectLayout({
   params: { id: string };
 }) {
   const projectId = params.id;
-  console.log("Attempting to fetch project with ID:", projectId); // Log the project ID
+  // console.log("Attempting to fetch project with ID:", projectId); // Log the project ID
 
   const projectsRef = collection(db, 'portfolioItems');
   const q = query(
@@ -46,9 +46,9 @@ export default async function ProjectLayout({
       ...dbProjectData,
       styling,
     };
-    console.log("Successfully fetched project data for:", project.id);
+    // console.log("Successfully fetched project data for:", project.id);
   } else {
-    console.log("No document found for ID:", projectId);
+    // console.log("No document found for ID:", projectId);
   }
 
   if (!project) {
