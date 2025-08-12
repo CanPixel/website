@@ -63,7 +63,6 @@ const timelineEvents = [
     description: 'Continuing the journey of crafting distinct experiences in games, music, and thought.',
   },
 ];
-
 const TimelineItem = ({ event, index }: { event: (typeof timelineEvents)[0], index: number }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
@@ -102,6 +101,63 @@ const TimelineItem = ({ event, index }: { event: (typeof timelineEvents)[0], ind
   );
 };
 
+export const CATEGORIES = [
+  { id: "gamedev", name: "GAME DEVELOPMENT", 
+    desc: "Unity (C#), C++, Lua, Arduino, Gameplay, Tools, AI, Prototyping." },
+  { id: "webdev", name: "WEB DEVELOPMENT", 
+    desc: "Modern JavaScript, build tools, DOM manipulation, and framework integration." },
+  { id: "design", name: "DESIGN", 
+ desc: "Focus on user experience, visual coherence, and thoughtful information architecture." },
+  { id: "music", name: "MUSIC", 
+    desc: "FL Studio, composition, songwriting, arrangement, mixing basics, and sound design." },
+];
+export const SKILLS = [
+  { id: "html", name: "HTML5 & CSS3", value: 95, categories: ["Web Development"], desc: "Semantic markup, accessibility-first approach." },
+  { id: "js", name: "JavaScript", value: 90, categories: ["Web Development"], desc: "ESNext, tooling, DOM, and framework friendly." },
+  { id: "react", name: "React & Next.js", value: 95, categories: ["Web Development"], desc: "Building modern, dynamic user interfaces." },
+  { id: "next", name: "HTML5 & CSS3", value: 95, categories: ["Web Development"], desc: "Semantic markup, accessibility-first approach." },
+  { id: "jquery", name: "JQuery", value: 90, categories: ["Web Development"], desc: "ESNext, tooling, DOM, and framework friendly." },
+  { id: "unity", name: "Unity (C#)", value: 90, categories: ["Game Development"], desc: "Gameplay programming, components, and scripting." },
+  { id: "php", name: "PHP", value: 80, categories: ["Web Development"], desc: "Legacy systems, APIs and server-side templating." },
+  { id: "lua", name: "LUA", value: 45, categories: ["Game Development"], desc: "Scripting for embedded game logic and mods." },
+  { id: "mysql", name: "MySQL", value: 70, categories: ["Web Development"], desc: "Database design, queries, and optimization." },
+  { id: "cpp", name: "C++", value: 50, categories: ["Game Development"], desc: "Native performance, systems and plugin development." },
+  { id: "java", name: "Java", value: 80, categories: ["Game Development","Web Development"], desc: "OOP, tooling, and enterprise paradigms." },
+  { id: "python", name: "Python", value: 50, categories: ["Web Development"], desc: "Scripting, automation, and basic backend tasks." },
+  { id: "arduino", name: "Arduino", value: 65, categories: ["Game Development"], desc: "Prototyping hardware, sensor IO and embedded logic." },
+  // Optional design & music entries you asked about - edit/remove as you like
+  { id: "illustrator", name: "Illustrator", value: 75, categories: ["Design"], desc: "Vector illustration and iconography." },
+  { id: "premiere", name: "Adobe Premiere Pro", value: 60, categories: ["Design"], desc: "Video editing, cuts and color basics." },
+  { id: "flstudio", name: "FL Studio 12", value: 85, categories: ["Music"], desc: "Beat design, arrangement and mixing basics." }
+];
+// Color palette for charts
+const COLORS = ["#00C49F", "#0088FE", "#FFBB28", "#FF8042", "#845EC2", "#FF6F91", "#2C73D2", "#008E9B", "#D65DB1", "#FF9671"];
+
+const CategoryBadges = () => {
+  const getLevel = (val : any) => {
+    if (val >= 85) return "Expert";
+    if (val >= 70) return "Advanced";
+    if (val >= 50) return "Intermediate";
+    return "Uuhm..";
+  };
+  return (
+    <div className="grid grid-cols-2 gap-4 p-6">
+      {CATEGORIES.map((skill, i) => (
+        <div
+          key={i}
+          className="p-4 rounded-lg shadow-md border flex flex-col items-center"
+          style={{ borderColor: COLORS[i % COLORS.length] }}
+        >
+          <span className="text-lg font-semibold">{skill.name}</span>
+          <span className="text-2xl font-bold" style={{ color: COLORS[i % COLORS.length] }}>
+            {skill.value}%
+          </span>
+          <span className="text-sm opacity-70">{skill.desc}</span>
+        </div>
+      ))}
+    </div>
+  );
+};
 
 export default function AboutPage() {
     const timelineRef = useRef(null);
@@ -179,6 +235,12 @@ export default function AboutPage() {
               <TimelineItem key={index} event={event} index={index} />
               ))}
           </div>
+        </div>
+      </div>
+      
+      <div className="max-w-4xl mx-auto mt-8">
+        <div id="categories" className="border rounded-lg shadow mt-6">
+          <CategoryBadges/>
         </div>
       </div>
 

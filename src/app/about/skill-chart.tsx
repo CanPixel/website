@@ -120,57 +120,6 @@ const SkillsBadges = ({ skills }) => {
 };
 
 // ======================
-// Style 5: Minimal Line Tracker
-// ======================
-const SkillsLines = ({ skills }) => (
-  <div className="p-6 space-y-3">
-    {skills.map((skill, i) => (
-      <div key={i} className="flex items-center gap-3">
-        <span className="w-20 text-sm">{skill.name}</span>
-        <div className="flex-1 h-1 bg-gray-200 relative overflow-hidden">
-          <div
-            className="absolute left-0 top-0 h-1"
-            style={{
-              width: `${skill.value}%`,
-              backgroundColor: COLORS[i % COLORS.length],
-              transition: "width 1s ease"
-            }}
-          ></div>
-        </div>
-      </div>
-    ))}
-  </div>
-);
-
-// ======================
-// Style 6: Animated Dots Progress
-// ======================
-const SkillsDots = ({ skills }) => (
-  <div className="p-6 space-y-4">
-    {skills.map((skill, i) => {
-      const totalDots = 10;
-      const filledDots = Math.round((skill.value / 100) * totalDots);
-      return (
-        <div key={i} className="flex items-center gap-3">
-          <span className="w-24">{skill.name}</span>
-          <div className="flex gap-1">
-            {Array.from({ length: totalDots }).map((_, idx) => (
-              <div
-                key={idx}
-                className="w-3 h-3 rounded-full"
-                style={{
-                  background: idx < filledDots ? COLORS[i % COLORS.length] : "#e5e7eb"
-                }}
-              ></div>
-            ))}
-          </div>
-        </div>
-      );
-    })}
-  </div>
-);
-
-// ======================
 // Main Wrapper with Toggle
 // ======================
 export default function SkillsShowcase() {
@@ -181,8 +130,6 @@ export default function SkillsShowcase() {
     { name: "Pie Chart", comp: <SkillsPie skills={skillsData} /> },
     { name: "Radial Bars", comp: <SkillsRadial skills={skillsData} /> },
     { name: "Threshold Badges", comp: <SkillsBadges skills={skillsData} /> },
-    { name: "Minimal Lines", comp: <SkillsLines skills={skillsData} /> },
-    { name: "Dots Progress", comp: <SkillsDots skills={skillsData} /> }
   ];
 
   return (
