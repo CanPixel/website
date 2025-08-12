@@ -1,6 +1,6 @@
-
 'use client';
 
+import InstagramEmbed from './InstagramEmbed';
 import Image from 'next/image';
 import { Card, CardDescription, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -36,27 +36,24 @@ const zigguratSocialLinks = [
 ];
 
 export default function ZiggurathSection() {
-  return (
-    <div className="relative rounded-lg border-2 border-gold-600 p-8 pt-12 bg-black">
+  
 
-    <CardHeader className='text-center p-6'>
+  return (
+    <div className="relative rounded-lg border-2 border-gold-600/70 p-8 pt-12 bg-black">
+    <CardHeader className='text-center pb-0'>
       <div className="flex justify-center items-center gap-4">
-        <Image alt="Ziggurath Logo" 
-          width={133}
-          height={36}
-          src="/images/ZiggLogo.png" className="w-30 h-auto" />
         <div className="flex-1 max-w-lg mx-auto">
           <CardTitle
             className='text-5xl font-black font-ziggtitle text-accent tracking-widest [text-shadow:0_2px_4px_rgba(0,0,0,0.5)]'>
             <div className="flex justify-center">
               <Image alt="Ziggurath Logo" 
-                width={96}
-                height={100}
-                src="/images/ZiggBM.png" className="w-30 h-auto" />
+                width={133}
+                height={36}
+                src="/images/ZiggLogo.png" className="w-30 h-auto" />
             </div>
           </CardTitle>
           <CardDescription
-            className='text-muted-foreground mt-2 text-lg flex flex-col font-ziggsub'>
+            className='text-muted-foreground mt-2 mb-4 text-lg flex flex-col font-ziggsub'>
             <span className="block text-gold-200/80">𒀭 Black Death ‘n Roll 𒀭</span>
             <span className="block">from the Nether Lands</span>
           </CardDescription>
@@ -64,13 +61,13 @@ export default function ZiggurathSection() {
       </div>
       </CardHeader>
 
-      <h2 className="absolute -top-5 left-1/2 -translate-x-1/2 bg-black px-4 font-serif text-4xl font-bold tracking-wider text-gold-400" style={{ textShadow: '2px 2px 8px #000' }}>
+      <h2 className="absolute -top-5 left-1/2 -translate-x-1/2 bg-black px-4 font-serif text-4xl font-bold tracking-wider text-gold-400/70" style={{ textShadow: '2px 2px 8px #000' }}>
         ZIGGURATH
       </h2>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2">
-            <Card className="bg-black/50 backdrop-blur-sm border-gold-500/50">
+            <Card className="bg-black/50 border-gold-500/50">
               <div className="relative -mx-8 my-4">
                   <div className=
                     'text-center py-2 pb-3 border-y-4 border-border/70 bg-muted/30 shadow-inner [box-shadow:0_0_30px_rgba(0,0,0,0.8)_inset]'>
@@ -159,7 +156,7 @@ record within just one year of hard work, starting in the summer of 2023 and the
               <CardTitle className="font-serif text-2xl text-gold-300">Bio</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-gold-200/80 leading-relaxed font-serif text-sm">
+              <p className="text-gold-200/80 leading-relaxed font-serif text-sm mb-2">
               Hailing from the Nether Lands, a furious force of destruction forges a new sound baptized as Black Death ‘n Roll.<br></br>
 Embodying unbridled duality in power, fiery currents of bone-crushing pulses are delivered with organic precision.
 Driven by a distinctly twofold instrumental approach to musical spellcasting, a sonic tapestry is crafted that mesmerizes with intricacy,
@@ -174,12 +171,16 @@ A sweet and evil alchemical cacophony of variety containing different chapters, 
 realms. Carving the cosmic void with 40 minutes of runtime, there is enough to be found and beared witness to, but beware, for
 it is only for the resilient.
               </p>
+              <InstagramEmbed 
+                profileUrl="https://www.instagram.com/ziggurath_nl"
+                iframelyUrl="//iframely.net/3PNEmGr9?theme=dark"
+              />
             </CardContent>
           </Card>
         </div>
 
         <div className="lg:col-span-1">
-          <Card className="bg-black/50 backdrop-blur-sm border-gold-500/50">
+          <Card className="bg-black/50 border-gold-500/50 mb-5">
             <CardHeader>
               <CardTitle className="font-serif text-2xl text-gold-200/80">
                 Visions by{' '}
@@ -187,14 +188,14 @@ it is only for the resilient.
                   href="https://www.instagram.com/abyssalvoid_photo/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="underline hover:text-gold-300 transition-colors"
+                  className="underline hover:text-gold-200 transition-colors"
                 >
                   AbyssalVoid
                 </a>
               </CardTitle>
             </CardHeader>
             <CardContent className="grid grid-cols-2 gap-4">
-              {['zigg2.JPG', 'zigg3.JPG'].map((img, i) => (
+              {['zigg4.JPG', 'zigg3.JPG'].map((img, i) => (
                 <div key={i} className="relative aspect-square rounded-lg overflow-hidden group border-2 border-gold-800/50">
                   <Image
                     src={`/images/ziggurath/${img}`}
@@ -203,28 +204,28 @@ it is only for the resilient.
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30 group-hover:bg-black/40 transition-colors"></div>
+                  <div className="absolute inset-0 rounded-lg bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent to-black/50"></div>
                 </div>
               ))}
             </CardContent>
           </Card>
-          <div className='mt-4 flex justify-center'>
+          {/* <div className='mt-4 flex justify-center'>
             <Image
                 src={`/images/ziggurath/zigg4.JPG`}
                 alt={`Ziggurath banner`}
                 width={400}
                 height={200}
-                className="object-cover transition-transform duration-300 group-hover:scale-105"
+                className="rounded-md object-cover transition-transform duration-300 group-hover:scale-105"
                 loading="lazy"
-              />  
-          </div>
+              />
+          </div> */}
 
           <div className="flex flex-col items-center justify-center pt-4">
             <div className="relative w-full max-w-xs h-auto text-center">
               <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-2 text-md font-ziggsub text-accent/70 bg-black">
                 Portal
               </div>
-              <div className="border-b-2 border-x-2 border-accent/70 p-2 w-full shadow-inner [box-shadow:0_0_15px_rgba(0,0,0,0.5)_inset] pt-6">
+              <div className="border-b-2 border-x-2 border-accent/70 p-2 pb-4 w-full shadow-inner [box-shadow:0_0_15px_rgba(0,0,0,0.5)_inset] pt-6">
                 <div className="absolute top-0 left-0 right-0 h-px bg-accent/70 w-[calc(50%-2rem)]"></div>
                 <div className="absolute top-0 right-0 h-px bg-accent/70 w-[calc(50%-2rem)]"></div>
                 <div className="flex flex-row items-center justify-center space-x-4 h-full">
