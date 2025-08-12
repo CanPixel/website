@@ -3,7 +3,6 @@ import { Button } from '../ui/button';
 import { Menu, X } from 'lucide-react';
 import { ThemeToggle } from './ThemeToggle';
 import { useTheme } from './ThemeProvider';
-import Link from "next/link";
 import { Logo } from '@/components/Logo';
 import { Code, Music, Palette, User, Hexagon, MessageSquare } from "lucide-react";
 
@@ -14,7 +13,7 @@ interface HeaderProps {
 export function Header({ activeSection }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const { isDark, toggleTheme } = useTheme();
+  const { isDark, toggleTheme, setTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,6 +39,11 @@ export function Header({ activeSection }: HeaderProps) {
     setIsMenuOpen(false);
   };
 
+  const handleLogoClick = () => {
+    setTheme('dark');
+    window.location.href = '/';
+  };
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
@@ -59,28 +63,28 @@ export function Header({ activeSection }: HeaderProps) {
      {/* > */}
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 group">
+        <div className="flex items-center gap-2 group cursor-pointer" onClick={handleLogoClick}>
             <Logo className="h-12 w-12" />
             <div className="flex flex-col">
               <span className="font-bold font-headline text-2xl bg-gradient-to-br from-primary from-30% to-accent bg-clip-text gradient-text glow-text group-hover:text-cyan-500 transition-colors duration-300 ease-in-out transform scale-y-120 origin-center">CanPixel</span>
                 
               <div className="hidden md:flex items-center text-xs gap-3 pointer-events-none" 
                 style={{ color: '#7099C2' }}>
-                    <div className="flex items-center gap-1">
-                        <Code className="h-3 w-3" />
-                        <span>Developer</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                        <Music className="h-3 w-3" />
-                        <span>Musician</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                        <Palette className="h-3 w-3" />
-                        <span>Designer</span>
-                    </div>
+              <div className="flex items-center gap-1">
+                  <Code className="h-3 w-3" />
+                  <span>Developer</span>
+              </div>
+              <div className="flex items-center gap-1">
+                  <Music className="h-3 w-3" />
+                  <span>Musician</span>
+              </div>
+              <div className="flex items-center gap-1">
+                  <Palette className="h-3 w-3" />
+                  <span>Designer</span>
               </div>
             </div>
-          </Link>
+          </div>
+        </div>
 
           {/* Theme Toggle & Mobile Menu */}
           <div className="flex items-center gap-4">
