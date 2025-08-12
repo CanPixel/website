@@ -1,5 +1,7 @@
+"use client"
 
 import type { Metadata } from 'next';
+import { usePathname } from 'next/navigation';
 import './globals.css';
 import Header from "@/components/header";
 import Footer from "@/components/footer";
@@ -46,26 +48,29 @@ const orbitron = Orbitron({
   variable: '--font-orbitron',
 });
 
-export const metadata: Metadata = {
-  title: {
-    template: '%s',
-    default: 'CanPixel • 𒌨',
-  },
-  description: 'Worlds of a Method Developer',
-};
+// export const metadata: Metadata = {
+//   title: {
+//     template: '%s',
+//     default: 'CanPixel • 𒌨',
+//   },
+//   description: 'Worlds of a Method Developer',
+// };
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const pathname = usePathname();
+  const isFigmaPage = pathname === '/figma';
+
   return (
     <html lang="en" className={`dark ${spaceGrotesk.variable} ${inter.variable} ${cuneiform.variable} ${roboto.variable} ${uncial.variable} ${playfair.variable} ${orbitron.variable}`} suppressHydrationWarning style={{scrollBehavior:'smooth'}}>
       <body className="font-body bg-background text-foreground antialiased grainy" suppressHydrationWarning>
         <div className="relative flex min-h-screen flex-col">
-          <Header />
+          {!isFigmaPage && <Header />}
           <main className="flex-1">{children}</main>
-          <Footer />
+          {!isFigmaPage && <Footer />}
         </div>
         <Toaster />
         {/* <Script id="yourgpt-chatbot" strategy="afterInteractive">

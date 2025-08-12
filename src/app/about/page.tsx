@@ -5,11 +5,10 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import NavMenu from "@/components/navigation";
 import { Button } from "@/components/ui/button";
 import Link from 'next/link';
-import { Download } from 'lucide-react';
+import { Download, Gamepad, Globe, Palette, PenTool, Headphones } from 'lucide-react';
 import { motion, useInView, useScroll, useSpring, Variants } from 'framer-motion';
 import { useRef } from 'react';
-// import SkillsShowcase from './SkillsShowcase';
-import SkillsShowcase from './skill-chart';
+import SkillsShowcase from './SkillsShowcase';
 
 const timelineEvents = [
   {
@@ -102,57 +101,59 @@ const TimelineItem = ({ event, index }: { event: (typeof timelineEvents)[0], ind
 };
 
 export const CATEGORIES = [
-  { id: "gamedev", name: "GAME DEVELOPMENT", 
+  { id: "gamedev", name: "GAME DEVELOPMENT", icon: Gamepad,
     desc: "Unity (C#), C++, Lua, Arduino, Gameplay, Tools, AI, Prototyping." },
-  { id: "webdev", name: "WEB DEVELOPMENT", 
-    desc: "Modern JavaScript, build tools, DOM manipulation, and framework integration." },
-  { id: "design", name: "DESIGN", 
+  { id: "webdev", name: "FULL STACK WEB DEVELOPMENT", icon: Globe,
+    desc: "PHP & Modern JavaScript, build tools, DOM manipulation, and framework integration." },
+  { id: "design", name: "DESIGN", icon: Palette,
  desc: "Focus on user experience, visual coherence, and thoughtful information architecture." },
-  { id: "music", name: "MUSIC", 
+  { id: "music", name: "MUSIC", icon: Headphones,
     desc: "FL Studio, composition, songwriting, arrangement, mixing basics, and sound design." },
 ];
 export const SKILLS = [
   { id: "html", name: "HTML5 & CSS3", value: 95, categories: ["Web Development"], desc: "Semantic markup, accessibility-first approach." },
-  { id: "js", name: "JavaScript", value: 90, categories: ["Web Development"], desc: "ESNext, tooling, DOM, and framework friendly." },
-  { id: "react", name: "React & Next.js", value: 95, categories: ["Web Development"], desc: "Building modern, dynamic user interfaces." },
-  { id: "next", name: "HTML5 & CSS3", value: 95, categories: ["Web Development"], desc: "Semantic markup, accessibility-first approach." },
   { id: "jquery", name: "JQuery", value: 90, categories: ["Web Development"], desc: "ESNext, tooling, DOM, and framework friendly." },
-  { id: "unity", name: "Unity (C#)", value: 90, categories: ["Game Development"], desc: "Gameplay programming, components, and scripting." },
+  { id: "flstudio", name: "FL Studio 12", value: 90, categories: ["Music"], desc: "Beat design, arrangement and mixing basics." },
+  { id: "unity", name: "Unity (C#)", value: 85, categories: ["Game Development"], desc: "Gameplay programming, components, and scripting." },
+  { id: "react", name: "React & Next.js", value: 85, categories: ["Web Development"], desc: "Building modern, dynamic user interfaces." },
   { id: "php", name: "PHP", value: 80, categories: ["Web Development"], desc: "Legacy systems, APIs and server-side templating." },
-  { id: "lua", name: "LUA", value: 45, categories: ["Game Development"], desc: "Scripting for embedded game logic and mods." },
-  { id: "mysql", name: "MySQL", value: 70, categories: ["Web Development"], desc: "Database design, queries, and optimization." },
-  { id: "cpp", name: "C++", value: 50, categories: ["Game Development"], desc: "Native performance, systems and plugin development." },
-  { id: "java", name: "Java", value: 80, categories: ["Game Development","Web Development"], desc: "OOP, tooling, and enterprise paradigms." },
-  { id: "python", name: "Python", value: 50, categories: ["Web Development"], desc: "Scripting, automation, and basic backend tasks." },
+  { id: "java", name: "Java", value: 80, categories: ["Game Development"], desc: "OOP, tooling, and enterprise paradigms." },
+  { id: "js", name: "JavaScript", value: 80, categories: ["Web Development"], desc: "ESNext, tooling, DOM, and framework friendly." },
+  { id: "premiere", name: "Adobe Premiere Pro", value: 80, categories: ["Design"], desc: "Video editing, cuts and color basics." },
+  { id: "illustrator", name: "Adobe Illustrator", value: 75, categories: ["Design"], desc: "Vector illustration and iconography." },
   { id: "arduino", name: "Arduino", value: 65, categories: ["Game Development"], desc: "Prototyping hardware, sensor IO and embedded logic." },
-  // Optional design & music entries you asked about - edit/remove as you like
-  { id: "illustrator", name: "Illustrator", value: 75, categories: ["Design"], desc: "Vector illustration and iconography." },
-  { id: "premiere", name: "Adobe Premiere Pro", value: 60, categories: ["Design"], desc: "Video editing, cuts and color basics." },
-  { id: "flstudio", name: "FL Studio 12", value: 85, categories: ["Music"], desc: "Beat design, arrangement and mixing basics." }
+  { id: "node", name: "Node.js", value: 65, categories: ["Web Development"], desc: "Semantic markup, accessibility-first approach." },
+  { id: "mysql", name: "MySQL", value: 60, categories: ["Web Development"], desc: "Database design, queries, and optimization." },
+  { id: "python", name: "Python", value: 60, categories: ["Game Development"], desc: "Scripting, automation, and basic backend tasks." },
+  { id: "lua", name: "LUA", value: 40, categories: ["Game Development"], desc: "Scripting for embedded game logic and mods." },
+  { id: "cpp", name: "C++", value: 30, categories: ["Game Development"], desc: "Native performance, systems and plugin development." },
 ];
 // Color palette for charts
 const COLORS = ["#00C49F", "#0088FE", "#FFBB28", "#FF8042", "#845EC2", "#FF6F91", "#2C73D2", "#008E9B", "#D65DB1", "#FF9671"];
 
 const CategoryBadges = () => {
-  const getLevel = (val : any) => {
-    if (val >= 85) return "Expert";
-    if (val >= 70) return "Advanced";
-    if (val >= 50) return "Intermediate";
-    return "Uuhm..";
-  };
+  // const getLevel = (val : any) => {
+  //   if (val >= 85) return "Expert";
+  //   if (val >= 70) return "Advanced";
+  //   if (val >= 50) return "Intermediate";
+  //   return "Uuhm..";
+  // };
   return (
-    <div className="grid grid-cols-2 gap-4 p-6">
+    <div className="grid grid-cols-2 gap-4">
       {CATEGORIES.map((skill, i) => (
         <div
           key={i}
           className="p-4 rounded-lg shadow-md border flex flex-col items-center"
           style={{ borderColor: COLORS[i % COLORS.length] }}
         >
-          <span className="text-lg font-semibold">{skill.name}</span>
-          <span className="text-2xl font-bold" style={{ color: COLORS[i % COLORS.length] }}>
-            {skill.value}%
+          <span className="text-4xl font-bold" style=
+            {{ color: COLORS[i % COLORS.length] }}>
+            <skill.icon/>
           </span>
-          <span className="text-sm opacity-70">{skill.desc}</span>
+          <span className="text-lg font-semibold"
+          style={{ color: COLORS[i % COLORS.length] }}
+          >{skill.name}</span>
+          <span className="text-sm opacity-70 mt-2">{skill.desc}</span>
         </div>
       ))}
     </div>
@@ -215,7 +216,6 @@ export default function AboutPage() {
  <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-background to-transparent pointer-events-none" />
       </div>
       
-      {/* Timeline Section */}
       <div className="mt-24">
         <h2 className="font-headline text-5xl font-bold tracking-tighter text-center">My Journey</h2>
         <div className="lg:col-span-2 flex flex-col items-center text-center mt-0 mb-6">
@@ -238,13 +238,13 @@ export default function AboutPage() {
         </div>
       </div>
       
-      <div className="max-w-4xl mx-auto mt-8">
+      <div className="max-w-4xl mx-auto mt-16">
         <div id="categories" className="border rounded-lg shadow mt-6">
           <CategoryBadges/>
         </div>
       </div>
 
-      <SkillsShowcase/>
+      <SkillsShowcase skills={SKILLS}/>
 
       <div className="mt-20">
           <Card className="bg-card/50 backdrop-blur-sm border-primary/20 max-w-4xl mx-auto">

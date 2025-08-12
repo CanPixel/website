@@ -1,44 +1,5 @@
 import React, { useEffect, useMemo, useState, useRef } from "react";
-/**
- * SkillsShowcase.jsx
- * Single-file modular React component with multiple interchangeable "Skills" visualizations.
- * - One JSON "skills" object at top to edit values/descriptions/categories
- * - 6 visual styles (bars, pie, radial, badges, lines, dots)
- * - Animated counters on load
- * - Hover tooltips
- * - Category filters and search
- * - Smooth fade transitions between views
- *
- * NOTE: This component uses Tailwind utility classes for quick styling. If you don't have
- * Tailwind in your project, include the minimal CSS at the bottom of this file or adapt the
- * classes to your existing CSS.
- */
 
-// =====================
-// === SKILLS JSON ====
-// Edit this block to change skill data, categories, descriptions or values.
-export const SKILLS = [
-  { id: "html", name: "HTML5 & CSS3", value: 95, categories: ["Web Development"], desc: "Semantic markup, accessibility-first approach." },
-  { id: "js", name: "JavaScript", value: 90, categories: ["Web Development"], desc: "ESNext, tooling, DOM, and framework friendly." },
-  { id: "react", name: "HTML5 & CSS3", value: 95, categories: ["Web Development"], desc: "Semantic markup, accessibility-first approach." },
-  { id: "next", name: "HTML5 & CSS3", value: 95, categories: ["Web Development"], desc: "Semantic markup, accessibility-first approach." },
-  
-  { id: "jquery", name: "JQuery", value: 90, categories: ["Web Development"], desc: "ESNext, tooling, DOM, and framework friendly." },
-  { id: "unity", name: "Unity (C#)", value: 90, categories: ["Game Development"], desc: "Gameplay programming, components, and scripting." },
-  { id: "php", name: "PHP", value: 80, categories: ["Web Development"], desc: "Legacy systems, APIs and server-side templating." },
-  { id: "lua", name: "LUA", value: 45, categories: ["Game Development"], desc: "Scripting for embedded game logic and mods." },
-  { id: "mysql", name: "MySQL", value: 70, categories: ["Web Development"], desc: "Database design, queries, and optimization." },
-  { id: "cpp", name: "C++", value: 50, categories: ["Game Development"], desc: "Native performance, systems and plugin development." },
-  { id: "java", name: "Java", value: 80, categories: ["Game Development","Web Development"], desc: "OOP, tooling, and enterprise paradigms." },
-  { id: "python", name: "Python", value: 50, categories: ["Web Development"], desc: "Scripting, automation, and basic backend tasks." },
-  { id: "arduino", name: "Arduino", value: 65, categories: ["Game Development"], desc: "Prototyping hardware, sensor IO and embedded logic." },
-  // Optional design & music entries you asked about - edit/remove as you like
-  { id: "illustrator", name: "Illustrator", value: 75, categories: ["Design"], desc: "Vector illustration and iconography." },
-  { id: "premiere", name: "Adobe Premiere Pro", value: 60, categories: ["Design"], desc: "Video editing, cuts and color basics." },
-  { id: "flstudio", name: "FL Studio 12", value: 85, categories: ["Music"], desc: "Beat design, arrangement and mixing basics." }
-];
-
-// Color palette
 const PALETTE = ["#0ea5a4", "#0369a1", "#ef4444", "#f59e0b", "#7c3aed", "#db2777", "#2563eb", "#16a34a", "#f97316", "#06b6d4"];
 
 // =====================
@@ -177,7 +138,7 @@ function LegendRow({ skill, color, tooltip }) {
 
 // =====================
 // === Main Showcase ===
-export default function SkillsShowcase({ skills = SKILLS }) {
+export default function SkillsShowcase({ skills }) {
   const [view, setView] = useState(0);
   const [query, setQuery] = useState("");
   const [activeCats, setActiveCats] = useState([]);
@@ -227,7 +188,7 @@ export default function SkillsShowcase({ skills = SKILLS }) {
     <div className="max-w-5xl mx-auto p-4 mt-2">
       <div className="flex items-start justify-between gap-4 mb-4">
         <div>
-          <h3 className="text-2xl font-extrabold">Skills</h3>
+          <h3 className="text-2xl font-extrabold">.Skills</h3>
           <p className="text-sm text-slate-500">Interactive showcase — toggle views, filter categories, and hover for details.</p>
         </div>
         <div className="flex gap-2 items-center">
@@ -280,7 +241,7 @@ export default function SkillsShowcase({ skills = SKILLS }) {
         )}
       </div>
 
-      <div className="mt-3 text-xs text-slate-500">Tip: edit the <code>SKILLS</code> array exported at the top to change values, descriptions and categories. You can also add new view components to the file and add them to the <code>views</code> array.</div>
+      <div className="mt-3 text-xs text-slate-500">These are <code>estimations</code> and I keep <code>learning</code> every day.</div>
     </div>
   );
 }

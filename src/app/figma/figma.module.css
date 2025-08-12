@@ -1,0 +1,161 @@
+:root {
+  --figma-background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #f8fafc 100%);
+  --figma-foreground: #0f172a;
+  --card: rgba(255, 255, 255, 0.7);
+  --card-foreground: #0f172a;
+  --popover: rgba(255, 255, 255, 0.9);
+  --popover-foreground: #0f172a;
+  --primary: #0ea5e9;
+  --primary-foreground: #f8fafc;
+  --secondary: rgba(59, 130, 246, 0.1);
+  --secondary-foreground: #1e293b;
+  --figma-muted: rgba(148, 163, 184, 0.2);
+  --figma-muted-foreground: #64748b;
+  --accent: rgba(59, 130, 246, 0.15);
+  --accent-foreground: #1e293b;
+  --destructive: #ef4444;
+  --destructive-foreground: #f8fafc;
+  --border: rgba(59, 130, 246, 0.2);
+  --input: rgba(255, 255, 255, 0.5);
+  --input-background: rgba(255, 255, 255, 0.8);
+  --switch-background: rgba(148, 163, 184, 0.3);
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --ring: rgba(14, 165, 233, 0.3);
+  --chart-1: #0ea5e9;
+  --chart-2: #06b6d4;
+  --chart-3: #3b82f6;
+  --chart-4: #6366f1;
+  --chart-5: #8b5cf6;
+  --radius: 0.625rem;
+  --glass-bg: rgba(255, 255, 255, 0.25);
+  --glass-border: rgba(59, 130, 246, 0.15);
+  --glass-hover: rgba(255, 255, 255, 0.35);
+  --glass-glow: rgba(14, 165, 233, 0.2);
+  --glass-shadow: 0 8px 32px rgba(59, 130, 246, 0.1);
+  --glass-shadow-hover: 0 16px 48px rgba(59, 130, 246, 0.15);
+}
+
+.dark {
+  --figma-background: #0a0a0f;
+  --figma-foreground: #e2e8f0;
+  --figma-card: rgba(15, 23, 42, 0.4);
+  --figma-card-foreground: #e2e8f0;
+  --figma-popover: rgba(15, 23, 42, 0.8);
+  --figma-popover-foreground: #e2e8f0;
+  --figma-primary: #60a5fa;
+  --figma-primary-foreground: #0f172a;
+  --figma-secondary: rgba(30, 41, 59, 0.5);
+  --figma-secondary-foreground: #e2e8f0;
+  --figma-muted: rgba(30, 41, 59, 0.3);
+  --figma-muted-foreground: #94a3b8;
+  --figma-accent: rgba(51, 65, 85, 0.4);
+  --figma-accent-foreground: #e2e8f0;
+  --destructive: #ef4444;
+  --destructive-foreground: #f8fafc;
+  --figma-border: rgba(51, 65, 85, 0.3);
+  --input: rgba(30, 41, 59, 0.5);
+  --ring: rgba(96, 165, 250, 0.5);
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --chart-1: #60a5fa;
+  --chart-2: #34d399;
+  --chart-3: #fbbf24;
+  --chart-4: #f472b6;
+  --chart-5: #a78bfa;
+  --radius: 0.625rem;
+
+  /* Dark mode glass effects */
+  /* --glass-bg: rgba(15, 23, 42, 0.2);
+  --glass-border: rgba(51, 65, 85, 0.2);
+  --glass-hover: rgba(15, 23, 42, 0.3);
+  --glass-glow: rgba(96, 165, 250, 0.1);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --glass-shadow-hover: 0 16px 48px rgba(0, 0, 0, 0.4); */
+}
+
+/* Theme Variables */
+:root {
+  --font-size: 14px;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+.figma-page * {
+  border-color: var(--border);
+  outline-color: rgb(var(--ring) / 0.5);
+  transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.figma-page {
+  color: var(--foreground);
+  transition: background 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  background: var(--background);
+}
+
+.dark .figma-page {
+  background: radial-gradient(ellipse at top, rgba(96, 165, 250, 0.05) 0%, transparent 50%),
+              radial-gradient(ellipse at bottom, rgba(139, 92, 246, 0.05) 0%, transparent 50%),
+              var(--background);
+}
+.figma-page:not(.dark) {
+  background: radial-gradient(ellipse at top, rgba(14, 165, 233, 0.1) 0%, transparent 50%),
+              radial-gradient(ellipse at bottom right, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+              var(--background);
+}
+
+/**
+ * Base typography. This is not applied to elements which have an ancestor with a Tailwind text class.
+ */
+.figma-page :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) h1 {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.5;
+}
+
+.figma-page :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) h2 {
+  font-size: var(--text-xl);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.5;
+}
+
+.figma-page :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) h3 {
+  font-size: var(--text-lg);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.5;
+}
+
+.figma-page :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) h4 {
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.5;
+}
+
+.figma-page :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) p {
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-normal);
+  line-height: 1.5;
+}
+
+.figma-page :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) label {
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.5;
+}
+
+.figma-page :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) button {
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.5;
+}
+
+.figma-page :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) input {
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-normal);
+  line-height: 1.5;
+}
