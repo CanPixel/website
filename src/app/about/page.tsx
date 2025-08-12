@@ -8,6 +8,8 @@ import Link from 'next/link';
 import { Download } from 'lucide-react';
 import { motion, useInView, useScroll, useSpring, Variants } from 'framer-motion';
 import { useRef } from 'react';
+// import SkillsShowcase from './SkillsShowcase';
+import SkillsShowcase from './skill-chart';
 
 const timelineEvents = [
   {
@@ -159,17 +161,28 @@ export default function AboutPage() {
       
       {/* Timeline Section */}
       <div className="mt-24">
-           <h2 className="font-headline text-5xl font-bold tracking-tighter mb-12 text-center">My Journey</h2>
-          <div ref={timelineRef} className="relative max-w-3xl mx-auto">
-            <div className="absolute left-0 top-0 h-full w-0.5 bg-primary/30 ml-[7px]"></div>
-            <motion.div style={{ scaleY }} className="absolute left-0 top-0 h-full w-0.5 bg-primary origin-top ml-[7px]" />
-            <div className="space-y-12">
-                {timelineEvents.map((event, index) => (
-                <TimelineItem key={index} event={event} index={index} />
-                ))}
-            </div>
+        <h2 className="font-headline text-5xl font-bold tracking-tighter text-center">My Journey</h2>
+        <div className="lg:col-span-2 flex flex-col items-center text-center mt-0 mb-6">
+          <Button asChild size="lg" className="mt-6 group transition-all duration-300 ease-in-out bg-red-500 hover:bg-red-400 hover:-translate-y-1 hover:scale-105">
+            <Link href="/pdf/CanUrPortfolio.pdf" target="_blank">
+                Ancient Portfolio (Dutch)
+                <Download className="ml-2 h-4 w-4 transition-transform duration-300 ease-in-out group-hover:translate-x-1" />
+            </Link>
+          </Button>
+        </div>
+        
+        <div ref={timelineRef} className="relative max-w-3xl mx-auto">
+          <div className="absolute left-0 top-0 h-full w-0.5 bg-primary/30 ml-[7px]"></div>
+          <motion.div style={{ scaleY }} className="absolute left-0 top-0 h-full w-0.5 bg-primary origin-top ml-[7px]" />
+          <div className="space-y-12">
+              {timelineEvents.map((event, index) => (
+              <TimelineItem key={index} event={event} index={index} />
+              ))}
           </div>
+        </div>
       </div>
+
+      <SkillsShowcase/>
 
       <div className="mt-20">
           <Card className="bg-card/50 backdrop-blur-sm border-primary/20 max-w-4xl mx-auto">
