@@ -45,14 +45,14 @@ export function Projects() {
   const filters = [
     { id: 'all', label: 'All Projects', count: projects.length },
     ...skills.map(skill => ({ 
-      id: skill/*.toLowerCase().replace(/\s+/g, '-')*/, 
+      id: skill, 
       label: skill, 
       count: projects.filter(p => p.properties?.skills?.includes(skill)).length, 
     })),
   ];
   const filteredProjects = activeFilter === 'all' 
     ? projects 
-    : projects.filter(project => project.properties?.skills?.includes(activeFilter/*.replace(/-/g, ' ')*/));
+    : projects.filter(project => project.properties?.skills?.includes(activeFilter));
   
   return (
     <section id="projects" className="py-20 relative">
