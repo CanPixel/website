@@ -19,7 +19,6 @@ import {
 // import { blogData } from "@/lib/blogData";
 
 import { ArrowRight } from "lucide-react";
-// import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from 'next/link';
 
@@ -128,7 +127,7 @@ export default function Home() {
                 <TooltipContent className="max-w-xs bg-background border-primary/20 text-foreground">
                   <div className="p-2">
                     <h4 className="font-bold text-lg mb-2 font-headline">Hell in Religion</h4>
-                    <Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Hieronymus_Bosch_-_The_Garden_of_Earthly_Delights_-_Hell.jpg/1280px-Hieronymus_Bosch_-_The_Garden_of_Earthly_Delights_-_Hell.jpg" width={400} height={250} alt="The Garden of Earthly Delights - Hell by Hieronymus Bosch" className="rounded-md mb-2" />
+                    <Image src="/images/hell.jpg" width={400} height={250} alt="The Garden of Earthly Delights - Hell by Hieronymus Bosch" className="rounded-md mb-2" />
                     <p className="text-sm">
                       In many religious and folkloric traditions, Hell is an afterlife location in which evil souls are subjected to punitive suffering, most often through torture, as eternal punishment after death.
                     </p>
@@ -153,7 +152,7 @@ export default function Home() {
                 <TooltipContent className="max-w-xs bg-background border-primary/20 text-foreground">
                   <div className="p-2">
                     <h4 className="font-bold text-lg mb-2 font-headline">Ur, Cradle of Civilization</h4>
-                    <Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Ziggurat_of_ur.jpg/1280px-Ziggurat_of_ur.jpg" width={400} height={250} alt="Ziggurat of Ur" className="rounded-md mb-2" />
+                    <Image src="images/Ur.jpg" width={400} height={250} alt="Ziggurat of Ur" className="rounded-md mb-2" />
                     <p className="text-sm">
                       An ancient Sumerian city-state in Mesopotamia, Ur was a crucial center of trade and civilization for thousands of years. It is famously known for its impressive ziggurat and is believed to be the birthplace of Abraham.
                     </p>

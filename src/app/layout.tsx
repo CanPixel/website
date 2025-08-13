@@ -1,16 +1,20 @@
-"use client"
-
 import type { Metadata } from 'next';
-import { usePathname } from 'next/navigation';
 import './globals.css';
-import Header from "@/components/header";
-import Footer from "@/components/footer";
 import { Toaster } from '@/components/ui/toaster';
 import { Inter, Space_Grotesk, Noto_Sans_Cuneiform, Orbitron,
   Playfair_Display, Roboto, Uncial_Antiqua, UnifrakturCook,
   Jacquard_24, Pixelify_Sans, Geo, Audiowide, Unlock, Share_Tech_Mono,
   Bungee, Space_Mono, Ribeye, Courier_Prime, Limelight
  } from 'next/font/google';
+import LayoutContent from '@/components/layout/LayoutContent';
+
+export const metadata: Metadata = {
+  title: {
+    template: '%s',
+    default: 'CanPixel • 𒌨',
+  },
+  description: 'Worlds of a Method Developer',
+};
 
 const limelight = Limelight({
   weight: '400',
@@ -94,29 +98,18 @@ const unifrakturCook = UnifrakturCook({
   weight: '700',
 });
 
-// export const metadata: Metadata = {
-//   title: {
-//     template: '%s',
-//     default: 'CanPixel • 𒌨',
-//   },
-//   description: 'Worlds of a Method Developer',
-// };
-
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const pathname = usePathname();
-  const isFigmaPage = pathname === '/figma';
-
   return (
     <html lang="en" className={`dark ${spaceGrotesk.variable} ${inter.variable} ${cuneiform.variable} ${roboto.variable} ${uncial.variable} ${playfair.variable} ${orbitron.variable}`} suppressHydrationWarning style={{scrollBehavior:'smooth'}}>
       <body className="font-body bg-background text-foreground antialiased grainy" suppressHydrationWarning>
         <div className="relative flex min-h-screen flex-col">
-          {!isFigmaPage && <Header />}
-          <main className="flex-1">{children}</main>
-          {!isFigmaPage && <Footer />}
+          <LayoutContent>
+            {children}
+          </LayoutContent>
         </div>
         <Toaster />
         {/* <Script id="yourgpt-chatbot" strategy="afterInteractive">
