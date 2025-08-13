@@ -77,14 +77,14 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
     animationClass: 'group-hover:shadow-[0_0_25px_5px_rgba(255,0,255,0.6)]',
   },
   'orbital-resonance': {
-    backgroundColor: '#F8B4B4',
+    backgroundColor: '#e0983a',
     textColor: '#5B2C2C',
     fontFamily: "'Roboto Mono', monospace",
     backgroundImage: 'none',
     borderColor: '#E47171',
     animationClass: 'group-hover:shadow-[0_0_15px_3px_rgba(228,113,113,0.5)]',
   },
-    'ohmmylord': {
+  'ohmmylord': {
     backgroundColor: '#0a192f',
     textColor: '#e6f1ff',
     fontFamily: "'Playfair Display', serif",
@@ -129,7 +129,7 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
     borderColor: '#555555',
     animationClass: 'group-hover:shadow-[0_0_10px_rgba(255,255,255,0.2)]',
   },
-  'kraut-kill': {
+  'krautkill': {
     backgroundColor: '#F5F5DC',
     textColor: '#5a3a22',
     fontFamily: "'Playfair Display', serif",
