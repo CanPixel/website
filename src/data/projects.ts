@@ -58,7 +58,7 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
     borderColor: '#4A00E0',
     animationClass: 'group-hover:shadow-[0_0_20px_5px_rgba(74,0,224,0.7)]',
   },
-  'scp-the-escape': {
+  'scptheescape': {
     backgroundColor: '#1C1C1E',
     textColor: '#F5F5F7',
     fontFamily: "'Roboto Mono', monospace",
@@ -97,15 +97,23 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
     animationClass: 'group-hover:shadow-[0_0_20px_2px_rgba(212,175,55,0.4)]',
   },
   'kookoo': {
-    backgroundColor: '#6B4F39',
-    textColor: '#F5DEB3',
+    backgroundColor: '#D2B48C',
+    textColor: '#5C4033',
     fontFamily: "'Roboto', sans-serif",
-    backgroundImage: `url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEWFhYWDg4N3d3dtbW1gYGBgYGBwcHBwcHBtbW1paWlpaWlra2tra2trbGxsbGxtbW1tbW1ubm5ubm5vb29vb29xcXFycnJ0dHR1dXV3d3d4eHh4eHh7e3v///8n2pJSAAAAA3RSTlMA2bXg28kAAAA/SURBVEjHY2AUjAlGAmA8BlIAnBqA7gB1HCAY4kGAkQ0gHk0A4zGNGGawGIxGY7AYjEbjMViMRgOAAAOADpQDRHYa6ZcAAAAASUVORK5CYII=")`,
-    backgroundSize: 'auto',
+    backgroundImage: `repeating-linear-gradient(90deg, rgba(0,0,0,0.05), rgba(0,0,0,0.05) 2px, transparent 2px, transparent 80px)`,
+    backgroundSize: '80px 100%',
     borderColor: '#8B4513',
     animationClass: 'group-hover:shadow-[0_8px_16px_rgba(0,0,0,0.3)]',
   },
    'epicinium': {
+    backgroundColor: '#4A6B4C',
+    textColor: '#E8F5E9',
+    fontFamily: "'Roboto Mono', monospace",
+    backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23a5d6a7' fill-opacity='0.1' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E")`,
+    borderColor: '#FF4500',
+    animationClass: 'group-hover:shadow-[0_0_20px_5px_rgba(255,69,0,0.7)]',
+  },
+  'pixelthrive': {
     backgroundColor: '#4A6B4C',
     textColor: '#E8F5E9',
     fontFamily: "'Roboto Mono', monospace",
@@ -122,7 +130,7 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
     animationClass: 'group-hover:shadow-[0_0_10px_rgba(255,255,255,0.2)]',
   },
   'kraut-kill': {
-    backgroundColor: '#fdf5e6',
+    backgroundColor: '#F5F5DC',
     textColor: '#5a3a22',
     fontFamily: "'Playfair Display', serif",
     backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%235a3a22' fill-opacity='0.05'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h4v-9H0v-1h4v-9H0v-1h4v-9H0v-1h4v-9H0v-1h4v-9H0v-1h4v-9H0v-1h4v-9H0v-1h4V0h1v4h9V0h1v4h9V0h1v4h9V0h1v4h9V0h1v4h9V0h1v4h9V0h1v4h9V0h1v4h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0h1v5h5v1H6v5H5V6H0V5h5z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
