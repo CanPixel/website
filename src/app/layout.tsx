@@ -17,32 +17,37 @@ export const metadata: Metadata = {
 };
 
 const limelight = Limelight({
+  subsets: ['latin'],
   weight: '400',
   variable: '--font-limelight',
 });
 const courier = Courier_Prime({
-  subsets: ['latin', 'latin-ext'],
+  subsets: ['latin'],
   weight: '400',
   variable: '--font-courier-prime',
 });
 const ribeye = Ribeye({
+  subsets: ['latin'],
   weight: '400',
   variable: '--font-ribeye',
 });
 const space_mono = Space_Mono({
+  subsets: ['latin'],
   weight: '400',
   variable: '--font-space-mono',
 });
 const bungee = Bungee({
-  subsets: ['latin', 'latin-ext'],
+  subsets: ['latin'],
   weight: '400',
   variable: '--font-bungee',
 });
 const share_tech_mono = Share_Tech_Mono({
+  subsets: ['latin'],
   weight: '400',
   variable: '--font-share-tech-mono',
 });
 const unlock = Unlock({
+  subsets: ['latin'],
   weight: '400',
   variable: '--font-unlock',
 });
@@ -52,16 +57,17 @@ const Geof = Geo({
   variable: '--font-geo',
 });
 const AudioWide = Audiowide({
-  subsets: ['latin', 'latin-ext'],
+  subsets: ['latin'],
   weight: '400',
   variable: '--font-audiowide',
 });
 const Jacquard24 = Jacquard_24({
-  subsets: ['latin', 'latin-ext'],
+  subsets: ['latin'],
   weight: '400',
   variable: '--font-jacquard',
 });
 const PixelifySans = Pixelify_Sans({
+  subsets: ['latin'],
   weight: '400',
   variable: '--font-pixelify',
 });
