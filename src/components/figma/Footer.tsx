@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, Heart, ArrowUp, Sparkles } from 'lucide-react';
+import { Github, Linkedin, Mail, Flame, ArrowUp, Sparkles } from 'lucide-react';
 import { Button } from '../ui/button';
 import { motion } from 'framer-motion';
 
@@ -18,7 +18,7 @@ export function Footer() {
     },
     {
       icon: <Mail className="w-5 h-5" />,
-      href: 'mailto:hello@canpixel.com',
+      href: 'mailto:canur@canpixel.com',
       label: 'Email'
     }
   ];
@@ -27,7 +27,6 @@ export function Footer() {
     { label: 'About', href: '#about' },
     { label: 'Projects', href: '#projects' },
     { label: 'Skills', href: '#skills' },
-    { label: 'Contact', href: '#contact' }
   ];
 
   const scrollToTop = () => {
@@ -109,6 +108,7 @@ export function Footer() {
                 <p>Game Development</p>
                 <p>Web Applications</p>
                 <p>Music Production</p>
+                <p>Audio Design / Engineering</p>
                 <p>UI/UX Design</p>
                 <p>Creative Consulting</p>
               </div>
@@ -119,7 +119,7 @@ export function Footer() {
           <div className="border-t border-muted-foreground/20 pt-8">
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
               <p className="text-muted-foreground flex items-center gap-2 text-sm">
-                © {currentYear} CanPixel. Made with <Heart className="w-4 h-4 text-red-400" /> and lots of pixels.
+                © {currentYear} CanPixel. Made with <Flame className="w-4 h-4 text-red-400" /> and lots of pixels.
               </p>
               
               <div className="flex items-center gap-4">

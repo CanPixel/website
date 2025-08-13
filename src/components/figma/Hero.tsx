@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { Button } from '../ui/button';
 import { Github, Linkedin, Mail, Play, Download, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Logo } from '@/components/Logo';
+import Link from 'next/link';
 
 export function Hero() {
   const [displayedText, setDisplayedText] = useState('');
@@ -44,7 +46,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="mx-auto w-32 h-32 glass glass-glow rounded-full flex items-center justify-center mb-8 group"
           >
-            <Sparkles className="w-12 h-12 text-cyan-500 group-hover:rotate-12 transition-transform duration-300" />
+            <Logo fillColor={'teal'} className="h-20 w-20 text-black-500" />
           </motion.div>
 
           <div className="space-y-4">
@@ -66,7 +68,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="glass glass-hover rounded-3xl p-8 max-w-3xl mx-auto"
           >
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+            <p className="text-md md:text-xl text-muted-foreground leading-relaxed">
               Crafting pixel-perfect games, building cutting-edge web experiences, and composing 
               captivating soundscapes. Welcome to my digital universe where creativity meets technology.
             </p>
@@ -81,11 +83,13 @@ export function Hero() {
             <div className="flex gap-4">
               <Button 
                 size="lg" 
-                onClick={scrollToProjects} 
+                asChild
                 className="rounded-xl group glass glass-hover bg-primary/20 border-cyan-500/30 text-cyan-500 hover:text-cyan-500-foreground"
               >
-                <Play className="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform" />
-                View My Work
+                <Link href="/projects">
+                  <Play className="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform" />
+                  View My Work
+                </Link>
               </Button>
               
               <Button 
@@ -94,7 +98,7 @@ export function Hero() {
                 className="rounded-xl hover:bg-cyan-500/10 glass glass-hover border-muted-foreground/30"
                 asChild
               >
-                <a href="/resume.pdf" download>
+                <a href="pdf/resume.pdf">
                   <Download className="w-4 h-4 mr-2" />
                   Resume
                 </a>

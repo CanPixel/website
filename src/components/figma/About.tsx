@@ -1,5 +1,5 @@
 import { Card, CardContent } from '../ui/card';
-import { Gamepad2, Code2, Music, Palette, Zap, Heart } from 'lucide-react';
+import { Gamepad2, Code2, Music, Palette, Zap, Coffee } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export function About() {
@@ -20,14 +20,14 @@ export function About() {
       icon: <Music className="w-8 h-8 text-purple-400" />,
       title: 'Music Production',
       description: 'Composing original soundtracks and electronic music. From chiptune to ambient, creating audio experiences that complement and enhance visual art.',
-      highlight: '100+ Tracks Released'
+      highlight: '2 Records Released, 10+ Tracks'
     }
   ];
 
   const personalStats = [
-    { icon: <Palette className="w-6 h-6" />, label: 'Creative Projects', value: '50+' },
+    { icon: <Palette className="w-6 h-6" />, label: 'Creative Projects', value: '20+' },
     { icon: <Zap className="w-6 h-6" />, label: 'Lines of Code', value: '100K+' },
-    { icon: <Heart className="w-6 h-6" />, label: 'Coffee Consumed', value: '∞' },
+    { icon: <Coffee className="w-6 h-6" />, label: 'Coffee Consumed', value: '∞' },
   ];
 
   return (
@@ -42,7 +42,7 @@ export function About() {
         >
           <h2 className="text-4xl md:text-5xl mb-6 gradient-text">About Me</h2>
           <div className="max-w-4xl mx-auto glass glass-hover rounded-3xl p-8">
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+            <p className="text-md md:text-xl text-muted-foreground leading-relaxed">
               I'm CanPixel, a multi-disciplinary digital artist passionate about creating experiences 
               that blend technology with creativity. Based in the intersection of code, pixels, and sound, 
               I craft everything from indie games to web applications, always with an eye for detail 
@@ -70,11 +70,11 @@ export function About() {
                   </div>
                   <div className="space-y-3">
                     <h3 className="text-2xl gradient-text">{skill.title}</h3>
-                    <div className="inline-block px-3 py-1 glass rounded-full text-sm text-cyan-500">
+                    <div className="text-md inline-block px-3 py-1 glass rounded-full text-sm text-cyan-500">
                       {skill.highlight}
                     </div>
                   </div>
-                  <p className="text-muted-foreground leading-relaxed">
+                  <p className="text-md text-muted-foreground leading-relaxed">
                     {skill.description}
                   </p>
                 </CardContent>
@@ -116,8 +116,8 @@ export function About() {
           className="mt-16 text-center"
         >
           <div className="glass glass-hover rounded-3xl p-8 max-w-3xl mx-auto">
-            <h3 className="text-2xl mb-4 gradient-text">My Philosophy</h3>
-            <p className="text-lg text-muted-foreground leading-relaxed">
+            <h3 className="text-2xl mb-4 gradient-text">Philosophy</h3>
+            <p className="text-md text-muted-foreground leading-relaxed">
               "Every pixel has purpose, every line of code tells a story, and every note creates emotion. 
               I believe in crafting digital experiences that not only function beautifully but also 
               inspire and delight users at every interaction."

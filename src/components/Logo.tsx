@@ -1,15 +1,21 @@
 "use client"
 
 import { cn } from '@/lib/utils';
+import React from 'react';
 
-export function Logo({ className }: { className?: string }) {
+interface LogoProps {
+  className?: string;
+  fillColor?: string;
+}
+
+export function Logo({ className, fillColor }: LogoProps) {
   return (
     <div className={cn('transition-transform duration-300 ease-in-out group-hover:scale-105', className)}>
        <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
  viewBox="0 0 300 300"
  preserveAspectRatio="xMidYMid meet">
 <g transform="translate(0.000000,300.000000) scale(0.050000,-0.050000)"
-fill="#b6dddc" stroke="none">
+fill={fillColor || '#b6dddc'} stroke="none">
 <path d="M1005 5948 c15 -15 4014 -15 4030 0 6 7 -900 12 -2015 12 -1115 0
 -2021 -5 -2015 -12z"/>
 <path d="M1130 5859 c-33 -8 795 -15 1840 -15 1083 -1 1883 6 1860 16 -48 21
