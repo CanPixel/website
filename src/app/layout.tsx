@@ -21,6 +21,7 @@ const limelight = Limelight({
   variable: '--font-limelight',
 });
 const courier = Courier_Prime({
+  subsets: ['latin', 'latin-ext'],
   weight: '400',
   variable: '--font-courier-prime',
 });
@@ -33,6 +34,7 @@ const space_mono = Space_Mono({
   variable: '--font-space-mono',
 });
 const bungee = Bungee({
+  subsets: ['latin', 'latin-ext'],
   weight: '400',
   variable: '--font-bungee',
 });
@@ -45,14 +47,17 @@ const unlock = Unlock({
   variable: '--font-unlock',
 });
 const Geof = Geo({
+  subsets: ['latin'],
   weight: '400',
   variable: '--font-geo',
 });
 const AudioWide = Audiowide({
+  subsets: ['latin', 'latin-ext'],
   weight: '400',
   variable: '--font-audiowide',
 });
 const Jacquard24 = Jacquard_24({
+  subsets: ['latin', 'latin-ext'],
   weight: '400',
   variable: '--font-jacquard',
 });
