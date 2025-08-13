@@ -1,3 +1,4 @@
+
 import { NextFontWithVariable } from 'next/dist/compiled/@next/font';
 
 export interface Project {
@@ -109,7 +110,7 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
     fontFamily: "'Orbitron', sans-serif",
     backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%), 
                     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23ff00ff' fill-opacity='0.1'%3E%3Cpath d='M0 38.59l2.83-2.83 1.41 1.41L1.41 40H0v-1.41zM0 1.4l2.83 2.83 1.41-1.41L1.41 0H0v1.41zM38.59 40l-2.83-2.83 1.41-1.41L40 38.59V40h-1.41zM40 1.41l-2.83 2.83-1.41-1.41L38.59 0H40v1.41zM20 18.6l2.83-2.83 1.41 1.41L21.41 20l2.83 2.83-1.41 1.41L20 21.41l-2.83 2.83-1.41-1.41L18.59 20l-2.83-2.83 1.41-1.41L20 18.59z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-    borderColor: '#D203D2',
+    borderColor: '#00ffff',
     animationClass: 'group-hover:shadow-[0_0_25px_5px_rgba(255,0,255,0.6)]',
   },
   'orbital-resonance': {
@@ -121,22 +122,24 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
     animationClass: 'group-hover:shadow-[0_0_15px_3px_rgba(228,113,113,0.5)]',
   },
   'ohmmylord': {
-    backgroundColor: '#2c003e',
-    textColor: '#00aaff',
-    fontFamily: "headline",
-    backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%), 
-                    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23ff00ff' fill-opacity='0.1'%3E%3Cpath d='M0 38.59l2.83-2.83 1.41 1.41L1.41 40H0v-1.41zM0 1.4l2.83 2.83 1.41-1.41L1.41 0H0v1.41zM38.59 40l-2.83-2.83 1.41-1.41L40 38.59V40h-1.41zM40 1.41l-2.83 2.83-1.41-1.41L38.59 0H40v1.41zM20 18.6l2.83-2.83 1.41 1.41L21.41 20l2.83 2.83-1.41 1.41L20 21.41l-2.83 2.83-1.41-1.41L18.59 20l-2.83-2.83 1.41-1.41L20 18.59z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-    borderColor: '#00D203',
-    animationClass: 'group-hover:shadow-[0_0_25px_5px_rgba(255,0,255,0.6)]',
+    backgroundColor: '#0a192f',
+    textColor: '#e6f1ff',
+    fontFamily: "'Playfair Display', serif",
+    backgroundImage: `linear-gradient(45deg, rgba(212, 175, 55, 0.05) 25%, transparent 25%), 
+                     linear-gradient(-45deg, rgba(212, 175, 55, 0.05) 25%, transparent 25%), 
+                     linear-gradient(45deg, transparent 75%, rgba(212, 175, 55, 0.05) 75%), 
+                     linear-gradient(-45deg, transparent 75%, rgba(212, 175, 55, 0.05) 75%)`,
+    backgroundSize: '20px 20px',
+    borderColor: '#D4AF37',
+    animationClass: 'group-hover:shadow-[0_0_20px_2px_rgba(212,175,55,0.4)]',
   },
   'kookoo': {
-    backgroundColor: '#2c003e',
-    textColor: '#00aaff',
-    fontFamily: 'roboto',
-    backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%), 
-                    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23ff00ff' fill-opacity='0.1'%3E%3Cpath d='M0 38.59l2.83-2.83 1.41 1.41L1.41 40H0v-1.41zM0 1.4l2.83 2.83 1.41-1.41L1.41 0H0v1.41zM38.59 40l-2.83-2.83 1.41-1.41L40 38.59V40h-1.41zM40 1.41l-2.83 2.83-1.41-1.41L38.59 0H40v1.41zM20 18.6l2.83-2.83 1.41 1.41L21.41 20l2.83 2.83-1.41 1.41L20 21.41l-2.83 2.83-1.41-1.41L18.59 20l-2.83-2.83 1.41-1.41L20 18.59z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-    borderColor: '#00D203',
-    animationClass: 'group-hover:shadow-[0_0_25px_5px_rgba(255,0,255,0.6)]',
+    backgroundColor: '#A0522D',
+    textColor: '#F5DEB3',
+    fontFamily: "'Roboto', sans-serif",
+    backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%23654321' fill-opacity='0.4'%3E%3Cpath fill-rule='evenodd' d='M11 0l5 20-5 20-5-20L1 0h10zm30 0l5 20-5 20-5-20L31 0h10zm30 0l5 20-5 20-5-20L61 0h10z'/%3E%3C/g%3E%3C/svg%3E")`,
+    borderColor: '#8B4513',
+    animationClass: 'group-hover:shadow-[0_8px_16px_rgba(0,0,0,0.3)]',
   },
   'biq': {
     backgroundColor: '#2c003e',
@@ -193,13 +196,12 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
     animationClass: 'group-hover:shadow-[0_0_25px_5px_rgba(255,0,255,0.6)]',
   },
   'epicinium': {
-    backgroundColor: '#2c003e',
-    textColor: '#00aaff',
-    fontFamily: 'spaceGrotesk',
-    backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%), 
-                    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23ff00ff' fill-opacity='0.1'%3E%3Cpath d='M0 38.59l2.83-2.83 1.41 1.41L1.41 40H0v-1.41zM0 1.4l2.83 2.83 1.41-1.41L1.41 0H0v1.41zM38.59 40l-2.83-2.83 1.41-1.41L40 38.59V40h-1.41zM40 1.41l-2.83 2.83-1.41-1.41L38.59 0H40v1.41zM20 18.6l2.83-2.83 1.41 1.41L21.41 20l2.83 2.83-1.41 1.41L20 21.41l-2.83 2.83-1.41-1.41L18.59 20l-2.83-2.83 1.41-1.41L20 18.59z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-    borderColor: '#00D203',
-    animationClass: 'group-hover:shadow-[0_0_25px_5px_rgba(255,0,255,0.6)]',
+    backgroundColor: '#4A6B4C',
+    textColor: '#E8F5E9',
+    fontFamily: "'Roboto Mono', monospace",
+    backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23a5d6a7' fill-opacity='0.1' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E")`,
+    borderColor: '#81C784',
+    animationClass: 'group-hover:shadow-[0_0_15px_rgba(129,199,132,0.5)]',
   },
 };
 
@@ -263,4 +265,3 @@ export function getProjectStyling(projectId: string): ProjectStyling {
     // badgeBackgroundColor: projectSpecificStyling?.badgeBackgroundColor ?? defaultStyling.badgeBackgroundColor
   };
 }
-
