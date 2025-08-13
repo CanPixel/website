@@ -5,6 +5,7 @@ export interface Project {
   title: string;
   url?: string;
   description: string;
+  status?: string;
   shortDescription: string;
   thumbnailUrl: string;
   label?: string;

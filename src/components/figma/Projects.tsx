@@ -45,14 +45,14 @@ export function Projects() {
   const filters = [
     { id: 'all', label: 'All Projects', count: projects.length },
     ...skills.map(skill => ({ 
-      id: skill.toLowerCase().replace(/\s+/g, '-'), 
+      id: skill/*.toLowerCase().replace(/\s+/g, '-')*/, 
       label: skill, 
       count: projects.filter(p => p.properties?.skills?.includes(skill)).length, 
     })),
   ];
   const filteredProjects = activeFilter === 'all' 
     ? projects 
-    : projects.filter(project => project.properties?.skills?.includes(activeFilter.replace(/-/g, ' ')));
+    : projects.filter(project => project.properties?.skills?.includes(activeFilter/*.replace(/-/g, ' ')*/));
   
   return (
     <section id="projects" className="py-20 relative">
@@ -79,7 +79,7 @@ export function Projects() {
               key={filter.id}
               variant={activeFilter === filter.id ? 'default' : 'outline'}
               onClick={() => setActiveFilter(filter.id)}
-              className={`glass glass-hover transition-all duration-300 ${
+              className={`glass glass-hover hover:bg-blue transition-all duration-300 ${
                 activeFilter === filter.id 
                   ? 'bg-cyan-500/20 border-cyan-500/30 text-cyan-500' 
                   : 'border-muted-foreground/30'
@@ -145,7 +145,7 @@ export function Projects() {
                     </a>
                   </Button>
                   {project.properties?.repoLink && (
-                    <Button size="sm" variant="outline" className="glass glass-hover" asChild>
+                    <Button size="sm" variant="outline" className="hover:bg-blue glass glass-hover" asChild>
                       <a href={project.properties?.repoLink} target="_blank" rel="noopener noreferrer">
                         <Github className="w-4 h-4 mr-2" />
                         Code

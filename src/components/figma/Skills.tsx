@@ -124,20 +124,20 @@ export function Skills() {
                   🚀
                 </div>
                 <h4 className="text-lg text-cyan-500">Cosmonaut</h4>
-                <p className="text-sm text-muted-foreground">React, Unity, C#, HTML, CSS, Tailwind, JavaScript, Rocking Out</p>
+                <p className="text-sm text-muted-foreground">React, Unity, C#, HTML, CSS, Tailwind, Java, JavaScript, Rocking Out</p>
               </div>
               <div className="text-center space-y-4">
                 <div className="w-16 h-16 mx-auto glass rounded-full flex items-center justify-center text-2xl">
                   ⚡
                 </div>
                 <h4 className="text-lg text-cyan-500">Established</h4>
-                <p className="text-sm text-muted-foreground">TypeScript, Next.js, Node.js, Game Design, Pixel Art, Audio Production</p>
+                <p className="text-sm text-muted-foreground">PHP, MySQL, TypeScript, Next.js, Node.js, Game Design, Pixel Art, Audio Production</p>
               </div>
               <div className="text-center space-y-4">
                 <div className="w-16 h-16 mx-auto glass rounded-full flex items-center justify-center text-2xl">
                   🌱
                 </div>
-                <h4 className="text-lg text-cyan-500">Growing</h4>
+                <h4 className="text-lg text-cyan-500">Seedling</h4>
                 <p className="text-sm text-muted-foreground">Machine Learning</p>
               </div>
             </div>

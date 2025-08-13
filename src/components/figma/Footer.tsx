@@ -1,6 +1,7 @@
-import { Github, Linkedin, Mail, Flame, ArrowUp, Sparkles } from 'lucide-react';
+import { Github, Linkedin, Mail, Flame, ArrowUp } from 'lucide-react';
 import { Button } from '../ui/button';
 import { motion } from 'framer-motion';
+import { Logo } from '@/components/Logo';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -55,11 +56,11 @@ export function Footer() {
             <div className="lg:col-span-2 space-y-4">
               <div className="flex items-center gap-3">
                 <div className="p-2 glass rounded-xl">
-                  <Sparkles className="w-6 h-6 text-cyan-500" />
+                  <Logo className="h-8 w-8" />
                 </div>
                 <h3 className="text-2xl gradient-text glow-text">CanPixel</h3>
               </div>
-              <p className="text-muted-foreground leading-relaxed max-w-md">
+              <p className="text-muted-foreground leading-relaxed max-w-md text-sm">
                 Crafting digital experiences through games, web applications, and music. 
                 Every pixel has purpose, every line of code tells a story.
               </p>
@@ -130,7 +131,7 @@ export function Footer() {
                   variant="ghost" 
                   size="sm"
                   onClick={scrollToTop}
-                  className="glass glass-hover rounded-full"
+                  className="glass glass-hover rounded-full hover:bg-blue"
                 >
                   <ArrowUp className="w-4 h-4 mr-2" />
                   Back to Top

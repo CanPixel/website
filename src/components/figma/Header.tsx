@@ -96,7 +96,7 @@ export function Header({ activeSection }: HeaderProps) {
             <Button
               variant="ghost"
               size="icon"
-              className="md:hidden glass glass-hover rounded-full"
+              className="glass glass-hover hover:bg-teal rounded-full"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -106,7 +106,7 @@ export function Header({ activeSection }: HeaderProps) {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 glass rounded-2xl p-4">
+          <div className="mt-4 pb-4 glass rounded-2xl p-4">
             <div className="flex flex-col space-y-2">
               {navItems.map((item) => (
                 <button

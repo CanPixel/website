@@ -3,7 +3,6 @@ import { Button } from '../ui/button';
 import { Github, Linkedin, Mail, Play, Download, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Logo } from '@/components/Logo';
-import Link from 'next/link';
 
 export function Hero() {
   const [displayedText, setDisplayedText] = useState('');
@@ -39,7 +38,6 @@ export function Hero() {
           transition={{ duration: 0.8 }}
           className="space-y-8"
         >
-          {/* Avatar/Logo Glass Card */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -83,13 +81,11 @@ export function Hero() {
             <div className="flex gap-4">
               <Button 
                 size="lg" 
-                asChild
-                className="rounded-xl group glass glass-hover bg-primary/20 border-cyan-500/30 text-cyan-500 hover:text-cyan-500-foreground"
+                onClick={scrollToProjects}
+                className="rounded-xl group glass glass-hover bg-primary/20 border-cyan-500/30 hover:bg-blue text-cyan-500 hover:text-cyan-500-foreground"
               >
-                <Link href="/projects">
-                  <Play className="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform" />
-                  View My Work
-                </Link>
+                <Play className="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform" />
+                View My Work
               </Button>
               
               <Button 
