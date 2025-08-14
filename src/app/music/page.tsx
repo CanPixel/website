@@ -63,7 +63,6 @@ export default function MusicPage() {
             </TabsList>
         </div>
 
-
         <TabsContent value="ziggurath">
           <ZiggurathSection />
         </TabsContent>
