@@ -6,9 +6,10 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Badge } from '@/components/ui/badge';
 import NavMenu from "@/components/navigation";
 import { Button } from '@/components/ui/button';
-import { Github, Calendar, Globe, ArrowLeft } from 'lucide-react';
+import { Github, Calendar, Globe, ArrowLeft, Youtube } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
+import { ImageSlideshow } from '@/components/ImageSlideshow';
 
 const SteamIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" {...props}>
@@ -75,7 +76,7 @@ export default function ProjectDetailPage({ project }: { project: Project | null
           </Card>
 
             <div className="prose prose-lg dark:prose-invert max-w-none text-foreground/90 mt-8 space-y-6">
-              <h3 className="font-headline text-2xl font-bold mb-4">Technical Details</h3>
+              <h3 className="font-headline text-2xl font-bold mb-4 text-accent">Technical Details</h3>
               <span className="text-1xl">
               <p>
                   The game was developed in Unity, leveraging C# for all gameplay logic, AI behavior, and system management. One of the core technical challenges was creating an efficient procedural generation system for the galaxy map. I used a combination of Perlin noise for star distribution and a custom algorithm to ensure playable paths and interesting clusters of systems. This allows for a unique galaxy in every playthrough, greatly enhancing replayability.
@@ -87,8 +88,42 @@ export default function ProjectDetailPage({ project }: { project: Project | null
             </div>
           {project.properties?.steamUrl && (
             <div className="mt-8">
-              <iframe src={project.properties.steamUrl} frameBorder="0" width="100%" height="190"></iframe>
+              <iframe src={project.properties.steamUrl} width="100%" height="190"></iframe>
             </div>
+          )}
+
+          {project.styling.youtube && (
+            <div className={`grid grid-cols-${project.styling.youtube.length} gap-8 mt-16`}>
+              <h1 className="font-headline text-2xl font-bold text-accent">Videos</h1>
+              <div className="space-y-6">
+              {project.styling.youtube.map((video, idx) => (
+                <Card style={{
+                    backgroundColor: project.styling.backgroundColor,
+                    color: project.styling.textColor,
+                    borderColor: project.styling.borderColor,
+                    fontFamily: project.styling.fontFamily,
+                }} 
+                key={idx} 
+                className="w-full border-2 pt-8 hover:scale-105 transition-transform">
+                    <CardContent>
+                        <div className="aspect-video rounded-md overflow-hidden">
+                            <iframe
+                                src={`https://www.youtube.com/embed/${video}`}
+                                title="Game Trailer"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                                className="w-full h-full"
+                            ></iframe>
+                        </div>
+                    </CardContent>
+                </Card>
+              ))}
+              </div>
+          </div>
+          )}
+
+          {project.styling.slideshowImages && (
+            <ImageSlideshow images={project.styling.slideshowImages}/>
           )}
         </div>
 

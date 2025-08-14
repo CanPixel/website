@@ -37,6 +37,8 @@ export interface ProjectStyling {
   animationClass?: string;
   className?: string;
   badgeBackgroundColor?: string;
+  slideshowImages?: string[];
+  youtube?: string[];
 }
 const defaultStyling: ProjectStyling = {
   backgroundColor: 'hsl(var(--card))',
@@ -46,8 +48,9 @@ const defaultStyling: ProjectStyling = {
   animationClass: 'group-hover:scale-105',
   className: '',
   badgeBackgroundColor: 'bg-white/20', 
+  slideshowImages: [],
+  youtube: [],
 };
-
 
 export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
   'avoid': {
@@ -83,11 +86,13 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
     backgroundImage: 'none',
     borderColor: '#E47171',
     animationClass: 'group-hover:shadow-[0_0_15px_3px_rgba(228,113,113,0.5)]',
+    slideshowImages: [
+      'orbitRes (1).jpg', 'orbitRes (2).jpg', 'orbitRes (3).jpg', 'orbitRes (4).jpg'
+    ]
   },
   'ohmmylord': {
     backgroundColor: '#0a192f',
     textColor: '#e6f1ff',
-    // fontFamily: "'Playfair Display', serif",
     fontFamily: "'Limelight', serif",
     backgroundImage: `linear-gradient(45deg, rgba(212, 175, 55, 0.05) 25%, transparent 25%), 
                      linear-gradient(-45deg, rgba(212, 175, 55, 0.05) 25%, transparent 25%), 
@@ -96,6 +101,9 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
     backgroundSize: '20px 20px',
     borderColor: '#D4AF37',
     animationClass: 'group-hover:shadow-[0_0_20px_2px_rgba(212,175,55,0.4)]',
+    youtube: [
+      'lHhNvLmckwM'
+    ]
   },
   'kookoo': {
     backgroundColor: '#D2B48C',
@@ -105,6 +113,9 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
     backgroundSize: '80px 100%',
     borderColor: '#8B4513',
     animationClass: 'group-hover:shadow-[0_8px_16px_rgba(0,0,0,0.3)]',
+    youtube: [
+      'oqLfHiy_xAY'
+    ]
   },
   'epicinium': {
     backgroundColor: '#776256',
@@ -113,6 +124,9 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
     backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23a5d6a7' fill-opacity='0.1' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E")`,
     borderColor: '#ffd2a5',
     animationClass: 'group-hover:shadow-[0_0_20px_5px_rgba(255,69,0,0.7)]',
+    youtube: [
+      'McckFnjHBk8'
+    ]
   },
   'pixelthrive': {
     backgroundColor: '#4A6B4C',
@@ -143,6 +157,9 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
     backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='6' height='6' viewBox='0 0 6 6'%3E%3Cg fill='%239C92AC' fill-opacity='0.1'%3E%3Cpath fill-rule='evenodd' d='M0 0h2v2H0V0zm2 2h2v2H2V2zm2 2h2v2H4V4zm2-2h2v2H6V2z'/%3E%3C/g%3E%3C/svg%3E")`,
     borderColor: '#555555',
     animationClass: 'group-hover:shadow-[0_0_10px_rgba(255,255,255,0.2)]',
+    youtube: [
+      '7GolsRuCwL0'
+    ]
   },
   'krautkill': {
     backgroundColor: '#F5F5DC',
@@ -150,6 +167,9 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
     fontFamily: "'UnifrakturCook', serif",
     backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%235a3a22' fill-opacity='0.05'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h4v-9H0v-1h4v-9H0v-1h4v-9H0v-1h4v-9H0v-1h4v-9H0v-1h4v-9H0v-1h4v-9H0v-1h4V0h1v4h9V0h1v4h9V0h1v4h9V0h1v4h9V0h1v4h9V0h1v4h9V0h1v4h9V0h1v4h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0h1v5h5v1H6v5H5V6H0V5h5z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
     borderColor: '#8b4513',
+    youtube: [
+      'cnydgqwTZ-s'
+    ]
   },
   'pixelboi': {
     backgroundColor: '#ADD8E6',
@@ -180,6 +200,9 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
     backgroundImage: `none`,
     borderColor: 'gold',
     animationClass: 'group-hover:shadow-[0_0_20px_5px_rgba(74,0,224,0.7)]',
+    youtube: [
+      'yJeMNd1GUeA'
+    ]
   },
   'chivalry-chef':
   {
@@ -189,6 +212,9 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
     borderColor: '#D4AC79',
     animationClass: 'group-hover:scale-105 group-hover:shadow-[0_0_30px_5px_rgba(255,165,0,0.5)]',
     backgroundImage: 'none',
+    youtube: [
+      'FbSoWeMh10Y'
+    ]
   },
   'life-sentence':
   {
@@ -198,6 +224,9 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
     borderColor: '#B0B0B0',
     animationClass: 'transition-transform duration-500 group-hover:[transform:rotateY(10deg)_rotateX(5deg)]',
     className: 'rounded-none',
+    youtube: [
+      'l_GGGzv7f7k'
+    ]
   },
   'bad-optics':
   {
@@ -207,6 +236,11 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
     backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
     borderColor: '#C0C0C0',
     className: 'rounded-none',
+    youtube: [
+      'K7EKYMtiSzc',
+      'fEP3858pZuM',
+      'c0Y1jy61-R0'
+    ]
   },
   'kernel-sweep':
   {
@@ -218,6 +252,9 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
     borderColor: '#00FF00',
     animationClass: 'group-hover:animate-pulse',
     badgeBackgroundColor: 'bg-black/30',
+    youtube: [
+      'vKlpqa8IdZk',
+    ]
   },
 };
 

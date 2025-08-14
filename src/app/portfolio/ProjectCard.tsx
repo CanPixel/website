@@ -6,9 +6,8 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Globe } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { getProjectStyling } from '@/data/projects';
+import { getProjectStyling, skillColors } from '@/data/projects';
 import { Key } from 'react';
-import { skillColors } from "@/data/projects";
 
 export function ProjectCard({ project }: { project : any }) {
   const styling = getProjectStyling(project.id);
