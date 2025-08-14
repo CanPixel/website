@@ -90,7 +90,7 @@ export default function ProjectDetailPage({ project }: { project: Project | null
           {project.styling.slideshowImages && project.styling.slideshowImages.length > 0 && (
             <div className="mt-16">
               <h3 className="font-headline text-2xl font-bold mb-4 text-accent">Gallery</h3>
-              <div className="relative aspect-video">
+              <div className="relative">
                 <ImageSlideshow images={project.styling.slideshowImages}/>
               </div>
             </div>
