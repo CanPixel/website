@@ -75,13 +75,15 @@ export default function ProjectDetailPage({ project }: { project: Project | null
           </Card>
 
             <div className="prose prose-lg dark:prose-invert max-w-none text-foreground/90 mt-8 space-y-6">
-              <h3 className="font-headline text-1xl font-bold mb-4">Technical Details</h3>
+              <h3 className="font-headline text-2xl font-bold mb-4">Technical Details</h3>
+              <span className="text-1xl">
               <p>
                   The game was developed in Unity, leveraging C# for all gameplay logic, AI behavior, and system management. One of the core technical challenges was creating an efficient procedural generation system for the galaxy map. I used a combination of Perlin noise for star distribution and a custom algorithm to ensure playable paths and interesting clusters of systems. This allows for a unique galaxy in every playthrough, greatly enhancing replayability.
               </p>
               <p>
                   For the real-time combat, I implemented a component-based ship system, allowing for easy customization of weapons, shields, and engines. The UI was built using Unity's UGUI system, with a focus on creating a clean, readable interface that evokes classic sci-fi tropes while remaining modern and intuitive.
               </p>
+              </span>
             </div>
           {project.properties?.steamUrl && (
             <div className="mt-8">
@@ -108,17 +110,28 @@ export default function ProjectDetailPage({ project }: { project: Project | null
                     </CardDescription> 
                 </CardContent>
             </Card>
-             <div className="p-6 rounded-lg bg-card border">
-              <h3 className="font-headline text-2xl font-bold mb-4">Tech Stack</h3>
+             <Card style={{
+                backgroundColor: project.styling.backgroundColor,
+                color: project.styling.textColor,
+                borderColor: project.styling.borderColor,
+                fontFamily: project.styling.fontFamily,
+            }} className="border-2 p-6">
+              <h3 className="text-2xl font-bold mb-4">Tech Stack</h3>
               <div className="flex flex-wrap gap-2">
                 {project.properties?.skills?.map((tech : string) => (
                   <Badge key={tech} className={cn(skillColors[tech] || "bg-gray-500", "text-white")}>{tech}</Badge>
                 ))}
               </div>
-            </div>
+            </Card>
+            
              {project.properties?.platforms && project.properties.platforms.length > 0 && (
-            <div className="p-6 rounded-lg bg-card border">
-                <h3 className="font-headline text-2xl font-bold mb-4">Platforms</h3>
+            <Card style={{
+              backgroundColor: project.styling.backgroundColor,
+              color: project.styling.textColor,
+              borderColor: project.styling.borderColor,
+              fontFamily: project.styling.fontFamily,
+          }} className="border-2 p-6">
+                <h3 className="text-2xl font-bold mb-4">Platforms</h3>
                 <div className="flex flex-wrap gap-2">
                 {project.properties.platforms.map((platform: string) => (
                     <Badge key={platform} className={cn(platformColors[platform] || 'bg-gray-400', 'text-white')}>
@@ -126,11 +139,16 @@ export default function ProjectDetailPage({ project }: { project: Project | null
                     </Badge>
                 ))}
                 </div>
-            </div>
+            </Card>
             )}
             {(project.url || project.properties?.repoLink) && (
-            <div className="p-6 rounded-lg bg-card border">
-              <h3 className="font-headline text-2xl font-bold mb-4">Project Links</h3>
+            <Card style={{
+              backgroundColor: project.styling.backgroundColor,
+              color: project.styling.textColor,
+              borderColor: project.styling.borderColor,
+              fontFamily: project.styling.fontFamily,
+          }} className="border-2 p-6">
+              <h3 className="text-2xl font-bold mb-4">Project Links</h3>
               <div className="space-y-4">
                   {project.releaseType === 'steam' && project.url && (
                     <Button asChild className="w-full bg-[#1b2838] hover:bg-[#2c435a] text-white">
@@ -157,7 +175,7 @@ export default function ProjectDetailPage({ project }: { project: Project | null
                       </Button>
                   )}
               </div>
-            </div>
+            </Card>
           )}
         </aside>
     </div>
