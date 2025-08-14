@@ -1,4 +1,3 @@
-
 "use client";
 
 import NavMenu from "@/components/navigation";
@@ -62,16 +61,16 @@ const allCategories = [
   { name: "Misc", icon: Package, animation: "group-hover:animate-wobble" },
 ];
 const carouselItems = [
-    { type: 'image', src: 'https://canpixel.com/slideshowcase/BO1.png' },
-    { type: 'video', src: 'https://canpixel.com/slideshowcase/BO2.mp4' },
-    { type: 'video', src: 'https://canpixel.com/slideshowcase/BO3.mp4' },
-    { type: 'video', src: 'https://canpixel.com/slideshowcase/BO4.mp4' },
-    { type: 'video', src: 'https://canpixel.com/slideshowcase/BO5.mp4' },
-    { type: 'video', src: 'https://canpixel.com/slideshowcase/BO6.mp4' },
-    { type: 'video', src: 'https://canpixel.com/slideshowcase/BO7.mp4' },
-    { type: 'video', src: 'https://canpixel.com/slideshowcase/BO8.mp4' },
-    { type: 'video', src: 'https://canpixel.com/slideshowcase/BO9.mp4' },
-    { type: 'video', src: 'https://canpixel.com/slideshowcase/BO10.mp4' },
+    { type: 'image', src: 'images/slideshowcase/BO1.png' },
+    { type: 'video', src: 'images/slideshowcase/BO2.mp4' },
+    { type: 'video', src: 'images/slideshowcase/BO3.mp4' },
+    { type: 'video', src: 'images/slideshowcase/BO4.mp4' },
+    { type: 'video', src: 'images/slideshowcase/BO5.mp4' },
+    { type: 'video', src: 'images/slideshowcase/BO6.mp4' },
+    { type: 'video', src: 'images/slideshowcase/BO7.mp4' },
+    { type: 'video', src: 'images/slideshowcase/BO8.mp4' },
+    { type: 'video', src: 'images/slideshowcase/BO9.mp4' },
+    { type: 'video', src: 'images/slideshowcase/BO10.mp4' },
 ]
 
 export default function ProjectsPage() {

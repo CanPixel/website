@@ -1,4 +1,3 @@
-
 'use client';
 
 import Image from 'next/image';
@@ -76,13 +75,13 @@ export default function ProjectDetailPage({ project }: { project: Project | null
           </Card>
 
             <div className="prose prose-lg dark:prose-invert max-w-none text-foreground/90 mt-8 space-y-6">
-                 <h3 className="font-headline text-2xl font-bold mb-4">Technical Details</h3>
-                <p>
-                    The game was developed in Unity, leveraging C# for all gameplay logic, AI behavior, and system management. One of the core technical challenges was creating an efficient procedural generation system for the galaxy map. I used a combination of Perlin noise for star distribution and a custom algorithm to ensure playable paths and interesting clusters of systems. This allows for a unique galaxy in every playthrough, greatly enhancing replayability.
-                </p>
-                <p>
-                    For the real-time combat, I implemented a component-based ship system, allowing for easy customization of weapons, shields, and engines. The UI was built using Unity's UGUI system, with a focus on creating a clean, readable interface that evokes classic sci-fi tropes while remaining modern and intuitive.
-                </p>
+              <h3 className="font-headline text-1xl font-bold mb-4">Technical Details</h3>
+              <p>
+                  The game was developed in Unity, leveraging C# for all gameplay logic, AI behavior, and system management. One of the core technical challenges was creating an efficient procedural generation system for the galaxy map. I used a combination of Perlin noise for star distribution and a custom algorithm to ensure playable paths and interesting clusters of systems. This allows for a unique galaxy in every playthrough, greatly enhancing replayability.
+              </p>
+              <p>
+                  For the real-time combat, I implemented a component-based ship system, allowing for easy customization of weapons, shields, and engines. The UI was built using Unity's UGUI system, with a focus on creating a clean, readable interface that evokes classic sci-fi tropes while remaining modern and intuitive.
+              </p>
             </div>
           {project.properties?.steamUrl && (
             <div className="mt-8">
