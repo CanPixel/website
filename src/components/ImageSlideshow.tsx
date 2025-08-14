@@ -1,87 +1,128 @@
 "use client";
 
-import { useState } from 'react'; // No need for useEffect or useRef for auto-scroll
+import { useState } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, ArrowRight } from 'lucide-react'; // Import arrow icons
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 interface ImageSlideshowProps {
   images: string[];
 }
 
+const variants = {
+  enter: (direction: number) => {
+    return {
+      x: direction > 0 ? 1000 : -1000,
+      opacity: 0,
+    };
+  },
+  center: {
+    zIndex: 1,
+    x: 0,
+    opacity: 1,
+  },
+  exit: (direction: number) => {
+    return {
+      zIndex: 0,
+      x: direction < 0 ? 1000 : -1000,
+      opacity: 0,
+    };
+  },
+};
+
+const swipeConfidenceThreshold = 10000;
+const swipePower = (offset: number, velocity: number) => {
+  return Math.abs(offset) * velocity;
+};
+
 export function ImageSlideshow({ images }: ImageSlideshowProps) {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [[page, direction], setPage] = useState([0, 0]);
 
-  // Remove the useEffect and useRef for auto-scrolling
+  const imageIndex = page % images.length;
 
-  const handlePrevClick = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
-    );
+  const paginate = (newDirection: number) => {
+    setPage([page + newDirection, newDirection]);
   };
 
-  const handleNextClick = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === images.length - 1 ? 0 : prevIndex + 1
-    );
+  const handleDotClick = (index: number) => {
+    const newDirection = index > imageIndex ? 1 : -1;
+    setPage([index, newDirection]);
   };
-
-  const handleBubbleClick = (index: number) => {
-    setCurrentIndex(index);
-  };
-
-  if (images.length === 0) {
+  
+  if (!images || images.length === 0) {
     return null;
   }
 
   return (
-    <div className="relative w-full h-full overflow-hidden rounded-lg shadow-lg group"> {/* Added a wrapper div with size */}
-      <AnimatePresence initial={false} mode="wait">
+    <div className="relative w-full aspect-video overflow-hidden rounded-lg shadow-lg group bg-black/20">
+      <AnimatePresence initial={false} custom={direction}>
         <motion.div
-          key={currentIndex}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
-          className="absolute inset-0"
+          key={page}
+          className="absolute h-full w-full"
+          custom={direction}
+          variants={variants}
+          initial="enter"
+          animate="center"
+          exit="exit"
+          transition={{
+            x: { type: 'spring', stiffness: 300, damping: 30 },
+            opacity: { duration: 0.2 },
+          }}
+          drag="x"
+          dragConstraints={{ left: 0, right: 0 }}
+          dragElastic={1}
+          onDragEnd={(e, { offset, velocity }) => {
+            const swipe = swipePower(offset.x, velocity.x);
+
+            if (swipe < -swipeConfidenceThreshold) {
+              paginate(1);
+            } else if (swipe > swipeConfidenceThreshold) {
+              paginate(-1);
+            }
+          }}
         >
-          <Image
-            src={images[currentIndex]}
-            alt={`Slideshow image ${currentIndex + 1}`}
-            fill // Use fill for responsive sizing within the container
-            className="object-cover" // Maintain aspect ratio and cover container
-          />
-           <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
+        <Image
+          src={`/images/${images[imageIndex]}`}
+          alt={`Slideshow image ${imageIndex + 1}`}
+          fill
+          className="object-contain"
+          priority={imageIndex === 0}
+        />
         </motion.div>
       </AnimatePresence>
+      
+      <div className="absolute top-1/2 left-4 z-20 transform -translate-y-1/2">
+        <button
+          onClick={() => paginate(-1)}
+          className="p-2 rounded-full bg-black/40 text-white/80 hover:bg-black/60 transition-colors"
+          aria-label="Previous image"
+        >
+          <ChevronLeft className="w-6 h-6" />
+        </button>
+      </div>
 
-      {/* Navigation Arrows */}
-      <button
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 p-2 rounded-full bg-white/20 text-white hover:bg-white/40 transition-colors"
-        onClick={handlePrevClick}
-        aria-label="Previous image"
-      >
-        <ArrowLeft className="w-6 h-6" />
-      </button>
-      <button
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 p-2 rounded-full bg-white/20 text-white hover:bg-white/40 transition-colors"
-        onClick={handleNextClick}
-        aria-label="Next image"
-      >
-        <ArrowRight className="w-6 h-6" />
-      </button>
+      <div className="absolute top-1/2 right-4 z-20 transform -translate-y-1/2">
+        <button
+          onClick={() => paginate(1)}
+          className="p-2 rounded-full bg-black/40 text-white/80 hover:bg-black/60 transition-colors"
+          aria-label="Next image"
+        >
+          <ChevronRight className="w-6 h-6" />
+        </button>
+      </div>
 
-      {/* Navigation Bubbles */}
-      <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-10">
-        {images.map((_, index) => (
+      <div className="absolute bottom-4 left-0 right-0 z-20 flex justify-center gap-2">
+        {images.map((_, i) => (
           <button
-            key={index}
-            className={`w-3 h-3 rounded-full bg-white transition-opacity ${
-              currentIndex === index ? 'opacity-80' : 'opacity-40 hover:opacity-60'
-            }`}
-            onClick={() => handleBubbleClick(index)}
-            aria-label={`Show image ${index + 1}`}
-          ></button>
+            key={i}
+            onClick={() => handleDotClick(i)}
+            className={cn(
+              "w-2.5 h-2.5 rounded-full transition-colors",
+              i === imageIndex ? 'bg-white' : 'bg-white/40 hover:bg-white/70'
+            )}
+            aria-label={`Go to image ${i + 1}`}
+          />
         ))}
       </div>
     </div>
