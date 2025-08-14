@@ -19,6 +19,11 @@ export default function Footer() {
         <div className="cuneiform-text text-sm my-0 sm:mb-0">
           𒀭𒂗𒆠 (Enki) - God of Creation
         </div>
+        <code>
+          <div className="text-[#8a7c6b] text-[10px] my-0 sm:mb-0 hover:text-white">
+            <Link href="/figma">Page not corporate enough?</Link>
+          </div>
+        </code>
         <div className="flex items-center gap-2">
           {socialLinks.map((social) => (
             <Link 
@@ -34,11 +39,6 @@ export default function Footer() {
             </Link>
           ))}
         </div>
-        <code>
-          <div className="cuneiform-text text-sm my-0 sm:mb-0 hover:text-white">
-            <Link href="/figma">Page not corporate enough?</Link>
-          </div>
-        </code>
       </div>
     </footer>
   );

@@ -1,11 +1,11 @@
 import { Mail, Github, Linkedin, Instagram } from "lucide-react";
 import NavMenu from "@/components/navigation";
 import type { Metadata } from "next";
+import Image from 'next/image';
 
 export const metadata: Metadata = {
     title: 'REACH - 𒅗',
 };
-
 
 const socialLinks = [
     {
@@ -39,7 +39,15 @@ export default function ContactPage() {
     <div className="container mx-auto px-4 py-16">
       <NavMenu/>
 
-      <header className="text-center my-12">
+      <Image 
+            src="images/Can_Head.png"
+            alt="Can guitar avatar"
+            width={120}
+            height={120}
+            className='border border-primary bg-primary/80 rounded-xl p-2 hover:shadow-xl hover:shadow-primary/50 hover:scale-105 mx-auto mt-12 mb-0'
+        />
+
+      <header className="text-center mb-12 mt-4">
         <h1 className="font-headline text-5xl font-bold tracking-tighter mb-4 shiny-text">
           REACH
         </h1>

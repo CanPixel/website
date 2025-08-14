@@ -1,15 +1,14 @@
 "use client"
 
 import Image from 'next/image';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import NavMenu from "@/components/navigation";
 import { Button } from "@/components/ui/button";
 import Link from 'next/link';
-import { Download, Gamepad, Globe, Palette, PenTool, Headphones } from 'lucide-react';
+import { Download, Gamepad, Globe, Palette, Headphones } from 'lucide-react';
 import { motion, useInView, useScroll, useSpring, Variants } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import SkillsShowcase from './SkillsShowcase';
-import { ImageSlideshow } from '@/components/about/ImageSlideshow'; // Import the new component
 
 const timelineEvents = [
   {
@@ -173,12 +172,19 @@ export default function AboutPage() {
       restDelta: 0.001
     });
 
-  const aboutImages = [
-    '/images/cancorp (2).JPG',
-    '/images/ziggurath/zigg3.JPG',
-    '/images/work.jpg',
-    '/images/guitar.jpg',
-  ];
+  useEffect(() => {
+    const script = document.createElement('script');
+
+    script.src = 'https://platform.linkedin.com/badges/js/profile.js';
+    script.async = true;
+    script.defer = true;
+
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
 
   return (
     <div className="container mx-auto px-4 py-16">
@@ -195,28 +201,48 @@ export default function AboutPage() {
                 />
                 <div className="absolute inset-0 bg-repeat bg-center opacity-5" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E\")" }}></div>
             </div>
-            <h1 className="font-headline text-4xl font-bold mt-6 text-primary">Can Ur</h1>
-            <p className="text-xl text-accent">Method Developer</p>
+            <h1 className="text-4xl font-bold mt-6 shiny-text">Can Ur</h1>
+            <p className="text-xl text-purple-500">'Method Developer'</p>
+            <small className="text-[12px] text-gold-300/50">Indie Game Developer, Web Developer, Designer, Musician</small>
             <p className="text-muted-foreground mt-4 leading-relaxed">
                 A philosophically deep thinker at heart, weaving soulful, rebellious, and mysterious narratives through code and sound.
             </p>
-             <Button asChild size="lg" className="mt-6 group transition-all duration-300 ease-in-out hover:bg-accent/90 hover:-translate-y-1 hover:scale-105">
+             <Button asChild size="lg" className="mt-6 group transition-all duration-300 ease-in-out hover:bg-purple-400/70 hover:-translate-y-1 hover:scale-105">
                 <Link href="/pdf/resume.pdf" target="_blank">
                     Resume
                     <Download className="ml-2 h-4 w-4 transition-transform duration-300 ease-in-out group-hover:translate-x-1" />
                 </Link>
              </Button>
+
+             <Card className="mt-8 border-gold-500/50 w-3/4 mx-auto rounded-lg hover:scale-105 transition-transform">
+              <div className="relative mx-auto h-full w-full rounded-lg">
+                <Image
+                  src={"/images/guitar.jpg"}
+                  alt={`Can Ur guitar pic`}
+                  width={2000}
+                  height={2000}
+                  className="object-cover"
+                />
+              </div>
+            </Card>
       </div>
 
-        <div className="lg:col-span-3 w-[70%] mx-auto flex justify-center items-center h-screen">
-          <div className="relative w-full h-full overflow-hidden rounded-lg shadow-lg group">
-            <ImageSlideshow images={aboutImages} />
+        <div className="lg:col-span-3 w-[80%] mx-auto flex justify-center items-center h-screen">
+          <div className="relative w-full h-full max-w-md overflow-hidden rounded-lg shadow-lg group">
+            <Image
+              src={`/images/cancorp (2).JPG`}
+              alt={`A professional photo of Can Ur`}
+              width={4000}
+              height={6000}
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+             <div className="absolute inset-0 group-hover:bg-black/20 transition-colors"></div>
           </div>
  <div className="absolute inset-y-0 right-0 w-60 bg-gradient-to-l from-background to-transparent pointer-events-none" />
         </div>
  <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-background to-transparent pointer-events-none" />
       </div>
-      
+
       <div className="mt-24">
         <h2 className="font-headline text-5xl font-bold tracking-tighter text-center">My Journey</h2>
         <div className="lg:col-span-2 flex flex-col items-center text-center mt-0 mb-6">
@@ -247,10 +273,25 @@ export default function AboutPage() {
 
       <SkillsShowcase skills={SKILLS}/>
 
+      <div className='w-full mx-auto mt-6 flex justify-center'>
+        <div
+          className="badge-base LI-profile-badge"
+          data-locale="nl_NL"
+          data-size="medium"
+          data-theme="dark"
+          data-type="VERTICAL"
+          data-vanity="canpixel"
+          data-version="v1">
+        <a className="badge-base__link LI-simple-link"
+           href="https://www.linkedin.com/in/canpixel" />
+        </div>
+      </div>
+      <br></br>
+
       <div className="mt-20">
           <Card className="bg-card/50 backdrop-blur-sm border-primary/20 max-w-4xl mx-auto">
             <CardContent className="p-6 grid grid-cols-2 md:grid-cols-4 gap-4">
-              {['work.jpg', 'Canwork.jpg', 'Can.jpg', 'Jabrils.jpg'].map((img, i) => (
+              {['work.jpg', 'ziggurath/zigg3.JPG', 'Can.jpg', 'Jabrils.jpg'].map((img, i) => (
                 <div key={i} className="relative aspect-square rounded-lg overflow-hidden group">
                   <Image
                     src={`/images/${img}`}
