@@ -69,10 +69,8 @@ export default function ZiggurathSection() {
         <div className="lg:col-span-2">
             <Card className="bg-black/50 border-gold-500/50">
               <div className="relative -mx-8 my-4">
-                  <div className=
-                    'text-center py-2 pb-3 border-y-4 border-border/70 bg-muted/30 shadow-inner [box-shadow:0_0_30px_rgba(0,0,0,0.8)_inset]'>
-                    <p className=
-                      'text-xs text-white/80 [text-shadow:0_1px_1px_rgba(0,0,0,0.8)] tracking-widest font-ziggsub'>
+                  <div className='text-center py-2 pb-3 border-y-4 border-border bg-muted shadow-inner [box-shadow:0_0_30px_rgba(0,0,0,1.0)_inset]'>
+                    <p className='text-xs text-white/80 [text-shadow:0_1px_1px_rgba(0,0,0,0.8)] tracking-widest font-ziggsub'>
                       Album
                     </p>
                     <h3 className='text-4xl font-ziggtitle text-gold-200' style={{ textShadow: '0 0 10px #fef9c3' }}>
@@ -110,7 +108,7 @@ export default function ZiggurathSection() {
               <br></br> <br></br>
 ‘Astral Exorcism’ serves to sweep the listener away through harsh sonic thunder. <br></br> In a darkening, increasingly unsaturated landscape of metal, this
 metal element seeks to slam and break the skull of habit itself.
-We consist of two people and have built this record from the ground up. Fueled by spiritual worship and a strong DIY spirit, we conceived this
+<br></br>We consist of two people and have built this record from the ground up. <br></br>Fueled by spiritual worship and a strong DIY spirit, we conceived this
 record within just one year of hard work, starting in the summer of 2023 and the work and its campaign finalized and released on June 8th 2024.
                 </p>
                 </CardContent>
@@ -118,10 +116,8 @@ record within just one year of hard work, starting in the summer of 2023 and the
             
             <Card className="mt-8 bg-black/50 backdrop-blur-sm border-gold-500/50">
               <div className="relative -mx-8 my-4">
-                <div className=
-                  'text-center py-2 pb-3 border-y-4 border-border/70 bg-muted/30 shadow-inner [box-shadow:0_0_30px_rgba(0,0,0,0.8)_inset]'>
-                  <p className=
-                    'text-xs text-white/80 [text-shadow:0_1px_1px_rgba(0,0,0,0.8)] tracking-widest font-ziggsub'>
+                <div className='text-center py-2 pb-3 border-y-4 border-border bg-muted shadow-inner [box-shadow:0_0_30px_rgba(0,0,0,1.0)_inset]'>
+                  <p className='text-xs text-white/80 [text-shadow:0_1px_1px_rgba(0,0,0,0.8)] tracking-widest font-ziggsub'>
                     Live Video
                   </p>
                   <h3 className='text-4xl font-ziggtitle text-gold-200' style={{ textShadow: '0 0 10px #fef9c3' }}>

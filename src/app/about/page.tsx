@@ -9,6 +9,7 @@ import { Download, Gamepad, Globe, Palette, PenTool, Headphones } from 'lucide-r
 import { motion, useInView, useScroll, useSpring, Variants } from 'framer-motion';
 import { useRef } from 'react';
 import SkillsShowcase from './SkillsShowcase';
+import { ImageSlideshow } from '@/components/about/ImageSlideshow'; // Import the new component
 
 const timelineEvents = [
   {
@@ -112,21 +113,21 @@ export const CATEGORIES = [
 ];
 export const SKILLS = [
   { id: "html", name: "HTML5 & CSS3", value: 95, categories: ["Web Development"], desc: "Semantic markup, accessibility-first approach." },
+  { id: "js", name: "JavaScript", value: 90, categories: ["Web Development"], desc: "ESNext, tooling, DOM, and framework friendly." },
   { id: "jquery", name: "JQuery", value: 90, categories: ["Web Development"], desc: "ESNext, tooling, DOM, and framework friendly." },
   { id: "flstudio", name: "FL Studio 12", value: 90, categories: ["Music"], desc: "Beat design, arrangement and mixing basics." },
-  { id: "unity", name: "Unity (C#)", value: 85, categories: ["Game Development"], desc: "Gameplay programming, components, and scripting." },
-  { id: "react", name: "React & Next.js", value: 85, categories: ["Web Development"], desc: "Building modern, dynamic user interfaces." },
+  { id: "unity", name: "Unity (C#)", value: 90, categories: ["Game Development"], desc: "Gameplay programming, components, and scripting." },
+  { id: "react", name: "React & Next.js", value: 80, categories: ["Web Development"], desc: "Building modern, dynamic user interfaces." },
   { id: "php", name: "PHP", value: 80, categories: ["Web Development"], desc: "Legacy systems, APIs and server-side templating." },
   { id: "java", name: "Java", value: 80, categories: ["Game Development"], desc: "OOP, tooling, and enterprise paradigms." },
-  { id: "js", name: "JavaScript", value: 80, categories: ["Web Development"], desc: "ESNext, tooling, DOM, and framework friendly." },
   { id: "premiere", name: "Adobe Premiere Pro", value: 80, categories: ["Design"], desc: "Video editing, cuts and color basics." },
   { id: "illustrator", name: "Adobe Illustrator", value: 75, categories: ["Design"], desc: "Vector illustration and iconography." },
   { id: "arduino", name: "Arduino", value: 65, categories: ["Game Development"], desc: "Prototyping hardware, sensor IO and embedded logic." },
   { id: "node", name: "Node.js", value: 65, categories: ["Web Development"], desc: "Semantic markup, accessibility-first approach." },
-  { id: "mysql", name: "MySQL", value: 60, categories: ["Web Development"], desc: "Database design, queries, and optimization." },
-  { id: "python", name: "Python", value: 60, categories: ["Game Development"], desc: "Scripting, automation, and basic backend tasks." },
+  { id: "mysql", name: "MySQL", value: 65, categories: ["Web Development"], desc: "Database design, queries, and optimization." },
+  { id: "python", name: "Python", value: 55, categories: ["Game Development"], desc: "Scripting, automation, and basic backend tasks." },
   { id: "lua", name: "LUA", value: 40, categories: ["Game Development"], desc: "Scripting for embedded game logic and mods." },
-  { id: "cpp", name: "C++", value: 30, categories: ["Game Development"], desc: "Native performance, systems and plugin development." },
+  { id: "cpp", name: "C++", value: 35, categories: ["Game Development"], desc: "Native performance, systems and plugin development." },
 ];
 // Color palette for charts
 const COLORS = ["#00C49F", "#0088FE", "#FFBB28", "#FF8042", "#845EC2", "#FF6F91", "#2C73D2", "#008E9B", "#D65DB1", "#FF9671"];
@@ -161,16 +162,23 @@ const CategoryBadges = () => {
 };
 
 export default function AboutPage() {
-    const timelineRef = useRef(null);
-    const { scrollYProgress } = useScroll({
-      target: timelineRef,
-      offset: ["start center", "end end"]
+  const timelineRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: timelineRef,
+    offset: ["start center", "end end"]
+  });
+  const scaleY = useSpring(scrollYProgress, {
+      stiffness: 100,
+      damping: 30,
+      restDelta: 0.001
     });
-    const scaleY = useSpring(scrollYProgress, {
-        stiffness: 100,
-        damping: 30,
-        restDelta: 0.001
-      });
+
+  const aboutImages = [
+    '/images/cancorp (2).JPG',
+    '/images/ziggurath/zigg3.JPG',
+    '/images/work.jpg',
+    '/images/guitar.jpg',
+  ];
 
   return (
     <div className="container mx-auto px-4 py-16">
@@ -198,18 +206,11 @@ export default function AboutPage() {
                     <Download className="ml-2 h-4 w-4 transition-transform duration-300 ease-in-out group-hover:translate-x-1" />
                 </Link>
              </Button>
-        </div>
+      </div>
 
-        <div className="lg:col-span-3 flex justify-center items-center">
-          <div className="w-full max-w-md relative rounded-lg overflow-hidden shadow-lg group">
-            <Image
-              src={`/images/cancorp (2).JPG`}
-              alt={`A professional photo of Can Ur`}
-              width={4000}
-              height={6000}
-              className="object-cover transition-transform duration-500 group-hover:scale-105"
-            />
-             <div className="absolute inset-0 group-hover:bg-black/20 transition-colors"></div>
+        <div className="lg:col-span-3 w-[70%] mx-auto flex justify-center items-center h-screen">
+          <div className="relative w-full h-full overflow-hidden rounded-lg shadow-lg group">
+            <ImageSlideshow images={aboutImages} />
           </div>
  <div className="absolute inset-y-0 right-0 w-60 bg-gradient-to-l from-background to-transparent pointer-events-none" />
         </div>
