@@ -94,61 +94,9 @@ export default function ProjectDetailPage({ project }: { project: Project | null
             </span>
           </div>
 
-          {project.styling.slideshowImages && project.styling.slideshowImages.length > 0 && (
-            <div className="mt-16">
-              <h3 className="font-headline text-2xl font-bold mb-4 text-accent">Gallery</h3>
-              <div className="relative">
-                <ImageSlideshow images={project.styling.slideshowImages}/>
-              </div>
-            </div>
-          )}
-
           {project.properties?.steamUrl && (
             <div className="mt-8">
               <iframe src={project.properties.steamUrl} width="100%" height="190"></iframe>
-            </div>
-          )}
-
-          {project.styling.youtube && project.styling.youtube.length > 0 && (
-            <div className="mt-16">
-              <h1 className="font-headline text-2xl font-bold text-accent mb-4">Videos</h1>
-                <Carousel
-                  opts={{
-                    align: "center",
-                    loop: true,
-                  }}
-                  className="w-full"
-                >
-                  <CarouselContent>
-                    {project.styling.youtube.map((video, idx) => (
-                      <CarouselItem key={idx} className="md:basis-1/2 lg:basis-1/3">
-                        <div className="p-1">
-                          <Card style={{
-                              backgroundColor: project.styling.backgroundColor,
-                              color: project.styling.textColor,
-                              borderColor: project.styling.borderColor,
-                              fontFamily: project.styling.fontFamily,
-                          }} 
-                          className="w-full border-2 hover:scale-105 transition-transform">
-                              <CardContent className="p-4">
-                                  <div className="aspect-video rounded-md overflow-hidden">
-                                      <iframe
-                                          src={`https://www.youtube.com/embed/${video}`}
-                                          title="Game Trailer"
-                                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                          allowFullScreen
-                                          className="w-full h-full"
-                                      ></iframe>
-                                  </div>
-                              </CardContent>
-                          </Card>
-                        </div>
-                      </CarouselItem>
-                    ))}
-                  </CarouselContent>
-                  <CarouselPrevious className="text-white hover:text-primary" />
-                  <CarouselNext className="text-white hover:text-primary" />
-                </Carousel>
             </div>
           )}
         </div>
@@ -240,6 +188,59 @@ export default function ProjectDetailPage({ project }: { project: Project | null
           )}
         </aside>
     </div>
+
+    {project.styling.slideshowImages && project.styling.slideshowImages.length > 0 && (
+      <div className="mt-16">
+        <h3 className="font-headline text-3xl font-bold mb-4 text-accent text-center">Gallery</h3>
+        <div className="relative">
+          <ImageSlideshow images={project.styling.slideshowImages}/>
+        </div>
+      </div>
+    )}
+
+    {project.styling.youtube && project.styling.youtube.length > 0 && (
+      <div className="mt-16">
+        <h1 className="font-headline text-3xl font-bold text-accent mb-4 text-center">Videos</h1>
+          <Carousel
+            opts={{
+              align: "center",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent>
+              {project.styling.youtube.map((video, idx) => (
+                <CarouselItem key={idx} className="md:basis-1/2 lg:basis-1/3">
+                  <div className="p-1">
+                    <Card style={{
+                        backgroundColor: project.styling.backgroundColor,
+                        color: project.styling.textColor,
+                        borderColor: project.styling.borderColor,
+                        fontFamily: project.styling.fontFamily,
+                    }} 
+                    className="w-full border-2 hover:scale-105 transition-transform">
+                        <CardContent className="p-4">
+                            <div className="aspect-video rounded-md overflow-hidden">
+                                <iframe
+                                    src={`https://www.youtube.com/embed/${video}`}
+                                    title="Game Trailer"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                    className="w-full h-full"
+                                ></iframe>
+                            </div>
+                        </CardContent>
+                    </Card>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="text-white hover:text-primary" />
+            <CarouselNext className="text-white hover:text-primary" />
+          </Carousel>
+      </div>
+    )}
+
     </div>
   );
 }
