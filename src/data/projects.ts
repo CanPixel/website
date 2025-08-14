@@ -86,7 +86,6 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
     videos: [
       'avoid/AVOIDpreview.mp4',
       'avoid/Gameplay1.mp4',
-      'avoid/preview.mp4',
     ]
   },
   'scptheescape': {
