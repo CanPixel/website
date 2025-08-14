@@ -242,6 +242,46 @@ export default function ProjectDetailPage({ project }: { project: Project | null
       </div>
     )}
 
+    {project.styling.videos && project.styling.videos.length > 0 && (
+      <div className="mt-16">
+        <h1 className="font-headline text-3xl font-bold text-accent mb-4 text-center">Videos</h1>
+          <Carousel
+            opts={{
+              align: "center",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent>
+              {project.styling.videos.map((video, idx) => (
+                <CarouselItem key={idx} className="md:basis-1/2 lg:basis-1/3">
+                  <div className="p-1">
+                    <Card style={{
+                        backgroundColor: project.styling.backgroundColor,
+                        color: project.styling.textColor,
+                        borderColor: project.styling.borderColor,
+                        fontFamily: project.styling.fontFamily,
+                    }} 
+                    className="w-full border-2">
+                        <CardContent className="py-6">
+                            <div className="rounded-xl overflow-hidden hover:scale-105 transition-transform">
+                              <video controls loop width="600">
+                                <source src={'/' + video} type="video/mp4" />
+                                Your browser does not support the video tag.
+                              </video>
+                            </div>
+                        </CardContent>
+                    </Card>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="text-white hover:text-primary" />
+            <CarouselNext className="text-white hover:text-primary" />
+          </Carousel>
+      </div>
+    )}
+
     </div>
   );
 }
