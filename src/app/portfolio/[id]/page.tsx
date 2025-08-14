@@ -102,34 +102,35 @@ export default function ProjectDetailPage({ project }: { project: Project | null
             </div>
           )}
 
-          {project.styling.youtube && (
-            <div className={`grid grid-cols-${project.styling.youtube.length} gap-8 mt-16`}>
-              <h1 className="font-headline text-2xl font-bold text-accent">Videos</h1>
-              <div className="space-y-6">
-              {project.styling.youtube.map((video, idx) => (
-                <Card style={{
-                    backgroundColor: project.styling.backgroundColor,
-                    color: project.styling.textColor,
-                    borderColor: project.styling.borderColor,
-                    fontFamily: project.styling.fontFamily,
-                }} 
-                key={idx} 
-                className="w-full border-2 pt-8 hover:scale-105 transition-transform">
-                    <CardContent>
-                        <div className="aspect-video rounded-md overflow-hidden">
-                            <iframe
-                                src={`https://www.youtube.com/embed/${video}`}
-                                title="Game Trailer"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowFullScreen
-                                className="w-full h-full"
-                            ></iframe>
-                        </div>
-                    </CardContent>
-                </Card>
-              ))}
+          {project.styling.youtube && project.styling.youtube.length > 0 && (
+            <div className="mt-16">
+              <h1 className="font-headline text-2xl font-bold text-accent mb-4">Videos</h1>
+              <div className="flex overflow-x-auto space-x-6 pb-4">
+                {project.styling.youtube.map((video, idx) => (
+                  <div key={idx} className="flex-shrink-0 w-full max-w-sm">
+                    <Card style={{
+                        backgroundColor: project.styling.backgroundColor,
+                        color: project.styling.textColor,
+                        borderColor: project.styling.borderColor,
+                        fontFamily: project.styling.fontFamily,
+                    }} 
+                    className="w-full border-2 hover:scale-105 transition-transform">
+                        <CardContent className="p-4">
+                            <div className="aspect-video rounded-md overflow-hidden">
+                                <iframe
+                                    src={`https://www.youtube.com/embed/${video}`}
+                                    title="Game Trailer"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                    className="w-full h-full"
+                                ></iframe>
+                            </div>
+                        </CardContent>
+                    </Card>
+                  </div>
+                ))}
               </div>
-          </div>
+            </div>
           )}
         </div>
 
