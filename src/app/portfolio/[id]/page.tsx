@@ -1,3 +1,4 @@
+
 'use client';
 
 import Image from 'next/image';
@@ -128,7 +129,7 @@ export default function ProjectDetailPage({ project }: { project: Project | null
               <h3 className="text-2xl font-bold mb-4">Tech Stack</h3>
               <div className="flex flex-wrap gap-2">
                 {project.properties?.skills?.map((tech : string) => (
-                  <Badge key={tech} className={cn(skillColors[tech] || "bg-gray-500", "text-white")}>{tech}</Badge>
+                  <Badge key={tech} className="bg-black text-accent border-accent/30">{tech}</Badge>
                 ))}
               </div>
             </Card>
@@ -143,7 +144,7 @@ export default function ProjectDetailPage({ project }: { project: Project | null
                 <h3 className="text-2xl font-bold mb-4">Platforms</h3>
                 <div className="flex flex-wrap gap-2">
                 {project.properties.platforms.map((platform: string) => (
-                    <Badge key={platform} className={cn(platformColors[platform] || 'bg-gray-400', 'text-white')}>
+                    <Badge key={platform} className="bg-black text-accent border-accent/30">
                     {platform}
                     </Badge>
                 ))}
@@ -168,7 +169,7 @@ export default function ProjectDetailPage({ project }: { project: Project | null
                     </Button>
                   )}
                   {project.releaseType !== 'steam' && project.url && (
-                      <Button asChild className="w-full">
+                      <Button asChild className="w-full bg-secondary text-secondary-foreground hover:bg-secondary/80">
                           <Link href={project.url} target="_blank" rel="noopener noreferrer">
                               <Globe className="mr-2 h-4 w-4" />
                               Live Demo
@@ -176,7 +177,7 @@ export default function ProjectDetailPage({ project }: { project: Project | null
                       </Button>
                   )}
                   {project.properties?.repoLink && (
-                      <Button asChild variant="outline" className="w-full">
+                      <Button asChild variant="outline" className="w-full text-foreground hover:bg-accent hover:text-accent-foreground">
                           <Link href={project.properties.repoLink} target="_blank" rel="noopener noreferrer">
                               <Github className="mr-2 h-4 w-4" />
                               Source Code
