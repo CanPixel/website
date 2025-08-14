@@ -10,6 +10,13 @@ import { Github, Calendar, Globe, ArrowLeft, Youtube } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { ImageSlideshow } from '@/components/ImageSlideshow';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
 
 const SteamIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" {...props}>
@@ -105,31 +112,43 @@ export default function ProjectDetailPage({ project }: { project: Project | null
           {project.styling.youtube && project.styling.youtube.length > 0 && (
             <div className="mt-16">
               <h1 className="font-headline text-2xl font-bold text-accent mb-4">Videos</h1>
-              <div className="flex overflow-x-auto space-x-6 pb-4">
-                {project.styling.youtube.map((video, idx) => (
-                  <div key={idx} className="flex-shrink-0 w-full max-w-sm">
-                    <Card style={{
-                        backgroundColor: project.styling.backgroundColor,
-                        color: project.styling.textColor,
-                        borderColor: project.styling.borderColor,
-                        fontFamily: project.styling.fontFamily,
-                    }} 
-                    className="w-full border-2 hover:scale-105 transition-transform">
-                        <CardContent className="p-4">
-                            <div className="aspect-video rounded-md overflow-hidden">
-                                <iframe
-                                    src={`https://www.youtube.com/embed/${video}`}
-                                    title="Game Trailer"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowFullScreen
-                                    className="w-full h-full"
-                                ></iframe>
-                            </div>
-                        </CardContent>
-                    </Card>
-                  </div>
-                ))}
-              </div>
+                <Carousel
+                  opts={{
+                    align: "center",
+                    loop: true,
+                  }}
+                  className="w-full"
+                >
+                  <CarouselContent>
+                    {project.styling.youtube.map((video, idx) => (
+                      <CarouselItem key={idx} className="md:basis-1/2 lg:basis-1/3">
+                        <div className="p-1">
+                          <Card style={{
+                              backgroundColor: project.styling.backgroundColor,
+                              color: project.styling.textColor,
+                              borderColor: project.styling.borderColor,
+                              fontFamily: project.styling.fontFamily,
+                          }} 
+                          className="w-full border-2 hover:scale-105 transition-transform">
+                              <CardContent className="p-4">
+                                  <div className="aspect-video rounded-md overflow-hidden">
+                                      <iframe
+                                          src={`https://www.youtube.com/embed/${video}`}
+                                          title="Game Trailer"
+                                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                          allowFullScreen
+                                          className="w-full h-full"
+                                      ></iframe>
+                                  </div>
+                              </CardContent>
+                          </Card>
+                        </div>
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                  <CarouselPrevious className="text-white hover:text-primary" />
+                  <CarouselNext className="text-white hover:text-primary" />
+                </Carousel>
             </div>
           )}
         </div>
