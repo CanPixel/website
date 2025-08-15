@@ -15,10 +15,10 @@ const youtubeVideos = [
       id: 'QmQK-adbKPA',
       title: 'First Round of Rob Acda Awards (2018)',
   },
-  {
-      id: 'Pmyo7HgBfxM',
-      title: 'NEMSIS in Brigant, Arnhem (2019)',
-  }
+  // {
+  //     id: 'Pmyo7HgBfxM',
+  //     title: 'NEMSIS in Brigant, Arnhem (2019)',
+  // }
 ]
 
 export default function NemsisSection() {
