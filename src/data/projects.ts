@@ -429,8 +429,8 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
 };
 
 export const skillColors: { [key: string]: string } = {
-  "Unity": "bg-teal-600",
-  "C#": "bg-purple-700",
+  "Unity": "#333333",
+  "C#": "#333333",
   "Html": "bg-orange-500",
   "C++": "bg-blue-700",
   "Audio Design": "bg-pink-700",
