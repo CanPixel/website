@@ -209,7 +209,7 @@ export default function ProjectDetailPage({ project }: { project: Project | null
                 <Button asChild className="w-full bg-[#1b2838] hover:bg-[#2c435a] text-white">
                     <Link href={"/" + project.styling.document} 
                     target="_blank" rel="noopener noreferrer">
-                        View
+                        {project.styling.document.replace(/\//g, '').replaceAll('pdf', '').replaceAll('.', '')}
                         <FileSearch className="mr-2 h-5 w-5" />
                     </Link>
                 </Button>

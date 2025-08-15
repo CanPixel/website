@@ -252,7 +252,7 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
     ],
   },
   'frisking-ruins': {
-    backgroundColor: '#596d53',
+    backgroundColor: '#948256',
     textColor: '#fff1dd',
     fontFamily: "'Ribeye', monospace",
     backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='6' height='6' viewBox='0 0 6 6'%3E%3Cg fill='%239C92AC' fill-opacity='0.1'%3E%3Cpath fill-rule='evenodd' d='M0 0h2v2H0V0zm2 2h2v2H2V2zm2 2h2v2H4V4zm2-2h2v2H6V2z'/%3E%3C/g%3E%3C/svg%3E")`,
