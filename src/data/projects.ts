@@ -257,7 +257,7 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
     fontFamily: "'Ribeye', monospace",
     backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='6' height='6' viewBox='0 0 6 6'%3E%3Cg fill='%239C92AC' fill-opacity='0.1'%3E%3Cpath fill-rule='evenodd' d='M0 0h2v2H0V0zm2 2h2v2H2V2zm2 2h2v2H4V4zm2-2h2v2H6V2z'/%3E%3C/g%3E%3C/svg%3E")`,
     borderColor: '#555555',
-    banner: 'FRBanner.png',
+    banner: '/images/FRBanner.png',
     animationClass: 'group-hover:shadow-[0_0_10px_rgba(255,255,255,0.2)]',
     youtube: [
       '7GolsRuCwL0'
@@ -348,7 +348,7 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
   {
     backgroundColor: '#F5E8C7',
     textColor: '#8B4513',
-    fontFamily: "'Jacquard 24', serif",
+    fontFamily: "'Uncial Antiqua', serif",
     borderColor: '#D4AC79',
     animationClass: 'group-hover:scale-105 group-hover:shadow-[0_0_30px_5px_rgba(255,165,0,0.5)]',
     backgroundImage: 'none',
@@ -429,17 +429,19 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
 };
 
 export const skillColors: { [key: string]: string } = {
-  "Unity": "#333333",
-  "C#": "#333333",
+  "Unity": "#444444",
+  "C#": "#444444",
   "Html": "bg-orange-500",
-  "C++": "bg-blue-700",
-  "Audio Design": "bg-pink-700",
+  "C++": "#00aa77",
+  "Audio Design": "#666ddd",
   "Editor Script": "bg-yellow-500",
   "Arduino": "bg-cyan-500",
   "PICO-8": "bg-red-500",
   "LUA": "bg-indigo-500",
-  "Construct 2": "bg-green-500",
-  "Java": "bg-orange-600",
+  "Construct 2": "#112233",
+  "Java": "#ff6666",
+  "Pixel Art": "#ff4400",
+  "Procedural Generation": "#aa4400",
 };
 
 export const genreColors: { [key: string]: string } = {

@@ -86,7 +86,7 @@ export default function Home() {
   );
 
   return (
-    <div className="container mx-auto px-4 py-10">
+    <div className="container mx-auto px-4 py-10" suppressHydrationWarning={true}>
       <section className="text-center pt-24 pb-2">
         <NavMenu/>
         <div className="flex justify-center items-center gap-4">

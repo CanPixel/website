@@ -32,7 +32,7 @@ export default function Header() {
   const NavLink = ({ href, label, icon: Icon, cuneiform }: { href: string; label: string; icon: React.ElementType, cuneiform: string }) => {
     const isActive = pathname.startsWith(href);
     return (
-        <Link href={href}
+        <Link suppressHydrationWarning={true} href={href}
             className={cn(
                 "relative font-headline transition-colors hover:text-accent group text-center",
                 isActive ? "text-accent" : "text-foreground/80"

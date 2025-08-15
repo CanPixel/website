@@ -3,7 +3,7 @@ import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { Inter, Space_Grotesk, Noto_Sans_Cuneiform, Orbitron,
   Playfair_Display, Roboto, Uncial_Antiqua, UnifrakturCook,
-  Jacquard_24, Pixelify_Sans, Geo, Audiowide, Unlock, Share_Tech_Mono,
+  Pixelify_Sans, Geo, Audiowide, Unlock, Share_Tech_Mono,
   Bungee, Space_Mono, Ribeye, Courier_Prime, Limelight
  } from 'next/font/google';
 import LayoutContent from '@/components/layout/LayoutContent';
@@ -60,11 +60,6 @@ const AudioWide = Audiowide({
   subsets: ['latin'],
   weight: '400',
   variable: '--font-audiowide',
-});
-const Jacquard24 = Jacquard_24({
-  subsets: ['latin'],
-  weight: '400',
-  variable: '--font-jacquard',
 });
 const PixelifySans = Pixelify_Sans({
   subsets: ['latin'],

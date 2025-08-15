@@ -1,7 +1,7 @@
 "use client"
 
 import { cn } from '@/lib/utils';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 interface LogoProps {
   className?: string;
@@ -9,8 +9,15 @@ interface LogoProps {
 }
 
 export function Logo({ className, fillColor }: LogoProps) {
+  const [clientClasses, setClientClasses] = useState('');
+
+  useEffect(() => {
+    // Add client-side specific classes after mounting
+    setClientClasses('transition-transform duration-300 ease-in-out group-hover:scale-105');
+  }, []);
+
   return (
-    <div className={cn('transition-transform duration-300 ease-in-out group-hover:scale-105', className)}>
+    <div className={cn(clientClasses, className)} suppressHydrationWarning={true}>
        <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
  viewBox="0 0 300 300"
  preserveAspectRatio="xMidYMid meet">

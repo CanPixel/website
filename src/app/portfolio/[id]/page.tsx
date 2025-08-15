@@ -1,16 +1,16 @@
-
 'use client';
 
 import Image from 'next/image';
-import { Project, skillColors, platformColors, genreColors } from '@/data/projects';
+import { Project, /*skillColors, platformColors,*/ genreColors } from '@/data/projects';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import NavMenu from "@/components/navigation";
 import { Button } from '@/components/ui/button';
-import { Github, Calendar, Globe, ArrowLeft, Youtube } from 'lucide-react';
+import { Github, Calendar, Globe, ArrowLeft, Youtube, FileSearch } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { ImageSlideshow } from '@/components/ImageSlideshow';
+// import { PDFViewer } from '@/components/PDFViewer';
 import {
   Carousel,
   CarouselContent,
@@ -69,6 +69,14 @@ export default function ProjectDetailPage({ project }: { project: Project | null
             {project.releaseDate ?? 'Coming Soon'}
         </Badge>
       </div>
+      
+      {project.styling.banner ? ( 
+        <div className="w-[70%] mx-auto relative w-full overflow-hidden mt-4 border border-2 shadow-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl" 
+        style={{borderColor: project.styling.borderColor, boxShadow: `0 10px 25px -5px ${project.styling.borderColor}30, 0 8px 10px -6px ${project.styling.borderColor}20`}}>
+          <Image src={project.styling.banner} alt="Banner" 
+          width={1920} height={1080} layout="responsive" objectFit="cover" />
+        </div>
+      ) : <></>}
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-12">
         <div className='md:col-span-2'>
@@ -134,7 +142,7 @@ export default function ProjectDetailPage({ project }: { project: Project | null
               </div>
             </Card>
             
-             {project.properties?.platforms && project.properties.platforms.length > 0 && (
+  {project.properties?.platforms && project.properties.platforms.length > 0 && (
             <Card style={{
               backgroundColor: project.styling.backgroundColor,
               color: project.styling.textColor,
@@ -151,6 +159,7 @@ export default function ProjectDetailPage({ project }: { project: Project | null
                 </div>
             </Card>
             )}
+
             {(project.url || project.properties?.repoLink) && (
             <Card style={{
               backgroundColor: project.styling.backgroundColor,
@@ -184,6 +193,29 @@ export default function ProjectDetailPage({ project }: { project: Project | null
                           </Link>
                       </Button>
                   )}
+              </div>
+            </Card>
+          )}
+
+          {project.styling.document && (
+            <Card style={{
+              backgroundColor: project.styling.backgroundColor,
+              color: project.styling.textColor,
+              borderColor: project.styling.borderColor,
+              fontFamily: project.styling.fontFamily,
+          }} className="border-2 p-6">
+              <h3 className="text-2xl font-bold mb-4">Documents</h3>
+              <div className="space-y-4">
+                <Button asChild className="w-full bg-[#1b2838] hover:bg-[#2c435a] text-white">
+                    <Link href={"/" + project.styling.document} 
+                    target="_blank" rel="noopener noreferrer">
+                        View
+                        <FileSearch className="mr-2 h-5 w-5" />
+                    </Link>
+                </Button>
+
+                {/* <PDFViewer pdfUrl={"/" + project.styling.document}/> */}
+
               </div>
             </Card>
           )}
@@ -244,7 +276,6 @@ export default function ProjectDetailPage({ project }: { project: Project | null
 
     {project.styling.videos && project.styling.videos.length > 0 && (
       <div className="mt-16">
-        <h1 className="font-headline text-3xl font-bold text-accent mb-4 text-center">Videos</h1>
           <Carousel
             opts={{
               align: "center",
@@ -264,7 +295,7 @@ export default function ProjectDetailPage({ project }: { project: Project | null
                     }} 
                     className="w-full border-2">
                         <CardContent className="py-6">
-                            <div className="rounded-xl overflow-hidden hover:scale-105 transition-transform">
+                            <div className="rounded-xl overflow-hidden">
                               <video controls loop width="600">
                                 <source src={'/' + video} type="video/mp4" />
                                 Your browser does not support the video tag.
