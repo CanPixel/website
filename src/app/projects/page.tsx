@@ -117,7 +117,7 @@ export default function ProjectsPage() {
       </header>
 
       <div className="mb-12 flex justify-center">
-          <Carousel className="w-3/4 max-w-sm"
+          <Carousel className="w-1/2 max-w-sm"
             opts={{
                 loop: true,
             }}
@@ -140,11 +140,11 @@ export default function ProjectsPage() {
           </Carousel>
       </div>
 
-      <div className="flex flex-wrap justify-center gap-3 mb-12">
+      <div className="flex flex-wrap justify-center gap-x-2 gap-y-1 mb-12">
         <Button
           variant={selectedCategory === null ? "default" : "outline"}
           onClick={() => setSelectedCategory(null)}
-          className="rounded-full flex items-center gap-2 transition-all duration-200 hover:shadow-lg"
+          className="rounded-full flex items-center gap-2 transition-all duration-200 hover:shadow-lg hover:bg-blue-400"
         >
             <LayoutGrid className="w-4 h-4" />
           Show All
@@ -154,7 +154,7 @@ export default function ProjectsPage() {
             key={category.name}
             variant={selectedCategory === category.name ? "default" : "outline"}
             onClick={() => setSelectedCategory(category.name)}
-            className="rounded-full flex items-center gap-2 transition-all duration-200 hover:shadow-lg group hover:bg-purple-500"
+            className="text-[12px] rounded-full flex items-center gap-2 transition-all duration-200 hover:shadow-lg group hover:bg-purple-400"
           >
             <category.icon className={cn("w-4 h-4", category.animation)} />
             {category.name}
@@ -162,10 +162,10 @@ export default function ProjectsPage() {
         ))}
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
         {filteredProjects.map((project) => (
           <Link key={project.id} href={`/portfolio/${project.id}`} 
-          className="block transition-transform hover:scale-[1.01] group">
+          className="block scale-[0.9] transition-transform hover:scale-[0.93] group">
             <ProjectCard project={project} />
           </Link>
         ))}
