@@ -178,7 +178,7 @@ export default function ProjectDetailPage({ project }: { project: Project | null
                     </Button>
                   )}
                   {project.releaseType !== 'steam' && project.url && (
-                      <Button asChild className="w-full bg-secondary text-secondary-foreground hover:bg-secondary/80">
+                      <Button asChild className="w-full bg-gray-300/50 text-secondary-foreground hover:bg-gray-100/60">
                           <Link href={project.url} target="_blank" rel="noopener noreferrer">
                               <Globe className="mr-2 h-4 w-4" />
                               Live Demo
@@ -206,7 +206,7 @@ export default function ProjectDetailPage({ project }: { project: Project | null
           }} className="border-2 p-6">
               <h3 className="text-2xl font-bold mb-4">Documents</h3>
               <div className="space-y-4">
-                <Button asChild className="w-full bg-[#1b2838] hover:bg-[#2c435a] text-white">
+                <Button asChild className="w-full bg-[#2c435a] hover:bg-[#436389] text-white">
                     <Link href={"/" + project.styling.document} 
                     target="_blank" rel="noopener noreferrer">
                         {project.styling.document.replace(/\//g, '').replaceAll('pdf', '').replaceAll('.', '')}
@@ -251,7 +251,7 @@ export default function ProjectDetailPage({ project }: { project: Project | null
                         borderColor: project.styling.borderColor,
                         fontFamily: project.styling.fontFamily,
                     }} 
-                    className="w-full border-2 hover:scale-105 transition-transform">
+                    className="w-full border-2 scale-[0.92] hover:scale-[0.95] transition-transform">
                         <CardContent className="p-4">
                             <div className="aspect-video rounded-md overflow-hidden">
                                 <iframe
@@ -268,8 +268,8 @@ export default function ProjectDetailPage({ project }: { project: Project | null
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="text-white hover:text-primary" />
-            <CarouselNext className="text-white hover:text-primary" />
+            <CarouselPrevious className="text-white hover:text-accent hover:bg-blue-600" />
+            <CarouselNext className="text-white hover:text-accent hover:bg-blue-600" />
           </Carousel>
       </div>
     )}
@@ -307,8 +307,8 @@ export default function ProjectDetailPage({ project }: { project: Project | null
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="text-white hover:text-primary" />
-            <CarouselNext className="text-white hover:text-primary" />
+            <CarouselPrevious className="text-white hover:text-accent hover:bg-blue-600" />
+            <CarouselNext className="text-white hover:text-accent hover:bg-blue-600" />
           </Carousel>
       </div>
     )}

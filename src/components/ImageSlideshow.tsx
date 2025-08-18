@@ -86,8 +86,8 @@ export function ImageSlideshow({ images }: ImageSlideshowProps) {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="text-white hover:text-primary" />
-        <CarouselNext className="text-white hover:text-primary" />
+        <CarouselPrevious className="text-white hover:text-accent hover:bg-blue-600" />
+        <CarouselNext className="text-white hover:text-accent hover:bg-blue-600" />
       </Carousel>
 
       <Dialog open={open} onOpenChange={setOpen}>
