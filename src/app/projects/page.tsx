@@ -107,7 +107,7 @@ export default function ProjectsPage() {
   return (
     <div className="container mx-auto px-4 py-16">
       <NavMenu/>
-      <header className="text-center mb-12 mt-12">
+      <header className="text-center mb-6 mt-12">
         <h1 className="font-headline text-6xl font-bold tracking-tighter mb-4 shiny-text">
           REALMS
         </h1>
@@ -154,7 +154,7 @@ export default function ProjectsPage() {
             key={category.name}
             variant={selectedCategory === category.name ? "default" : "outline"}
             onClick={() => setSelectedCategory(category.name)}
-            className="rounded-full flex items-center gap-2 transition-all duration-200 hover:shadow-lg group"
+            className="rounded-full flex items-center gap-2 transition-all duration-200 hover:shadow-lg group hover:bg-purple-500"
           >
             <category.icon className={cn("w-4 h-4", category.animation)} />
             {category.name}
