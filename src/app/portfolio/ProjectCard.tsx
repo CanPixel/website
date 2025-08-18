@@ -8,6 +8,7 @@ import { ArrowRight, Globe } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { getProjectStyling, skillColors } from '@/data/projects';
 import { Key } from 'react';
+// import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 
 export function ProjectCard({ project }: { project : any }) {
   const styling = getProjectStyling(project.id);
@@ -54,7 +55,7 @@ export function ProjectCard({ project }: { project : any }) {
                     <div
                       className="bg-blue-800 p-2 rounded-full shadow-lg"
                       title="Released on Steam"
-                    ><Image width={20} height={20} 
+                    ><Image width={25} height={25} 
                         src="/steam-logo.svg"
                         alt="steam icon"
                       />
@@ -122,7 +123,8 @@ export function ProjectCard({ project }: { project : any }) {
                 className="object-cover rounded-md"
                 />
             </div>
-            <CardDescription style={{ color: styling.textColor, opacity: 0.8 }} className="h-24 overflow-hidden text-ellipsis mb-4">
+            <CardDescription style={{ color: styling.textColor, opacity: 0.8 }} 
+            className={cn("h-24 overflow-hidden text-ellipsis mb-4", styling.descStyling)}>
                 <b>{project.shortDescription}</b>
                 <br></br>
                 {project.description}

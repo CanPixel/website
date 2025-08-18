@@ -169,14 +169,14 @@ export default function ProjectsPage() {
         ))}
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         {filteredProjects.map((project) => (
           <InView key={project.id} triggerOnce={true}>
             {({ inView, ref }) => (
               <div ref={ref}>
                 {inView && (
                   <Link href={`/portfolio/${project.id}`}
-                    className="block scale-[0.9] transition-transform hover:scale-[0.93] group animate-fade-in duration-1000">
+                    className="block scale-[0.9] transition-transform hover:scale-[0.93] group animate-fade-in duration-300">
                     <ProjectCard project={project} />
                   </Link>
                 )}

@@ -31,6 +31,7 @@ export interface ProjectStyling {
   backgroundSize?: string | number;
   backgroundColor: string;
   textColor: string;
+  descStyling?: string;
   fontFamily: string | NextFontWithVariable;
   backgroundImage?: string;
   borderColor?: string;
@@ -49,6 +50,7 @@ const defaultStyling: ProjectStyling = {
   fontFamily: 'var(--font-body)',
   borderColor: 'hsl(var(--border))',
   animationClass: 'group-hover:scale-105',
+  descStyling: '',
   className: '',
   badgeBackgroundColor: 'bg-white/20', 
   slideshowImages: [],
@@ -193,7 +195,7 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
     ],
   },
   'epicinium': {
-    backgroundColor: '#776256',
+    backgroundColor: '#7c6f68',
     textColor: '#E8F5E9',
     fontFamily: "'Jersey 15', monospace",
     backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23a5d6a7' fill-opacity='0.1' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E")`,
@@ -350,7 +352,7 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
     textColor: '#8B4513',
     fontFamily: "'Uncial Antiqua', serif",
     borderColor: '#D4AC79',
-    animationClass: 'group-hover:scale-105 group-hover:shadow-[0_0_30px_5px_rgba(255,165,0,0.5)]',
+    animationClass: 'group-hover:shadow-[0_0_30px_5px_rgba(255,165,0,0.5)]',
     backgroundImage: 'none',
     youtube: [
       'FbSoWeMh10Y'
@@ -406,6 +408,7 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
     borderColor: '#00FF00',
     animationClass: 'group-hover:animate-pulse',
     badgeBackgroundColor: 'bg-black/30',
+    descStyling: 'bg-black/50 p-3',
     youtube: [
       'vKlpqa8IdZk', 
       'pyeaaU-a7l8',
