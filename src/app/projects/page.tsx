@@ -108,7 +108,7 @@ export default function ProjectsPage() {
     : projects;
 
   if (loading) {
-    return <div className="flex items-center justify-center min-h-screen text-2xl font-headline">Unraveling realms...</div>;
+    return <div className="flex items-center justify-center min-h-screen text-2xl font-headline">UNRAVELING REALMS...</div>;
   }
 
   return (

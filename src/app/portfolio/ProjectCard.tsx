@@ -31,7 +31,7 @@ export function ProjectCard({ project }: { project : any }) {
     >
       <CardHeader>
           <div className="flex justify-between items-start">
-              <CardTitle className="text-2xl font-bold" 
+              <CardTitle className={cn('font-bold', styling.titleSize)}  
               style={{ color: styling.textColor }}>{project.title}
               </CardTitle>
 
