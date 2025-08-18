@@ -8,7 +8,6 @@ import { ArrowRight, Globe } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { getProjectStyling, skillColors } from '@/data/projects';
 import { Key } from 'react';
-// import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 
 export function ProjectCard({ project }: { project : any }) {
   const styling = getProjectStyling(project.id);
