@@ -10,7 +10,7 @@ import { db } from '@/lib/firebase';
 import { collection, getDocs, query, orderBy } from 'firebase/firestore';
 import { InView } from 'react-intersection-observer';
 import {
-  Carousel,
+ Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
@@ -169,15 +169,24 @@ export default function ProjectsPage() {
         ))}
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+ <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {filteredProjects.map((project) => (
-          <InView key={project.id} triggerOnce={true}>
-            {({ inView, ref }) => (
-              <div ref={ref}>
-                {inView && (
-                  <Link href={`/portfolio/${project.id}`}
-                    className="block scale-[0.9] transition-transform hover:scale-[0.93] group animate-fade-in duration-300">
-                    <ProjectCard project={project} />
+ <InView key={project.id} triggerOnce={true}>
+ {({ inView, ref }) => (
+ <div ref={ref} className={`transition-all duration-500 ease-in-out ${
+                  inView ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+ }`}>
+ {inView && (
+ <Link
+ href={`/portfolio/${project.id}`}
+ className="block group hover:scale-[0.98] transition-transform duration-300 ease-in-out"
+ >
+ <ProjectCard project={project} />
+ </Link>
+ )}
+ {!inView && (
+ <Link href={`/portfolio/${project.id}`} className="block invisible">
+ <ProjectCard project={project} /> {/* Render an invisible card to maintain layout */}
                   </Link>
                 )}
               </div>
