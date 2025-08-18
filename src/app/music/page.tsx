@@ -31,11 +31,11 @@ export default function MusicPage() {
     <div className="container mx-auto px-4 py-16 bg-background">
       <NavMenu />
       <header className="text-center my-12">
-        <h1 className="font-headline text-5xl font-bold tracking-tighter mb-4 shiny-text">
+        <h1 className="font-headline text-6xl font-bold tracking-tighter mb-4 shiny-text">
           MUSE
         </h1>
-        <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-          An auditory journey through constructed realities.
+        <p className="text-md text-muted-foreground/60 max-w-3xl mx-auto font-headline">
+          Be welcomed to the vast array of sonic journeys
         </p>
       </header>
 

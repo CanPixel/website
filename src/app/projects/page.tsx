@@ -108,16 +108,16 @@ export default function ProjectsPage() {
     <div className="container mx-auto px-4 py-16">
       <NavMenu/>
       <header className="text-center mb-12 mt-12">
-        <h1 className="font-headline text-5xl font-bold tracking-tighter mb-4 shiny-text">
+        <h1 className="font-headline text-6xl font-bold tracking-tighter mb-4 shiny-text">
           REALMS
         </h1>
-        <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-          A curated collection of worlds, each a distinct digital experience.
+        <p className="text-md text-muted-foreground/60 max-w-3xl mx-auto font-headline">
+          Discover realms, a curated collection of worlds, each a distinct digital experience.
         </p>
       </header>
 
       <div className="mb-12 flex justify-center">
-          <Carousel className="w-full max-w-sm"
+          <Carousel className="w-3/4 max-w-sm"
             opts={{
                 loop: true,
             }}
