@@ -140,7 +140,7 @@ export default function ProjectsPage() {
           </Carousel>
       </div>
 
-      <div className="flex flex-wrap justify-center gap-x-2 gap-y-1 mb-12">
+      <div className="flex flex-wrap justify-center gap-x-2 gap-y-1 mb-6">
         <Button
           variant={selectedCategory === null ? "default" : "outline"}
           onClick={() => setSelectedCategory(null)}
