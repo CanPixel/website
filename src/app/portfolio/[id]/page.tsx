@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { Project, /*skillColors, platformColors,*/ genreColors } from '@/data/projects';
+import { Project, /*skillColors, platformColors,*/ genreColors } from '../../../data/projects';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import NavMenu from "@/components/navigation";
@@ -44,7 +44,7 @@ export default function ProjectDetailPage({ project }: { project: Project | null
 
         <header className="text-center flex-grow">
           <h1 className={cn("font-headline text-5xl font-bold tracking-tighter mb-2 shiny-text", project.styling.textColor ? "" : "text-primary")}>{project.title}</h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-md text-muted-foreground/80 max-w-3xl mx-auto font-headline">
             {project.shortDescription}
           </p>
           {project.label && <Badge variant="outline" className="mt-4">{project.label}</Badge>}

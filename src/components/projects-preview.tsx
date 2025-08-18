@@ -14,7 +14,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Calendar, Globe } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { skillColors, genreColors } from "@/data/projects";
+import { skillColors, genreColors } from "../data/projects";
 import {
   Carousel,
   CarouselContent,

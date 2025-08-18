@@ -1,13 +1,31 @@
 import { db } from '@/lib/firebase';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { notFound } from 'next/navigation';
-import { Project, getProjectStyling } from '@/data/projects';
+import { Project, getProjectStyling } from '../../../data/projects';
 import ProjectDetailPage from './page';
 import type { Metadata, ResolvingMetadata } from 'next';
 
 const projectCuneiform: Record<string, string> = {
-  "avoid": "𒀯",
+  "avoid": "𒀭",
   "chivalry-chef": "𒈬",
+  'storm-chasers': "𒅆𒅖",
+  "bad-optics": "𒈗",
+  "scptheescape": "𒈙",
+  'orbital-resonance': "𒀯𒁓",
+  'ohmmylord': "𒉆",
+  'kookoo': "𒄷",
+  'epicinium': "𒆳",
+  'pixelthrive': "𒍣",
+  'anywalker': "𒋞",
+  'game-of-life': "𒍣",
+  'frisking-ruins': "𒄑𒆪",
+  'krautkill': "𒊺",
+  'pixelboi': "𒉺",
+  'pixelcan': "𒄞",
+  'biq': "𒂵",
+  'supercasanova': "𒀯",
+  'life-sentence': "𒌷",
+  'kernel-sweep': "𒅗"
 }
 
 export async function generateMetadata({ params }: { params: { id: string } }, parent: ResolvingMetadata): Promise<Metadata> {
@@ -22,7 +40,7 @@ export async function generateMetadata({ params }: { params: { id: string } }, p
     const cuneiformChar = projectCuneiform[projectData.id] || ' ';
     
     return {
-      title: `${cuneiformChar} ${projectData.title}`.trim(),
+      title: `${projectData.title} • ${cuneiformChar}`.trim(),
       description: projectData.shortDescription,
     }
   }

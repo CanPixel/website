@@ -3,7 +3,7 @@
 import { db } from '@/lib/firebase';
 import { collection, getDocs } from 'firebase/firestore';
 import { useState, useEffect } from 'react';
-import { Project } from '@/data/projects';
+import { Project } from '../../data/projects';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '../ui/card';
 import { Badge } from '../ui/badge';
 import { Button } from '../ui/button';

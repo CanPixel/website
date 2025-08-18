@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { db } from '@/lib/firebase';
 import { collection, getDocs } from 'firebase/firestore';
 import { ProjectCard } from './portfolio/ProjectCard';
-import { Project } from '@/data/projects';
+import { Project } from '../data/projects';
 import ProjectsPreview from "@/components/projects-preview";
 import NavMenu from "@/components/navigation";
 import { Button } from "@/components/ui/button";

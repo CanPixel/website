@@ -3,7 +3,7 @@
 import NavMenu from "@/components/navigation";
 import { useState, useEffect } from "react";
 import { ProjectCard } from '@/app/portfolio/ProjectCard';
-import { Project } from '@/data/projects';
+import { Project } from '../../data/projects';
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { db } from '@/lib/firebase';
@@ -42,7 +42,6 @@ import Image from "next/image";
 import Link from 'next/link';
 
 const allCategories = [
-  { name: "Adventure", icon: Map, animation: "group-hover:animate-float" },
   { name: "Battle Royale", icon: Shield, animation: "group-hover:animate-flash" },
   { name: "Bullet Hell", icon: Waves, animation: "group-hover:animate-ping-pong" },
   { name: "Shooter (FPS)", icon: Crosshair, animation: "group-hover:animate-recoil" },
@@ -169,24 +168,24 @@ export default function ProjectsPage() {
         ))}
       </div>
 
- <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+ <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         {filteredProjects.map((project) => (
  <InView key={project.id} triggerOnce={true}>
  {({ inView, ref }) => (
  <div ref={ref} className={`transition-all duration-500 ease-in-out ${
-                  inView ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+                  inView ? 'opacity-100 scale-[0.9]' : 'opacity-0 scale-[0.96]'
  }`}>
  {inView && (
  <Link
  href={`/portfolio/${project.id}`}
- className="block group hover:scale-[0.98] transition-transform duration-300 ease-in-out"
+ className="block group hover:scale-[1.025] transition-transform duration-300 ease-in-out"
  >
  <ProjectCard project={project} />
  </Link>
  )}
  {!inView && (
  <Link href={`/portfolio/${project.id}`} className="block invisible">
- <ProjectCard project={project} /> {/* Render an invisible card to maintain layout */}
+ <ProjectCard project={project} />
                   </Link>
                 )}
               </div>

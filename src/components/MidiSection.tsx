@@ -5,7 +5,7 @@ import MidiWidget from "@/components/midi-widget";
 import { useState, useEffect } from 'react';
 import { db } from '@/lib/firebase';
 import { collection, query, where, getDocs } from 'firebase/firestore';
-import { Project } from '@/data/projects';
+import { Project } from '../data/projects';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { ScrollArea } from "@/components/ui/scroll-area";
