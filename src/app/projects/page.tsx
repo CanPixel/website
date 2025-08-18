@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { db } from '@/lib/firebase';
 import { collection, getDocs, query, orderBy } from 'firebase/firestore';
+import { InView } from 'react-intersection-observer';
 import {
   Carousel,
   CarouselContent,
@@ -75,6 +76,7 @@ const carouselItems = [
 
 export default function ProjectsPage() {
   const [projects, setProjects] = useState<Project[]>([]);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     const fetchProjects = async () => {
       const projectsCollection = collection(db, 'portfolioItems');
@@ -94,6 +96,7 @@ export default function ProjectsPage() {
         };
       });
       setProjects(projectList);
+      setLoading(false);
     };
     fetchProjects();
   }, []);
@@ -103,6 +106,10 @@ export default function ProjectsPage() {
         project.properties?.genre?.includes(selectedCategory)
       )
     : projects;
+
+  if (loading) {
+    return <div className="flex items-center justify-center min-h-screen text-2xl font-headline">Unraveling realms...</div>;
+  }
 
   return (
     <div className="container mx-auto px-4 py-16">
@@ -164,10 +171,18 @@ export default function ProjectsPage() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
         {filteredProjects.map((project) => (
-          <Link key={project.id} href={`/portfolio/${project.id}`} 
-          className="block scale-[0.9] transition-transform hover:scale-[0.93] group">
-            <ProjectCard project={project} />
-          </Link>
+          <InView key={project.id} triggerOnce={true}>
+            {({ inView, ref }) => (
+              <div ref={ref}>
+                {inView && (
+                  <Link href={`/portfolio/${project.id}`}
+                    className="block scale-[0.9] transition-transform hover:scale-[0.93] group animate-fade-in duration-1000">
+                    <ProjectCard project={project} />
+                  </Link>
+                )}
+              </div>
+            )}
+          </InView>
         ))}
       </div>
     </div>    
