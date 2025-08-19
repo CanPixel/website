@@ -277,7 +277,7 @@ export default function ProjectDetailPage({ project }: { project: Project | null
 
                 {/* <PDFViewer pdfUrl={"/" + project.styling.document}/> */}
 
-                <object data={"/" + project.styling.document} width='100%' height='700px'></object>
+                <object data={"/" + project.styling.document} width='100%' height='400px'></object>
 
               </div>
             </Card>
@@ -298,15 +298,23 @@ export default function ProjectDetailPage({ project }: { project: Project | null
                   <table className="w-full table-sm border-collapse">
                     <thead>
                       <tr>
-                        <th className="border-b border-accent/30 px-4 py-2 text-left text-sm font-semibold text-accent">Key</th>
-                        <th className="border-b border-accent/30 px-4 py-2 text-left text-sm font-semibold text-accent">Action</th>
+                        <th className={cn('border-b border-accent/30 px-4 py-2 text-left text-sm font-semibold', 
+                        project.styling.borderColor
+                        )}>Key</th>
+                        <th className={cn('border-b border-accent/30 px-4 py-2 text-left text-sm font-semibold', 
+                        project.styling.borderColor
+                        )}>Action</th>
                       </tr>
                     </thead>
                     <tbody>
                       {project.styling.controls.map((control, index) => (
                         <tr key={index}>
-                          <td className="border-b border-gray-700/50 px-4 py-2 text-foreground/80 font-mono text-sm">{control.key}</td>
-                          <td className="border-b border-gray-700/50 px-4 py-2 text-foreground/80 text-sm">{control.desc}</td>
+                          <td className={cn('border-b border-gray-700/50 px-4 py-2 font-mono text-sm', 
+                          project.styling.textColor
+                          )}>{control.key}</td>
+                          <td className={cn('border-b border-gray-700/50 px-4 py-2 text-sm', 
+                          project.styling.textColor
+                          )}>{control.desc}</td>
                         </tr>
                       ))}
                     </tbody>

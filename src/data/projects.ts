@@ -186,6 +186,11 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
       'OhmMyLord (5).jpg',
       'OML_BehaviorTree.png'
     ],
+    controls: [
+      { key: 'W A S D', desc: 'Move'},
+      { key: 'Mouse Move', desc: 'Aim Reticle Around'},
+      { key: 'Mouse (LMB)', desc: 'Shoot Electric Bolt'},
+    ],
   },
   'kookoo': {
     backgroundColor: '#D2B48C',
@@ -194,7 +199,7 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
     backgroundImage: `repeating-linear-gradient(90deg, rgba(0,0,0,0.05), rgba(0,0,0,0.05) 2px, transparent 2px, transparent 80px)`,
     backgroundSize: '80px 100%',
     borderColor: '#8B4513',
-    banner: 'images/kookoologo.png',
+    banner: 'images/KooKooBanner.png',
     animationClass: 'group-hover:shadow-[0_8px_16px_rgba(0,0,0,0.3)]',
     youtube: [
       'oqLfHiy_xAY'
@@ -286,7 +291,7 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
     fontFamily: "'Ribeye', monospace",
     backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='6' height='6' viewBox='0 0 6 6'%3E%3Cg fill='%239C92AC' fill-opacity='0.1'%3E%3Cpath fill-rule='evenodd' d='M0 0h2v2H0V0zm2 2h2v2H2V2zm2 2h2v2H4V4zm2-2h2v2H6V2z'/%3E%3C/g%3E%3C/svg%3E")`,
     borderColor: '#555555',
-    banner: '/images/FRBanner.png',
+    banner: 'images/FRBanner.png',
     animationClass: 'group-hover:shadow-[0_0_10px_rgba(255,255,255,0.2)]',
     youtube: [
       '7GolsRuCwL0'
@@ -301,7 +306,15 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
     videos: [
       'images/FriskingRuins2.webm'
     ],
-    document: 'pdf/FriskingRuins.pdf'
+    document: 'pdf/FriskingRuins.pdf',
+    controls: [
+      { key: 'W A S D', desc: 'Move'},
+      { key: 'Space', desc: 'Use Item / Action'},
+      { key: 'L Shift', desc: 'Pickup Item'},
+      { key: 'R Shift', desc: 'Drop Item'},
+      { key: '1 2 3 4', desc: 'Crafting Inventory slots 1-4'},
+      { key: 'Q & E', desc: 'Switch Inventory Slot'},
+    ],
   },
   'krautkill': {
     backgroundColor: '#F5F5DC',
@@ -384,6 +397,10 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
       'SCN (3).jpg',
       'supercasanova.p8.png'
     ],
+    controls: [
+      { key: '↑ → ↓ ←', desc: 'Move'},
+      { key: 'X', desc: 'Interact'},
+    ],
   },
   'chivalry-chef':
   {
@@ -416,7 +433,15 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
       '135YuMwmBuk',
       '0bFUDDI3xU4'
     ],
-    document: 'pdf/Life Sentence.pdf'
+    document: 'pdf/Life Sentence.pdf',
+    controls: [
+      { key: 'A // D', desc: 'Move'},
+      { key: 'A + D', desc: 'Paper-Hide'},
+      { key: 'Q // E (Hold)', desc: 'Lean / Look'},
+      { key: '← & →', desc: 'Switch Perspective'},
+      { key: 'S', desc: 'Zoom Out'},
+      { key: 'Space', desc: 'Interact'},
+    ],
   },
   'bad-optics':
   {
