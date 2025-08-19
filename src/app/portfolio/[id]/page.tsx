@@ -10,8 +10,6 @@ import { Github, Calendar, Globe, ArrowLeft, Youtube, FileSearch, Download } fro
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { ImageSlideshow } from '@/components/ImageSlideshow';
-import DOMPurify from 'dompurify';
-// import { PDFViewer } from '@/components/PDFViewer';
 import {
   Carousel,
   CarouselContent,
@@ -19,6 +17,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
+// import { PDFViewer } from '@/components/PDFViewer';
 
 const SteamIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" {...props}>
@@ -40,8 +39,7 @@ export default function ProjectDetailPage({ project }: { project: Project | null
     `text-${statusColor}`
   );
 
-  const technicalDesc = project.technicalDesc ? 
-  DOMPurify.sanitize(project.technicalDesc, { RETURN_TRUSTED_TYPE: false }) as string : '';
+  const technicalDesc = project.technicalDesc ? project.technicalDesc : ''; 
 
   return (
     <div className="container mx-auto mt-4 px-4 py-16">
