@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Badge } from '@/components/ui/badge';
 import NavMenu from "@/components/navigation";
 import { Button } from '@/components/ui/button';
-import { Github, Calendar, Globe, ArrowLeft, Youtube, FileSearch } from 'lucide-react';
+import { Github, Calendar, Globe, ArrowLeft, Youtube, FileSearch, Download } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { ImageSlideshow } from '@/components/ImageSlideshow';
@@ -31,9 +31,10 @@ export default function ProjectDetailPage({ project }: { project: Project | null
     return null;
   }
 
-  const statusColor = project.status ? projectStatusColors[project.status] : 'white';
+  const statusColor = project.status ? projectStatusColors[project.status] : 'bg-white';
   const statusClasses = cn(
-    'p-2 px-3 whitespace-nowrap flex-shrink-0',
+    'p-2 px-3 whitespace-nowrap flex-shrink-0 text-[16px] mb-0',
+    'border',
     `border-${statusColor}`,
     `bg-${statusColor}`,
     `text-${statusColor}`
@@ -126,62 +127,77 @@ export default function ProjectDetailPage({ project }: { project: Project | null
             <pre className="text-sm">
             {project.technicalDesc ? (
               <div dangerouslySetInnerHTML={{ __html: technicalDesc }}></div>
-            ) : (<><p>
-    The game was developed in Unity, leveraging C# for all gameplay logic, AI behavior, and system management. One of the core technical challenges was creating an efficient procedural generation system for the galaxy map. I used a combination of Perlin noise for star distribution and a custom algorithm to ensure playable paths and interesting clusters of systems. This allows for a unique galaxy in every playthrough, greatly enhancing replayability.
-</p>
-<p>
-    For the real-time combat, I implemented a component-based ship system, allowing for easy customization of weapons, shields, and engines. The UI was built using Unity's UGUI system, with a focus on creating a clean, readable interface that evokes classic sci-fi tropes while remaining modern and intuitive.
-</p></>)}
-            </pre>
-          </div>
+            ) : (<>
+    The game was developed in Unity, leveraging C# for all gameplay logic, AI behavior, and system management.<br></br>
+    One of the core technical challenges was creating an efficient procedural generation system for the galaxy map. 
+    <br></br>I used a combination of Perlin noise for star distribution and a custom algorithm to ensure<br></br> 
+    playable paths and interesting clusters of systems. This allows for a unique galaxy in every playthrough,<br></br> 
+    greatly enhancing replayability.
+    <br></br><br></br>
+    For the real-time combat, I implemented a component-based ship system, <br></br>
+    allowing for
+    easy customization of weapons, shields, and engines. <br></br>
+    The UI was built using Unity's UGUI system, with a focus on creating a clean, readable interface that evokes<br></br> 
+    classic sci-fi tropes while remaining modern and intuitive.
+</>)}
+          </pre>
+        </div>
 
-          {project.properties?.steamUrl && (
-            <div className="mt-8">
-              <iframe src={project.properties.steamUrl} width="100%" height="190"></iframe>
-            </div>
-          )}
+        {project.properties?.steamUrl && (
+          <div className="mt-8">
+            <iframe src={project.properties.steamUrl} width="100%" height="190"></iframe>
+          </div>
+        )}
         </div>
 
         <aside className='md:col-span-1 space-y-8'>
-            <Card style={{
-                backgroundColor: project.styling.backgroundColor,
-                color: project.styling.textColor,
-                borderColor: project.styling.borderColor,
-                fontFamily: project.styling.fontFamily,
-            }} className="border-2">
-                <CardHeader>
-                    <CardTitle>About this Realm</CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <CardDescription style={{
-                        color: project.styling.textColor, opacity: 0.9 }
-                        }>
-                        {project.description}
-                    </CardDescription> 
-                </CardContent>
-            </Card>
-             <Card style={{
-                backgroundColor: project.styling.backgroundColor,
-                color: project.styling.textColor,
-                borderColor: project.styling.borderColor,
-                fontFamily: project.styling.fontFamily,
-            }} className="border-2 p-6">
-              <h3 className="text-2xl font-bold mb-4">Tech Stack</h3>
-              <div className="flex flex-wrap gap-2">
-                {project.properties?.skills?.map((tech : string) => (
-                  <Badge key={tech} className="bg-black text-accent border-accent/30">{tech}</Badge>
-                ))}
-              </div>
-            </Card>
+          <Card style={{
+              backgroundColor: project.styling.backgroundColor,
+              color: project.styling.textColor,
+              borderColor: project.styling.borderColor,
+              fontFamily: project.styling.fontFamily,
+          }} className="border-2">
+              <CardHeader className='flex justify-between items-center'>
+                <CardTitle>About this Realm</CardTitle>
+                <span className={cn('text-2xl font-bold mb-4 text-right', project.styling.textColor)}> 𒆠</span>
+              </CardHeader>
+              <CardContent>
+                  <CardDescription style={{
+                      color: project.styling.textColor, opacity: 0.9 }
+                      }>
+                      {project.description}
+                  </CardDescription> 
+              </CardContent>
+          </Card>
+          <Card style={{
+            backgroundColor: project.styling.backgroundColor,
+            color: project.styling.textColor,
+            borderColor: project.styling.borderColor,
+            fontFamily: project.styling.fontFamily,
+          }} className="border-2 p-6">
+            <div className='flex justify-between items-center'>
+              <span className="text-2xl font-bold mb-4">Tech Stack</span>
+              <span className={cn('text-2xl font-bold mb-4 text-right', project.styling.textColor)}> 𒌄</span>
+            </div>
+
+            <div className="flex flex-wrap gap-2">
+              {project.properties?.skills?.map((tech : string) => (
+                <Badge key={tech} className="bg-black text-accent border-accent/30">{tech}</Badge>
+              ))}
+            </div>
+          </Card>
             
-  {project.properties?.platforms && project.properties.platforms.length > 0 && (
+          {project.properties?.platforms && project.properties.platforms.length > 0 && (
             <Card style={{
               backgroundColor: project.styling.backgroundColor,
               color: project.styling.textColor,
               borderColor: project.styling.borderColor,
               fontFamily: project.styling.fontFamily,
           }} className="border-2 p-6">
-                <h3 className="text-2xl font-bold mb-4">Platforms</h3>
+                <div className='flex justify-between items-center'>
+                  <span className="text-2xl font-bold mb-4">Platforms</span>
+                  <span className={cn('text-2xl font-bold mb-4 text-right', project.styling.textColor)}> 𒆠𒃲</span>
+                </div>
                 <div className="flex flex-wrap gap-2">
                 {project.properties.platforms.map((platform: string) => (
                     <Badge key={platform} className="bg-black text-accent border-accent/30">
@@ -210,20 +226,29 @@ export default function ProjectDetailPage({ project }: { project: Project | null
                     </Button>
                   )}
                   {project.releaseType !== 'steam' && project.url && (
-                      <Button asChild className="w-full bg-gray-300/50 text-secondary-foreground hover:bg-gray-100/60">
-                          <Link href={project.url} target="_blank" rel="noopener noreferrer">
-                              <Globe className="mr-2 h-4 w-4" />
-                              Live Demo
-                          </Link>
+                    project.url.toLowerCase().endsWith('.zip') || project.url.toLowerCase().endsWith('.jar') ? (
+                      <Button asChild className="w-full bg-green-600 hover:bg-green-700 text-white">
+                        <a href={project.url} download>
+                            <Download className="mr-2 h-4 w-4" />
+                            Download {project.url.substring(project.url.lastIndexOf('/') + 1)}
+                        </a>
                       </Button>
-                  )}
+                  ) : (
+                    <Button asChild className="w-full bg-gray-300/50 text-secondary-foreground hover:bg-gray-100/60">
+                        <Link href={project.url} target="_blank" rel="noopener noreferrer">
+                            <Globe className="mr-2 h-4 w-4" />
+                            Live Demo
+                        </Link>
+                    </Button>
+                  ))}
+
                   {project.properties?.repoLink && (
-                      <Button asChild variant="outline" className="w-full text-foreground hover:bg-accent hover:text-accent-foreground">
-                          <Link href={project.properties.repoLink} target="_blank" rel="noopener noreferrer">
-                              <Github className="mr-2 h-4 w-4" />
-                              Source Code
-                          </Link>
-                      </Button>
+                    <Button asChild variant="outline" className="w-full text-foreground hover:bg-accent hover:text-accent-foreground">
+                        <Link href={project.properties.repoLink} target="_blank" rel="noopener noreferrer">
+                            <Github className="mr-2 h-4 w-4" />
+                            Source Code
+                        </Link>
+                    </Button>
                   )}
               </div>
             </Card>
@@ -236,54 +261,70 @@ export default function ProjectDetailPage({ project }: { project: Project | null
               borderColor: project.styling.borderColor,
               fontFamily: project.styling.fontFamily,
           }} className="border-2 p-6">
-              <h3 className="text-2xl font-bold mb-4">Documents</h3>
+              <div className='flex justify-between items-center'>
+                <span className="text-2xl font-bold mb-4">Documents</span>
+                <span className={cn('text-2xl font-bold mb-4 text-right', project.styling.textColor)}> 𒁾</span>
+              </div>
+
               <div className="space-y-4">
                 <Button asChild className="w-full bg-[#2c435a] hover:bg-[#436389] text-white">
                     <Link href={"/" + project.styling.document} 
                     target="_blank" rel="noopener noreferrer">
-                        {project.styling.document.replace(/\//g, '').replaceAll('pdf', '').replaceAll('.', '')}
+                        {project.styling.document.substring(project.styling.document.lastIndexOf('/') + 1)}
                         <FileSearch className="mr-2 h-5 w-5" />
                     </Link>
                 </Button>
 
                 {/* <PDFViewer pdfUrl={"/" + project.styling.document}/> */}
 
+                <object data={"/" + project.styling.document} width='100%' height='700px'></object>
+
               </div>
             </Card>
           )}
 
-        {project.styling.controls && project.styling.controls.length > 0 && (
-          <Card style={{
-              backgroundColor: project.styling.backgroundColor,
-              color: project.styling.textColor,
-              borderColor: project.styling.borderColor,
-              fontFamily: project.styling.fontFamily,
-          }} className="border-2">
+          {project.styling.controls && project.styling.controls.length > 0 && (
+            <Card style={{
+                backgroundColor: project.styling.backgroundColor,
+                color: project.styling.textColor,
+                borderColor: project.styling.borderColor,
+                fontFamily: project.styling.fontFamily,
+            }} className="border-2">
               <CardHeader>
-                  <CardTitle>Controls</CardTitle>
+                <CardTitle>Controls</CardTitle>
               </CardHeader>
               <CardContent>
-                  {/* <CardDescription style={{
-                      color: project.styling.textColor, opacity: 0.9 }
-                      }>
-                  </CardDescription>  */}
-                    {project.styling.controls.map((control, index) => (
-                      <div key={index} className="flex items-center">
-                        <Badge variant="secondary" className="mr-2 flex-shrink-0">
-                          {control.key}
-                        </Badge>
-                        <span style={{ color: project.styling.textColor }}>{control.description}</span>
-                      </div>
-                    ))}
+                <div className="overflow-x-auto">
+                  <table className="w-full table-sm border-collapse">
+                    <thead>
+                      <tr>
+                        <th className="border-b border-accent/30 px-4 py-2 text-left text-sm font-semibold text-accent">Key</th>
+                        <th className="border-b border-accent/30 px-4 py-2 text-left text-sm font-semibold text-accent">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {project.styling.controls.map((control, index) => (
+                        <tr key={index}>
+                          <td className="border-b border-gray-700/50 px-4 py-2 text-foreground/80 font-mono text-sm">{control.key}</td>
+                          <td className="border-b border-gray-700/50 px-4 py-2 text-foreground/80 text-sm">{control.desc}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
               </CardContent>
-          </Card>
-        )}
+            </Card>
+          )}
         </aside>
     </div>
 
     {project.styling.slideshowImages && project.styling.slideshowImages.length > 0 && (
       <div className="mt-16">
-        <h3 className="font-headline text-3xl font-bold mb-4 text-accent text-center">Gallery</h3>
+        <div className='flex justify-between items-center'>
+          <span className={cn('text-2xl font-bold mb-4 text-gold-100/70', project.styling.textColor)}>𒀩</span>
+          <span className="font-headline text-3xl font-bold mb-4 text-accent text-center">Gallery</span>
+          <span className={cn('text-2xl font-bold mb-4 text-gold-100/70', project.styling.textColor)}>𒀩</span>
+        </div>
         <div className="relative">
           <ImageSlideshow images={project.styling.slideshowImages}/>
         </div>

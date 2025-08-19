@@ -2,6 +2,37 @@
 import type {Config} from 'tailwindcss';
 
 export default {
+  safelist: [
+    "bg-red-500",
+    "bg-blue-500",
+    "bg-gray-700",
+    "bg-green-500",
+    "bg-purple-600",
+    "bg-pink-500",
+    "bg-orange-500",
+    "bg-yellow-200",
+    "bg-teal-500",
+    "bg-cyan-500",
+    "bg-lime-500",
+    "bg-indigo-500",
+    "bg-gold-500",
+    "bg-emerald-600",
+    "bg-rose-700",
+    "bg-violet-500",
+    "bg-fuchsia-500",
+    "bg-sky-500",
+    "bg-gray-500",
+    {
+      pattern: /bg-(red|blue|green|yellow|orange|purple|pink|teal|cyan|lime|indigo|violet|fuchsia|sky|neutral|gray|emerald|rose|brown)-(100|200|300|400|500|600|700|800|900)/,
+    },
+     {
+      pattern: /border-(red|blue|green|yellow|orange|purple|pink|teal|cyan|lime|indigo|violet|fuchsia|sky|neutral|gray|emerald|rose|brown)-(100|200|300|400|500|600|700|800|900)/,
+    },
+     {
+      pattern: /text-(red|blue|green|yellow|orange|purple|pink|teal|cyan|lime|indigo|violet|fuchsia|sky|neutral|gray|emerald|rose|brown)-(100|200|300|400|500|600|700|800|900)/,
+    },
+    // Add patterns for other utility types if needed (e.g., text-colors, border-colors)
+  ],
   darkMode: ['class'],
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',

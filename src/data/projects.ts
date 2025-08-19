@@ -243,7 +243,17 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
     animationClass: 'group-hover:shadow-[0_0_15px_rgba(129,199,132,0.5)]',
     youtube: [
       'kr1d5OmIp70'
-    ]
+    ],
+    controls: [
+      { key: 'A // D', desc: 'Move'},
+      { key: 'W // Space', desc: 'Jump'},
+      { key: 'Mouse (LMB)', desc: 'Destroy Block'},
+      { key: 'E', desc: 'Inventory'},
+      { key: 'Enter', desc: 'Open Chat'},
+      { key: '/', desc: 'Type Command'},
+      { key: 'C', desc: 'See Available Commands/Cheats'},
+      { key: 'L', desc: 'Toggle Experience Upgrades Display'},
+    ],
   },
   'anywalker': {
     backgroundColor: '#343434',
@@ -320,9 +330,9 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
       'pixelBoi_6.jpg'
     ],
     youtube: [
-      'sNvqvC2xqk'
+      '-sNvqvC2xqk'
     ],
-    document: 'pdf/UrCan_ITTT_Logboek.pdf'
+    document: 'pdf/PixelBoi_DevLog.pdf'
   },
   'pixelcan': {
     backgroundColor: '#87CEEB',
@@ -333,7 +343,11 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
     slideshowImages: [
       'PixelCan.jpg', 'image1.jpg'
     ],
-    videos: ['videos/PixelCanDevLog.mp4']
+    videos: ['videos/PixelCanDevLog.mp4'],
+    controls: [
+      { key: 'A & D // ← & →', desc: 'Move'},
+      { key: 'W // Space // ↑', desc: 'Jump'},
+    ],
   },
   'biq': {
     backgroundColor: '#4a4a4a',
@@ -344,6 +358,13 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
     borderColor: '#696969',
     slideshowImages: [
       'biq1.jpg', 'biq2.jpg', 'biq3.jpg', 'biq4.jpg'
+    ],
+    controls: [
+      { key: 'A // D', desc: 'Move'},
+      { key: 'W // Space', desc: 'Jump'},
+      { key: '← // →', desc: 'Dive (Mid-Air)'},
+      { key: 'E', desc: 'Interact / Place Bomb'},
+      { key: 'P', desc: 'Detonate Bomb(s)'},
     ],
   },
   'supercasanova': {
@@ -446,13 +467,23 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
       'kernel_sweep/kernel (1).jpg', 
       'kernel_sweep/kernel (3).jpg'
     ],
-    document: 'kernel_sweep/kernelSweepDoc.pdf'
+    document: 'pdf/kernelSweepDoc.pdf',
+    controls: [
+      { key: 'W A S D', desc: 'Move'},
+      { key: 'Space', desc: 'Jump'},
+      { key: 'L Shift (Hold)', desc: 'Run'},
+      { key: 'L CTRL (Hold)', desc: 'Duck / Crouch'},
+      { key: 'E (Hold)', desc: 'Bullet Count'},
+      { key: 'Mouse (RMB)', desc: 'Aim Gun'},
+      { key: 'Mouse (LMB)', desc: 'Shoot Gun'},
+      { key: 'R', desc: 'Reload Gun'},
+    ],
   },
 };
 
 export const projectStatusColors: { [key: string]: string } = {
   "In Development": "bg-yellow-500",
-  "Released": "green-500",
+  "Released": "bg-green-500",
   "Released (Steam)": "bg-green-500",
   "Halted": "bg-orange-500",
   "Discontinued": "bg-red-500",
@@ -496,14 +527,14 @@ export const genreColors: { [key: string]: string } = {
   "Platformer": "bg-lime-500",
   "Roguelike": "bg-indigo-500",
   "Stealth": "bg-gray-700",
-  "Survival": "bg-brown-500",
+  "Survival": "bg-gold-500",
   "Collect-A-Thon": "bg-emerald-600",
   "Strategy": "bg-rose-700",
   "Audio": "bg-violet-500",
   "Handheld": "bg-fuchsia-500",
   "Interactive Installation": "bg-sky-500",
   "Unity Tool": "bg-red-700",
-  "Misc": "bg-neutral-500"
+  "Misc": "bg-gray-500"
 };
 
 export const platformColors: { [key: string]: string } = {
