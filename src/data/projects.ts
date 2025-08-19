@@ -141,6 +141,19 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
       'storm4.gif',
       'storm5.gif',
     ],
+    controls: [
+      { key: 'Left Analog Stick', desc: 'Steering'},
+      { key: 'Right Analog Stick', desc: 'Look around'},
+      { key: 'B (Hold)', desc: 'Boost'},
+      { key: 'A', desc: 'Jump (yes it\'s a jumping car)'},
+      { key: 'Y', desc: 'Switch Artistic Filters'},
+      { key: 'Left Bumper (Hold)', desc: 'Enter Camera Mode'},
+      { key: 'Right Bumper', desc: 'Take Picture'},
+      { key: 'Left Trigger', desc: 'Brake'},
+      { key: 'Right Trigger', desc: 'Gas'},
+      { key: 'D-pad Up & Down (Hold)', desc: '(In Camera Mode) Tune the Focus of image / Depth of Field'},
+      { key: 'R3 (Right Analog Stick Hold)', desc: 'Rear View of Car'},
+    ],
   },
   'orbital-resonance': {
     backgroundColor: '#ffffff',
@@ -416,7 +429,15 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
     videos: [
       'videos/ChivChefGameplay.mp4',
       'videos/ChivChefWalk.mp4'
-    ]
+    ],
+    controls: [
+      { key: 'W A S D', desc: 'Move'},
+      { key: 'Space', desc: 'Jump'},
+      { key: 'L Shift (Hold)', desc: 'Sprint'},
+      { key: 'Mouse (LMB)', desc: 'Slash! (Quick attack)'},
+      { key: 'Mouse Swipe (Hold & Flick)', desc: 'Directional Swing! (Heavy attack)'},
+      { key: 'Q', desc: 'Inventory'},
+    ],
   },
   'life-sentence':
   {
@@ -461,6 +482,14 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
     slideshowImages: [
       'BOgame.gif', 
       'BO.jpg',
+    ],
+    controls: [
+      { key: 'A', desc: 'Answer Agree'},
+      { key: 'S // Space', desc: 'Answer Meh'},
+      { key: 'D', desc: 'Answer Disagree'},
+      { key: 'X', desc: 'Close any open window'},
+      { key: 'V // Z', desc: 'View Toggle / Change View'},
+      { key: 'I', desc: 'Open IdeologyDex'},
     ],
   },
   'kernel-sweep':
