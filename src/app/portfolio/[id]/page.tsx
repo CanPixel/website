@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { Project, /*skillColors, platformColors,*/ genreColors } from '../../../data/projects';
+import { Project, genreColors, projectStatusColors } from '../../../data/projects';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import NavMenu from "@/components/navigation";
@@ -10,6 +10,7 @@ import { Github, Calendar, Globe, ArrowLeft, Youtube, FileSearch } from 'lucide-
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { ImageSlideshow } from '@/components/ImageSlideshow';
+import DOMPurify from 'dompurify';
 // import { PDFViewer } from '@/components/PDFViewer';
 import {
   Carousel,
@@ -29,13 +30,24 @@ export default function ProjectDetailPage({ project }: { project: Project | null
   if (project === undefined || project === null) {
     return null;
   }
-  
+
+  const statusColor = project.status ? projectStatusColors[project.status] : 'white';
+  const statusClasses = cn(
+    'p-2 px-3 whitespace-nowrap flex-shrink-0',
+    `border-${statusColor}`,
+    `bg-${statusColor}`,
+    `text-${statusColor}`
+  );
+
+  const technicalDesc = project.technicalDesc ? 
+  DOMPurify.sanitize(project.technicalDesc, { RETURN_TRUSTED_TYPE: false }) as string : '';
+
   return (
-    <div className="container mx-auto px-4 py-16">
+    <div className="container mx-auto mt-4 px-4 py-16">
       <NavMenu/>
       
       <div className="flex items-center justify-between gap-8 mt-8">
-        <Button asChild variant="link" className="p-0 h-auto text-accent group-hover:underline flex-shrink-0 relative">
+        <Button asChild variant="link" className="p-0 h-auto text-accent group-hover:underline flex-shrink-0 relative hover:scale-[1.1] hover:text-gold-600 transition-transform">
           <Link href="/projects">
             <ArrowLeft className="mr-2 h-4 w-4" />
             Realms
@@ -43,7 +55,7 @@ export default function ProjectDetailPage({ project }: { project: Project | null
         </Button>
 
         <header className="text-center flex-grow">
-          <h1 className={cn("font-headline text-5xl font-bold tracking-tighter mb-2 shiny-text", project.styling.textColor ? "" : "text-primary")}>{project.title}</h1>
+          <h1 className={cn("font-headline text-6xl font-bold tracking-tighter mb-2 shiny-text", project.styling.textColor ? "" : "text-primary")}>{project.title}</h1>
           <p className="text-md text-muted-foreground/80 max-w-3xl mx-auto font-headline">
             {project.shortDescription}
           </p>
@@ -62,25 +74,42 @@ export default function ProjectDetailPage({ project }: { project: Project | null
           className={cn("p-2 px-3 whitespace-nowrap flex-shrink-0", project.styling.badgeBackgroundColor)}
           style={{
             borderColor: project.styling.borderColor,
-            color: 'bg-white',
-          }}
-          >
+          }}>
             <Calendar className='me-2'/>
             {project.releaseDate ?? 'Coming Soon'}
         </Badge>
       </div>
       
+      <Badge
+        variant="outline"
+        className={statusClasses}>
+          {project.status}
+      </Badge>
+      
+      { project.motto ? 
+      (<Card style={{
+                color: project.styling.textColor,
+                fontFamily: project.styling.fontFamily,
+            }} className="border-none p-0 mb-0 mt-3">
+                    <CardDescription 
+                    className='text-[16px] text-gray-300 text-center my-0 p-0'
+                    >
+                        "{project.motto}"
+                    </CardDescription> 
+            </Card>) : <></>
+      }
+
       {project.styling.banner ? ( 
-        <div className="w-[70%] mx-auto relative w-full overflow-hidden mt-4 border border-2 shadow-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl" 
+        <div className="w-[70%] mx-auto relative w-full overflow-hidden mt-4 border border-2 shadow-lg transition-all duration-300 hover:shadow-2xl" 
         style={{borderColor: project.styling.borderColor, boxShadow: `0 10px 25px -5px ${project.styling.borderColor}30, 0 8px 10px -6px ${project.styling.borderColor}20`}}>
-          <Image src={project.styling.banner} alt="Banner" 
+          <Image src={'/' + project.styling.banner} alt="Banner" 
           width={1920} height={1080} layout="responsive" objectFit="cover" />
         </div>
       ) : <></>}
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-12">
         <div className='md:col-span-2'>
-          <Card className='overflow-hidden border-2 shadow-lg rounded-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl' style={{borderColor: project.styling.borderColor, boxShadow: `0 10px 25px -5px ${project.styling.borderColor}30, 0 8px 10px -6px ${project.styling.borderColor}20`}}>
+          <Card className='overflow-hidden border-2 shadow-lg rounded-lg transition-all duration-300 hover:shadow-2xl' style={{borderColor: project.styling.borderColor, boxShadow: `0 10px 25px -5px ${project.styling.borderColor}30, 0 8px 10px -6px ${project.styling.borderColor}20`}}>
             <div className="relative aspect-video w-full"> 
               <Image 
                 src={"/images/" + project.thumbnailUrl}
@@ -93,14 +122,17 @@ export default function ProjectDetailPage({ project }: { project: Project | null
 
           <div className="prose prose-lg dark:prose-invert max-w-none text-foreground/90 mt-8 space-y-6">
             <h3 className="font-headline text-2xl font-bold mb-4 text-accent">Technical Details</h3>
-            <span className="text-1xl">
-            <p>
-                The game was developed in Unity, leveraging C# for all gameplay logic, AI behavior, and system management. One of the core technical challenges was creating an efficient procedural generation system for the galaxy map. I used a combination of Perlin noise for star distribution and a custom algorithm to ensure playable paths and interesting clusters of systems. This allows for a unique galaxy in every playthrough, greatly enhancing replayability.
-            </p>
-            <p>
-                For the real-time combat, I implemented a component-based ship system, allowing for easy customization of weapons, shields, and engines. The UI was built using Unity's UGUI system, with a focus on creating a clean, readable interface that evokes classic sci-fi tropes while remaining modern and intuitive.
-            </p>
-            </span>
+            
+            <pre className="text-sm">
+            {project.technicalDesc ? (
+              <div dangerouslySetInnerHTML={{ __html: technicalDesc }}></div>
+            ) : (<><p>
+    The game was developed in Unity, leveraging C# for all gameplay logic, AI behavior, and system management. One of the core technical challenges was creating an efficient procedural generation system for the galaxy map. I used a combination of Perlin noise for star distribution and a custom algorithm to ensure playable paths and interesting clusters of systems. This allows for a unique galaxy in every playthrough, greatly enhancing replayability.
+</p>
+<p>
+    For the real-time combat, I implemented a component-based ship system, allowing for easy customization of weapons, shields, and engines. The UI was built using Unity's UGUI system, with a focus on creating a clean, readable interface that evokes classic sci-fi tropes while remaining modern and intuitive.
+</p></>)}
+            </pre>
           </div>
 
           {project.properties?.steamUrl && (
@@ -219,6 +251,33 @@ export default function ProjectDetailPage({ project }: { project: Project | null
               </div>
             </Card>
           )}
+
+        {project.styling.controls && project.styling.controls.length > 0 && (
+          <Card style={{
+              backgroundColor: project.styling.backgroundColor,
+              color: project.styling.textColor,
+              borderColor: project.styling.borderColor,
+              fontFamily: project.styling.fontFamily,
+          }} className="border-2">
+              <CardHeader>
+                  <CardTitle>Controls</CardTitle>
+              </CardHeader>
+              <CardContent>
+                  {/* <CardDescription style={{
+                      color: project.styling.textColor, opacity: 0.9 }
+                      }>
+                  </CardDescription>  */}
+                    {project.styling.controls.map((control, index) => (
+                      <div key={index} className="flex items-center">
+                        <Badge variant="secondary" className="mr-2 flex-shrink-0">
+                          {control.key}
+                        </Badge>
+                        <span style={{ color: project.styling.textColor }}>{control.description}</span>
+                      </div>
+                    ))}
+              </CardContent>
+          </Card>
+        )}
         </aside>
     </div>
 

@@ -68,7 +68,7 @@ export function ImageSlideshow({ images }: ImageSlideshowProps) {
             <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
               <div className="p-1">
                 <div 
-                  className="relative aspect-video rounded-lg overflow-hidden cursor-pointer group"
+                  className="relative aspect-square rounded-lg overflow-hidden cursor-pointer group"
                   onClick={() => {
                     setSelectedIndex(index);
                     setOpen(true);

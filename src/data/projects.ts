@@ -1,4 +1,3 @@
-
 import { NextFontWithVariable } from 'next/dist/compiled/@next/font';
 
 export interface Project {
@@ -10,7 +9,9 @@ export interface Project {
   status?: string;
   shortDescription: string;
   thumbnailUrl: string;
+  motto?: string;
   label?: string;
+  technicalDesc?: string;
   releaseDate: string;
   releaseType?: 'steam' | 'web';
   properties?: {
@@ -44,6 +45,7 @@ export interface ProjectStyling {
   videos?: string[];
   document?: string;
   banner?: string;
+  controls?: Control[];
 }
 const defaultStyling: ProjectStyling = {
   backgroundColor: 'hsl(var(--card))',
@@ -61,6 +63,11 @@ const defaultStyling: ProjectStyling = {
   document: '',
   banner: '',
 };
+
+export interface Control {
+  key: string;
+  desc: string;
+}
 
 export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
   'avoid': {
@@ -103,8 +110,17 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
       'ByFHdeeTK5k'
     ],
     slideshowImages: [
-      'scpte (3).jpg', 
-      'scpte (2).jpg', 
+      'scpte3.jpg', 
+      'scpte2.jpg', 
+    ],
+    controls: [
+      { key: 'A // D', desc: 'Move'},
+      { key: 'Space', desc: 'Jump'},
+      { key: 'L Shift (Hold)', desc: 'Run'},
+      { key: 'E', desc: 'Inventory'},
+      { key: 'F (in Class-D Mode)', desc: 'Manual Blink'},
+      { key: 'M', desc: 'Fixed Camera'},
+      { key: 'G', desc: 'Toggle Black/White & Slomo (Cinematic Effect)'},
     ],
   },
   'storm-chasers': {
@@ -168,7 +184,7 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
       'OhmMyLord (3).jpg',
       'OhmMyLord (4).jpg',
       'OhmMyLord (5).jpg',
-      'OML_BehaviorTree.jpg'
+      'OML_BehaviorTree.png'
     ],
   },
   'kookoo': {
@@ -237,10 +253,10 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
     borderColor: '#EAF1CF',
     document: 'pdf/Kernmodule_Tools.pdf',
     slideshowImages: [
-      'Anywalker (3).jpg', 
-      'Anywalker (1).jpg',
-      'Anywalker (2).jpg',
-      'Anywalker (4).jpg',
+      'AnyWalker (3).jpg', 
+      'AnyWalker (1).jpg',
+      'AnyWalker (2).jpg',
+      'AnyWalker (4).jpg',
       'Tool.jpg'
     ],
   },
@@ -432,6 +448,21 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
     ],
     document: 'kernel_sweep/kernelSweepDoc.pdf'
   },
+};
+
+export const projectStatusColors: { [key: string]: string } = {
+  "In Development": "bg-yellow-500",
+  "Released": "green-500",
+  "Released (Steam)": "bg-green-500",
+  "Halted": "bg-orange-500",
+  "Discontinued": "bg-red-500",
+  "Live": "bg-green-500",
+  "Finished": "bg-gray-500",
+  "Demo": "bg-blue-500",
+  "Full Demo": "bg-green-500",
+  "Prototype": "bg-gray-500",
+  "Alpha": "bg-teal-500",
+  "Beta": "bg-yellow-500",
 };
 
 export const skillColors: { [key: string]: string } = {

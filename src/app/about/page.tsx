@@ -264,6 +264,15 @@ By thinking outside the box and being willing to experiment, you can come up wit
 
       <div className="w-3/4 bg-gray-600/50 p-3 pb-4 mt-12 mx-auto">
       <h1>What is Good Design?</h1><br></br>
+
+      <code className="text-[12px] text-muted-foreground mt-4 leading-relaxed text-center">
+      A good theme adds conceptual merit and increases the headroom of an idea.<br></br>
+We as people like our ideas clearly defined and outlined, yet leaving room for suggestive elements.<br></br>
+Imagination is key. But you need a keyhole.<br></br>
+We have an affinity for concepts that have a form of consistent thematic 'branding'.
+      </code>
+      <br></br>
+
       <code className="text-[12px] text-muted-foreground mt-4 leading-relaxed text-center">
 Nihilism indirectly seeps into design, so if you're not motivated enough, the game might reflect that.<br></br>
 Treat the game as an extension of you, be the creator <b>and</b> the creation.<br></br>
