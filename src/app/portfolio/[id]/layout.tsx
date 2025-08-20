@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: { params: { id: string } }, p
     const cuneiformChar = projectCuneiform[projectData.id] || ' ';
     
     return {
-      title: `${projectData.title} • ${cuneiformChar}`.trim(),
+      title: `${projectData.title} ◦ ${cuneiformChar}`.trim(),
       description: projectData.shortDescription,
     }
   }
