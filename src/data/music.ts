@@ -166,11 +166,11 @@ function parseDate(dateStr: string): Date {
 }
 
 
-export const projects = projectsData.sort((a, b) => {
-  const dateA = parseDate(a.date);
-  const dateB = parseDate(b.date);
-  return dateB.getTime() - dateA.getTime();
-});
+// export const projects = projectsData.sort((a, b) => {
+//   const dateA = parseDate(a.date);
+//   const dateB = parseDate(b.date);
+//   return dateB.getTime() - dateA.getTime();
+// });
 
 export type MusicProjectCategory =
   | "CANNEMEN FORMAT (SOLO WORK)"
