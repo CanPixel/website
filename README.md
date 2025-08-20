@@ -22,7 +22,6 @@ A key feature is the **Realms** section, a dynamic showcase of projects. Each pr
 - **Styling:** [Tailwind CSS](https://tailwindcss.com/)
 - **UI Components:** [ShadCN UI](https://ui.shadcn.com/)
 - **Database:** [Firebase Firestore](https://firebase.google.com/docs/firestore) for project data.
-- **Generative AI:** [Genkit](https://firebase.google.com/docs/genkit) for the email sending flow.
 - **Deployment:** Firebase App Hosting
 
 ## Getting Started
