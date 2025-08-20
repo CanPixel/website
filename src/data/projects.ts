@@ -93,8 +93,8 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
       'avoid/rogueplanet.gif',
       'avoid/warpdrive.gif',
     ],
-    videos: [
-      'videos/AVOIDGameplay1.mp4',
+    youtube: [
+      '_Txos9ZXhIg'
     ]
   },
   'scptheescape': {
