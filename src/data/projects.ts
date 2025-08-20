@@ -94,7 +94,8 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
       'avoid/warpdrive.gif',
     ],
     youtube: [
-      '_Txos9ZXhIg'
+      '_Txos9ZXhIg',
+      'Haan1s-tl5o'
     ]
   },
   'scptheescape': {
@@ -167,11 +168,8 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
       'orbitRes (3).jpg', 
       'orbitRes (4).jpg'
     ],
-    videos: [
-      'videos/museapp.mp4',
-    ],
     youtube: [
-      '7awR86LBJCY'
+      '7awR86LBJCY',
     ]
   },
   'ohmmylord': {
@@ -214,10 +212,8 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
     banner: 'images/KooKooBanner.png',
     animationClass: 'group-hover:shadow-[0_8px_16px_rgba(0,0,0,0.3)]',
     youtube: [
-      'oqLfHiy_xAY'
-    ],
-    videos: [
-      'videos/kookoogameplay.mp4'
+      'oqLfHiy_xAY',
+      'nLt9GZpNLe8'
     ],
     slideshowImages: [
       'kookoo (1).jpg', 
@@ -368,7 +364,9 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
     slideshowImages: [
       'PixelCan.jpg', 'image1.jpg'
     ],
-    videos: ['videos/PixelCanDevLog.mp4'],
+    youtube: [
+      'eier_EjNwMc'
+    ],
     controls: [
       { key: 'A & D // ← & →', desc: 'Move'},
       { key: 'W // Space // ↑', desc: 'Jump'},
@@ -423,11 +421,9 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
     animationClass: 'group-hover:shadow-[0_0_30px_5px_rgba(255,165,0,0.5)]',
     backgroundImage: 'none',
     youtube: [
-      'FbSoWeMh10Y'
-    ],
-    videos: [
-      'videos/ChivChefGameplay.mp4',
-      'videos/ChivChefWalk.mp4'
+      'FbSoWeMh10Y',
+      '_3iAmp4dpOk',
+      'CdjGvqpBBf8'
     ],
     controls: [
       { key: 'W A S D', desc: 'Move'},
@@ -533,6 +529,10 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
     ],
   },
 };
+
+//Horror prototypes:
+//1st person Psychological Horror: uYsiNqI1gpU
+//Quarantine Horror (3rd person Horror w/ Fixed Camera Angles): Fm_EZ0e5qxw
 
 export const projectStatusColors: { [key: string]: string } = {
   "In Development": "bg-yellow-500",
