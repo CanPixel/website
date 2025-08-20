@@ -22,7 +22,7 @@ A key feature is the **Realms** section, a dynamic showcase of projects. Each pr
 - **Styling:** [Tailwind CSS](https://tailwindcss.com/)
 - **UI Components:** [ShadCN UI](https://ui.shadcn.com/)
 - **Database:** [Firebase Firestore](https://firebase.google.com/docs/firestore) for project data.
-- **Deployment:** Firebase App Hosting
+- **Deployment:** Firebase Hosting
 
 ## Getting Started
 
