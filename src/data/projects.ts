@@ -94,7 +94,6 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
       'avoid/warpdrive.gif',
     ],
     videos: [
-      'videos/AVOIDpreview.mp4',
       'videos/AVOIDGameplay1.mp4',
     ]
   },
