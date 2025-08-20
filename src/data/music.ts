@@ -1,231 +1,131 @@
 
 
 export type Project = {
-  slug: string;
-  title: string;
-  description: string;
-  longDescription: string;
-  image: string;
-  technologies: string[];
+  slug?: string;
+  title?: string;
+  description?: string;
+  longDescription?: string;
+  image?: string;
+  technologies?: string[];
   liveUrl?: string;
   repoUrl?: string;
-  aiHint: string;
-  categories: string[];
-  date: string;
+  aiHint?: string;
+  categories?: string[];
+  date?: string;
   releaseType?: 'steam' | 'web';
 };
 
 const projectsData: Project[] = [
   {
-    slug: 'scpte',
     title: 'SCP - The Escape',
     description: '2D Tile Engine Platformer',
     longDescription: 'A 2D adventure platformer with survival elements, built with a custom Java tile engine.',
-    image: 'https://canpixel.com/images/SCPTE.jpg',
-    technologies: ['Java'],
-    aiHint: 'adventure platformer',
-    categories: ['Adventure', 'Platformer', 'Survival'],
-    date: '27-02-2013',
   },
   {
-    slug: 'pixelthrive',
     title: 'PixelThrive',
     description: 'Open World 2D Survival',
     longDescription: 'An open-world 2D survival game where players must gather resources and craft to stay alive.',
-    image: 'https://canpixel.com/images/PixelThrive.jpg',
-    technologies: ['Java'],
-    aiHint: 'survival game',
-    categories: ['Survival'],
-    date: '01-01-2014', // Placeholder for ??-??-2014
   },
   {
-    slug: 'biq',
     title: 'BIQ',
     description: 'Asymmetric Acrobatic Platformer',
     longDescription: 'An asymmetric platformer focused on acrobatic movement and challenging level design.',
-    image: 'https://canpixel.com/images/biq.jpg',
-    technologies: ['Construct 2'],
-    aiHint: 'acrobatic platformer',
-    categories: ['Platformer'],
-    date: '04-04-2015',
   },
   {
     slug: 'pixelcan',
     title: 'PixelCan (Admission)',
     description: 'Procedural Endless Runner',
     longDescription: 'A procedural endless runner platformer created as an admission project, featuring dynamically generated levels.',
-    image: 'https://canpixel.com/images/PixelCan.jpg',
-    technologies: ['Construct 2'],
-    aiHint: 'endless runner',
-    categories: ['Endless Runner', 'Platformer'],
-    date: '08-06-2017',
   },
   {
     slug: 'pixelboi',
     title: 'PixelBoi',
     description: 'Custom Arduino Handheld Console',
     longDescription: 'A custom handheld console built using Arduino, showcasing skills in embedded development.',
-    image: 'https://canpixel.com/images/pixelBoi_1.jpg',
-    technologies: ['Embedded Development (Arduino)'],
-    aiHint: 'custom console',
-    categories: ['Handheld'],
-    date: '20-01-2018',
   },
   {
     slug: 'kernel-sweep',
     title: 'Kernel . Sweep',
     description: 'Glitch Cyber Matrix Shooter',
     longDescription: 'A first-person shooter set in a glitchy, cyber-matrix world with fast-paced action.',
-    image: 'https://canpixel.com/kernel_sweep/icon.png',
-    technologies: ['Unity', 'C#'],
-    aiHint: 'cyber shooter',
-    categories: ['Shooter (FPS)'],
-    date: '30-03-2018',
   },
   {
     slug: 'kraut-kill',
     title: 'Kraut Kill',
     description: 'WWII Cooking Game / Poisoning Nazis',
     longDescription: 'A unique cooking game set in WWII where players subtly poison Nazi officers.',
-    image: 'https://canpixel.com/images/KrautKill.png',
-    technologies: ['Unity', 'C#'],
-    aiHint: 'cooking game',
-    categories: ['Cooking'],
-    date: '20-06-2018',
   },
   {
     slug: 'life-sentence',
     title: 'Life Sentence',
     description: 'Papery-Stealth Prison Escape',
     longDescription: 'A stealth game with a unique paper-craft aesthetic, centered on a tense prison escape.',
-    image: 'https://canpixel.com/lifesentece/lifesentencelogo.jpg',
-    technologies: ['Unity', 'C#'],
-    aiHint: 'stealth game',
-    categories: ['Stealth'],
-    date: '30-06-2018',
   },
   {
     slug: 'frisking-ruins',
     title: 'Frisking Ruins',
     description: 'Retro Sandbox Bullet Hell w/ Crafting',
     longDescription: 'A retro-style sandbox game combining bullet hell mechanics with a deep crafting system.',
-    image: 'https://canpixel.com/images/friskingruins.jpg',
-    technologies: ['Unity', 'C#'],
-    aiHint: 'bullet hell',
-    categories: ['Bullet Hell', 'Survival'],
-    date: '22-10-2018',
   },
   {
     slug: 'gameoflife',
     title: 'Conway\'s Game Of Life',
     description: 'Game of Life Implementation',
     longDescription: 'A C++ implementation of John Conway\'s famous cellular automaton, the Game of Life.',
-    image: 'https://canpixel.com/images/gameoflife%20(1).jpg',
-    technologies: ['C++'],
-    aiHint: 'simulation algorithm',
-    categories: ['Misc'],
-    date: '26-10-2018',
   },
   {
     slug: 'supercasanova',
     title: 'SuperCasaNova',
     description: 'Space Collect-a-thon written in a week',
     longDescription: 'A charming space-themed collect-a-thon developed in just one week using PICO-8.',
-    image: 'https://canpixel.com/images/SuperCasaNova.gif',
-    technologies: ['LUA'],
-    aiHint: 'retro collectathon',
-    categories: ['Collect-A-Thon'],
-    date: '11-11-2018',
   },
   {
     slug: 'kookoogame',
     title: 'Koo-Koo (alt.ctrl.GDC 2019)',
     description: 'Frantic Installation w/ Custom Controllers',
     longDescription: 'A frantic, interactive installation showcased at alt.ctrl.GDC 2019, featuring custom Arduino-based controllers.',
-    image: 'https://canpixel.com/images/kookoologo.png',
-    technologies: ['Unity', 'Embedded Development (Arduino)'],
-    aiHint: 'alt controller',
-    categories: ['Interactive Installation'],
-    date: '17-01-2019',
   },
   {
     slug: 'anywalker',
     title: 'AnyWalker (Unity Tool)',
     description: 'File-to-Level Converter Editor Tool',
     longDescription: 'A powerful Unity editor tool that converts file data into game levels, streamlining the level design process.',
-    image: 'https://canpixel.com/images/AnyWalkerLogo.jpg',
-    technologies: ['Unity', 'Editor Scripting'],
-    aiHint: 'unity tool',
-    categories: ['Unity Tool'],
-    date: '19-01-2019',
   },
   {
     slug: 'ohmmylord',
     title: 'Ohm, My Lord!',
     description: 'Behavior Tree AI w/ Synergy Mechanics',
     longDescription: 'A roguelike bullet hell that features complex AI behaviors built with behavior trees and synergistic mechanics.',
-    image: 'https://canpixel.com/images/OhmMyLord.jpg',
-    technologies: ['Unity', 'C#'],
-    aiHint: 'roguelike ai',
-    categories: ['Roguelike', 'Bullet Hell'],
-    date: '02-05-2019',
   },
   {
     slug: 'chivalrychef',
     title: 'Chivalry Chef',
     description: 'Food Frenzy Medieval Siege Royale',
     longDescription: 'A chaotic cooking battle royale set during a medieval siege. Cook and fight for culinary dominance!',
-    image: 'https://canpixel.com/images/chivcheflogo.jpg',
-    technologies: ['Unity', 'C#'],
-    aiHint: 'cooking battle',
-    categories: ['Cooking', 'Battle Royale'],
-    date: '15-06-2019',
   },
   {
     slug: 'epicinium',
     title: 'Epicinium',
     description: 'Turn-Based Strategy w/ Environmental Impact',
     longDescription: 'A turn-based strategy game where your actions have a meaningful impact on the game\'s ecosystem.',
-    image: 'https://canpixel.com/images/epicinium.png',
-    technologies: ['C++', 'Audio Design'],
-    aiHint: 'strategy environment',
-    categories: ['Strategy', 'MISC. AUDIO IN PROJECTS'],
-    date: '23-01-2020',
-    releaseType: 'steam',
   },
   {
     slug: 'orbitalResonance',
     title: 'Orbital Resonance Synth',
     description: 'Polyrhythmic Harmony Generator',
     longDescription: 'An audio tool that generates complex polyrhythmic harmonies, creating unique soundscapes.',
-    image: 'https://canpixel.com/images/orbitalResonanceLogo.gif',
-    technologies: ['Unity', 'C#'],
-    aiHint: 'audio synth',
-    categories: ['Audio', 'MISC. AUDIO IN PROJECTS'],
-    date: '30-09-2020',
   },
   {
     slug: 'BadOptics',
     title: 'Gamified Political Compass',
     description: 'Political Roleplay / Ideological Strategy Trivia',
     longDescription: 'A unique web-based game that combines political roleplaying, ideological strategy, and trivia.',
-    image: 'https://canpixel.com/BadOptics/BOgame.gif',
-    technologies: ['Html', 'C#'],
-    aiHint: 'political game',
-    categories: ['Collect-A-Thon', 'Strategy', 'Misc', 'MISC. AUDIO IN PROJECTS'],
-    date: '01-02-2022', // Placeholder for February 2022
-    releaseType: 'web',
   },
   {
     slug: 'StormChasers',
     title: 'StormChasers',
     description: 'Arcade Racer w/ Precise Photography',
     longDescription: 'An arcade racer that challenges players with precise photography mechanics while chasing storms.',
-    image: 'https://canpixel.com/images/stormchaserslogo.PNG',
-    technologies: ['Unity', 'C#'],
-    aiHint: 'arcade racer',
-    categories: ['Platformer', 'Collect-A-Thon', 'Racing', 'MISC. AUDIO IN PROJECTS'],
-    date: '28-01-2022',
   },
 ];
 
