@@ -8,6 +8,8 @@
   "hosting": {
     "site": "canpixel",
     "public": "out",
+    "cleanUrls": true,
+    "trailingSlash": false,
     "rewrites": [
       {
         "source": "**",
