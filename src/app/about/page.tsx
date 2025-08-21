@@ -245,8 +245,8 @@ export default function AboutPage() {
       <NavMenu/>
 
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start mt-12">
-        <div className="lg:col-span-2 flex flex-col items-center text-center">
-            <div className="relative w-48 h-48 mx-auto rounded-full overflow-hidden border-2 border-primary shadow-lg transition-all duration-300 ease-in-out hover:shadow-xl hover:shadow-primary/50 hover:scale-105">
+        <div className="lg:col-span-3 flex flex-col items-center lg:items-start text-center lg:text-left">
+            <div className="relative w-48 h-48 mx-auto lg:mx-0 rounded-full overflow-hidden border-2 border-primary shadow-lg transition-all duration-300 ease-in-out hover:shadow-xl hover:shadow-primary/50 hover:scale-105">
                 <Image
                 src="/images/program.jpg"
                 alt="Can Ur Avatar"
@@ -273,8 +273,9 @@ export default function AboutPage() {
                     <Download className="ml-2 h-4 w-4 transition-transform duration-300 ease-in-out group-hover:translate-x-1" />
                 </Link>
              </Button>
-
-             <Card className="mt-8 border-gold-500/50 w-3/4 mx-auto rounded-lg hover:scale-105 transition-transform">
+        </div>
+        <div className="lg:col-span-2">
+            <Card className="border-gold-500/50 w-full mx-auto rounded-lg hover:scale-105 transition-transform">
               <div className="relative mx-auto h-full w-full rounded-lg">
                 <Image
                   src={"/images/guitar.jpg"}
@@ -285,17 +286,17 @@ export default function AboutPage() {
                 />
               </div>
             </Card>
-      </div>
+        </div>
       </div>
       
-      <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+      <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 md:max-w-3xl lg:max-w-none mx-auto">
         <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <Card className="w-[80%] mx-auto h-full border-primary/20 bg-card/50 backdrop-blur-sm transition-transform hover:scale-[1.02]">
+            <Card className="w-full mx-auto h-full border-primary/20 bg-card/50 backdrop-blur-sm transition-transform hover:scale-105">
                 <CardHeader>
                     <CardTitle className="flex items-center gap-3 font-headline text-2xl text-primary">
                         <Quote className="w-8 h-8" />
@@ -317,7 +318,7 @@ export default function AboutPage() {
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
         >
-            <Card className="w-[80%] mx-auto h-full border-accent/20 bg-card/50 backdrop-blur-sm transition-transform hover:scale-[1.02]">
+            <Card className="w-full mx-auto h-full border-accent/20 bg-card/50 backdrop-blur-sm transition-transform hover:scale-105">
                 <CardHeader>
                     <CardTitle className="flex items-center gap-3 font-headline text-2xl text-accent">
                         <Quote className="w-8 h-8" />
@@ -367,9 +368,9 @@ export default function AboutPage() {
 
       <div className="mt-10">
         <div className='flex justify-between items-center'>
-          <span className='text-2xl font-bold mb-4 text-gold-100/70'>𒀩</span>
+          <span className='text-2xl font-bold mb-4 text-gold-100/70'> acrylbic</span>
           <span className="font-headline text-3xl font-bold mb-4 text-accent text-center">Design Gallery</span>
-          <span className='text-2xl font-bold mb-4 text-gold-100/70'>𒀩</span>
+          <span className='text-2xl font-bold mb-4 text-gold-100/70'> acrylbic</span>
         </div>
         <Card className="bg-card/50 backdrop-blur-sm border-primary/20 max-w-4xl mx-auto">
           <CardContent className="p-6 grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -391,9 +392,9 @@ export default function AboutPage() {
       
       <div className="mt-10 mb-4">
         <div className='flex justify-between items-center'>
-          <span className='text-2xl font-bold mb-4 text-gold-100/70'>𒀩</span>
+          <span className='text-2xl font-bold mb-4 text-gold-100/70'> acrylbic</span>
           <span className="font-headline text-3xl font-bold mb-4 text-accent text-center">Development Gallery</span>
-          <span className='text-2xl font-bold mb-4 text-gold-100/70'>𒀩</span>
+          <span className='text-2xl font-bold mb-4 text-gold-100/70'> acrylbic</span>
         </div>
         <Card className="bg-card/50 backdrop-blur-sm border-primary/20 max-w-4xl mx-auto">
           <CardContent className="p-6 grid grid-cols-2 md:grid-cols-4 gap-4">
