@@ -14,25 +14,28 @@ export default function OrchestratedOstSection() {
       <h2 className="absolute -top-5 left-1/2 text-center -translate-x-1/2 bg-background px-4 font-headline text-3xl font-bold tracking-tighter text-emerald-500">
         Orchestrated OST
       </h2>
-      <Image
-        src="images/epiciniumbanner.png"
-        alt={`Epicinium logo`}
-        className='mb-1 w-auto mt-0 p-0 mx-auto'
-        width={800}
-        height={400}
-      />
-      <p className="text-center text-md text-muted-foreground font-bold max-w-3xl mx-auto mb-2">
+
+      <div className="text-center mb-8">
+        <Image
+          src="/images/epiciniumbanner.png"
+          alt="Epicinium logo"
+          className="mb-1 w-auto mt-0 p-0 mx-auto"
+          width={800}
+          height={400}
+          loading="lazy"
+        />
+        <p className="text-md text-muted-foreground font-bold max-w-3xl mx-auto mb-2">
           Epicinium - An Environmental War Strategy Game
-      </p>
-      <div className="justify-center text-center mx-auto mt-6">
-        <Badge className='text-center mx-auto text-sm'>
+        </p>
+        <Badge className="text-center mx-auto text-sm bg-emerald-600/20 text-emerald-300 border-emerald-500/50">
           Music Composition & Original OST
         </Badge>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <div className="lg:col-span-2">
-          <Card className="mt-8 bg-card/50 backdrop-blur-sm border-emerald-600/30">
+        {/* Left Column */}
+        <div className="lg:col-span-2 space-y-8">
+          <Card className="bg-card/50 backdrop-blur-sm border-emerald-600/30">
             <CardHeader>
               <CardTitle className="font-headline text-2xl text-emerald-400">About the Soundtrack</CardTitle>
             </CardHeader>
@@ -44,57 +47,59 @@ export default function OrchestratedOstSection() {
               </p>
             </CardContent>
           </Card>
+
+          <Card className="bg-card/50 backdrop-blur-sm border-emerald-600/30">
+            <CardHeader>
+              <CardTitle className="font-headline text-2xl text-emerald-400">View on Steam</CardTitle>
+            </CardHeader>
+            <CardContent>
+                <iframe 
+                    src="https://store.steampowered.com/widget/1442600/" 
+                    width="100%" 
+                    height="190"
+                    loading="lazy"
+                ></iframe>
+            </CardContent>
+          </Card>
         </div>
 
-        <div className="aspect-video relative rounded-lg shadow-md border border-border">
-        <Image
-          src="images/epicinium_soundtrack.png"
-          alt={`Epicinium banner image`}
-          width={800}
-          height={800}
-        />
-      </div>
-
-        <div className="lg:col-span-3 grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="w-full flex justify-center">
-             <div className="w-[646px]">
-              <iframe src="https://store.steampowered.com/widget/1442600/" width="100%" height="190"></iframe>
-            </div>
-          </div>
-        </div>
-
-        <div className="lg:col-span-1">
-          <div className="flex justify-center mb-4">
-              <Button asChild className="bg-emerald-600 hover:bg-emerald-700 text-white group">
+        {/* Right Column */}
+        <div className="lg:col-span-1 space-y-8">
+           <div className="flex justify-center mb-4">
+              <Button asChild className="bg-emerald-600 hover:bg-emerald-700 text-white group w-full">
                 <Link href="/portfolio/epicinium">
-                  Go to Project
+                  Explore The Realm
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </Link>
               </Button>
             </div>
+            
           <Card className="bg-card/50 backdrop-blur-sm border-emerald-600/30">
             <CardHeader>
               <CardTitle className="font-headline text-2xl text-emerald-400">Game Visuals</CardTitle>
             </CardHeader>
-            <div className="relative aspect-square rounded-lg group mb-8 mx-auto w-1/2">
-              <Link href="/portfolio/epicinium"><Image
-                src={`/images/epicinium.png`}
-                alt={`Epicinium game visual`}
-                fill
-                className="object-cover transition-transform duration-300 group-hover:scale-105"
-              /></Link>
-              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
-            </div>
-
-            <div className="relative rounded-lg mx-auto">
-              <Image
-                src={`/images/Episteamium.gif`}
-                alt={`Epicinium game gif`}
-                width={800}
-                height={400}
-                className="object-cover transition-transform duration-300 hover:scale-105 mb-8"
-              />
-            </div>
+            <CardContent className="space-y-4">
+                <div className="relative aspect-video rounded-lg group">
+                  <Image
+                    src="/images/epicinium.png"
+                    alt="Epicinium game visual"
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
+                </div>
+                 <div className="relative rounded-lg overflow-hidden">
+                    <Image
+                        src="/images/Episteamium.gif"
+                        alt="Epicinium game gif"
+                        width={800}
+                        height={400}
+                        className="object-cover transition-transform duration-300 hover:scale-105"
+                        loading="lazy"
+                    />
+                </div>
+            </CardContent>
           </Card>
         </div>
       </div>
