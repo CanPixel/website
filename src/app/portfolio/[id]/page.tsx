@@ -61,7 +61,7 @@ export default function ProjectDetailPage({ project }: { project: Project | null
           {project.label && <Badge variant="outline" className="mt-4">{project.label}</Badge>}
           <div className="flex flex-wrap gap-2 justify-center mt-2">
             {project.properties?.genre?.map((g: string) => (
-                <Badge key={g} className={cn(genreColors[g] || 'bg-gray-400', 'text-white')}>
+                <Badge key={g} className={cn(genreColors[g] || 'bg-gray-400')}>
                 {g}
                 </Badge>
             ))}
@@ -122,7 +122,7 @@ export default function ProjectDetailPage({ project }: { project: Project | null
           <div className="prose prose-lg dark:prose-invert max-w-none text-foreground/90 mt-8 space-y-6">
             <h3 className="font-headline text-2xl font-bold mb-4 text-accent">Technical Details</h3>
             
-            <pre className="text-sm">
+            <pre className="text-sm whitespace-pre-wrap md:whitespace-pre md:w-auto">
             {project.technicalDesc ? (
               <div dangerouslySetInnerHTML={{ __html: technicalDesc }}></div>
             ) : (<>

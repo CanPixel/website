@@ -569,7 +569,7 @@ export const skillColors: { [key: string]: string } = {
 export const genreColors: { [key: string]: string } = {
   "Action": "bg-red-500",
   "Adventure": "bg-blue-500",
-  "Exploration": "bg-gray-700",
+  "Exploration": "bg-gray-700 text-white",
   "Puzzle": "bg-green-500",
   "Battle Royale": "bg-purple-600",
   "Bullet Hell": "bg-pink-500",
