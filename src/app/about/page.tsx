@@ -1,6 +1,6 @@
-
 "use client"
 
+import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import NavMenu from "@/components/navigation";
@@ -10,17 +10,24 @@ import { Download, Gamepad, Globe, Palette, Headphones, Quote } from 'lucide-rea
 import { motion, useInView, useScroll, useSpring, Variants } from 'framer-motion';
 import { useRef, useEffect } from 'react';
 import SkillsShowcase from './SkillsShowcase';
+import { ImageSlideshow } from '@/components/ImageSlideshow';
 
 const timelineEvents = [
   {
     year: '2014',
-    title: 'The Dawn of Coding: Minecraft Modding',
-    description: 'Began coding by creating the famous Minecraft mods "SCPCraft" and "CreepyPastaCraft" under the name "Phuck Yu Too". I worked as the main coder on these projects.',
+    title: 'The Dawn of Coding: Modding',
+    description: 'I started teaching myself Java at age 13 and initially focused on creating Minecraft mods. Began coding by creating the famous Minecraft mods "SCPCraft" and "CreepyPastaCraft" under the name "Phuck Yu Too". I worked as the main coder on these projects.',
+    YTlink: 'dNW_2OeIBxk'
   },
   {
     year: '2015',
-    title: 'First Foray into Game Development',
+    title: 'First Plunge into Game Development',
     description: 'Began exploring game development and discovering a passion for creating worlds.',
+    slideshowImages: [
+      'scpte2.jpg',
+      'PixelThrive1.jpg',
+      'PixelThrive2.jpg',
+    ]
   },
   {
     year: '2017-2023',
@@ -31,6 +38,7 @@ const timelineEvents = [
     year: '2019',
     title: 'Game Developers Conference',
     description: 'Successfully exhibited a game project (Koo-Koo) at the Game Developers Conference in San Francisco as part of Alt.Ctrl.',
+    YTlink: 'nLt9GZpNLe8'
   },
   {
     year: '2020',
@@ -41,16 +49,26 @@ const timelineEvents = [
     year: '2020-2021',
     title: 'Audio Programming & Design',
     description: 'Worked for Coöperation A Bunch of Hacks U.A., developing nuanced audio systems and creating music and sound effects for the game Epicinium on Steam.',
+    video: 'videos/EpiOST.mp4',
+    videoSize: 'w-[60%]',
+    videoSettings: { 
+      loop: true,
+      controls: true,
+      muted: true, 
+      autoPlay: true,
+    }
   },
   {
     year: '2021-2022',
     title: 'Bad Optics! Solo Game Development',
     description: 'Completely developed a full web game project as a solo indie game developer, from concept to publication, including marketing and community building.',
+    YTlink: 'c0Y1jy61-R0'
   },
   {
     year: '2022',
     title: 'Founding of ZIGGURATH',
     description: 'Co-founded the band ZIGGURATH, merging music with philosophical concepts. Also plays guitar in two bands.',
+    YTlink: 'xNvTw-TkgRY'
   },
   {
     year: '2024-2025',
@@ -61,6 +79,14 @@ const timelineEvents = [
     year: 'Present',
     title: 'CanPixel Realms',
     description: 'Continuing the journey of crafting distinct experiences in games, music, and thought.',
+    video: 'videos/Showcase.mp4',
+    videoSize: 'w-[90%]',
+    videoSettings: { 
+      loop: true,
+      controls: true,
+      muted: true, 
+      autoPlay: true,
+    }
   },
 ];
 const TimelineItem = ({ event, index }: { event: (typeof timelineEvents)[0], index: number }) => {
@@ -97,6 +123,35 @@ const TimelineItem = ({ event, index }: { event: (typeof timelineEvents)[0], ind
       <p className="font-headline text-2xl font-bold text-primary">{event.year}</p>
       <h3 className="text-xl font-semibold mt-1">{event.title}</h3>
       <p className="text-muted-foreground mt-2">{event.description}</p>
+      {event.YTlink ? 
+      <div className="w-[90%] mt-4 mb-1 aspect-video rounded-md overflow-hidden">
+          <iframe
+              src={`https://www.youtube.com/embed/${event.YTlink}`}
+              title="YouTube snippet"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="w-full h-full"
+          ></iframe>
+      </div>
+    : <></> }
+    
+    {event.video ? 
+      <div className={cn("h-full border border-gold-600 border-2 mt-4 mb-1 rounded-xl overflow-hidden", event.videoSize)}>
+        <video {...event.videoSettings} width="100%" height="100%">
+          <source src={'/' + event.video} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    : <></> }
+
+    {event.slideshowImages && event.slideshowImages.length > 0 && (
+      <div className="mt-16">
+        <div className="relative">
+          <ImageSlideshow images={event.slideshowImages}/>
+        </div>
+      </div>
+    )}
+
     </motion.div>
   );
 };
@@ -123,13 +178,11 @@ export const SKILLS = [
   { id: "premiere", name: "Adobe Premiere Pro", value: 65, categories: ["Design"], desc: "Video editing, cuts and color basics." },
   { id: "illustrator", name: "Adobe Illustrator", value: 60, categories: ["Design"], desc: "Vector illustration and iconography." },
   { id: "arduino", name: "Arduino", value: 50, categories: ["Game Development"], desc: "Prototyping hardware, sensor IO and embedded logic." },
-  // { id: "node", name: "Node.js", value: 65, categories: ["Web Development"], desc: "Semantic markup, accessibility-first approach." },
   { id: "mysql", name: "MySQL", value: 50, categories: ["Web Development"], desc: "Database design, queries, and optimization." },
   { id: "python", name: "Python", value: 40, categories: ["Game Development"], desc: "Scripting, automation, and basic backend tasks." },
   { id: "cpp", name: "C++", value: 25, categories: ["Game Development"], desc: "Native performance, systems and plugin development." },
   { id: "lua", name: "LUA", value: 20, categories: ["Game Development"], desc: "Scripting for embedded game logic and mods." },
 ];
-// Color palette for charts
 const COLORS = ["#00C49F", "#0088FE", "#FFBB28", "#FF8042", "#845EC2", "#FF6F91", "#2C73D2", "#008E9B", "#D65DB1", "#FF9671"];
 
 const CategoryBadges = () => {
@@ -208,7 +261,10 @@ export default function AboutPage() {
             <p className="text-muted-foreground mt-4 leading-relaxed">
                 A philosophically deep thinker at heart, weaving soulful, rebellious, and mysterious narratives through code and sound.
             </p>
-            <p className="text-muted-foreground/50 text-sm mt-4 leading-relaxed">
+
+            <small className='text-sm mt-3 text-muted-foreground/60'>In addition to programming, I also enjoy activities such as video editing, art, psychology, composing music, design (for concept phase/prototyping), philosophy, politics, PR & marketing, and concepting for mixed-media projects.</small>
+
+            <p className="text-muted-foreground/80 text-sm mt-4 leading-relaxed">
               Graduated with Honors @ University of the Arts Utrecht
             </p>
              <Button asChild size="lg" className="mt-6 group transition-all duration-300 ease-in-out hover:bg-purple-400/70 hover:-translate-y-1 hover:scale-105">
@@ -230,21 +286,6 @@ export default function AboutPage() {
               </div>
             </Card>
       </div>
-
-        <div className="lg:col-span-3 w-[80%] mx-auto flex justify-center items-center h-screen">
-          <div className="relative w-full h-full max-w-md overflow-hidden rounded-lg shadow-lg group">
-            <Image
-              src={`/images/cancorp (2).JPG`}
-              alt={`A professional photo of Can Ur`}
-              width={4000}
-              height={6000}
-              className="object-cover transition-transform duration-500 group-hover:scale-105"
-            />
-             <div className="absolute inset-0 group-hover:bg-black/20 transition-colors"></div>
-          </div>
- <div className="absolute inset-y-0 right-0 w-60 bg-gradient-to-l from-background to-transparent pointer-events-none" />
-        </div>
- <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-background to-transparent pointer-events-none" />
       </div>
       
       <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
@@ -254,7 +295,7 @@ export default function AboutPage() {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <Card className="h-full border-primary/20 bg-card/50 backdrop-blur-sm transition-transform hover:scale-105">
+            <Card className="w-[80%] mx-auto h-full border-primary/20 bg-card/50 backdrop-blur-sm transition-transform hover:scale-[1.02]">
                 <CardHeader>
                     <CardTitle className="flex items-center gap-3 font-headline text-2xl text-primary">
                         <Quote className="w-8 h-8" />
@@ -276,7 +317,7 @@ export default function AboutPage() {
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
         >
-            <Card className="h-full border-accent/20 bg-card/50 backdrop-blur-sm transition-transform hover:scale-105">
+            <Card className="w-[80%] mx-auto h-full border-accent/20 bg-card/50 backdrop-blur-sm transition-transform hover:scale-[1.02]">
                 <CardHeader>
                     <CardTitle className="flex items-center gap-3 font-headline text-2xl text-accent">
                         <Quote className="w-8 h-8" />
@@ -299,7 +340,7 @@ export default function AboutPage() {
         <div className="lg:col-span-2 flex flex-col items-center text-center mt-0 mb-6">
           <Button asChild size="lg" className="mt-6 group transition-all duration-300 ease-in-out bg-red-500 hover:bg-red-400 hover:-translate-y-1 hover:scale-105">
             <Link href="/pdf/CanUrPortfolio.pdf" target="_blank">
-                Ancient Portfolio (Dutch)
+                Ancient Portfolio (In Dutch)
                 <Download className="ml-2 h-4 w-4 transition-transform duration-300 ease-in-out group-hover:translate-x-1" />
             </Link>
           </Button>
@@ -324,6 +365,75 @@ export default function AboutPage() {
 
       <SkillsShowcase skills={SKILLS}/>
 
+      <div className="mt-10">
+        <div className='flex justify-between items-center'>
+          <span className='text-2xl font-bold mb-4 text-gold-100/70'>𒀩</span>
+          <span className="font-headline text-3xl font-bold mb-4 text-accent text-center">Design Gallery</span>
+          <span className='text-2xl font-bold mb-4 text-gold-100/70'>𒀩</span>
+        </div>
+        <Card className="bg-card/50 backdrop-blur-sm border-primary/20 max-w-4xl mx-auto">
+          <CardContent className="p-6 grid grid-cols-2 md:grid-cols-4 gap-4">
+            {['Glasskopf_Poster.jpg', 'Glasskopf_OnePager.jpg', 'GDCPass.jpg', 'AMM_ZelfPortret.jpg'].map((img, i) => (
+              <div key={i} className="relative aspect-square rounded-lg overflow-hidden group">
+                <Image
+                  src={`/images/${img}`}
+                  alt={`Can Ur developer ${i + 1}`}
+                  fill
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
+                  <div className="absolute inset-0 bg-repeat bg-center opacity-10" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}></div>
+              </div>
+            ))}
+          </CardContent>
+        </Card>
+      </div>
+      
+      <div className="mt-10 mb-4">
+        <div className='flex justify-between items-center'>
+          <span className='text-2xl font-bold mb-4 text-gold-100/70'>𒀩</span>
+          <span className="font-headline text-3xl font-bold mb-4 text-accent text-center">Development Gallery</span>
+          <span className='text-2xl font-bold mb-4 text-gold-100/70'>𒀩</span>
+        </div>
+        <Card className="bg-card/50 backdrop-blur-sm border-primary/20 max-w-4xl mx-auto">
+          <CardContent className="p-6 grid grid-cols-2 md:grid-cols-4 gap-4">
+            {['Planet.jpg', 'planetB.jpg', 'image3.jpg', 'image5.jpg'].map((img, i) => (
+              <div key={i} className="relative aspect-square rounded-lg overflow-hidden group">
+                <Image
+                  src={`/images/${img}`}
+                  alt={`Can Ur developer ${i + 1}`}
+                  fill
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
+                  <div className="absolute inset-0 bg-repeat bg-center opacity-10" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}></div>
+              </div>
+            ))}
+          </CardContent>
+        </Card>
+      </div>
+      <br></br>
+      <hr></hr>
+      <div className="mt-10">
+        <Card className="bg-card/50 backdrop-blur-sm border-primary/20 max-w-4xl mx-auto">
+          <CardContent className="p-6 grid grid-cols-2 md:grid-cols-4 gap-4">
+            {['work.jpg', 'ziggurath/zigg3.JPG', 'Can.jpg', 'Jabrils.jpg'].map((img, i) => (
+              <div key={i} className="relative aspect-square rounded-lg overflow-hidden group">
+                <Image
+                  src={`/images/${img}`}
+                  alt={`Can Ur developer ${i + 1}`}
+                  fill
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
+                  <div className="absolute inset-0 bg-repeat bg-center opacity-10" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}></div>
+              </div>
+            ))}
+          </CardContent>
+        </Card>
+      </div>
+
+      <br></br>
       <div className='w-full mx-auto mt-6 flex justify-center'>
         <div
           className="badge-base LI-profile-badge"
@@ -337,26 +447,6 @@ export default function AboutPage() {
            href="https://www.linkedin.com/in/canpixel" />
         </div>
       </div>
-      <br></br>
-
-      <div className="mt-20">
-          <Card className="bg-card/50 backdrop-blur-sm border-primary/20 max-w-4xl mx-auto">
-            <CardContent className="p-6 grid grid-cols-2 md:grid-cols-4 gap-4">
-              {['work.jpg', 'ziggurath/zigg3.JPG', 'Can.jpg', 'Jabrils.jpg'].map((img, i) => (
-                <div key={i} className="relative aspect-square rounded-lg overflow-hidden group">
-                  <Image
-                    src={`/images/${img}`}
-                    alt={`Can Ur developer ${i + 1}`}
-                    fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
-                   <div className="absolute inset-0 bg-repeat bg-center opacity-10" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}></div>
-                </div>
-              ))}
-            </CardContent>
-          </Card>
-        </div>
     </div>
   );
 }

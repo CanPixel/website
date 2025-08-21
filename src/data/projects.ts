@@ -234,12 +234,13 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
     animationClass: 'group-hover:shadow-[0_0_20px_5px_rgba(255,69,0,0.7)]',
     youtube: [
       'McckFnjHBk8',
-      'XWCuo2E82hM'
+      'XWCuo2E82hM',
+      '2oVHkdFOz5w'
     ],
     videos: [
       'videos/Epicinium_Firestorm.mp4',
       'videos/Epicinium_Frostbite.mp4',
-      'videos/EpiOST.mp4'
+      // 'videos/EpiOST.mp4'
     ],
     slideshowImages: [
       'epicinium.png',
