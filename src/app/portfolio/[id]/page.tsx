@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Badge } from '@/components/ui/badge';
 import NavMenu from "@/components/navigation";
 import { Button } from '@/components/ui/button';
-import { Github, Calendar, Globe, ArrowLeft, ArrowUp, ArrowDown, 
+import { Github, Calendar, Globe, ArrowLeft, ArrowUp, ArrowDown, ArrowRight,
   Youtube, FileSearch, Download } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
@@ -18,7 +18,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
-import React, { useState, useRef, useEffect, useLayoutEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 // import { PDFViewer } from '@/components/PDFViewer';
 
 const SteamIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -310,6 +310,27 @@ export default function ProjectDetailPage({ project }: { project: Project | null
                         </Link>
                     </Button>
                   )}
+              </div>
+            </Card>
+          )}
+
+          {(project.styling.links) && (
+            <Card style={{
+              backgroundColor: project.styling.backgroundColor,
+              color: project.styling.textColor,
+              borderColor: project.styling.borderColor,
+              fontFamily: project.styling.fontFamily,
+          }} className="border-2 p-6">
+              <h3 className="text-2xl font-bold mb-4">Links</h3>
+              <div className="space-y-4">
+              {project.styling.links.map((link) => (
+                <Button asChild className="w-full bg-[#1b2838] hover:bg-[#2c435a] text-white">
+                    <Link href={link.url} target="_blank" rel="noopener noreferrer">
+                        {link.name}
+                        <ArrowRight className="mr-2 h-5 w-5" />
+                    </Link>
+                </Button>
+              ))}
               </div>
             </Card>
           )}

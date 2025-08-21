@@ -46,6 +46,7 @@ export interface ProjectStyling {
   document?: string;
   banner?: string;
   controls?: Control[];
+  links?: ExtLink[];
 }
 const defaultStyling: ProjectStyling = {
   backgroundColor: 'hsl(var(--card))',
@@ -63,6 +64,11 @@ const defaultStyling: ProjectStyling = {
   document: '',
   banner: '',
 };
+
+export interface ExtLink {
+  name: string;
+  url: string;
+}
 
 export interface Control {
   key: string;
@@ -409,6 +415,10 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
       { key: '↑ → ↓ ←', desc: 'Move'},
       { key: 'X', desc: 'Interact'},
     ],
+    links: [
+      { name: 'ITCH.io', url: 'https://phucklearound.itch.io/supercasanova' },
+      { name: 'GameJolt', url: 'https://gamejolt.com/games/supercasanova/377655' },
+    ]
   },
   'chivalry-chef':
   {
