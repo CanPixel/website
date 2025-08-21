@@ -247,15 +247,14 @@ export default function AboutPage() {
  <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-background to-transparent pointer-events-none" />
       </div>
       
-      <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
         <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="transition-transform hover:scale-105"
           >
-            <Card className="h-full border-primary/20 bg-card/50 backdrop-blur-sm">
+            <Card className="h-full border-primary/20 bg-card/50 backdrop-blur-sm transition-transform hover:scale-105">
                 <CardHeader>
                     <CardTitle className="flex items-center gap-3 font-headline text-2xl text-primary">
                         <Quote className="w-8 h-8" />
@@ -276,9 +275,8 @@ export default function AboutPage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
-            className="transition-transform hover:scale-105"
         >
-            <Card className="h-full border-accent/20 bg-card/50 backdrop-blur-sm">
+            <Card className="h-full border-accent/20 bg-card/50 backdrop-blur-sm transition-transform hover:scale-105">
                 <CardHeader>
                     <CardTitle className="flex items-center gap-3 font-headline text-2xl text-accent">
                         <Quote className="w-8 h-8" />
