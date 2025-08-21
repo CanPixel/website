@@ -46,7 +46,7 @@ export default function ProjectDetailPage({ project }: { project: Project | null
   const [isExpanded, setIsExpanded] = useState(false);
   const textRef = useRef<HTMLDivElement>(null);
   const [isTruncated, setIsTruncated] = useState(false);
-  const MAX_HEIGHT = 300;
+  const MAX_HEIGHT = 400;
 
   const handleReadMoreClick = () => {
     setIsExpanded(true);
@@ -149,7 +149,7 @@ export default function ProjectDetailPage({ project }: { project: Project | null
           <div className="prose prose-lg dark:prose-invert max-w-none text-foreground/90 mt-8 space-y-6">
             <h3 className="font-headline text-2xl font-bold mb-4 text-accent">Technical Details</h3>
             
-            <div ref={textRef} className={cn("relative overflow-hidden transition-all duration-500 ease-in-out", { [`max-h-[${MAX_HEIGHT}px]`]: !isExpanded && isTruncated })}>
+            <div ref={textRef} className={cn("relative overflow-hidden transition-all duration-500 ease-in-out", { [`max-h-[400px]`]: !isExpanded && isTruncated })}>
               <pre className="text-sm whitespace-pre-wrap leading-relaxed">
                 {project.technicalDesc ? (
                   <div dangerouslySetInnerHTML={{ __html: technicalDesc }}></div>
