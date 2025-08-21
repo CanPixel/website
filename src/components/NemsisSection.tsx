@@ -32,23 +32,22 @@ export default function NemsisSection() {
       </p>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <div className="lg:col-span-2">
+        <div className="lg:col-span-2 space-y-8">
             <Card className="bg-card/50 backdrop-blur-sm border-orange-500/30">
                 <CardHeader>
                 <CardTitle className="text-center text-2xl text-orange-300 mb-2 font-headline">
                   Full EP: 'Sugar, Why So Bitter?'
                 </CardTitle>
-                <CardTitle className="text-center text-1xl text-gray-300 mb-2">
-                  Released in
+                <div className="text-center">
                   <Badge 
                     variant="secondary"
-                    className="bg-background/40 border border-gold-100/40 text-accent font-accent ml-2">
-                    2019
+                    className="bg-background/40 border border-gold-100/40 text-accent font-accent">
+                    Released in 2019
                   </Badge>
-                </CardTitle>
+                </div>
                 </CardHeader>
                 <CardContent>
-                  <div className="mx-auto p-2 shadow-inner bg-gold-900/20 p-4 rounded-lg border border-gold-500/30 [box-shadow:0_0_15px_rgba(0,0,0,0.5)_inset] ">
+                  <div className="mx-auto p-2 shadow-inner bg-gold-900/20 rounded-lg border border-gold-500/30 [box-shadow:0_0_15px_rgba(0,0,0,0.5)_inset] ">
                     <iframe
                       src="https://open.spotify.com/embed/artist/3MPnL7QqlX6t93o5fSme1y?utm_source=generator"
                       width="100%"
@@ -58,113 +57,128 @@ export default function NemsisSection() {
                       loading="lazy"
                     ></iframe>
                   </div>
+                </CardContent>
+            </Card>
 
-                  <Card className="mt-8 bg-card/50 backdrop-blur-sm border-orange-500/30">
-                    <CardHeader>
-                      <CardTitle className="font-headline text-2xl text-orange-400">Bio</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
-        NEMSIS is a young rock band that bites you right back! <br></br>
-        Forged in Haarlem a couple of years ago, a strong bond was created that can be seen and heard. <br></br>
-        This results in an extraordinary mix of raw guitars, vivid vocals and lunatic sounds where you can't put a finger on where they come from. They call it: Modern-Oriental Grungepop. <br></br><br></br>3v12 NH (a Dutch multimedia platform for pop music) called them ‘epic’, ‘original’ and ‘energetic’, after their performance in the finals of the Rob Acda Awards 2018, where they eventually won all the prizes. This show plus shows at Young Art festival, Indie In Town and as the opening act on the grand stage of Bevrijdingspop 2018– the reward for winning the Rob Acda Awards- resulted in a buzz, that gets louder with every performance. <br></br>After a long wait the debut EP "Sugar, Why so Bitter?" has finally reached the surface of the earth, during the successful releaseshow on June 7th in Bitterzoet, Amsterdam!
-                      </p>
-                    </CardContent>
-                  </Card>
+            <Card className="bg-card/50 backdrop-blur-sm border-orange-500/30">
+              <CardHeader>
+                <CardTitle className="font-headline text-2xl text-orange-400">Bio</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  NEMSIS is a young rock band that bites you right back! <br></br>
+                  Forged in Haarlem a couple of years ago, a strong bond was created that can be seen and heard. <br></br>
+                  This results in an extraordinary mix of raw guitars, vivid vocals and lunatic sounds where you can't put a finger on where they come from. They call it: Modern-Oriental Grungepop. <br></br><br></br>3v12 NH (a Dutch multimedia platform for pop music) called them ‘epic’, ‘original’ and ‘energetic’, after their performance in the finals of the Rob Acda Awards 2018, where they eventually won all the prizes. This show plus shows at Young Art festival, Indie In Town and as the opening act on the grand stage of Bevrijdingspop 2018– the reward for winning the Rob Acda Awards- resulted in a buzz, that gets louder with every performance. <br></br>After a long wait the debut EP "Sugar, Why so Bitter?" has finally reached the surface of the earth, during the successful releaseshow on June 7th in Bitterzoet, Amsterdam!
+                </p>
+              </CardContent>
+            </Card>
 
-                  <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <h3 className="font-headline text-2xl font-bold text-center text-orange-400">Video Features</h3>
-                    <ScrollArea className="h-[40rem] rounded-md">
-                        <div className="space-y-6">
-                        {youtubeVideos.map(video => (
-                            <Card key={video.id} className="bg-card/50 border-yellow-500/30">
-                                <CardHeader>
-                                    <CardTitle className="flex items-center gap-2 text-lg">
-                                        <Youtube className="w-6 h-6 text-red-500"/>
-                                        {video.title}
-                                    </CardTitle>
-                                </CardHeader>
-                                <CardContent>
-                                    <div className="aspect-video rounded-md overflow-hidden">
-                                        <iframe
-                                            src={`https://www.youtube.com/embed/${video.id}`}
-                                            title={video.title}
-                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                            allowFullScreen
-                                            className="w-full h-full"
-                                        ></iframe>
-                                    </div>
-                                </CardContent>
-                            </Card>
-                        ))}
-                        </div>
-                    </ScrollArea>
-                </div>
-                
-                <CardTitle className="text-center mt-12 font-headline text-2xl text-orange-400 mb-2">Mixed-Media EP Release Event</CardTitle>
-                <div className='text-center text-sm font-serif text-muted-foreground/70 mb-1'>Poster Design by me, made in Illustrator</div>
-                <div className="flex mb-4 w-full justify-center">
-                  <div className="w-full justify-center">
+            <Card className="bg-card/50 backdrop-blur-sm border-orange-500/30">
+              <CardHeader>
+                <CardTitle className="font-headline text-2xl text-orange-400">Mixed-Media EP Release Event</CardTitle>
+                <p className="text-xs font-serif text-muted-foreground/70">Poster & Timetable Design by me, made in Illustrator</p>
+              </CardHeader>
+              <CardContent>
+                <div className="flex flex-col md:flex-row gap-4 mb-4">
+                  <div className="flex-1">
                     <Image
-                      src="images/poster.jpg"
+                      src="/images/poster.jpg"
                       alt="NEMSIS EP Release poster"
                       width={584}
                       height={824}
-                      className="w-auto h-full mx-auto mt-1 rounded-md border-y-2 border-x border-accent/20 p-2 shadow-inner bg-accent/10 [box-shadow:0_0_15px_rgba(0,0,0,0.5)_inset]"
+                      className="w-full h-auto mx-auto rounded-md border-y-2 border-x border-accent/20 p-2 shadow-inner bg-accent/10 [box-shadow:0_0_15px_rgba(0,0,0,0.5)_inset]"
+                      loading="lazy"
                     />
                   </div>
-                  <div className="w-full justify-center">
+                  <div className="flex-1">
                     <Image
-                      src="images/NEMSIS_TIMETABLE.jpg"
+                      src="/images/NEMSIS_TIMETABLE.jpg"
                       alt="NEMSIS EP Release timetable"
                       width={584}
                       height={824}
-                      className="w-auto h-full mx-auto mt-1 rounded-md border-y-2 border-x border-accent/20 p-2 shadow-inner bg-accent/10 [box-shadow:0_0_15px_rgba(0,0,0,0.5)_inset]"
+                      className="w-full h-auto mx-auto rounded-md border-y-2 border-x border-accent/20 p-2 shadow-inner bg-accent/10 [box-shadow:0_0_15px_rgba(0,0,0,0.5)_inset]"
+                      loading="lazy"
                     />
                   </div>
                 </div>
-
-                <div className='mt-3 text-sm rounded-md p-4 text-white/70 mt-1 font-serif mx-auto bg-accent/10 border-y-2 border-x border-accent/20 p-2 shadow-inner [box-shadow:0_0_15px_rgba(0,0,0,0.5)_inset]'>
+                <div className='text-sm rounded-md p-4 text-white/70 font-serif bg-accent/10 border-y-2 border-x border-accent/20 shadow-inner [box-shadow:0_0_15px_rgba(0,0,0,0.5)_inset]'>
                   After a long wait the debut EP "Sugar, Why so Bitter?" has finally reached the surface of the earth, during the successful releaseshow on June 7th in Bitterzoet, Amsterdam!<br></br>
-<br></br>We fully organised this event ourselves, and handled tasks such as scheduling the pre-show aswell as the breaks in-between acts, marketing the event, planning, creating visuals and more.<br></br>
-Placing Koo-Koo as an interactive installation during breaks inbetween our opener act and our own was my idea.<br></br>
-Gaming and Music during a live event seemed to work surprisingly well!<br></br>
-We had a lot of good reactions from mixed audiences (young & old), and the overall event was a success!<br></br>
-<br></br>
-<p className="mb-2">The aspects of the event I've handled:</p>
-        <ul className="list-disc list-inside">
-          <li>Playing & performing myself (Lead guitar)</li>
-          <li>Marketing the event & producing promotional content</li>
-          <li>Designing a poster, that links directly to the online event on facebook.</li>
-          <li>Designing a timetable & producing in quantities</li>
-          <li>Finding companies that can produce said posters & timetables in masses, with a discount!</li>
-          <li>Decorating the indoors for the event (custom balloons, timetables on the walls, little stand for buying our EP vinyls)</li>
-          <li>Booking & planning Koo-Koo in certain timeslots for the best flow for the event.</li>
-        </ul>
+                  <br></br>We fully organised this event ourselves, and handled tasks such as scheduling the pre-show as well as the breaks in-between acts, marketing the event, planning, creating visuals and more.<br></br>
+                  Placing Koo-Koo as an interactive installation during breaks inbetween our opener act and our own was my idea.<br></br>
+                  Gaming and Music during a live event seemed to work surprisingly well!<br></br>
+                  We had a lot of good reactions from mixed audiences (young & old), and the overall event was a success!<br></br>
+                  <br></br>
+                  <p className="mb-2">The aspects of the event I've handled:</p>
+                  <ul className="list-disc list-inside">
+                    <li>Playing & performing myself (Lead guitar)</li>
+                    <li>Marketing the event & producing promotional content</li>
+                    <li>Designing a poster, that links directly to the online event on facebook.</li>
+                    <li>Designing a timetable & producing in quantities</li>
+                    <li>Finding companies that can produce said posters & timetables in masses, with a discount!</li>
+                    <li>Decorating the indoors for the event (custom balloons, timetables on the walls, little stand for buying our EP vinyls)</li>
+                    <li>Booking & planning Koo-Koo in certain timeslots for the best flow for the event.</li>
+                  </ul>
                 </div>
-
-                </CardContent>
+              </CardContent>
             </Card>
         </div>
 
-        <div className="lg:col-span-1">
+        <div className="lg:col-span-1 space-y-8">
+          <Card className="bg-card/50 backdrop-blur-sm border-orange-500/30">
+            <CardHeader>
+              <CardTitle className="font-headline text-2xl text-orange-400">Video Features</CardTitle>
+            </CardHeader>
+            <CardContent>
+                <ScrollArea className="h-96 rounded-md">
+                    <div className="space-y-6 pr-4">
+                    {youtubeVideos.map(video => (
+                        <Card key={video.id} className="bg-card/50 border-yellow-500/30">
+                            <CardHeader>
+                                <CardTitle className="flex items-center gap-2 text-base">
+                                    <Youtube className="w-6 h-6 text-red-500 flex-shrink-0"/>
+                                    {video.title}
+                                </CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <div className="aspect-video rounded-md overflow-hidden">
+                                    <iframe
+                                        src={`https://www.youtube.com/embed/${video.id}`}
+                                        title={video.title}
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowFullScreen
+                                        className="w-full h-full"
+                                        loading="lazy"
+                                    ></iframe>
+                                </div>
+                            </CardContent>
+                        </Card>
+                    ))}
+                    </div>
+                </ScrollArea>
+            </CardContent>
+          </Card>
           <Card className="bg-card/50 backdrop-blur-sm border-orange-500/30">
             <CardHeader>
               <CardTitle className="font-headline text-2xl text-orange-400">Visuals</CardTitle>
             </CardHeader>
-            <CardContent className="grid grid-cols-2 gap-4">
-            {['NEMSISvinyl.jpg', 'nemsis5.jpg', 'EPRelease.jpg', 'bpop (2).jpg', 'Can.jpg', 'EPTV.jpg'].map((img, i) => (
-                <div key={i} className="relative aspect-square rounded-lg overflow-hidden group">
-                  <Image
-                    src={`/images/${img}`}
-                    alt={`Nemsis band visual ${i + 1}`}
-                    fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
-                   <div className="absolute inset-0 bg-repeat bg-center opacity-10" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}></div>
+            <CardContent>
+              <ScrollArea className="h-[40rem]">
+                <div className="grid grid-cols-2 gap-4 pr-4">
+                  {['NEMSISvinyl.jpg', 'nemsis5.jpg', 'EPRelease.jpg', 'bpop (2).jpg', 'Can.jpg', 'EPTV.jpg'].map((img, i) => (
+                      <div key={i} className="relative aspect-square rounded-lg overflow-hidden group">
+                        <Image
+                          src={`/images/${img}`}
+                          alt={`Nemsis band visual ${i + 1}`}
+                          fill
+                          className="object-cover transition-transform duration-300 group-hover:scale-105"
+                          loading="lazy"
+                        />
+                        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
+                        <div className="absolute inset-0 bg-repeat bg-center opacity-10" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}></div>
+                      </div>
+                    ))}
                 </div>
-              ))}
+              </ScrollArea>
             </CardContent>
           </Card>
         </div>
