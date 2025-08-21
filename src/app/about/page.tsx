@@ -1,11 +1,12 @@
+
 "use client"
 
 import Image from 'next/image';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import NavMenu from "@/components/navigation";
 import { Button } from "@/components/ui/button";
 import Link from 'next/link';
-import { Download, Gamepad, Globe, Palette, Headphones } from 'lucide-react';
+import { Download, Gamepad, Globe, Palette, Headphones, Quote } from 'lucide-react';
 import { motion, useInView, useScroll, useSpring, Variants } from 'framer-motion';
 import { useRef, useEffect } from 'react';
 import SkillsShowcase from './SkillsShowcase';
@@ -245,47 +246,53 @@ export default function AboutPage() {
         </div>
  <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-background to-transparent pointer-events-none" />
       </div>
-
-      <div className="w-3/4 bg-gray-600/50 p-3 pb-4 mt-12 mx-auto">
-        <code className="text-[12px] text-muted-foreground mt-4 leading-relaxed text-center">
-        The process of building core mechanics into a game system, 
-        slowly adding merit, then refining the imminent gameplay by tweaking various interactions between core mechanics (dynamics).
-<br></br><br></br>
-I reject the categories <i>"Applied Gaming"</i> and <i>"Serious Games"</i>, as I find it a self-deprecating sign of failed/hollow/one-dimensional game design.<br></br>
-Whenever these terms are mentioned, it's a rather emphatic announcement of a concept implying its own shortcomings.<br></br>
-A good game is <b>insightful, entertaining and educational</b> at the same time.<br></br>
-<br></br>
-My drive for creation is constructing experiences that help people learn by having fun, and let people have fun by learning.<br></br>
-<br></br>
-Innovation comes from looking at things in new and different ways.<br></br>
-By thinking outside the box and being willing to experiment, you can come up with unique solutions, or atleast populate the marketplace of ideas with newer questions.
-        </code>
+      
+      <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            <Card className="h-full border-primary/20 bg-card/50 backdrop-blur-sm">
+                <CardHeader>
+                    <CardTitle className="flex items-center gap-3 font-headline text-2xl text-primary">
+                        <Quote className="w-8 h-8" />
+                        Game Design Philosophy
+                    </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4 text-sm text-muted-foreground leading-relaxed">
+                   <p>The process of building core mechanics into a game system, slowly adding merit, then refining the imminent gameplay by tweaking various interactions between core mechanics (dynamics).</p>
+                   <p>I reject the categories <i>"Applied Gaming"</i> and <i>"Serious Games"</i>, as I find it a self-deprecating sign of failed/hollow/one-dimensional game design. Whenever these terms are mentioned, it's a rather emphatic announcement of a concept implying its own shortcomings.</p>
+                   <p>A good game is <b>insightful, entertaining and educational</b> at the same time.</p>
+                   <p>My drive for creation is constructing experiences that help people learn by having fun, and let people have fun by learning.</p>
+                   <p>Innovation comes from looking at things in new and different ways. By thinking outside the box and being willing to experiment, you can come up with unique solutions, or atleast populate the marketplace of ideas with newer questions.</p>
+                </CardContent>
+            </Card>
+        </motion.div>
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+        >
+            <Card className="h-full border-accent/20 bg-card/50 backdrop-blur-sm">
+                <CardHeader>
+                    <CardTitle className="flex items-center gap-3 font-headline text-2xl text-accent">
+                        <Quote className="w-8 h-8" />
+                        What is Good Design?
+                    </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4 text-sm text-muted-foreground leading-relaxed">
+                   <p>A good theme adds conceptual merit and increases the headroom of an idea. We as people like our ideas clearly defined and outlined, yet leaving room for suggestive elements. Imagination is key. But you need a keyhole. We have an affinity for concepts that have a form of consistent thematic 'branding'.</p>
+                   <p>Nihilism indirectly seeps into design, so if you're not motivated enough, the game might reflect that. Treat the game as an extension of you, be the creator <b>and</b> the creation. Opening room for being passionate about your concept, being able to romanticize it fully builds authenticity.</p>
+                   <p>Not unlike method acting, I face my all my output as a <b>"method developer"</b> artistically. For periods I breathe in abstract, I let the concept be me. Me being the vessel for the collected ideas, I eventually converge all of it into one greater whole that I can then sketch out, implement and realize.</p>
+                   <p>This way I can ensure that I'm able to bring my creative visions to life passionately and thoroughly. It's never just a game meant for mass consumption with one goal.</p>
+                </CardContent>
+            </Card>
+        </motion.div>
       </div>
 
-      <div className="w-3/4 bg-gray-600/50 p-3 pb-4 mt-12 mx-auto">
-      <h1>What is Good Design?</h1><br></br>
-
-      <code className="text-[12px] text-muted-foreground mt-4 leading-relaxed text-center">
-      A good theme adds conceptual merit and increases the headroom of an idea.<br></br>
-We as people like our ideas clearly defined and outlined, yet leaving room for suggestive elements.<br></br>
-Imagination is key. But you need a keyhole.<br></br>
-We have an affinity for concepts that have a form of consistent thematic 'branding'.
-      </code>
-      <br></br>
-
-      <code className="text-[12px] text-muted-foreground mt-4 leading-relaxed text-center">
-Nihilism indirectly seeps into design, so if you're not motivated enough, the game might reflect that.<br></br>
-Treat the game as an extension of you, be the creator <b>and</b> the creation.<br></br>
-Opening room for being passionate about your concept, being able to romanticize it fully builds authenticity.<br></br>
-<br></br>
-Not unlike method acting, I face my all my output as a <b>"method developer"</b> artistically.<br></br>
-For periods I breathe in abstract, I let the concept be me. Me being the vessel for the collected ideas, I eventually converge all of it into one greater whole that I can then sketch out, implement and realize.<br></br>
-This captures necessary passion (and other human aspects) I use to let the creation speak for itself, ontologically involving me with the creation. At the very least being a profound reflection of my life at the time.<br></br>
-<br></br>
-This way I can ensure that I'm able to bring my creative visions to life passionately and thoroughly.<br></br>
-It's never just a game meant for mass consumption with one goal.
-</code>
-      </div>
 
       <div className="mt-24">
         <h2 className="font-headline text-5xl font-bold tracking-tighter text-center">My Journey</h2>
