@@ -167,21 +167,21 @@ export const CATEGORIES = [
     desc: "FL Studio, composition, songwriting, arrangement, mixing basics, and sound design." },
 ];
 export const SKILLS = [
-  { id: "html", name: "HTML5 & CSS3", value: 80, categories: ["Web Development"], desc: "Semantic markup, accessibility-first approach." },
-  { id: "js", name: "JavaScript", value: 75, categories: ["Web Development"], desc: "ESNext, tooling, DOM, and framework friendly." },
-  { id: "jquery", name: "JQuery", value: 75, categories: ["Web Development"], desc: "ESNext, tooling, DOM, and framework friendly." },
-  { id: "flstudio", name: "FL Studio 12", value: 75, categories: ["Music"], desc: "Beat design, arrangement and mixing basics." },
-  { id: "unity", name: "Unity (C#)", value: 75, categories: ["Game Development"], desc: "Gameplay programming, components, and scripting." },
+  { id: "html", name: "HTML5 & CSS3", value: 90, categories: ["Web Development"], desc: "Semantic markup, accessibility-first approach." },
+  { id: "jquery", name: "JQuery", value: 80, categories: ["Web Development"], desc: "ESNext, tooling, DOM, and framework friendly." },
+  { id: "js", name: "JavaScript", value: 80, categories: ["Web Development"], desc: "ESNext, tooling, DOM, and framework friendly." },
+  { id: "unity", name: "Unity (C#)", value: 80, categories: ["Game Development"], desc: "Gameplay programming, components, and scripting." },
+  { id: "java", name: "Java", value: 75, categories: ["Game Development"], desc: "OOP, tooling, and enterprise paradigms." },
+  { id: "flstudio", name: "FL Studio 12", value: 70, categories: ["Music"], desc: "Beat design, arrangement and mixing basics." },
   { id: "react", name: "React, Tailwind & Next.js", value: 70, categories: ["Web Development"], desc: "Building modern, dynamic user interfaces." },
-  { id: "php", name: "PHP", value: 65, categories: ["Web Development"], desc: "Legacy systems, APIs and server-side templating." },
-  { id: "java", name: "Java", value: 65, categories: ["Game Development"], desc: "OOP, tooling, and enterprise paradigms." },
-  { id: "premiere", name: "Adobe Premiere Pro", value: 65, categories: ["Design"], desc: "Video editing, cuts and color basics." },
+  { id: "php", name: "PHP", value: 70, categories: ["Web Development"], desc: "Legacy systems, APIs and server-side templating." },
+  { id: "mysql", name: "MySQL", value: 65, categories: ["Web Development"], desc: "Database design, queries, and optimization." },
+  { id: "premiere", name: "Adobe Premiere Pro", value: 60, categories: ["Design"], desc: "Video editing, cuts and color basics." },
   { id: "illustrator", name: "Adobe Illustrator", value: 60, categories: ["Design"], desc: "Vector illustration and iconography." },
-  { id: "arduino", name: "Arduino", value: 50, categories: ["Game Development"], desc: "Prototyping hardware, sensor IO and embedded logic." },
-  { id: "mysql", name: "MySQL", value: 50, categories: ["Web Development"], desc: "Database design, queries, and optimization." },
-  { id: "python", name: "Python", value: 40, categories: ["Game Development"], desc: "Scripting, automation, and basic backend tasks." },
-  { id: "cpp", name: "C++", value: 25, categories: ["Game Development"], desc: "Native performance, systems and plugin development." },
-  { id: "lua", name: "LUA", value: 20, categories: ["Game Development"], desc: "Scripting for embedded game logic and mods." },
+  { id: "arduino", name: "Arduino", value: 55, categories: ["Game Development"], desc: "Prototyping hardware, sensor IO and embedded logic." },
+  { id: "python", name: "Python", value: 45, categories: ["Game Development"], desc: "Scripting, automation, and basic backend tasks." },
+  { id: "cpp", name: "C++", value: 35, categories: ["Game Development"], desc: "Native performance, systems and plugin development." },
+  { id: "lua", name: "LUA", value: 30, categories: ["Game Development"], desc: "Scripting for embedded game logic and mods." },
 ];
 const COLORS = ["#00C49F", "#0088FE", "#FFBB28", "#FF8042", "#845EC2", "#FF6F91", "#2C73D2", "#008E9B", "#D65DB1", "#FF9671"];
 
@@ -275,7 +275,7 @@ export default function AboutPage() {
              </Button>
         </div>
         <div className="lg:col-span-2">
-            <Card className="border-gold-500/50 w-full mx-auto rounded-lg hover:scale-105 transition-transform">
+            <Card className="border-gold-500/50 w-full mx-auto rounded-lg hover:scale-[1.02] transition-transform">
               <div className="relative mx-auto h-full w-full rounded-lg">
                 <Image
                   src={"/images/guitar.jpg"}
@@ -296,7 +296,7 @@ export default function AboutPage() {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <Card className="w-full mx-auto h-full border-primary/20 bg-card/50 backdrop-blur-sm transition-transform hover:scale-105">
+            <Card className="w-full mx-auto h-full border-primary/20 bg-card/50 backdrop-blur-sm transition-transform hover:scale-[1.02]">
                 <CardHeader>
                     <CardTitle className="flex items-center gap-3 font-headline text-2xl text-primary">
                         <Quote className="w-8 h-8" />
@@ -318,7 +318,7 @@ export default function AboutPage() {
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
         >
-            <Card className="w-full mx-auto h-full border-accent/20 bg-card/50 backdrop-blur-sm transition-transform hover:scale-105">
+            <Card className="w-full mx-auto h-full border-accent/20 bg-card/50 backdrop-blur-sm transition-transform hover:scale-[1.02]">
                 <CardHeader>
                     <CardTitle className="flex items-center gap-3 font-headline text-2xl text-accent">
                         <Quote className="w-8 h-8" />
@@ -366,11 +366,27 @@ export default function AboutPage() {
 
       <SkillsShowcase skills={SKILLS}/>
 
+      {/* <Card className='p-3 bg-gray text-sm font-mono'>
+        <h1 className='text-center text-1xl font-headline text-gold-500 mb-2'>My Interests</h1>
+<ul>
+<li>- Finding new and unique ways to increase replayability through procedural algorithms and random generation. Making playthroughs unique.</li>
+
+<li>- Building AI systems that add nuance and illusive sentience to an existing game meta.</li>
+
+<li>- Experimental Core Mechanics</li>
+
+<li>- Creating new interactive experiences by morphing established design rules into new manifestations.</li>
+
+<li>- I think that the term "Serious Game" is horrendously wrong, and that it ultimately is an admission of failed design. It also suggests a misunderstanding of what the medium can achieve.
+A good game is one of the most powerful educational tools, because they can directly involve people in experiences like no other media form. And let's not fool ourselves, we know that learning by doing is highly effective.</li>
+
+<li>- Gaming is an art form, like music, painting, theatre, film etc. I like to analyze the different ways that gaming can express, and find new ways to push existing boundaries.</li>
+</ul>
+      </Card> */}
+
       <div className="mt-10">
         <div className='flex justify-between items-center'>
-          <span className='text-2xl font-bold mb-4 text-gold-100/70'> acrylbic</span>
           <span className="font-headline text-3xl font-bold mb-4 text-accent text-center">Design Gallery</span>
-          <span className='text-2xl font-bold mb-4 text-gold-100/70'> acrylbic</span>
         </div>
         <Card className="bg-card/50 backdrop-blur-sm border-primary/20 max-w-4xl mx-auto">
           <CardContent className="p-6 grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -392,9 +408,7 @@ export default function AboutPage() {
       
       <div className="mt-10 mb-4">
         <div className='flex justify-between items-center'>
-          <span className='text-2xl font-bold mb-4 text-gold-100/70'> acrylbic</span>
           <span className="font-headline text-3xl font-bold mb-4 text-accent text-center">Development Gallery</span>
-          <span className='text-2xl font-bold mb-4 text-gold-100/70'> acrylbic</span>
         </div>
         <Card className="bg-card/50 backdrop-blur-sm border-primary/20 max-w-4xl mx-auto">
           <CardContent className="p-6 grid grid-cols-2 md:grid-cols-4 gap-4">
