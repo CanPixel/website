@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import NavMenu from "@/components/navigation";
 import { Button } from "@/components/ui/button";
 import Link from 'next/link';
-import { Download, Gamepad, Globe, Palette, Headphones, Quote } from 'lucide-react';
+import { Download, Gamepad, Globe, Palette, Headphones, Quote, ArrowRight } from 'lucide-react';
 import { motion, useInView, useScroll, useSpring, Variants } from 'framer-motion';
 import { useRef, useEffect } from 'react';
 import SkillsShowcase from './SkillsShowcase';
@@ -403,6 +403,23 @@ A good game is one of the most powerful educational tools, because they can dire
               </div>
             ))}
           </CardContent>
+
+          <div className='mx-auto'>
+            <div className="w-3/4 h-full mx-auto border border-gold-600 border-2 mt-4 mb-1 rounded-xl overflow-hidden">
+              <video muted autoPlay loop width="100%" height="100%">
+                <source src='/videos/ChivChefWalk.mp4' type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div className="mx-auto mb-4 text-center">
+            <Link href="/portfolio/chivalry-chef" passHref>
+              <Button variant="link" className="p-0 mx-auto text-center mt-2 text-muted-foreground h-auto group-hover:underline hover:scale-[1.025] transition-transform text-sm self-start">
+                Development process for ChivalryChef (+ Code!)
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
+            </div>
+          </div>
         </Card>
       </div>
       
