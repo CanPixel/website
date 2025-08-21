@@ -1,9 +1,10 @@
+
 'use client';
 
-import MusicProjectCard from './music-project-card';
 import { Card, CardHeader, CardTitle, CardContent } from './ui/card';
 import { Youtube } from 'lucide-react';
 import Image from 'next/image';
+import { ScrollArea } from './ui/scroll-area';
 
 const youtubeVideos = [
     {
@@ -30,44 +31,61 @@ export default function CannemenSection() {
         <h2 className="absolute -top-5 left-1/2 -translate-x-1/2 bg-background px-4 font-headline text-4xl font-bold tracking-tighter text-sky-400">
             CANNEMEN
         </h2>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 mt-8">
+          <div className="lg:col-span-2 space-y-8">
+            <Card className="bg-card/50 border-sky-500/30 h-full">
+              <CardContent className="p-6 text-center">
+                <Image 
+                    src="/images/ABOH_CAN.png"
+                    alt="Can guitar avatar"
+                    width={235}
+                    height={235}
+                    loading='lazy'
+                    className='mx-auto rounded-full border-4 border-sky-500/50 shadow-lg'
+                />
+                <p className="text-md text-muted-foreground mt-6 max-w-3xl mb-2">
+                    A showcase of my solo work, featuring a blend of electronic and acoustic elements, often with a visual or narrative component.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
 
-        <Image 
-            src="images/ABOH_CAN.png"
-            alt="Can guitar avatar"
-            width={235}
-            height={235}
-            loading='lazy'
-            className='mx-auto -top-5 right-1/4 translate-x-1/2 absolute mt-3 opacity-90'
-        />
-        <p className="text-left w-[55%] text-md text-muted-foreground mt-8 max-w-3xl mb-8">
-            A showcase of my solo work, featuring a blend of electronic and acoustic elements.
-        </p>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-16">
-            <h3 className="font-headline text-2xl font-bold text-center text-sky-400">Music Videos</h3>
-            <div className="space-y-6">
-            {youtubeVideos.map(video => (
-                <Card key={video.id} className="bg-card/50 border-sky-500/30">
-                    <CardHeader>
-                        <CardTitle className="flex items-center gap-2 text-lg">
-                            <Youtube className="w-6 h-6 text-red-500"/>
-                            {video.title}
-                        </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <div className="aspect-video rounded-md overflow-hidden">
-                            <iframe
-                                src={`https://www.youtube.com/embed/${video.id}`}
-                                title={video.title}
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowFullScreen
-                                className="w-full h-full"
-                            ></iframe>
+          <div className="lg:col-span-3">
+             <Card className="bg-card/50 border-sky-500/30">
+                <CardHeader>
+                    <CardTitle className="font-headline text-2xl font-bold text-center text-sky-400">Music Videos</CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <ScrollArea className="h-[30rem] rounded-md">
+                        <div className="space-y-6 pr-4">
+                        {youtubeVideos.map(video => (
+                            <Card key={video.id} className="bg-card/80 border-sky-500/30 backdrop-blur-sm">
+                                <CardHeader>
+                                    <CardTitle className="flex items-center gap-2 text-lg text-sky-300">
+                                        <Youtube className="w-6 h-6 text-red-500 flex-shrink-0"/>
+                                        {video.title}
+                                    </CardTitle>
+                                </CardHeader>
+                                <CardContent>
+                                    <div className="aspect-video rounded-md overflow-hidden">
+                                        <iframe
+                                            src={`https://www.youtube.com/embed/${video.id}`}
+                                            title={video.title}
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowFullScreen
+                                            className="w-full h-full"
+                                            loading="lazy"
+                                        ></iframe>
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        ))}
                         </div>
-                    </CardContent>
-                </Card>
-            ))}
-            </div>
+                    </ScrollArea>
+                </CardContent>
+            </Card>
+          </div>
         </div>
     </div>
   );
