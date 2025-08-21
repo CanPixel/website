@@ -6,17 +6,19 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Badge } from '@/components/ui/badge';
 import NavMenu from "@/components/navigation";
 import { Button } from '@/components/ui/button';
-import { Github, Calendar, Globe, ArrowLeft, Youtube, FileSearch, Download } from 'lucide-react';
+import { Github, Calendar, Globe, ArrowLeft, ArrowUp, ArrowDown, 
+  Youtube, FileSearch, Download } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { ImageSlideshow } from '@/components/ImageSlideshow';
 import {
   Carousel,
-  CarouselContent,
   CarouselItem,
+  CarouselContent,
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
+import React, { useState, useRef, useEffect, useLayoutEffect } from 'react';
 // import { PDFViewer } from '@/components/PDFViewer';
 
 const SteamIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -40,6 +42,31 @@ export default function ProjectDetailPage({ project }: { project: Project | null
   );
 
   const technicalDesc = project.technicalDesc ? project.technicalDesc : ''; 
+
+  const [isExpanded, setIsExpanded] = useState(false);
+  const textRef = useRef<HTMLDivElement>(null);
+  const [isTruncated, setIsTruncated] = useState(false);
+  const MAX_HEIGHT = 300;
+
+  const handleReadMoreClick = () => {
+    setIsExpanded(true);
+  };
+
+  const handleCollapseClick = () => {
+    setIsExpanded(false);
+  };
+
+  useEffect(() => {
+    if (textRef.current) {
+      setIsTruncated(textRef.current.scrollHeight > MAX_HEIGHT);
+    }
+  }, [technicalDesc]);
+
+  useEffect(() => {
+    if (textRef.current) {
+      setIsTruncated(textRef.current.scrollHeight > MAX_HEIGHT && !isExpanded);
+    }
+  });
 
   return (
     <div className="container mx-auto mt-4 px-4 py-16">
@@ -122,23 +149,58 @@ export default function ProjectDetailPage({ project }: { project: Project | null
           <div className="prose prose-lg dark:prose-invert max-w-none text-foreground/90 mt-8 space-y-6">
             <h3 className="font-headline text-2xl font-bold mb-4 text-accent">Technical Details</h3>
             
-            <pre className="text-sm whitespace-pre-wrap md:whitespace-pre md:w-auto">
-            {project.technicalDesc ? (
-              <div dangerouslySetInnerHTML={{ __html: technicalDesc }}></div>
-            ) : (<>
-    The game was developed in Unity, leveraging C# for all gameplay logic, AI behavior, and system management.<br></br>
-    One of the core technical challenges was creating an efficient procedural generation system for the galaxy map. 
-    <br></br>I used a combination of Perlin noise for star distribution and a custom algorithm to ensure<br></br> 
-    playable paths and interesting clusters of systems. This allows for a unique galaxy in every playthrough,<br></br> 
-    greatly enhancing replayability.
-    <br></br><br></br>
-    For the real-time combat, I implemented a component-based ship system, <br></br>
-    allowing for
-    easy customization of weapons, shields, and engines. <br></br>
-    The UI was built using Unity's UGUI system, with a focus on creating a clean, readable interface that evokes<br></br> 
-    classic sci-fi tropes while remaining modern and intuitive.
-</>)}
-          </pre>
+            <div ref={textRef} className={cn("relative overflow-hidden transition-all duration-500 ease-in-out", { [`max-h-[${MAX_HEIGHT}px]`]: !isExpanded && isTruncated })}>
+              <pre className="text-sm whitespace-pre-wrap leading-relaxed">
+                {project.technicalDesc ? (
+                  <div dangerouslySetInnerHTML={{ __html: technicalDesc }}></div>
+                ) : (<>
+                  The game was developed in Unity, leveraging C# for all gameplay logic, AI behavior, and system management.<br></br>
+                  One of the core technical challenges was creating an efficient procedural generation system for the galaxy map.
+                  <br></br>I used a combination of Perlin noise for star distribution and a custom algorithm to ensure<br></br>
+                  playable paths and interesting clusters of systems. This allows for a unique galaxy in every playthrough,<br></br>
+                  greatly enhancing replayability.
+                  <br></br><br></br>
+                  For the real-time combat, I implemented a component-based ship system, <br></br>
+                  allowing for easy customization of weapons, shields, and engines. <br></br>
+                  The UI was built using Unity's UGUI system, with a focus on creating a clean, readable interface that evokes<br></br>
+                  classic sci-fi tropes while remaining modern and intuitive.
+                </>)}
+              </pre>
+              {!isExpanded && isTruncated && <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-background to-transparent pointer-events-none z-10"></div>}
+            </div>
+            
+            {!isExpanded && isTruncated && (
+              <Button onClick={handleReadMoreClick} 
+              className="mt-4 w-50 border border-2 rounded mx-auto font-headline hover:scale[1.02] transition-transform"
+              style={{
+                color: project.styling.textColor,
+                borderColor: project.styling.borderColor, 
+                backgroundColor: project.styling.backgroundColor,
+                boxShadow: `0 10px 25px -5px ${project.styling.borderColor}30, 0 8px 10px -6px ${project.styling.borderColor}20`
+              }}
+              >
+                Read More
+                <ArrowDown className="mr-2 h-4 w-4" />
+              </Button>
+            )}
+
+            {isExpanded && (
+              <Button onClick={handleCollapseClick} 
+              className="mt-4 w-50 border border-2 rounded mx-auto font-headline hover:scale[1.02] transition-transform"
+              style={{
+                color: project.styling.textColor,
+                borderColor: project.styling.borderColor, 
+                backgroundColor: project.styling.backgroundColor,
+                boxShadow: `0 10px 25px -5px ${project.styling.borderColor}30, 0 8px 10px -6px ${project.styling.borderColor}20`
+              }}>
+                Collapse
+                <ArrowUp className="mr-2 h-4 w-4" />
+              </Button>
+            )}
+
+            {!isTruncated && !isExpanded && textRef.current && textRef.current.scrollHeight > MAX_HEIGHT && (
+              <Button onClick={() => setIsTruncated(true)}></Button>
+            )}
         </div>
 
         {project.properties?.steamUrl && (

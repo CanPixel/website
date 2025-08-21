@@ -312,9 +312,6 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
       'FriskingRuins_Flow.png',
       'FriskingRuins_UML.png',
     ],
-    videos: [
-      'images/FriskingRuins2.webm'
-    ],
     document: 'pdf/FriskingRuins.pdf',
     controls: [
       { key: 'W A S D', desc: 'Move'},
