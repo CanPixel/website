@@ -1,4 +1,5 @@
 
+
 'use client';
 
 import Image from 'next/image';
@@ -74,16 +75,19 @@ export default function ProjectDetailPage({ project }: { project: Project | null
       <NavMenu/>
       
       <div className="mt-8 flex flex-col items-center">
-        <div className="w-full flex justify-between items-center mb-4">
-            <Button asChild variant="link" className="p-0 h-auto text-accent group-hover:underline flex-shrink-0 relative hover:scale-[1.1] hover:text-gold-600 transition-transform">
+        <div className="w-full grid grid-cols-[auto_1fr_auto] md:grid-cols-3 items-center gap-4 mb-4">
+            <Button asChild variant="link" className="p-0 h-auto text-accent group-hover:underline flex-shrink-0 relative hover:scale-[1.1] hover:text-gold-600 transition-transform justify-self-start">
                 <Link href="/projects">
                     <ArrowLeft className="mr-2 h-4 w-4" />
                     Realms
                 </Link>
             </Button>
+
+            <div className="hidden md:block"></div> {/* Spacer for desktop */}
+            
             <Badge
                 variant="outline"
-                className={cn("p-2 px-3 whitespace-nowrap", project.styling.badgeBackgroundColor)}
+                className={cn("p-2 px-3 whitespace-nowrap justify-self-end", project.styling.badgeBackgroundColor)}
                 style={{
                     borderColor: project.styling.borderColor,
                 }}>
@@ -207,7 +211,7 @@ export default function ProjectDetailPage({ project }: { project: Project | null
         </div>
 
         {project.properties?.steamUrl && (
-          <div className="mt-8">
+          <div className="mt-8 hidden md:block">
             <iframe src={project.properties.steamUrl} width="100%" height="190"></iframe>
           </div>
         )}
@@ -361,7 +365,7 @@ export default function ProjectDetailPage({ project }: { project: Project | null
 
                 {/* <PDFViewer pdfUrl={"/" + project.styling.document}/> */}
 
-                <object data={"/" + project.styling.document} width='100%' height='400px'></object>
+                <object data={"/" + project.styling.document} width='100%' height='400px' className="hidden md:block"></object>
 
               </div>
             </Card>
@@ -508,4 +512,5 @@ export default function ProjectDetailPage({ project }: { project: Project | null
     </div>
   );
 }
+
 
