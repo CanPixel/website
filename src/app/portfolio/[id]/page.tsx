@@ -244,7 +244,7 @@ export default function ProjectDetailPage({ project }: { project: Project | null
           }} className="border-2 p-6">
             <div className='flex justify-between items-center'>
               <span className="text-2xl font-bold mb-4">Tech Stack</span>
-              <span className={cn('text-2xl font-bold mb-4 text-right', project.styling.textColor)}>  Badajoz</span>
+              <span className={cn('text-2xl font-bold mb-4 text-right', project.styling.textColor)}> 𒌄</span>
             </div>
 
             <div className="flex flex-wrap gap-2">
