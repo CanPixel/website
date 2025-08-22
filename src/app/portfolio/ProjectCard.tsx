@@ -98,10 +98,10 @@ export function ProjectCard({ project }: { project : any }) {
                     <div className="flex gap-2">
                     {project.releaseType === "steam" && (
                         <div
-                        className="bg-blue-800/80 p-1.5 rounded-full shadow-lg"
+                        className="bg-blue-800/80 p-2 rounded-full shadow-lg"
                         title="Released on Steam"
                         >
-                            <Image width={16} height={16} 
+                            <Image width={20} height={20} 
                             src="/steam-logo.svg"
                             alt="steam icon"
                         />
@@ -109,10 +109,10 @@ export function ProjectCard({ project }: { project : any }) {
                     )}
                     {project.releaseType === "web" && (
                         <div
-                        className="bg-blue-600/80 text-white p-1.5 rounded-full shadow-lg"
+                        className="bg-blue-600/80 text-white p-2 rounded-full shadow-lg"
                         title="Playable on Web"
                         >
-                        <Globe className="w-4 h-4"/>
+                        <Globe className="w-5 h-5"/>
                         </div>
                     )}
                     </div>
