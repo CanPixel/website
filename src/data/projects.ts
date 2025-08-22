@@ -212,13 +212,13 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
     ],
     links: [
       // { 
-      //   name: 'Live Demo', 
+      //   name: 'Download Demo', 
       //   url: 'https://canpixel.com/BadOptics/',
-      //   icon: 'Joystick',
+      //   icon: 'Download',
       //   style: 'bg-[#1b2838] hover:bg-[#2c435a] text-white'
       // },
       { 
-        name: 'Wikipedia Article about Ortibal Resonance', 
+        name: 'Wiki about Ortibal Resonance', 
         url: 'https://en.wikipedia.org/wiki/Orbital_resonance',
         icon: 'Globe',
       },
@@ -341,7 +341,6 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
     videos: [
       'videos/Epicinium_Firestorm.mp4',
       'videos/Epicinium_Frostbite.mp4',
-      // 'videos/EpiOST.mp4'
     ],
     slideshowImages: [
       'epicinium.png',
@@ -356,7 +355,7 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
         style: 'border-[#D4AF37] border-2 bg-[#1b2838] hover:bg-[#2c435a] text-[#e6f1ff]'
       },
       { 
-        name: 'Epicinium Extended Soundtrack on Steam', 
+        name: 'Epicinium Extended OST on Steam', 
         url: 'https://store.steampowered.com/app/1442600/Epicinium__Extended_Soundtrack/',
         icon: 'AudioLines',
         style: 'border-[#D4AF37] border-2 bg-[#1b2838] hover:bg-[#2c435a] text-[#e6f1ff]'
