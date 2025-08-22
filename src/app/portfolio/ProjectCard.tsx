@@ -16,7 +16,7 @@ export function ProjectCard({ project }: { project : any }) {
     <div className="group mx-auto max-w-sm sm:max-w-none sm:mx-0">
     <Card
       className={cn(
- 'overflow-hidden transition-all duration-300 ease-in-out border-2 flex flex-col h-[720px]',
+ 'overflow-hidden transition-all duration-300 ease-in-out border-2 flex flex-col h-[710px]',
         styling.animationClass,
         styling.className
       )}
@@ -125,16 +125,16 @@ export function ProjectCard({ project }: { project : any }) {
             </div>
             <CardDescription style={{ color: styling.textColor, opacity: 0.8 }} 
             className={cn("h-100 overflow-hidden text-ellipsis mb-4", styling.descStyling)}>
-                <b>{project.shortDescription}</b>
-                <br></br>
+                <div className='mb-1'><b>{project.shortDescription}</b></div>
                 {project.description}
             </CardDescription>
         </div>
-        <div>
+        <>
             <div className="flex flex-wrap gap-2 mb-4">
               {project.properties?.skills?.map((tag: string) => (
                 <Badge
                   key={tag}
+                  className='font-headline'
                   style={{
                     backgroundColor: skillColors[tag] || "#6b7280",
                     color: "white"
@@ -148,7 +148,7 @@ export function ProjectCard({ project }: { project : any }) {
                 Explore Realm
                 <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
-        </div>
+        </>
       </CardContent>
     </Card>
  </div>
