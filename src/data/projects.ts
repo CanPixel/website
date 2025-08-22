@@ -190,6 +190,7 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
     borderColor: '#D4AF37',
     banner: 'images/OMLbanner.jpg',
     document: 'pdf/OhmMyLord.pdf',
+    descStyling: 'text-[12px]',
     animationClass: 'group-hover:shadow-[0_0_20px_2px_rgba(212,175,55,0.4)]',
     youtube: [
       'lHhNvLmckwM'
@@ -216,6 +217,7 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
     backgroundSize: '80px 100%',
     borderColor: '#8B4513',
     banner: 'images/KooKooBanner.png',
+    descStyling: 'text-[10px]',
     animationClass: 'group-hover:shadow-[0_8px_16px_rgba(0,0,0,0.3)]',
     youtube: [
       'oqLfHiy_xAY',
@@ -231,7 +233,7 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
     ],
   },
   'epicinium': {
-    backgroundColor: '#AF7F6B',
+    backgroundColor: '#6d5b54',
     textColor: '#E8F5E9',
     fontFamily: "'Jersey 15', monospace",
     backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23a5d6a7' fill-opacity='0.1' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E")`,

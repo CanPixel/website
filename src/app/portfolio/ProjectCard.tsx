@@ -16,7 +16,7 @@ export function ProjectCard({ project }: { project : any }) {
     <div className="group mx-auto max-w-sm sm:max-w-none sm:mx-0">
     <Card
       className={cn(
- 'overflow-hidden transition-all duration-300 ease-in-out border-2 flex flex-col h-full',
+ 'overflow-hidden transition-all duration-300 ease-in-out border-2 flex flex-col h-[720px]',
         styling.animationClass,
         styling.className
       )}
@@ -124,7 +124,7 @@ export function ProjectCard({ project }: { project : any }) {
                 />
             </div>
             <CardDescription style={{ color: styling.textColor, opacity: 0.8 }} 
-            className={cn("h-24 overflow-hidden text-ellipsis mb-4", styling.descStyling)}>
+            className={cn("h-100 overflow-hidden text-ellipsis mb-4", styling.descStyling)}>
                 <b>{project.shortDescription}</b>
                 <br></br>
                 {project.description}
