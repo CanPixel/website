@@ -501,6 +501,9 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
       { key: 'V // Z', desc: 'View Toggle / Change View'},
       { key: 'I', desc: 'Open IdeologyDex'},
     ],
+    links: [
+      { name: 'Bad Optics Official WIKI', url: 'https://github.com/CanPixel/BadOptics/wiki' },
+    ]
   },
   'kernel-sweep':
   {
