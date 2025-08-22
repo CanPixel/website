@@ -1,3 +1,4 @@
+
 'use client';
 
 import Image from 'next/image';
@@ -46,70 +47,7 @@ export function ProjectCard({ project }: { project : any }) {
               >
                   {project.releaseDate ?? 'Coming Soon'}
               </Badge>
-              
-             {(project.releaseType === "steam" ||
-                project.releaseType === "web") && (
-                <div className="flex gap-2">
-                  {project.releaseType === "steam" && (
-                    <div
-                      className="bg-blue-800 p-2 rounded-full shadow-lg"
-                      title="Released on Steam"
-                    ><Image width={25} height={25} 
-                        src="/steam-logo.svg"
-                        alt="steam icon"
-                      />
-                    </div>
-                  )}
-                  {project.releaseType === "web" && (
-                    <div
-                      className="bg-blue-600 text-white p-2 rounded-full shadow-lg"
-                      title="Playable on Web"
-                    >
-                      <Globe className="w-5 h-5"/>
-                    </div>
-                  )}
-                </div>
-              )}
                </div>
-          </div>
-          <div>
-            {project.properties?.genre && Array.isArray(project.properties?.genre) ?
-              project.properties?.genre.map((genre : string, index: Key) => (
-              <Badge
-                variant="outline"
-                key={index}
-                className={cn("mt-2 mr-1", styling.badgeBackgroundColor)}
-                style={{
-                  borderColor: styling.borderColor,
-                  color: styling.textColor,
-                }}
-              >
-                {genre}
-              </Badge>
-            )) :
-              project.properties?.genre ? (
-                <Badge
-                  variant="outline"
-                  className={cn("mt-2", styling.badgeBackgroundColor)}
-                  style={{
-                    borderColor: styling.borderColor,
-                    color: styling.textColor,
-                  }}
-                >
-                  {project.properties?.genre}
-                </Badge>
-              ) : (
-                <Badge
-                  variant="outline"
-                  className={cn("mt-2", styling.badgeBackgroundColor)}
-                  style={{
-                    borderColor: styling.borderColor,
-                    color: styling.textColor,
-                  }}
-                >
-                  {project.type}
-                </Badge>
-              )}
           </div>
       </CardHeader>
       <CardContent className="flex-grow flex flex-col justify-between">
@@ -122,6 +60,74 @@ export function ProjectCard({ project }: { project : any }) {
                 height={1000}
                 className="object-cover rounded-md"
                 />
+                 <div className="absolute top-0 left-0 right-0 p-2 bg-gradient-to-b from-black/60 to-transparent rounded-t-md">
+                    <div className="flex justify-between items-center">
+                        <div className="flex flex-wrap gap-1">
+                            {project.properties?.genre && Array.isArray(project.properties?.genre) ?
+                            project.properties?.genre.map((genre : string, index: Key) => (
+                            <Badge
+                                variant="outline"
+                                key={index}
+                                className={cn("text-xs", styling.badgeBackgroundColor)}
+                                style={{
+                                borderColor: styling.borderColor,
+                                color: styling.textColor,
+                                }}
+                            >
+                                {genre}
+                            </Badge>
+                            )) :
+                            project.properties?.genre ? (
+                                <Badge
+                                variant="outline"
+                                className={cn("text-xs", styling.badgeBackgroundColor)}
+                                style={{
+                                    borderColor: styling.borderColor,
+                                    color: styling.textColor,
+                                }}
+                                >
+                                {project.properties?.genre}
+                                </Badge>
+                            ) : (
+                                <Badge
+                                variant="outline"
+                                className={cn("text-xs", styling.badgeBackgroundColor)}
+                                style={{
+                                    borderColor: styling.borderColor,
+                                    color: styling.textColor,
+                                }}
+                                >
+                                {project.type}
+                                </Badge>
+                            )}
+                        </div>
+                        
+                        {(project.releaseType === "steam" ||
+                            project.releaseType === "web") && (
+                            <div className="flex gap-2">
+                            {project.releaseType === "steam" && (
+                                <div
+                                className="bg-blue-800/80 p-1.5 rounded-full shadow-lg"
+                                title="Released on Steam"
+                                >
+                                    <Image width={16} height={16} 
+                                    src="/steam-logo.svg"
+                                    alt="steam icon"
+                                />
+                                </div>
+                            )}
+                            {project.releaseType === "web" && (
+                                <div
+                                className="bg-blue-600/80 text-white p-1.5 rounded-full shadow-lg"
+                                title="Playable on Web"
+                                >
+                                <Globe className="w-4 h-4"/>
+                                </div>
+                            )}
+                            </div>
+                        )}
+                    </div>
+                </div>
             </div>
             <CardDescription style={{ color: styling.textColor, opacity: 0.8 }} 
             className={cn("h-100 overflow-hidden text-ellipsis mb-4", styling.descStyling)}>
