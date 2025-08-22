@@ -152,7 +152,7 @@ export default function ProjectsPage() {
 
       <div className="mb-12 flex flex-col items-center gap-4">
         <ExpandableCard title="Horror Prototypes" icon={Youtube} iconColor="text-red-500">
-            <div className="grid md:grid-cols-2 gap-4 p-4">
+            <div className="flex flex-col gap-4 p-4">
                 <Card className="w-full bg-card/80 border-sky-500/30 backdrop-blur-sm">
                     <CardHeader>
                         <CardTitle className="flex items-center gap-2 text-md text-sky-300">
