@@ -46,7 +46,7 @@ export interface ProjectStyling {
   banner?: string;
   controls?: Control[];
   links?: ExtLink[];
-  sections?: React.ReactElement[];
+  sections?: string[];
 }
 const defaultStyling: ProjectStyling = {
   backgroundColor: 'hsl(var(--card))',
@@ -211,17 +211,20 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
       'JiNKlhspdKg'
     ],
     links: [
-      // { 
-      //   name: 'Download Demo', 
-      //   url: 'https://canpixel.com/BadOptics/',
-      //   icon: 'Download',
-      //   style: 'bg-[#1b2838] hover:bg-[#2c435a] text-white'
-      // },
+      { 
+        name: 'Download Demo', 
+        url: 'https://drive.google.com/file/d/1inBOfE0ctbZYixMaKoAzXv-DkCdF0p2j/view?usp=sharing',
+        icon: 'Windows',
+        style: 'bg-[#1b2838] hover:bg-[#2c435a] text-white'
+      },
       { 
         name: 'Wiki about Ortibal Resonance', 
         url: 'https://en.wikipedia.org/wiki/Orbital_resonance',
         icon: 'Globe',
       },
+    ],
+    sections: [
+      'OrbitalResonance'
     ]
   },
   'ohmmylord': {
