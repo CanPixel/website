@@ -8,7 +8,6 @@ import NavMenu from "@/components/navigation";
 import { Button } from '@/components/ui/button';
 import { Github, Calendar, Globe, ArrowLeft, ArrowUp, ArrowDown,
   Youtube, FileSearch, Download, Joystick, Newspaper, AudioLines, Wrench,
-  Windows
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
@@ -26,6 +25,13 @@ import OrbitalResonance from '@/components/portfolio/OrbitalResonance';
 
 const SteamIcon = (props: React.SVGProps<SVGSVGElement>) => (
 <svg fill="#FFFFFF" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 50 50" width="50px" height="50px"><path d="M 25 3 C 13.59 3 4.209375 11.680781 3.109375 22.800781 L 14.300781 28.529297 C 15.430781 27.579297 16.9 27 18.5 27 L 18.550781 27 C 18.940781 26.4 19.389375 25.649141 19.859375 24.869141 C 20.839375 23.259141 21.939531 21.439062 23.019531 20.039062 C 23.259531 15.569063 26.97 12 31.5 12 C 36.19 12 40 15.81 40 20.5 C 40 25.03 36.430937 28.740469 31.960938 28.980469 C 30.560938 30.060469 28.750859 31.160859 27.130859 32.130859 C 26.350859 32.610859 25.6 33.059219 25 33.449219 L 25 33.5 C 25 37.09 22.09 40 18.5 40 C 14.91 40 12 37.09 12 33.5 C 12 33.33 12.009531 33.17 12.019531 33 L 3.2792969 28.519531 C 4.9692969 38.999531 14.05 47 25 47 C 37.15 47 47 37.15 47 25 C 47 12.85 37.15 3 25 3 z M 31.5 14 C 27.92 14 25 16.92 25 20.5 C 25 24.08 27.92 27 31.5 27 C 35.08 27 38 24.08 38 20.5 C 38 16.92 35.08 14 31.5 14 z M 31.5 16 C 33.99 16 36 18.01 36 20.5 C 36 22.99 33.99 25 31.5 25 C 29.01 25 27 22.99 27 20.5 C 27 18.01 29.01 16 31.5 16 z M 18.5 29 C 17.71 29 16.960313 29.200312 16.320312 29.570312 L 19.640625 31.269531 C 20.870625 31.899531 21.350469 33.410625 20.730469 34.640625 C 20.280469 35.500625 19.41 36 18.5 36 C 18.11 36 17.729375 35.910469 17.359375 35.730469 L 14.029297 34.019531 C 14.289297 36.259531 16.19 38 18.5 38 C 20.99 38 23 35.99 23 33.5 C 23 31.01 20.99 29 18.5 29 z"/></svg>
+);
+const WindowsIcon = (props: React.SVGProps<SVGSVGElement>) => (
+<svg fill="#FFFFFF" width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <title>microsoft_windows</title>
+  <rect width="24" height="24" fill="none"/>
+  <path d="M3,12V6.75L9,5.43v6.48L3,12M20,3v8.75L10,11.9V5.21L20,3M3,13l6,.09V19.9L3,18.75V13m17,.25V22L10,20.09v-7Z"/>
+</svg>
 );
 
 const componentsMap = {
@@ -47,7 +53,7 @@ const iconMap = {
   AudioLines: AudioLines,
   Wrench: Wrench,
   Download: Download,
-  Windows: Windows
+  Windows: WindowsIcon
 };
 const renderIcon = (iconName: string | undefined) => {
   if (!iconName) {
@@ -409,16 +415,16 @@ export default function ProjectDetailPage({ project }: { project: Project | null
         </aside>
     </div>
 
-    {project.styling.slideshowImages && project.styling.slideshowImages.length > 0 && (
-      <div className="mt-16">
-        <div className='flex justify-between items-center'>
-          <span className={cn('text-2xl font-bold mb-4 text-gold-100/70', project.styling.textColor)}>𒀩</span>
-          <span className="font-headline text-3xl font-bold mb-4 text-accent text-center">Gallery</span>
-          <span className={cn('text-2xl font-bold mb-4 text-gold-100/70', project.styling.textColor)}>𒀩</span>
+    {project.styling.sections && project.styling.sections.length > 0 && (
+      <div>
+      {project.styling.sections.map((section, idx) => {
+        const ComponentToRender = renderComponent(section);
+        return (
+        <div key={idx} className="mt-10">
+          {ComponentToRender && <ComponentToRender {...project.styling} />}
         </div>
-        <div className="relative">
-          <ImageSlideshow images={project.styling.slideshowImages}/>
-        </div>
+        );
+      })}
       </div>
     )}
 
@@ -464,7 +470,6 @@ export default function ProjectDetailPage({ project }: { project: Project | null
           </Carousel>
       </div>
     )}
-
     {project.styling.videos && project.styling.videos.length > 0 && (
       <div className="mt-16">
           <Carousel
@@ -504,16 +509,16 @@ export default function ProjectDetailPage({ project }: { project: Project | null
       </div>
     )}
 
-    {project.styling.sections && project.styling.sections.length > 0 && (
-      <div>
-      {project.styling.sections.map((section, idx) => {
-        const ComponentToRender = renderComponent(section);
-        return (
-        <div key={idx} className="mt-10">
-          {ComponentToRender && <ComponentToRender {...project.styling} />}
+    {project.styling.slideshowImages && project.styling.slideshowImages.length > 0 && (
+      <div className="mt-16">
+        <div className='flex justify-between items-center'>
+          <span className={cn('text-2xl font-bold mb-4 text-gold-100/70', project.styling.textColor)}>𒀩</span>
+          <span className="font-headline text-3xl font-bold mb-4 text-accent text-center">Gallery</span>
+          <span className={cn('text-2xl font-bold mb-4 text-gold-100/70', project.styling.textColor)}>𒀩</span>
         </div>
-        );
-      })}
+        <div className="relative">
+          <ImageSlideshow images={project.styling.slideshowImages}/>
+        </div>
       </div>
     )}
     </div>

@@ -215,7 +215,6 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
         name: 'Download Demo', 
         url: 'https://drive.google.com/file/d/1inBOfE0ctbZYixMaKoAzXv-DkCdF0p2j/view?usp=sharing',
         icon: 'Windows',
-        style: 'bg-[#1b2838] hover:bg-[#2c435a] text-white'
       },
       { 
         name: 'Wiki about Ortibal Resonance', 
@@ -397,14 +396,13 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
       { key: 'C', desc: 'See Available Commands/Cheats'},
       { key: 'L', desc: 'Toggle Experience Upgrades Display'},
     ],
-    // links: [
-    //   { 
-    //     name: 'Download Build [v006]', 
-    //     url: 'https://drive.google.com/file/d/0B6xqmiCSNEGkUEFqNkFmVjBpbWM/view',
-    //     icon: 'Joystick',
-    //     style: 'bg-[#1b2838] hover:bg-[#2c435a] text-white'
-    //   },
-    // ]
+    links: [
+      { 
+        name: 'Download Build [v12]', 
+        url: 'https://drive.google.com/file/d/1Ez9xtBhIR23RdjB3Zf9OV5-KspRer0AG/view?usp=sharing',
+        icon: 'Joystick',
+      },
+    ]
   },
   'anywalker': {
     backgroundColor: '#343434',
@@ -491,6 +489,13 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
     youtube: [
       'cnydgqwTZ-s',
       'QpCZ-VI6A8E'
+    ],
+    links: [
+      { 
+        name: 'Download Build', 
+        url: 'https://drive.google.com/file/d/1bup2dq0-QTRdw4VySGEFOa4nSRlsLyCD/view?usp=sharing',
+        icon: 'Joystick',
+      },
     ]
   },
   'pixelboi': {
@@ -667,6 +672,13 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
       { key: 'S', desc: 'Zoom Out'},
       { key: 'Space', desc: 'Interact'},
     ],
+    links: [
+      { 
+        name: 'Download Build',
+        url: 'https://drive.google.com/file/d/1RP4ia8q2QdeQdK3WerwxaOA2IMg7nh4r/view?usp=sharing',
+        icon: 'Joystick',
+      },
+    ]
   },
   'bad-optics':
   {
@@ -755,6 +767,13 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
       { key: 'Mouse (LMB)', desc: 'Shoot Gun'},
       { key: 'R', desc: 'Reload Gun'},
     ],
+    links: [
+      { 
+        name: 'Download Build',
+        url: 'https://drive.google.com/file/d/1h89m9H5DAcp8A1KeP6irPYPtsRUYjVeJ/view?usp=sharing',
+        icon: 'Joystick',
+      },
+    ]
   },
 };
 
