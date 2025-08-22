@@ -1,3 +1,4 @@
+
 'use client';
 
 import Image from 'next/image';
@@ -72,38 +73,41 @@ export default function ProjectDetailPage({ project }: { project: Project | null
     <div className="container mx-auto mt-4 px-4 py-16">
       <NavMenu/>
       
-      <div className="flex items-center justify-between gap-8 mt-8">
-        <Button asChild variant="link" className="p-0 h-auto text-accent group-hover:underline flex-shrink-0 relative hover:scale-[1.1] hover:text-gold-600 transition-transform">
-          <Link href="/projects">
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            Realms
-          </Link>
-        </Button>
+      <div className="mt-8 flex flex-col items-center">
+        <div className="w-full flex justify-between items-center mb-4">
+            <Button asChild variant="link" className="p-0 h-auto text-accent group-hover:underline flex-shrink-0 relative hover:scale-[1.1] hover:text-gold-600 transition-transform">
+                <Link href="/projects">
+                    <ArrowLeft className="mr-2 h-4 w-4" />
+                    Realms
+                </Link>
+            </Button>
+            <Badge
+                variant="outline"
+                className={cn("p-2 px-3 whitespace-nowrap", project.styling.badgeBackgroundColor)}
+                style={{
+                    borderColor: project.styling.borderColor,
+                }}>
+                <Calendar className='me-2'/>
+                {project.releaseDate ?? 'Coming Soon'}
+            </Badge>
+        </div>
 
-        <header className="text-center flex-grow">
-          <h1 className={cn("font-headline text-6xl font-bold tracking-tighter mb-2 shiny-text", project.styling.textColor ? "" : "text-primary")}>{project.title}</h1>
-          <p className="text-md text-muted-foreground/80 max-w-3xl mx-auto font-headline">
-            {project.shortDescription}
-          </p>
-          {project.label && <Badge variant="outline" className="mt-4">{project.label}</Badge>}
-          <div className="flex flex-wrap gap-2 justify-center mt-2">
-            {project.properties?.genre?.map((g: string) => (
-                <Badge key={g} className={cn(genreColors[g] || 'bg-gray-400')}>
-                {g}
-                </Badge>
-            ))}
-          </div>
+        <header className="text-center w-full">
+            <h1 className={cn("font-headline text-5xl md:text-6xl font-bold tracking-tighter mb-2 shiny-text", project.styling.textColor ? "" : "text-primary")}>
+                {project.title}
+            </h1>
+            <p className="text-md text-muted-foreground/80 max-w-3xl mx-auto font-headline">
+                {project.shortDescription}
+            </p>
+            {project.label && <Badge variant="outline" className="mt-4">{project.label}</Badge>}
+            <div className="flex flex-wrap gap-2 justify-center mt-2">
+                {project.properties?.genre?.map((g: string) => (
+                    <Badge key={g} className={cn(genreColors[g] || 'bg-gray-400')}>
+                        {g}
+                    </Badge>
+                ))}
+            </div>
         </header>
-
-        <Badge
-          variant="outline"
-          className={cn("p-2 px-3 whitespace-nowrap flex-shrink-0", project.styling.badgeBackgroundColor)}
-          style={{
-            borderColor: project.styling.borderColor,
-          }}>
-            <Calendar className='me-2'/>
-            {project.releaseDate ?? 'Coming Soon'}
-        </Badge>
       </div>
       
       <Badge
@@ -126,7 +130,7 @@ export default function ProjectDetailPage({ project }: { project: Project | null
       }
 
       {project.styling.banner ? ( 
-        <div className="w-[70%] mx-auto relative w-full overflow-hidden mt-4 border border-2 shadow-lg transition-all duration-300 hover:shadow-2xl" 
+        <div className="w-full md:w-[70%] mx-auto relative overflow-hidden mt-4 border border-2 shadow-lg transition-all duration-300 hover:shadow-2xl" 
         style={{borderColor: project.styling.borderColor, boxShadow: `0 10px 25px -5px ${project.styling.borderColor}30, 0 8px 10px -6px ${project.styling.borderColor}20`}}>
           <Image src={'/' + project.styling.banner} alt="Banner" 
           width={1920} height={1080} layout="responsive" objectFit="cover" />
@@ -145,7 +149,6 @@ export default function ProjectDetailPage({ project }: { project: Project | null
               <div className="absolute inset-0 bg-repeat bg-center opacity-5" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E\")" }}></div>
             </div>
           </Card>
-
           <div className="prose prose-lg dark:prose-invert max-w-none text-foreground/90 mt-8 space-y-6">
             <h3 className="font-headline text-2xl font-bold mb-4 text-accent">Technical Details</h3>
             
@@ -237,7 +240,7 @@ export default function ProjectDetailPage({ project }: { project: Project | null
           }} className="border-2 p-6">
             <div className='flex justify-between items-center'>
               <span className="text-2xl font-bold mb-4">Tech Stack</span>
-              <span className={cn('text-2xl font-bold mb-4 text-right', project.styling.textColor)}> 𒌄</span>
+              <span className={cn('text-2xl font-bold mb-4 text-right', project.styling.textColor)}>  Badajoz</span>
             </div>
 
             <div className="flex flex-wrap gap-2">
@@ -294,7 +297,7 @@ export default function ProjectDetailPage({ project }: { project: Project | null
                         </a>
                       </Button>
                   ) : (
-                    <Button asChild className="w-full bg-gray-300/50 text-secondary-foreground hover:bg-gray-100/60">
+                    <Button asChild className="w-full bg-background text-foreground hover:bg-muted">
                         <Link href={project.url} target="_blank" rel="noopener noreferrer">
                             <Globe className="mr-2 h-4 w-4" />
                             Live Demo
@@ -303,7 +306,7 @@ export default function ProjectDetailPage({ project }: { project: Project | null
                   ))}
 
                   {project.properties?.repoLink && (
-                    <Button asChild variant="outline" className="w-full text-foreground hover:bg-accent hover:text-accent-foreground">
+                    <Button asChild variant="outline" className="w-full text-foreground hover:bg-accent hover:text-accent-foreground border-border bg-background">
                         <Link href={project.properties.repoLink} target="_blank" rel="noopener noreferrer">
                             <Github className="mr-2 h-4 w-4" />
                             Source Code
@@ -410,9 +413,9 @@ export default function ProjectDetailPage({ project }: { project: Project | null
     {project.styling.slideshowImages && project.styling.slideshowImages.length > 0 && (
       <div className="mt-16">
         <div className='flex justify-between items-center'>
-          <span className={cn('text-2xl font-bold mb-4 text-gold-100/70', project.styling.textColor)}>𒀩</span>
+          <span className={cn('text-2xl font-bold mb-4 text-gold-100/70', project.styling.textColor)}> Almace</span>
           <span className="font-headline text-3xl font-bold mb-4 text-accent text-center">Gallery</span>
-          <span className={cn('text-2xl font-bold mb-4 text-gold-100/70', project.styling.textColor)}>𒀩</span>
+          <span className={cn('text-2xl font-bold mb-4 text-gold-100/70', project.styling.textColor)}> Almace</span>
         </div>
         <div className="relative">
           <ImageSlideshow images={project.styling.slideshowImages}/>
@@ -505,3 +508,4 @@ export default function ProjectDetailPage({ project }: { project: Project | null
     </div>
   );
 }
+
