@@ -136,12 +136,8 @@ export function Projects() {
                 </CardContent>
                 <CardFooter className="p-6 pt-0 gap-2">
                   <Button size="sm" className="glass glass-hover bg-cyan-500/20 border-cyan-500/30" asChild>
-                    <a href={project.url ? project.url : '/portfolio/' + project.id} target="_blank" rel="noopener noreferrer">
-                      {project.type === 'music' ? (
-                        <><Music className="w-4 h-4 mr-2" />Listen</>
-                      ) : (
-                        <><ExternalLink className="w-4 h-4 mr-2" />Demo</>
-                      )}
+                    <a href={'/portfolio/' + project.id} target="_blank" rel="noopener noreferrer">
+                      <ExternalLink className="w-4 h-4 mr-2" />View
                     </a>
                   </Button>
                   {project.properties?.repoLink && (

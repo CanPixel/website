@@ -4,7 +4,6 @@ export interface Project {
   id: string;
   type: string;
   title: string;
-  url?: string;
   description: string;
   status?: string;
   shortDescription: string;
@@ -47,6 +46,7 @@ export interface ProjectStyling {
   banner?: string;
   controls?: Control[];
   links?: ExtLink[];
+  sections?: React.ReactElement[];
 }
 const defaultStyling: ProjectStyling = {
   backgroundColor: 'hsl(var(--card))',
@@ -68,6 +68,8 @@ const defaultStyling: ProjectStyling = {
 export interface ExtLink {
   name: string;
   url: string;
+  icon?: string;
+  style?: string;
 }
 
 export interface Control {
@@ -102,6 +104,14 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
     youtube: [
       '_Txos9ZXhIg',
       'Haan1s-tl5o'
+    ],
+    links: [
+      { 
+        name: 'Live Demo', 
+        url: 'https://avoid-space.web.app',
+        icon: 'Globe',
+        style: 'bg-background hover:bg-[#2c435a] text-white'
+      },
     ]
   },
   'scptheescape': {
@@ -128,6 +138,14 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
       { key: 'M', desc: 'Fixed Camera'},
       { key: 'G', desc: 'Toggle Black/White & Slomo (Cinematic Effect)'},
     ],
+    links: [
+      { 
+        name: 'Live Demo', 
+        url: 'https://gamejolt.com/games/scp-the-escape/12962',
+        icon: 'Globe',
+        style: 'bg-black hover:bg-[#2c435a] text-[#e6f1ff]'
+      },
+    ]
   },
   'storm-chasers': {
     backgroundColor: '#2c003e',
@@ -160,6 +178,20 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
       { key: 'D-pad Up & Down (Hold)', desc: '(In Camera Mode) Tune the Focus of image / Depth of Field'},
       { key: 'R3 (Right Analog Stick Hold)', desc: 'Rear View of Car'},
     ],
+    links: [
+      { 
+        name: 'Live Demo', 
+        url: 'https://simcha33.itch.io/storm-chasers',
+        icon: 'Joystick',
+        style: 'bg-black text-[#ff00ff] hover:bg-[#2c435a] hover:text-white'
+      },
+      { 
+        name: 'Source Code', 
+        url: 'https://github.com/CanPixel/StormChasers',
+        icon: 'Github',
+        style: 'bg-black text-[#ff00ff] hover:bg-[#2c435a] hover:text-white'
+      },
+    ]
   },
   'orbital-resonance': {
     backgroundColor: '#ffffff',
@@ -176,6 +208,20 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
     ],
     youtube: [
       '7awR86LBJCY',
+      'JiNKlhspdKg'
+    ],
+    links: [
+      // { 
+      //   name: 'Live Demo', 
+      //   url: 'https://canpixel.com/BadOptics/',
+      //   icon: 'Joystick',
+      //   style: 'bg-[#1b2838] hover:bg-[#2c435a] text-white'
+      // },
+      { 
+        name: 'Wikipedia Article about Ortibal Resonance', 
+        url: 'https://en.wikipedia.org/wiki/Orbital_resonance',
+        icon: 'Globe',
+      },
     ]
   },
   'ohmmylord': {
@@ -208,6 +254,20 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
       { key: 'Mouse Move', desc: 'Aim Reticle Around'},
       { key: 'Mouse (LMB)', desc: 'Shoot Electric Bolt'},
     ],
+    links: [
+      { 
+        name: 'Download Build', 
+        url: 'https://downgit.github.io/#/home?url=https://github.com/CanPixel/OhmMyLord/tree/master/Build',
+        icon: 'Joystick',
+        style: 'border-[#D4AF37] border-2 bg-[#1b2838] hover:bg-[#2c435a] text-[#e6f1ff]'
+      },
+      { 
+        name: 'Source Code', 
+        url: 'https://github.com/CanPixel/OhmMyLord',
+        icon: 'Github',
+        style: 'border-[#D4AF37] border-2 bg-[#1b2838] hover:bg-[#2c435a] text-[#e6f1ff]'
+      },
+    ]
   },
   'kookoo': {
     backgroundColor: '#D2B48C',
@@ -231,6 +291,38 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
       'kookoo (5).jpg',
       'KooKooRig.jpg'
     ],
+    links: [
+      { 
+        name: 'Live Demo', 
+        url: 'https://oprel.itch.io/koo-koo',
+        icon: 'Globe',
+        style: 'border-[#D4AF37] border-2 bg-black hover:bg-[#2c435a] text-white'
+      },
+      // { 
+      //   name: 'Epicinium Extended Soundtrack on Steam', 
+      //   url: 'https://store.steampowered.com/app/1442600/Epicinium__Extended_Soundtrack/',
+      //   icon: 'AudioLines',
+      //   style: 'border-[#D4AF37] border-2 bg-[#1b2838] hover:bg-[#2c435a] text-[#e6f1ff]'
+      // },
+      { 
+        name: 'Source Code', 
+        url: 'https://github.com/CanPixel/cuckoo',
+        icon: 'Github',
+        style: 'border-[#D4AF37] border-2 hover:bg-[#2c435a] text-white bg-black'
+      },
+      { 
+        name: 'ITCH.io', 
+        url: 'https://oprel.itch.io/koo-koo',
+        icon: 'Joystick',
+        style: 'border-[#D4AF37] border-2 bg-black hover:bg-[#2c435a] text-white'
+      },
+      { 
+        name: 'Article on GameDeveloper.com', 
+        url: 'https://www.gamedeveloper.com/marketing/alt-ctrl-gdc-showcase-i-koo-koo-i-',
+        icon: 'Newspaper',
+        style: 'border-[#D4AF37] border-2 bg-black hover:bg-[#2c435a] text-white'
+      },
+    ]
   },
   'epicinium': {
     backgroundColor: '#6d5b54',
@@ -256,6 +348,32 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
       'epiciniumaction.png',
       'Episteamium.gif'
     ],
+    links: [
+      { 
+        name: 'View on Steam', 
+        url: 'https://store.steampowered.com/app/1286730/Epicinium/',
+        icon: 'Steam',
+        style: 'border-[#D4AF37] border-2 bg-[#1b2838] hover:bg-[#2c435a] text-[#e6f1ff]'
+      },
+      { 
+        name: 'Epicinium Extended Soundtrack on Steam', 
+        url: 'https://store.steampowered.com/app/1442600/Epicinium__Extended_Soundtrack/',
+        icon: 'AudioLines',
+        style: 'border-[#D4AF37] border-2 bg-[#1b2838] hover:bg-[#2c435a] text-[#e6f1ff]'
+      },
+      { 
+        name: 'Official Game Website', 
+        url: 'https://epicinium.nl/',
+        icon: 'Globe',
+        style: 'border-[#D4AF37] border-2 bg-[#1b2838] hover:bg-[#2c435a] text-[#e6f1ff]'
+      },
+      { 
+        name: 'Article on GamingOnLinux.com', 
+        url: 'https://www.gamingonlinux.com/2020/09/free-to-play-strategy-epicinium-releases-october-12-with-a-climate-change-gameplay-twist',
+        icon: 'Newspaper',
+        style: 'border-[#D4AF37] border-2 bg-[#1b2838] hover:bg-[#2c435a] text-[#e6f1ff]'
+      },
+    ]
   },
   'pixelthrive': {
     backgroundColor: '#4A6B4C',
@@ -277,6 +395,14 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
       { key: 'C', desc: 'See Available Commands/Cheats'},
       { key: 'L', desc: 'Toggle Experience Upgrades Display'},
     ],
+    // links: [
+    //   { 
+    //     name: 'Download Build [v006]', 
+    //     url: 'https://drive.google.com/file/d/0B6xqmiCSNEGkUEFqNkFmVjBpbWM/view',
+    //     icon: 'Joystick',
+    //     style: 'bg-[#1b2838] hover:bg-[#2c435a] text-white'
+    //   },
+    // ]
   },
   'anywalker': {
     backgroundColor: '#343434',
@@ -292,6 +418,14 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
       'AnyWalker (4).jpg',
       'Tool.jpg'
     ],
+    links: [
+      { 
+        name: 'Source Code', 
+        url: 'https://github.com/CanPixel/KernModule/tree/master/Eindopdracht%20Tool/AV%20Level%20Converter',
+        icon: 'Github',
+        style: 'border-[#D4AF37] border-2 bg-[#1b2838] hover:bg-[#2c435a] text-accent'
+      },
+    ]
   },
   'game-of-life': {
     backgroundColor: '#343434',
@@ -330,6 +464,20 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
       { key: '1 2 3 4', desc: 'Crafting Inventory slots 1-4'},
       { key: 'Q & E', desc: 'Switch Inventory Slot'},
     ],
+    links: [
+      { 
+        name: 'Download Build', 
+        url: 'https://downgit.github.io/#/home?url=https://github.com/CanPixel/KernModule/tree/master/Eindopdracht%20Retro/Frisking%20Ruins/Build',
+        icon: 'Joystick',
+        style: 'border-[#D4AF37] border-2 bg-[#1b2838] hover:bg-[#2c435a] text-[#e6f1ff]'
+      },
+      { 
+        name: 'Source Code', 
+        url: 'https://github.com/CanPixel/KernModule/tree/master/Eindopdracht%20Retro/Frisking%20Ruins',
+        icon: 'Github',
+        style: 'border-[#D4AF37] border-2 bg-[#1b2838] hover:bg-[#2c435a] text-[#e6f1ff]'
+      },
+    ]
   },
   'krautkill': {
     backgroundColor: '#F5F5DC',
@@ -361,7 +509,15 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
     youtube: [
       '-sNvqvC2xqk'
     ],
-    document: 'pdf/PixelBoi_DevLog.pdf'
+    document: 'pdf/PixelBoi_DevLog.pdf',
+    links: [
+      { 
+        name: 'Behind the scenes - Instructables', 
+        url: 'https://www.instructables.com/Handheld-Console-W-Wireless-Controllers-and-Sensor/',
+        icon: 'Wrench',
+        style: 'bg-[#1b2838] hover:bg-[#2c435a] text-white'
+      },
+    ]
   },
   'pixelcan': {
     backgroundColor: '#87CEEB',
@@ -379,6 +535,20 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
       { key: 'A & D // ← & →', desc: 'Move'},
       { key: 'W // Space // ↑', desc: 'Jump'},
     ],
+    links: [
+      { 
+        name: 'Play on Web', 
+        url: 'https://canpixel.github.io/PixelCan/',
+        icon: 'Globe',
+        style: 'bg-[#1b2838] hover:bg-[#2c435a] text-white'
+      },
+      { 
+        name: 'Download Build', 
+        url: 'http://bit.ly/PixelCan',
+        icon: 'Joystick',
+        style: 'bg-[#1b2838] hover:bg-[#2c435a] text-white'
+      },
+    ]
   },
   'biq': {
     backgroundColor: '#4a4a4a',
@@ -397,6 +567,14 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
       { key: 'E', desc: 'Interact / Place Bomb'},
       { key: 'P', desc: 'Detonate Bomb(s)'},
     ],
+    links: [
+      { 
+        name: 'Download Build [v006]', 
+        url: 'https://drive.google.com/file/d/0B6xqmiCSNEGkUEFqNkFmVjBpbWM/view',
+        icon: 'Joystick',
+        style: 'bg-[#1b2838] hover:bg-[#2c435a] text-white'
+      },
+    ]
   },
   'supercasanova': {
     backgroundColor: '#00000d',
@@ -447,6 +625,20 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
       { key: 'Mouse Swipe (Hold & Flick)', desc: 'Directional Swing! (Heavy attack)'},
       { key: 'Q', desc: 'Inventory'},
     ],
+    links: [
+      // { 
+      //   name: 'Download Build', //Engage in Fortitude
+      //   url: 'https://downgit.github.io/#/home?url=https://github.com/CanPixel/OhmMyLord/tree/master/Build',
+      //   icon: 'Joystick',
+      //   style: 'border-[#D4AF37] border-2 bg-[#1b2838] hover:bg-[#2c435a] text-[#e6f1ff]'
+      // },
+      { 
+        name: 'Source Code', 
+        url: 'https://github.com/CanPixel/ChivalryChef',
+        icon: 'Github',
+        style: 'border-[#D4AF37] border-2 bg-[#1b2838] hover:bg-[#2c435a] text-accent'
+      },
+    ]
   },
   'life-sentence':
   {
@@ -502,7 +694,23 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
       { key: 'I', desc: 'Open IdeologyDex'},
     ],
     links: [
-      { name: 'Bad Optics Official WIKI', url: 'https://github.com/CanPixel/BadOptics/wiki' },
+      { 
+        name: 'Live Demo', 
+        url: 'https://canpixel.com/BadOptics/',
+        icon: 'Joystick',
+        style: 'bg-[#1b2838] hover:bg-[#2c435a] text-white'
+      },
+      { 
+        name: 'Source Code', 
+        url: 'https://github.com/CanPixel/BadOptics',
+        icon: 'Github',
+        style: 'bg-[#1b2838] hover:bg-[#2c435a] text-white'
+      },
+      { 
+        name: 'Official Game Wiki', 
+        url: 'https://github.com/CanPixel/BadOptics/wiki',
+        icon: 'Globe',
+      },
     ]
   },
   'kernel-sweep':

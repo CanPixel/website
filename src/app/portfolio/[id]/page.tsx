@@ -1,5 +1,3 @@
-
-
 'use client';
 
 import Image from 'next/image';
@@ -8,8 +6,9 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Badge } from '@/components/ui/badge';
 import NavMenu from "@/components/navigation";
 import { Button } from '@/components/ui/button';
-import { Github, Calendar, Globe, ArrowLeft, ArrowUp, ArrowDown, ArrowRight,
-  Youtube, FileSearch, Download } from 'lucide-react';
+import { Github, Calendar, Globe, ArrowLeft, ArrowUp, ArrowDown,
+  Youtube, FileSearch, Download, Joystick, Newspaper, AudioLines, Wrench
+} from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { ImageSlideshow } from '@/components/ImageSlideshow';
@@ -21,13 +20,28 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel"
 import React, { useState, useRef, useEffect } from 'react';
-// import { PDFViewer } from '@/components/PDFViewer';
 
 const SteamIcon = (props: React.SVGProps<SVGSVGElement>) => (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" {...props}>
-        <path fill="currentColor" d="M372.4 345.2c-7.4 0-14.8-1.5-21.1-4.5 -6.4-3-12.8-7.5-18.1-12.8 -5.4-5.4-9.8-11.7-12.8-18.1 -3-6.4-4.5-13.7-4.5-21.1 0-7.4 1.5-14.8 4.5-21.1 3-6.4 7.5-12.8 12.8-18.1 5.4-5.4 11.7-9.8 18.1-12.8 6.4-3 13.7-4.5 21.1-4.5 16.7 0 32.5 6.4 44.2 18.2 11.8 11.8 18.2 27.5 18.2 44.2 0 16.7-6.4 32.5-18.2 44.2 -11.8 11.8-27.5 18.2-44.2 18.2zm-12.4-118.9l-58.4 29.2c-15.3 7.6-26.6 22.1-31.5 39.1l-3.3 11.3c-2.4-12.9-7.2-24.8-14.3-35.1 -11.3-16.5-27.6-29-46.7-35.9l-12-4.4c16.5-12.1 36.4-18.9 57.2-18.9 20.3 0 39.7 6.6 55.4 18.3 1.9-1.3 3.8-2.5 5.7-3.6 15.6-9.1 32.8-13.8 50.4-13.8 2.3 0 4.6.1 6.9.3 -20.6-24.9-49.9-41.9-82.5-41.9 -34.5 0-66 18.1-84.1 45.4 -36.6 55.2-27.3 129.2 21.6 172.5l29.4 26.2c61.9-21.7 101.9-80.4 101.9-145.2 0-21.6-4.2-42.3-12.3-61.5zM211.2 419.5c-41.4 0-77-22.1-96.8-54.7l-29.2-25.9c-49.9-44.3-59.4-119.9-22-176.3 37.8-57 110.4-80.4 175.7-60.9 29.5 9 55.4 26.1 76.2 49.3 6.1 6.8 11.5 14.2 16.1 22.2 -23.1-9.9-48.5-15.3-75-15.3 -51.3 0-96.3 22-127.3 57.5 -27.6 31.6-44.1 72.4-44.1 116.7 0 24.5 6.3 47.7 17.5 68.1l20.4 36.3c10.3 18.2 28.6 30.9 49.9 33.6 2.5.3 5 .5 7.5.5z"/>
-    </svg>
+<svg fill="#FFFFFF" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 50 50" width="50px" height="50px"><path d="M 25 3 C 13.59 3 4.209375 11.680781 3.109375 22.800781 L 14.300781 28.529297 C 15.430781 27.579297 16.9 27 18.5 27 L 18.550781 27 C 18.940781 26.4 19.389375 25.649141 19.859375 24.869141 C 20.839375 23.259141 21.939531 21.439062 23.019531 20.039062 C 23.259531 15.569063 26.97 12 31.5 12 C 36.19 12 40 15.81 40 20.5 C 40 25.03 36.430937 28.740469 31.960938 28.980469 C 30.560938 30.060469 28.750859 31.160859 27.130859 32.130859 C 26.350859 32.610859 25.6 33.059219 25 33.449219 L 25 33.5 C 25 37.09 22.09 40 18.5 40 C 14.91 40 12 37.09 12 33.5 C 12 33.33 12.009531 33.17 12.019531 33 L 3.2792969 28.519531 C 4.9692969 38.999531 14.05 47 25 47 C 37.15 47 47 37.15 47 25 C 47 12.85 37.15 3 25 3 z M 31.5 14 C 27.92 14 25 16.92 25 20.5 C 25 24.08 27.92 27 31.5 27 C 35.08 27 38 24.08 38 20.5 C 38 16.92 35.08 14 31.5 14 z M 31.5 16 C 33.99 16 36 18.01 36 20.5 C 36 22.99 33.99 25 31.5 25 C 29.01 25 27 22.99 27 20.5 C 27 18.01 29.01 16 31.5 16 z M 18.5 29 C 17.71 29 16.960313 29.200312 16.320312 29.570312 L 19.640625 31.269531 C 20.870625 31.899531 21.350469 33.410625 20.730469 34.640625 C 20.280469 35.500625 19.41 36 18.5 36 C 18.11 36 17.729375 35.910469 17.359375 35.730469 L 14.029297 34.019531 C 14.289297 36.259531 16.19 38 18.5 38 C 20.99 38 23 35.99 23 33.5 C 23 31.01 20.99 29 18.5 29 z"/></svg>
 );
+
+const iconMap = {
+  Globe: Globe,
+  Github: Github,
+  Joystick: Joystick,
+  Steam: SteamIcon,
+  Newspaper: Newspaper,
+  AudioLines: AudioLines,
+  Wrench: Wrench,
+  Download: Download
+};
+const renderIcon = (iconName: string | undefined) => {
+  if (!iconName) {
+    return 'Globe';
+  }
+  const IconComponent = iconMap[iconName as keyof typeof iconMap];
+  return IconComponent ? <IconComponent className='mr-2 h-5 w-5' size={16} /> : null;
+}
 
 export default function ProjectDetailPage({ project }: { project: Project | null | undefined }) {
   if (project === undefined || project === null) {
@@ -275,52 +289,6 @@ export default function ProjectDetailPage({ project }: { project: Project | null
             </Card>
             )}
 
-            {(project.url || project.properties?.repoLink) && (
-            <Card style={{
-              backgroundColor: project.styling.backgroundColor,
-              color: project.styling.textColor,
-              borderColor: project.styling.borderColor,
-              fontFamily: project.styling.fontFamily,
-          }} className="border-2 p-6">
-              <h3 className="text-2xl font-bold mb-4">Project Links</h3>
-              <div className="space-y-4">
-                  {project.releaseType === 'steam' && project.url && (
-                    <Button asChild className="w-full bg-[#1b2838] hover:bg-[#2c435a] text-white">
-                        <Link href={project.url} target="_blank" rel="noopener noreferrer">
-                            <SteamIcon className="mr-2 h-5 w-5" />
-                            View on Steam
-                        </Link>
-                    </Button>
-                  )}
-                  {project.releaseType !== 'steam' && project.url && (
-                    project.url.toLowerCase().endsWith('.zip') || project.url.toLowerCase().endsWith('.jar') ? (
-                      <Button asChild className="w-full bg-green-600 hover:bg-green-700 text-white">
-                        <a href={project.url} download>
-                            <Download className="mr-2 h-4 w-4" />
-                            Download {project.url.substring(project.url.lastIndexOf('/') + 1)}
-                        </a>
-                      </Button>
-                  ) : (
-                    <Button asChild className="w-full bg-background text-foreground hover:bg-muted">
-                        <Link href={project.url} target="_blank" rel="noopener noreferrer">
-                            <Globe className="mr-2 h-4 w-4" />
-                            Live Demo
-                        </Link>
-                    </Button>
-                  ))}
-
-                  {project.properties?.repoLink && (
-                    <Button asChild variant="outline" className="w-full text-foreground hover:bg-accent hover:text-accent-foreground border-border bg-background">
-                        <Link href={project.properties.repoLink} target="_blank" rel="noopener noreferrer">
-                            <Github className="mr-2 h-4 w-4" />
-                            Source Code
-                        </Link>
-                    </Button>
-                  )}
-              </div>
-            </Card>
-          )}
-
           {(project.styling.links) && (
             <Card style={{
               backgroundColor: project.styling.backgroundColor,
@@ -331,12 +299,26 @@ export default function ProjectDetailPage({ project }: { project: Project | null
               <h3 className="text-2xl font-bold mb-4">Links</h3>
               <div className="space-y-4">
               {project.styling.links.map((link) => (
-                <Button asChild className="w-full bg-[#1b2838] hover:bg-[#2c435a] text-white">
-                    <Link href={link.url} target="_blank" rel="noopener noreferrer">
-                        {link.name}
-                        <ArrowRight className="mr-2 h-5 w-5" />
-                    </Link>
+                (link.style != null) ?
+                <Button asChild 
+                className={cn("w-full", link.style)}>
+                  <Link href={link.url} target="_blank" rel="noopener noreferrer">
+                    {renderIcon(link.icon)}
+                    {link.name}
+                  </Link>
                 </Button>
+              :
+              <Button asChild 
+              className="w-full bg-black hover:bg-gray-400 text-white border hover:border-2"
+              style={{
+                borderColor: project.styling.borderColor,
+                fontFamily: project.styling.fontFamily,
+              }}>
+                <Link href={link.url} target="_blank" rel="noopener noreferrer">
+                  {renderIcon(link.icon)}
+                  {link.name}
+                </Link>
+              </Button>
               ))}
               </div>
             </Card>
@@ -363,10 +345,7 @@ export default function ProjectDetailPage({ project }: { project: Project | null
                     </Link>
                 </Button>
 
-                {/* <PDFViewer pdfUrl={"/" + project.styling.document}/> */}
-
                 <object data={"/" + project.styling.document} width='100%' height='400px' className="hidden md:block"></object>
-
               </div>
             </Card>
           )}
@@ -417,9 +396,9 @@ export default function ProjectDetailPage({ project }: { project: Project | null
     {project.styling.slideshowImages && project.styling.slideshowImages.length > 0 && (
       <div className="mt-16">
         <div className='flex justify-between items-center'>
-          <span className={cn('text-2xl font-bold mb-4 text-gold-100/70', project.styling.textColor)}> Almace</span>
+          <span className={cn('text-2xl font-bold mb-4 text-gold-100/70', project.styling.textColor)}>𒀩</span>
           <span className="font-headline text-3xl font-bold mb-4 text-accent text-center">Gallery</span>
-          <span className={cn('text-2xl font-bold mb-4 text-gold-100/70', project.styling.textColor)}> Almace</span>
+          <span className={cn('text-2xl font-bold mb-4 text-gold-100/70', project.styling.textColor)}>𒀩</span>
         </div>
         <div className="relative">
           <ImageSlideshow images={project.styling.slideshowImages}/>
