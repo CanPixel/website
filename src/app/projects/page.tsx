@@ -1,3 +1,4 @@
+
 "use client";
 
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
@@ -42,6 +43,7 @@ import {
 import * as React from "react";
 import Image from "next/image";
 import Link from 'next/link';
+import { ExpandableCard } from '@/components/ExpandableCard';
 
 const allCategories = [
   { name: "Battle Royale", icon: Shield, animation: "group-hover:animate-flash" },
@@ -148,46 +150,51 @@ export default function ProjectsPage() {
           </Carousel>
       </div>
 
-      <div className="mb-12 flex justify-center">
-        <Card className="w-[70%] mx-auto bg-card/80 border-sky-500/30 backdrop-blur-sm">
-          <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-md text-sky-300">
-                  <Youtube className="w-5 h-5 text-red-500 flex-shrink-0"/>
-                  1st person Psychological Horror
-              </CardTitle>
-          </CardHeader>
-          <CardContent>
-              <div className="aspect-video rounded-md overflow-hidden">
-                  <iframe
-                      src={`https://www.youtube.com/embed/uYsiNqI1gpU`}
-                      title="1st person Psychological Horror"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      className="w-full h-full"
-                      loading="lazy"
-                  ></iframe>
-              </div>
-          </CardContent>
-          <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-md text-sky-300">
-                  <Youtube className="w-5 h-5 text-red-500 flex-shrink-0"/>
-                  Quarantine Horror (3rd person Horror w/ Fixed Camera Angles)
-              </CardTitle>
-          </CardHeader>
-          <CardContent>
-              <div className="aspect-video rounded-md overflow-hidden">
-                  <iframe
-                      src={`https://www.youtube.com/embed/Fm_EZ0e5qxw`}
-                      title="Quarantine Horror (3rd person Horror w/ Fixed Camera Angles)"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      className="w-full h-full"
-                      loading="lazy"
-                  ></iframe>
-              </div>
-          </CardContent>
-        </Card>
+      <div className="mb-12 flex flex-col items-center gap-4">
+        <ExpandableCard title="Horror Prototypes" icon={Youtube} iconColor="text-red-500">
+            <div className="grid md:grid-cols-2 gap-4 p-4">
+                <Card className="w-full bg-card/80 border-sky-500/30 backdrop-blur-sm">
+                    <CardHeader>
+                        <CardTitle className="flex items-center gap-2 text-md text-sky-300">
+                            1st person Psychological Horror
+                        </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <div className="aspect-video rounded-md overflow-hidden">
+                            <iframe
+                                src={`https://www.youtube.com/embed/uYsiNqI1gpU`}
+                                title="1st person Psychological Horror"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                                className="w-full h-full"
+                                loading="lazy"
+                            ></iframe>
+                        </div>
+                    </CardContent>
+                </Card>
+                <Card className="w-full bg-card/80 border-sky-500/30 backdrop-blur-sm">
+                    <CardHeader>
+                        <CardTitle className="flex items-center gap-2 text-md text-sky-300">
+                           Quarantine Horror (3rd person Horror w/ Fixed Camera Angles)
+                        </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <div className="aspect-video rounded-md overflow-hidden">
+                            <iframe
+                                src={`https://www.youtube.com/embed/Fm_EZ0e5qxw`}
+                                title="Quarantine Horror (3rd person Horror w/ Fixed Camera Angles)"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                                className="w-full h-full"
+                                loading="lazy"
+                            ></iframe>
+                        </div>
+                    </CardContent>
+                </Card>
+            </div>
+        </ExpandableCard>
       </div>
+
 
       <div className="flex flex-wrap justify-center gap-x-2 gap-y-1 mb-6">
         <Button
