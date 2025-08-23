@@ -12,25 +12,29 @@ interface ExpandableCardProps {
   icon?: LucideIcon;
   iconColor?: string;
   children: React.ReactNode;
-  style?: ProjectStyling;
+  styling: ProjectStyling;
 }
 
-export function ExpandableSection({ title, icon: Icon, iconColor, children, style }: ExpandableCardProps) {
+export function ExpandableSection({ title, icon: Icon, iconColor, children, styling }: ExpandableCardProps) {
   const [isOpen, setIsOpen] = useState(false);
-
   const toggleOpen = () => setIsOpen(!isOpen);
 
   return (
     <motion.div
-      className="w-[70%] mx-auto group"
+      className="mx-auto group"
       transition={{ type: 'spring', stiffness: 300, damping: 20 }}
     >
-      <Card 
+      <Card style={{
+          backgroundColor: styling.backgroundColor,
+          color: styling.textColor,
+          borderColor: styling.borderColor,
+          fontFamily: styling.fontFamily,
+        }}
         className={cn(
           "backdrop-blur-sm overflow-hidden transition-all duration-500 ease-in-out",
           isOpen 
-            ? 'bg-sky-900/20 border-sky-400/50 shadow-lg shadow-sky-500/10' 
-            : 'bg-black/30 border-sky-500/30 hover:border-sky-400/70'
+            ? 'shadow-lg shadow-sky-500/10' 
+            : 'hover:border-sky-400/70'
         )}
       >
         <CardHeader 

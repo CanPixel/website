@@ -10,24 +10,15 @@ import { ExpandableSection } from '@/components/ExpandableSection';
 
 export default function ChivalryChef(styling: ProjectStyling) {
   return (
-    <ExpandableSection title="Dev Log" 
-    icon={CodeXml} 
-    iconColor="text-[#8B4513]"
-    style={{
-        backgroundColor: styling.backgroundColor,
-        color: styling.textColor,
-        borderColor: styling.borderColor,
-        fontFamily: styling.fontFamily,
-    }}>
-    <Card style={{
-        backgroundColor: styling.backgroundColor,
-        color: styling.textColor,
-        borderColor: styling.borderColor,
-        fontFamily: styling.fontFamily,
-    }} className="border-2 w-[97%] mx-auto">
-        <CardHeader className='flex justify-between items-center'>
-          <CardTitle>Game Mechanics Facts!</CardTitle>
-        </CardHeader>
+    <ExpandableSection 
+        title="Game Mechanic Facts!" 
+        icon={CodeXml} 
+        iconColor="text-[#8B4513]"
+        className="border-2 w-[97%] mx-auto"
+        styling={styling}>
+        {/* <CardHeader className='flex justify-between items-center'> */}
+          {/* <CardTitle>Game Mechanics Facts!</CardTitle> */}
+        {/* </CardHeader> */}
         <CardContent>
             <CardDescription style={{
                 color: styling.textColor, opacity: 0.9 }
@@ -320,7 +311,6 @@ style={{borderColor: styling.borderColor, boxShadow: `0 10px 25px -5px ${styling
                 </code>
             </CardDescription> 
         </CardContent>
-    </Card>
     </ExpandableSection>
   );
 }
