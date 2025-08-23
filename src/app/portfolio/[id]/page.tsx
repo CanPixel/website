@@ -441,7 +441,9 @@ export default function ProjectDetailPage({ project }: { project: Project | null
     {project.styling.youtube && project.styling.youtube.length > 0 && (
       <div className="mt-16">
         <div className='flex justify-between items-center'>
+          <span className={cn('mb-4', project.styling.textColor)}></span>
           <h1 className="font-headline text-3xl font-bold text-accent mb-4 text-center">Videos</h1>
+          <span className={cn('mb-4', project.styling.textColor)}></span>
         </div>
           <Carousel
             opts={{
@@ -524,7 +526,9 @@ export default function ProjectDetailPage({ project }: { project: Project | null
     {project.styling.slideshowImages && project.styling.slideshowImages.length > 0 && (
       <div className="mt-16">
         <div className='flex justify-between items-center'>
+          <span className={cn('mb-4', project.styling.textColor)}></span>
           <span className="font-headline text-3xl font-bold mb-4 text-accent text-center">Gallery</span>
+          <span className={cn('mb-4', project.styling.textColor)}></span>
         </div>
         <div className="relative">
           <ImageSlideshow images={project.styling.slideshowImages}/>
