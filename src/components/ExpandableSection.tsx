@@ -6,6 +6,7 @@ import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { ChevronDown, type LucideIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { ProjectStyling } from '@/data/projects';
+import { Button } from '@/components/ui/button';
 
 interface ExpandableCardProps {
   title: string;
@@ -72,6 +73,19 @@ export function ExpandableSection({ title, icon: Icon, iconColor, children, styl
               >
                   <CardContent className="p-0">
                       {children}
+                      <div className="flex justify-center mt-4">
+                        <Button
+                          onClick={toggleOpen}
+                          className="font-bold text-md w-full pt-2 pb-0 mb-0 hover:opacity-80"
+                          style={{
+                            backgroundColor: styling.borderColor,
+                            color: styling.textColor,
+                            borderColor: styling.borderColor,
+                            fontFamily: styling.fontFamily,
+                          }}>
+                          Collapse
+                        </Button>
+                      </div>
                   </CardContent>
               </motion.section>
           )}
