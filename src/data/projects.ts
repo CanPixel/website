@@ -618,11 +618,23 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
     borderColor: '#D4AC79',
     animationClass: 'group-hover:shadow-[0_0_30px_5px_rgba(255,165,0,0.5)]',
     backgroundImage: 'none',
+    banner: 'images/chivchefbanner.jpg',
     descStyling: 'text-[12px]',
     youtube: [
       'FbSoWeMh10Y',
       '_3iAmp4dpOk',
       'CdjGvqpBBf8'
+    ],
+    slideshowImages: [
+      'chivchef (1).jpg', 
+      'chivchef (2).jpg',
+      'chivchef (3).jpg',
+      'chivchef (4).jpg',
+      'chivchef (6).jpg',
+      'chivchef (7).jpg',
+      'chivchef (8).jpg',
+      'chivchef (9).jpg',
+      'chivchef (10).jpg',
     ],
     controls: [
       { key: 'W A S D', desc: 'Move'},
@@ -633,18 +645,19 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
       { key: 'Q', desc: 'Inventory'},
     ],
     links: [
-      // { 
-      //   name: 'Download Build', //Engage in Fortitude
-      //   url: 'https://downgit.github.io/#/home?url=https://github.com/CanPixel/OhmMyLord/tree/master/Build',
-      //   icon: 'Joystick',
-      //   style: 'border-[#D4AF37] border-2 bg-[#1b2838] hover:bg-[#2c435a] text-[#e6f1ff]'
-      // },
+      { 
+        name: 'Engage in Fortitude!',
+        url: 'https://drive.google.com/file/d/1rfQHqTEVvTL5wq3g6ADvENXbIbbIBaFu/view?usp=sharing',
+        icon: 'Joystick',
+      },
       { 
         name: 'Source Code', 
         url: 'https://github.com/CanPixel/ChivalryChef',
         icon: 'Github',
-        style: 'border-[#D4AF37] border-2 bg-[#1b2838] hover:bg-[#2c435a] text-accent'
       },
+    ],
+    sections: [
+      'ChivalryChef'
     ]
   },
   'life-sentence':

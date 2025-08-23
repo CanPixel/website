@@ -41,6 +41,9 @@ export default {
   ],
   theme: {
     extend: {
+      grayscale: {
+        50: '50%',
+      },
       fontFamily: {
         body: ['var(--font-body)', 'sans-serif'],
         headline: ['var(--font-headline)', 'sans-serif'],
@@ -132,6 +135,11 @@ export default {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
       },
+    },
+  },
+  variants: {
+    extend: {
+      grayscale: ['hover'],
     },
   },
   plugins: [require('tailwindcss-animate')],

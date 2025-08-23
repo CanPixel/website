@@ -19,7 +19,6 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel"
 import {
-  Map,
   Shield,
   Waves,
   Crosshair,

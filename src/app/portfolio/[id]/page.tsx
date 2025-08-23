@@ -22,6 +22,7 @@ import {
 import React, { useState, useRef, useEffect } from 'react';
 
 import OrbitalResonance from '@/components/portfolio/OrbitalResonance';
+import ChivalryChef from '@/components/portfolio/ChivalryChef';
 
 const SteamIcon = (props: React.SVGProps<SVGSVGElement>) => (
 <svg fill="#FFFFFF" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 50 50" width="50px" height="50px"><path d="M 25 3 C 13.59 3 4.209375 11.680781 3.109375 22.800781 L 14.300781 28.529297 C 15.430781 27.579297 16.9 27 18.5 27 L 18.550781 27 C 18.940781 26.4 19.389375 25.649141 19.859375 24.869141 C 20.839375 23.259141 21.939531 21.439062 23.019531 20.039062 C 23.259531 15.569063 26.97 12 31.5 12 C 36.19 12 40 15.81 40 20.5 C 40 25.03 36.430937 28.740469 31.960938 28.980469 C 30.560938 30.060469 28.750859 31.160859 27.130859 32.130859 C 26.350859 32.610859 25.6 33.059219 25 33.449219 L 25 33.5 C 25 37.09 22.09 40 18.5 40 C 14.91 40 12 37.09 12 33.5 C 12 33.33 12.009531 33.17 12.019531 33 L 3.2792969 28.519531 C 4.9692969 38.999531 14.05 47 25 47 C 37.15 47 47 37.15 47 25 C 47 12.85 37.15 3 25 3 z M 31.5 14 C 27.92 14 25 16.92 25 20.5 C 25 24.08 27.92 27 31.5 27 C 35.08 27 38 24.08 38 20.5 C 38 16.92 35.08 14 31.5 14 z M 31.5 16 C 33.99 16 36 18.01 36 20.5 C 36 22.99 33.99 25 31.5 25 C 29.01 25 27 22.99 27 20.5 C 27 18.01 29.01 16 31.5 16 z M 18.5 29 C 17.71 29 16.960313 29.200312 16.320312 29.570312 L 19.640625 31.269531 C 20.870625 31.899531 21.350469 33.410625 20.730469 34.640625 C 20.280469 35.500625 19.41 36 18.5 36 C 18.11 36 17.729375 35.910469 17.359375 35.730469 L 14.029297 34.019531 C 14.289297 36.259531 16.19 38 18.5 38 C 20.99 38 23 35.99 23 33.5 C 23 31.01 20.99 29 18.5 29 z"/></svg>
@@ -36,6 +37,7 @@ const WindowsIcon = (props: React.SVGProps<SVGSVGElement>) => (
 
 const componentsMap = {
   OrbitalResonance: OrbitalResonance,
+  ChivalryChef: ChivalryChef,
 };
 const renderComponent = (compName: string | undefined) => {
   if (!compName) {
@@ -168,23 +170,24 @@ export default function ProjectDetailPage({ project }: { project: Project | null
       }
 
       {project.styling.banner ? ( 
-        <div className="w-full md:w-[70%] mx-auto relative overflow-hidden mt-4 border border-2 shadow-lg transition-all duration-300 hover:shadow-2xl" 
+        <div className="w-full md:w-[80%] mx-auto relative overflow-hidden mt-4 border border-2 shadow-lg transition-all duration-300 hover:shadow-2xl" 
         style={{borderColor: project.styling.borderColor, boxShadow: `0 10px 25px -5px ${project.styling.borderColor}30, 0 8px 10px -6px ${project.styling.borderColor}20`}}>
           <Image src={'/' + project.styling.banner} alt="Banner" 
+          className='grayscale-50 hover:grayscale-0 hover:border-2 transition-all'
           width={1920} height={1080} layout="responsive" objectFit="cover" />
         </div>
       ) : <></>}
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-12">
         <div className='md:col-span-2'>
-          <Card className='overflow-hidden border-2 shadow-lg rounded-lg transition-all duration-300 hover:shadow-2xl' style={{borderColor: project.styling.borderColor, boxShadow: `0 10px 25px -5px ${project.styling.borderColor}30, 0 8px 10px -6px ${project.styling.borderColor}20`}}>
+          <Card>
             <div className="relative aspect-video w-full"> 
               <Image 
                 src={"/images/" + project.thumbnailUrl}
                 alt={project.title}
                 fill
-                className="object-contain"/>
-              <div className="absolute inset-0 bg-repeat bg-center opacity-5" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E\")" }}></div>
+                style={{borderColor: project.styling.borderColor, boxShadow: `0 10px 25px -5px ${project.styling.borderColor}30, 0 8px 10px -6px ${project.styling.borderColor}20`}}
+                className="object-contain overflow-hidden border-2 shadow-lg rounded-lg transition-all duration-300 hover:shadow-2xl grayscale-50 hover:grayscale-0 hover:border-2 transition-all"/>
             </div>
           </Card>
           <div className="prose prose-lg dark:prose-invert max-w-none text-foreground/90 mt-8 space-y-6">
@@ -316,7 +319,10 @@ export default function ProjectDetailPage({ project }: { project: Project | null
               borderColor: project.styling.borderColor,
               fontFamily: project.styling.fontFamily,
           }} className="border-2 p-6">
-              <h3 className="text-2xl font-bold mb-4">Links</h3>
+              <div className='flex justify-between items-center'>
+                <h3 className="text-2xl font-bold mb-4">Links</h3>
+                <span className={cn('text-2xl font-bold mb-4 text-right', project.styling.textColor)}> 𒆍</span>
+              </div>
               <div className="space-y-4">
               {project.styling.links.map((link, idx) => (
                 (link.style != null) ?
@@ -380,7 +386,10 @@ export default function ProjectDetailPage({ project }: { project: Project | null
                 fontFamily: project.styling.fontFamily,
             }} className="border-2">
               <CardHeader>
-                <CardTitle>Controls</CardTitle>
+                <div className='flex justify-between items-center'>
+                  <div className="text-2xl font-bold mb-4">Controls</div>
+                  <span className={cn('text-2xl font-bold mb-4 text-right', project.styling.textColor)}> 𒀝</span>
+                </div>
               </CardHeader>
               <CardContent>
                 <div className="overflow-x-auto">
@@ -430,7 +439,11 @@ export default function ProjectDetailPage({ project }: { project: Project | null
 
     {project.styling.youtube && project.styling.youtube.length > 0 && (
       <div className="mt-16">
-        <h1 className="font-headline text-3xl font-bold text-accent mb-4 text-center">Videos</h1>
+        <div className='flex justify-between items-center'>
+          <span className={cn('text-1xl font-bold mb-4 text-gold-100/70', project.styling.textColor)}>𒇲</span>
+          <h1 className="font-headline text-3xl font-bold text-accent mb-4 text-center">Videos</h1>
+          <span className={cn('text-1xl font-bold mb-4 text-gold-100/70', project.styling.textColor)}>𒇲</span>
+        </div>
           <Carousel
             opts={{
               align: "center",
@@ -512,9 +525,9 @@ export default function ProjectDetailPage({ project }: { project: Project | null
     {project.styling.slideshowImages && project.styling.slideshowImages.length > 0 && (
       <div className="mt-16">
         <div className='flex justify-between items-center'>
-          <span className={cn('text-2xl font-bold mb-4 text-gold-100/70', project.styling.textColor)}>𒀩</span>
+          <span className={cn('text-1xl font-bold mb-4 text-gold-100/70', project.styling.textColor)}>𒀩</span>
           <span className="font-headline text-3xl font-bold mb-4 text-accent text-center">Gallery</span>
-          <span className={cn('text-2xl font-bold mb-4 text-gold-100/70', project.styling.textColor)}>𒀩</span>
+          <span className={cn('text-1xl font-bold mb-4 text-gold-100/70', project.styling.textColor)}>𒀩</span>
         </div>
         <div className="relative">
           <ImageSlideshow images={project.styling.slideshowImages}/>

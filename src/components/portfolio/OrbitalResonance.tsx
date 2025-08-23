@@ -1,7 +1,6 @@
 'use client';
 
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '../ui/card';
-import { Youtube } from 'lucide-react';
 import { ProjectStyling } from '@/data/projects';
 import Image from 'next/image';
 import Link from 'next/link';
