@@ -12,7 +12,6 @@ import CodeSnippetViewer from '@/components/CodeSnippetViewer';
 
 export default function ChivalryChef(styling: ProjectStyling) {
   return (<>
-
     <Card style={{
         backgroundColor: styling.backgroundColor,
         color: styling.textColor,
@@ -20,9 +19,9 @@ export default function ChivalryChef(styling: ProjectStyling) {
         fontFamily: styling.fontFamily,
     }} className="border-2 my-6">
         <CardHeader className='flex justify-between items-center'>
-            <span className={cn('text-2xl font-bold mb-4 text-right', styling.textColor)}> 𒆠</span>
+            <span className={cn('text-2xl font-bold mb-4 text-right', styling.textColor)}>𒀊</span>
         </CardHeader>
-        <CardContent>
+        <CardContent className='w-[90%] mx-auto'>
             <CardDescription style={{
                 color: styling.textColor, opacity: 0.9 }
                 }>
