@@ -16,7 +16,7 @@ interface ExpandableCardProps {
   styling: ProjectStyling;
 }
 
-export function ExpandableSection({ title, icon: Icon, iconColor, children, styling }: ExpandableCardProps) {
+export function ExpandableSection({ title, icon: Icon, className, iconColor, children, styling }: ExpandableCardProps) {
   const [isOpen, setIsOpen] = useState(false);
   const toggleOpen = () => setIsOpen(!isOpen);
 
@@ -32,6 +32,7 @@ export function ExpandableSection({ title, icon: Icon, iconColor, children, styl
           fontFamily: styling.fontFamily,
         }}
         className={cn(
+          className,
           "backdrop-blur-sm overflow-hidden transition-all duration-500 border-2 ease-in-out",
           isOpen 
             ? `shadow-lg shadow-[${styling.borderColor}/80] border-4` 

@@ -1,0 +1,63 @@
+--- CHIVALRY CHEF v2.0 ---
+--- MULTITUDE REVISION ---
+
+[20-1-2020]: Main Menu Development. UI Assets designing and implementation.
+[21-1-2020]: Added tutorial notifications. Overall pondering about the design of a tutorial.
+
+[22-1-2020]: 
+- Before Engaging Solely, there is a checkbox for enabling/disabling tutorial sequence.
+- Linked game settings to the player. Player, Game and Audio settings are changeable either in main menu, or in-game.
+- Finished tutorial UI notification system.
+- Balanced overall UI positions / distribution.
+
+[26-1-2020]: 
+- Bug Fixes, fixed tutorial completion sound effect playing on every heavy swing move.
+- Project update to Unity 2019.1.0f2 + various optimizations
+- Setting the base for the multiplayer framework
+
+[27-1-2020]:
+- Did a supervised playtest, this gathered a collection of constructive feedback and notifications. Noted a lot of bugs, which some of them have already been fixed!
+- Overall optimizations
+- Bug Fixes
+
+[28-1-2020]:
+- More bug fixes and optimizations
+- Screenshot function! Press F10 to capture an in-game screenshot.
+- Exit button in main menu!
+
+[30-1-2020]:
+- Started multiplayer framework development, through using the Unity com.unity.transport samplepack
+
+[1-2-2020]:
+- Rebuilding the player prefab architecture, including its references to canvas objects. Instead of the canvas being a seperate global object, it is now a part of the player. 
+This is needed in order to provide a stable base for multiple players to work.
+- Added Multiplayer IP & LAN client / server buttons to main menu.
+- Multiplayer optimizations & framework development
+
+[4-2-2020]:
+- Major networking transport progress. It's now possible for multiple players to join a LAN server.
+- As of yet the positions & rotations of all client players are communicated through the server
+
+[9-2-2020]:
+- Reworks in de GameEvents.cs class. PLAYER_DISCONNECT event handler toegevoegd aan de Client->Server communicatie
+- Various Player Disconnect bug fixes
+
+[15-2-2020]:
+- UI reworking, Networking bug fixes, You can now heal by eating ingredients, instead of picking them up.
+
+[16-2-2020]:
+- Successfully adjusted network data to include player neck rotation (Where the player looks with his mouse controls), and synched animations by transmitting the "targetMove" vector (Directional Input Data). Works pretty good!
+
+[23-2-2020]:
+- Health values now are accurately synched and transmitted from server to clients and vice versa.
+
+
+[24-2-2020]:
+- Changed the server multiplayer test map to an actual island, successfully working :)
+- Added name tags to "other players"
+
+
+[8-3-2020]:
+- Improved slashing ingredients Audio & Visual feedback. Added "Slashing" particles on ingredient cut, aswell as chunks of food.
+- Synched health values with server for Multiplayer battle support.
+Hurting yourself -aswell as healing- now also gets communicated with the server and its desbetreffende clients!

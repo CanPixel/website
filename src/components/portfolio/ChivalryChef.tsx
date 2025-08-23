@@ -1,7 +1,7 @@
 'use client';
 
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '../ui/card';
-import { CodeXml, Braces, Grid2X2 } from 'lucide-react';
+import { CodeXml, Braces, Grid2X2, Wrench, Cog } from 'lucide-react';
 import { ProjectStyling } from '@/data/projects';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -56,9 +56,9 @@ export default function ChivalryChef(styling: ProjectStyling) {
 
     <ExpandableSection 
         title="Development & Mechanics" 
-        icon={CodeXml} 
+        icon={Cog} 
         iconColor="text-[#8B4513]"
-        className="border-2 w-[97%] mx-auto"
+        className="mb-4"
         styling={styling}>
         <CardContent>
             <CardDescription style={{
@@ -353,12 +353,11 @@ style={{borderColor: styling.borderColor, boxShadow: `0 10px 25px -5px ${styling
         </CardContent>
     </ExpandableSection>
     
-    <br></br>
     <ExpandableSection 
         title="VoronoiGenerator.cs" 
         icon={CodeXml} 
         iconColor="text-[#8B4513]"
-        className="border-2 w-[97%] mx-auto"
+        className="mb-4"
         styling={styling}>
         <CardContent>
             <CardDescription style={{color: styling.textColor, opacity: 0.9 }}>
@@ -368,6 +367,27 @@ style={{borderColor: styling.borderColor, boxShadow: `0 10px 25px -5px ${styling
                     language='csharp'
                     style='gruvbox-dark' 
                     title={'VoronoiGenerator.cs - C# Code Snippet [Unity]'}
+                    className="h-screen overflow-auto text-[10px]"
+                    />
+                </code>
+            </CardDescription>
+        </CardContent>
+    </ExpandableSection>
+
+    <ExpandableSection 
+        title="Changelog" 
+        icon={Wrench} 
+        iconColor="text-[#8B4513]"
+        className="mb-4"
+        styling={styling}>
+        <CardContent>
+            <CardDescription style={{color: styling.textColor, opacity: 0.9 }}>
+                <code className="text-md text-black mt-6 max-w-3xl mb-2">
+                    <CodeSnippetViewer 
+                    filePath={'/code/ChivChefChangelog.txt'} 
+                    language='txt'
+                    style='material-dark' 
+                    title={'ChivalryChef Changelog [v2.0]'}
                     className="h-screen overflow-auto text-[10px]"
                     />
                 </code>
