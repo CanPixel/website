@@ -7,23 +7,64 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { ExpandableSection } from '@/components/ExpandableSection';
+import { cn } from '@/lib/utils';
+import CodeSnippetViewer from '@/components/CodeSnippetViewer';
 
 export default function ChivalryChef(styling: ProjectStyling) {
-  return (
-    <ExpandableSection 
-        title="Game Mechanic Facts!" 
-        icon={CodeXml} 
-        iconColor="text-[#8B4513]"
-        className="border-2 w-[97%] mx-auto"
-        styling={styling}>
-        {/* <CardHeader className='flex justify-between items-center'> */}
-          {/* <CardTitle>Game Mechanics Facts!</CardTitle> */}
-        {/* </CardHeader> */}
+  return (<>
+
+    <Card style={{
+        backgroundColor: styling.backgroundColor,
+        color: styling.textColor,
+        borderColor: styling.borderColor,
+        fontFamily: styling.fontFamily,
+    }} className="border-2 my-6">
+        <CardHeader className='flex justify-between items-center'>
+            <span className={cn('text-2xl font-bold mb-4 text-right', styling.textColor)}> 𒆠</span>
+        </CardHeader>
         <CardContent>
             <CardDescription style={{
                 color: styling.textColor, opacity: 0.9 }
                 }>
+                <div className="relative border border-8 mb-10"
+        style={{
+            borderColor: '#222222',
+            boxShadow: `5px 5px 15px #222222`
+        }}>
+        <div className="relative z-20"
+            style={{
+                boxShadow: `0 0 6px 6px #222222`
+            }}>
+            <video
+                muted autoPlay loop width="100%" height="100%"
+                className="w-full h-full z-10">
+                <source src='/videos/ChivChefGameplay.mp4' type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+            </div>
+            <div className="absolute left-1/2 transform -translate-x-1/2 -top-9 bg-[#555555] text-center text-white px-3 py-2 z-10" 
+            style={{ 
+                fontFamily: styling.fontFamily, 
+                boxShadow: `5px 5px 15px #222222`,
+                textShadow: `5px 5px 15px #000000`,
+            }}>
+                Debugging AI
+            </div>
+        </div>
+            </CardDescription> 
+        </CardContent>
+    </Card>
 
+    <ExpandableSection 
+        title="Development & Mechanics" 
+        icon={CodeXml} 
+        iconColor="text-[#8B4513]"
+        className="border-2 w-[97%] mx-auto"
+        styling={styling}>
+        <CardContent>
+            <CardDescription style={{
+                color: styling.textColor, opacity: 0.9 }
+                }>
 <code className="text-md text-black mt-6 max-w-3xl mb-2">
 <div className="w-[80%] mx-auto">
 - For in-game cooking, the game uses an external database API for verified cooking recipes.<br></br>
@@ -224,7 +265,7 @@ style={{borderColor: styling.borderColor, boxShadow: `0 10px 25px -5px ${styling
             Modeling (Blender)
         </div>
     </div>
-    <div className="relative border border-8 mb-10"
+    <div className="relative border border-8 mb-12"
         style={{
             borderColor: '#222222',
             boxShadow: `5px 5px 15px #222222`
@@ -251,7 +292,7 @@ style={{borderColor: styling.borderColor, boxShadow: `0 10px 25px -5px ${styling
             Texturing (Diffuse)
         </div>
     </div>
-    <div className="relative border border-8 mb-10"
+    <div className="relative border border-8 mb-12"
         style={{
             borderColor: '#222222',
             boxShadow: `5px 5px 15px #222222`
@@ -279,7 +320,7 @@ style={{borderColor: styling.borderColor, boxShadow: `0 10px 25px -5px ${styling
             Mapping (Normals, Specular, Ambient Occlusion)
         </div>
     </div>
-    <div className="relative border border-8 mb-10"
+    <div className="relative border border-8 mb-12"
         style={{
             borderColor: '#222222',
             boxShadow: `5px 5px 15px #222222`
@@ -312,5 +353,28 @@ style={{borderColor: styling.borderColor, boxShadow: `0 10px 25px -5px ${styling
             </CardDescription> 
         </CardContent>
     </ExpandableSection>
+    
+    <br></br>
+    <ExpandableSection 
+        title="VoronoiGenerator.cs" 
+        icon={CodeXml} 
+        iconColor="text-[#8B4513]"
+        className="border-2 w-[97%] mx-auto"
+        styling={styling}>
+        <CardContent>
+            <CardDescription style={{color: styling.textColor, opacity: 0.9 }}>
+                <code className="text-md text-black mt-6 max-w-3xl mb-2">
+                    <CodeSnippetViewer 
+                    filePath={'/code/VoronoiGenerator.cs'} 
+                    language='csharp'
+                    style='gruvbox-dark' 
+                    title={'VoronoiGenerator.cs - C# Code Snippet [Unity]'}
+                    className="h-screen overflow-auto text-[10px]"
+                    />
+                </code>
+            </CardDescription>
+        </CardContent>
+    </ExpandableSection>
+    </>
   );
 }

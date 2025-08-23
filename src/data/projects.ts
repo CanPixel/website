@@ -648,7 +648,7 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
       { 
         name: 'Engage in Fortitude!',
         url: 'https://drive.google.com/file/d/1rfQHqTEVvTL5wq3g6ADvENXbIbbIBaFu/view?usp=sharing',
-        icon: 'Joystick',
+        icon: 'Windows',
       },
       { 
         name: 'Source Code', 
@@ -790,23 +790,19 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
   },
 };
 
-//Horror prototypes:
-//1st person Psychological Horror: uYsiNqI1gpU
-//Quarantine Horror (3rd person Horror w/ Fixed Camera Angles): Fm_EZ0e5qxw
-
 export const projectStatusColors: { [key: string]: string } = {
-  "In Development": "bg-yellow-500",
-  "Released": "bg-green-500",
-  "Released (Steam)": "bg-green-500",
-  "Halted": "bg-orange-500",
-  "Discontinued": "bg-red-500",
-  "Live": "bg-green-500",
-  "Finished": "bg-gray-500",
-  "Demo": "bg-blue-500",
-  "Full Demo": "bg-green-500",
-  "Prototype": "bg-gray-500",
-  "Alpha": "bg-teal-500",
-  "Beta": "bg-yellow-500",
+  "In Development": "yellow-500",
+  "Released": "green-500",
+  "Released (Steam)": "green-500",
+  "Halted": "red-600",
+  "Discontinued": "red-500",
+  "Live": "green-500",
+  "Finished": "gray-500",
+  "Demo": "blue-500",
+  "Full Demo": "green-500",
+  "Prototype": "gray-500",
+  "Alpha": "teal-500",
+  "Beta": "yellow-500",
 };
 
 export const skillColors: { [key: string]: string } = {

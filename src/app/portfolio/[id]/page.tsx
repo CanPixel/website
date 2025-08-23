@@ -70,13 +70,12 @@ export default function ProjectDetailPage({ project }: { project: Project | null
     return null;
   }
 
-  const statusColor = project.status ? projectStatusColors[project.status] : 'bg-white';
+  const statusColor = project.status ? projectStatusColors[project.status] : 'white';
   const statusClasses = cn(
-    'p-2 px-3 whitespace-nowrap flex-shrink-0 text-[16px] mb-0',
+    'p-2 px-3 whitespace-nowrap flex-shrink-0 text-[14px] mb-0',
     'border',
     `border-${statusColor}`,
-    `bg-${statusColor}`,
-    `text-${statusColor}`
+    `bg-${statusColor}`
   );
 
   const technicalDesc = project.technicalDesc ? project.technicalDesc : ''; 
@@ -150,12 +149,14 @@ export default function ProjectDetailPage({ project }: { project: Project | null
         </header>
       </div>
       
-      <Badge
-        variant="outline"
-        className={statusClasses}>
-          {project.status}
-      </Badge>
-      
+      <div className="mt-3 flex flex-col items-center">
+        <Badge
+          variant="outline"
+          className={statusClasses}>
+            {project.status}
+        </Badge>
+      </div>
+
       { project.motto ? 
       (<Card style={{
                 color: project.styling.textColor,

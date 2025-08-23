@@ -31,25 +31,29 @@ export function ExpandableSection({ title, icon: Icon, iconColor, children, styl
           fontFamily: styling.fontFamily,
         }}
         className={cn(
-          "backdrop-blur-sm overflow-hidden transition-all duration-500 ease-in-out",
+          "backdrop-blur-sm overflow-hidden transition-all duration-500 border-2 ease-in-out",
           isOpen 
-            ? 'shadow-lg shadow-sky-500/10' 
-            : 'hover:border-sky-400/70'
+            ? `shadow-lg shadow-[${styling.borderColor}/80] border-4` 
+            : `hover:opacity-80 hover:border-[${styling.borderColor}/70]`
         )}
       >
         <CardHeader 
           className="flex flex-row items-center justify-between p-4 cursor-pointer"
           onClick={toggleOpen}
         >
-          <CardTitle className="flex items-center gap-2 text-md text-sky-300 transition-colors duration-300 group-hover:text-sky-100">
-              {Icon && <Icon className={cn("w-5 h-5 flex-shrink-0 transition-colors duration-300", iconColor, isOpen && 'text-sky-200')}/>}
-              {title}
+          <CardTitle className={cn("flex items-center gap-2 text-md transition-colors duration-300 transition-all group-hover:opacity-70", styling.textColor)}>
+              {Icon && <Icon className={cn("w-6 h-6 flex-shrink-0 transition-colors duration-300", iconColor, isOpen && 'opacity-80')}/>}
           </CardTitle>
+          <div className="text-[20px] font-bold flex-grow text-center group-hover:opacity-70 transition-all">{title}</div>
+          
           <motion.div
-              animate={{ rotate: isOpen ? 180 : 0 }}
+ animate={{ rotate: isOpen ? 180 : 0 }}
               transition={{ duration: 0.3 }}
           >
-              <ChevronDown className="h-6 w-6 text-sky-300 transition-colors duration-300 group-hover:text-sky-100" />
+              <ChevronDown 
+              className="h-6 w-6 transition-colors duration-300 group-hover:opacity-80" 
+              style={{ color: styling.textColor }}
+              />
           </motion.div>
         </CardHeader>
         <AnimatePresence initial={false}>
