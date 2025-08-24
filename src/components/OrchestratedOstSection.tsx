@@ -1,4 +1,3 @@
-
 'use client';
 
 import Link from 'next/link';
@@ -33,7 +32,6 @@ export default function OrchestratedOstSection() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* Left Column */}
         <div className="lg:col-span-2 space-y-8">
           <Card className="bg-card/50 backdrop-blur-sm border-emerald-600/30">
             <CardHeader>
@@ -46,6 +44,18 @@ export default function OrchestratedOstSection() {
                 Arranged by Can Ur & Daan Mulder. <br></br>Composed, Mixed & Mastered by Can Ur.
               </p>
             </CardContent>
+          </Card>
+
+          <Card className="bg-card/50 backdrop-blur-sm border-emerald-600/30">
+            <div className="w-[90%] mt-4 mb-1 aspect-square mx-auto rounded-md overflow-hidden">
+                <iframe
+                    src={`https://www.youtube.com/embed/2oVHkdFOz5w`}
+                    title="YouTube snippet"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="w-full h-full mx-auto"
+                ></iframe>
+            </div>
           </Card>
 
           <Card className="bg-card/50 backdrop-blur-sm border-emerald-600/30">
@@ -79,17 +89,17 @@ export default function OrchestratedOstSection() {
               <CardTitle className="font-headline text-2xl text-emerald-400">Game Visuals</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-                <div className="relative aspect-video rounded-lg group">
+                <div className="relative aspect-square rounded-lg group">
                   <Image
                     src="/images/epicinium.png"
                     alt="Epicinium game visual"
                     fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
                 </div>
-                 <div className="relative rounded-lg overflow-hidden">
+                 <div className="relative overflow-hidden">
                     <Image
                         src="/images/Episteamium.gif"
                         alt="Epicinium game gif"
