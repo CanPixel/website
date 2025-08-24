@@ -49,7 +49,7 @@ const timelineEvents = [
     year: '2020-2021',
     title: 'Audio Programming & Design',
     description: 'Worked for Coöperation A Bunch of Hacks U.A., developing nuanced audio systems and creating music and sound effects for the game Epicinium on Steam.',
-    video: 'videos/EpiOST.mp4',
+    YTlink: '2oVHkdFOz5w',
     videoSize: 'w-[60%]',
     videoSettings: { 
       loop: true,

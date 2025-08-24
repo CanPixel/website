@@ -125,7 +125,7 @@ export default function ProjectsPage() {
         </p>
       </header>
 
-      <div className="mb-12 flex justify-center">
+      <div className="mb-10 flex justify-center">
           <Carousel className="w-1/2 max-w-sm"
             opts={{
                 loop: true,
@@ -149,10 +149,21 @@ export default function ProjectsPage() {
           </Carousel>
       </div>
 
+      <div className="w-[50%] shadow-xl border-2 mx-auto mb-10 h-full border border-sky-400/50 mt-4 mb-1 rounded-xl overflow-hidden"
+      style={{
+        boxShadow: '0 0 15px 3px rgba(125, 211, 252, 0.4)'
+      }}
+      >
+        <video muted autoPlay loop width="100%" height="100%">
+          <source src='/videos/Showcase.mp4' type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
       <div className="mb-12 flex flex-col items-center gap-4">
         <ExpandableCard title="Horror Prototypes" icon={Youtube} iconColor="text-red-500">
             <div className="flex flex-col gap-4 p-4">
-                <Card className="w-full bg-card/80 border-sky-500/30 backdrop-blur-sm">
+                <Card>
                     <CardHeader>
                         <CardTitle className="flex items-center gap-2 text-md text-sky-300">
                             1st person Psychological Horror
@@ -171,7 +182,7 @@ export default function ProjectsPage() {
                         </div>
                     </CardContent>
                 </Card>
-                <Card className="w-full bg-card/80 border-sky-500/30 backdrop-blur-sm">
+                <Card>
                     <CardHeader>
                         <CardTitle className="flex items-center gap-2 text-md text-sky-300">
                            Quarantine Horror (3rd person Horror w/ Fixed Camera Angles)

@@ -33,7 +33,7 @@ export interface ProjectStyling {
   textColor: string;
   titleSize?: string;
   descStyling?: string;
-  fontFamily: string | NextFontWithVariable;
+  fontFamily: string;// | NextFontWithVariable;
   backgroundImage?: string;
   borderColor?: string;
   animationClass?: string;
