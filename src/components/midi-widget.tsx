@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useRef, useEffect } from "react";
@@ -123,7 +122,17 @@ export default function MidiWidget({midi} : any) {
 
         {midi.releaseDate && (
           <div className="text-center mt-4">
-              <span className="text-xs text-muted-foreground">{midi.releaseDate}</span>
+              <span className="text-xs text-muted-foreground">
+                {(() => {
+                  const date = new Date(midi.releaseDate);
+                  const options: Intl.DateTimeFormatOptions = {
+                    day: '2-digit',
+                    month: '2-digit',
+                    year: 'numeric',
+                  };
+                  return date.toLocaleDateString(undefined, options);
+                })()}
+              </span>
           </div>
         )}
       </CardContent>

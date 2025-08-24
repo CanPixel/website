@@ -1,13 +1,14 @@
 'use client';
 
 import Image from 'next/image';
-import { Project, ProjectStyling, genreColors, projectStatusColors } from '../../../data/projects';
+import { Project, genreColors, projectStatusColors } from '../../../data/projects';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import NavMenu from "@/components/navigation";
 import { Button } from '@/components/ui/button';
 import { Github, Calendar, Globe, ArrowLeft, ArrowUp, ArrowDown,
   Youtube, FileSearch, Download, Joystick, Newspaper, AudioLines, Wrench,
+  Linkedin, Instagram, Facebook
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
@@ -23,9 +24,14 @@ import React, { useState, useRef, useEffect } from 'react';
 
 import OrbitalResonance from '@/components/portfolio/OrbitalResonance';
 import ChivalryChef from '@/components/portfolio/ChivalryChef';
+import KooKoo from '@/components/portfolio/KooKoo';
+import FriskingRuins from '@/components/portfolio/FriskingRuins';
 
 const SteamIcon = (props: React.SVGProps<SVGSVGElement>) => (
 <svg fill="#FFFFFF" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 50 50" width="50px" height="50px"><path d="M 25 3 C 13.59 3 4.209375 11.680781 3.109375 22.800781 L 14.300781 28.529297 C 15.430781 27.579297 16.9 27 18.5 27 L 18.550781 27 C 18.940781 26.4 19.389375 25.649141 19.859375 24.869141 C 20.839375 23.259141 21.939531 21.439062 23.019531 20.039062 C 23.259531 15.569063 26.97 12 31.5 12 C 36.19 12 40 15.81 40 20.5 C 40 25.03 36.430937 28.740469 31.960938 28.980469 C 30.560938 30.060469 28.750859 31.160859 27.130859 32.130859 C 26.350859 32.610859 25.6 33.059219 25 33.449219 L 25 33.5 C 25 37.09 22.09 40 18.5 40 C 14.91 40 12 37.09 12 33.5 C 12 33.33 12.009531 33.17 12.019531 33 L 3.2792969 28.519531 C 4.9692969 38.999531 14.05 47 25 47 C 37.15 47 47 37.15 47 25 C 47 12.85 37.15 3 25 3 z M 31.5 14 C 27.92 14 25 16.92 25 20.5 C 25 24.08 27.92 27 31.5 27 C 35.08 27 38 24.08 38 20.5 C 38 16.92 35.08 14 31.5 14 z M 31.5 16 C 33.99 16 36 18.01 36 20.5 C 36 22.99 33.99 25 31.5 25 C 29.01 25 27 22.99 27 20.5 C 27 18.01 29.01 16 31.5 16 z M 18.5 29 C 17.71 29 16.960313 29.200312 16.320312 29.570312 L 19.640625 31.269531 C 20.870625 31.899531 21.350469 33.410625 20.730469 34.640625 C 20.280469 35.500625 19.41 36 18.5 36 C 18.11 36 17.729375 35.910469 17.359375 35.730469 L 14.029297 34.019531 C 14.289297 36.259531 16.19 38 18.5 38 C 20.99 38 23 35.99 23 33.5 C 23 31.01 20.99 29 18.5 29 z"/></svg>
+);
+const RedditIcon = (props: React.SVGProps<SVGSVGElement>) => (
+<svg fill="#FFFFFF" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M14.238 15.348c.085.084.085.221 0 .306-.465.462-1.194.687-2.231.687l-.008-.002-.008.002c-1.036 0-1.766-.225-2.231-.688-.085-.084-.085-.221 0-.305.084-.084.222-.084.307 0 .379.377 1.008.561 1.924.561l.008.002.008-.002c.915 0 1.544-.184 1.924-.561.085-.084.223-.084.307 0zm-3.44-2.418c0-.507-.414-.919-.922-.919-.509 0-.923.412-.923.919 0 .506.414.918.923.918.508.001.922-.411.922-.918zm13.202-.93c0 6.627-5.373 12-12 12s-12-5.373-12-12 5.373-12 12-12 12 5.373 12 12zm-5-.129c0-.851-.695-1.543-1.55-1.543-.417 0-.795.167-1.074.435-1.056-.695-2.485-1.137-4.066-1.194l.865-2.724 2.343.549-.003.034c0 .696.569 1.262 1.268 1.262.699 0 1.267-.566 1.267-1.262s-.568-1.262-1.267-1.262c-.537 0-.994.335-1.179.804l-2.525-.592c-.11-.027-.223.037-.257.145l-.965 3.038c-1.656.02-3.155.466-4.258 1.181-.277-.255-.644-.415-1.05-.415-.854.001-1.549.693-1.549 1.544 0 .566.311 1.056.768 1.325-.03.164-.05.331-.05.5 0 2.281 2.805 4.137 6.253 4.137s6.253-1.856 6.253-4.137c0-.16-.017-.317-.044-.472.486-.261.82-.766.82-1.353zm-4.872.141c-.509 0-.922.412-.922.919 0 .506.414.918.922.918s.922-.412.922-.918c0-.507-.413-.919-.922-.919z"/></svg>
 );
 const WindowsIcon = (props: React.SVGProps<SVGSVGElement>) => (
 <svg fill="#FFFFFF" width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -38,6 +44,8 @@ const WindowsIcon = (props: React.SVGProps<SVGSVGElement>) => (
 const componentsMap = {
   OrbitalResonance: OrbitalResonance,
   ChivalryChef: ChivalryChef,
+  KooKoo: KooKoo,
+  FriskingRuins: FriskingRuins
 };
 const renderComponent = (compName: string | undefined) => {
   if (!compName) {
@@ -45,6 +53,14 @@ const renderComponent = (compName: string | undefined) => {
   }
   return componentsMap[compName as keyof typeof componentsMap];
 }
+
+const socialLinksMap : { [key: string] : {name: string; icon: React.ElementType } } = {
+  'GitHub': { name: 'GitHub', icon: Github },
+  'LinkedIn': { name: 'LinkedIn', icon: Linkedin },
+  'Instagram': { name: 'Instagram', icon: Instagram },
+  'Facebook': { name: 'Facebook', icon: Facebook },
+  'Reddit': {name: 'Reddit', icon: RedditIcon},
+};
 
 const iconMap = {
   Globe: Globe,
@@ -88,7 +104,6 @@ export default function ProjectDetailPage({ project }: { project: Project | null
   const handleReadMoreClick = () => {
     setIsExpanded(true);
   };
-
   const handleCollapseClick = () => {
     setIsExpanded(false);
   };
@@ -118,21 +133,21 @@ export default function ProjectDetailPage({ project }: { project: Project | null
                 </Link>
             </Button>
 
-            <div className="hidden md:block"></div> {/* Spacer for desktop */}
+            <div className="hidden md:block"></div>
             
             <Badge
                 variant="outline"
-                className={cn("p-2 px-3 whitespace-nowrap justify-self-end", project.styling.badgeBackgroundColor)}
+                className={cn("text-[12px] p-2 px-3 whitespace-nowrap justify-self-end", project.styling.badgeBackgroundColor)}
                 style={{
                     borderColor: project.styling.borderColor,
                 }}>
-                <Calendar className='me-2'/>
+                <Calendar className='me-2 w-5 h-5'/>
                 {project.releaseDate ?? 'Coming Soon'}
             </Badge>
         </div>
 
         <header className="text-center w-full">
-            <h1 className={cn("font-headline text-5xl md:text-6xl font-bold tracking-tighter mb-2 shiny-text", project.styling.textColor ? "" : "text-primary")}>
+            <h1 className={cn("font-headline text-5xl md:text-6xl font-bold tracking-tighter pb-2 mb-2 shiny-text", project.styling.textColor ? "" : "text-primary")}>
                 {project.title}
             </h1>
             <p className="text-md text-muted-foreground/80 max-w-3xl mx-auto font-headline">
@@ -165,7 +180,7 @@ export default function ProjectDetailPage({ project }: { project: Project | null
                     <CardDescription 
                     className='text-[16px] text-gray-300 text-center my-0 p-0'
                     >
-                        "{project.motto}"
+                      {project.motto}
                     </CardDescription> 
             </Card>) : <></>
       }
@@ -246,7 +261,7 @@ export default function ProjectDetailPage({ project }: { project: Project | null
             {!isTruncated && !isExpanded && textRef.current && textRef.current.scrollHeight > MAX_HEIGHT && (
               <Button onClick={() => setIsTruncated(true)}></Button>
             )}
-        </div>
+          </div>
 
         {project.properties?.steamUrl && (
           <div className="mt-8 hidden md:block">
@@ -350,6 +365,29 @@ export default function ProjectDetailPage({ project }: { project: Project | null
               </Button>
               ))}
               </div>
+
+              {(project.styling.socials) && (
+                <div className="justify-end flex items-center gap-2 mt-6 text-md">
+                  {project.styling.socials.map((social) => {
+                    const IconComponent = socialLinksMap[social.name]?.icon;
+                    return (
+                      <Link
+                        key={social.name}
+                        href={social.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={cn("p-2 transition-colors transition-transform hover:scale-[1.02] border border-2", social.style)}
+                        aria-label={social.name}
+                      >
+                        {IconComponent ? (<>
+                          <IconComponent className="h-5 w-5" />
+                          <span className="sr-only">{social.name}</span>
+                        </>) : <></>}
+                      </Link>
+                    );
+                  })}
+                </div>
+              )}
             </Card>
           )}
 

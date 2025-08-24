@@ -46,6 +46,7 @@ export interface ProjectStyling {
   banner?: string;
   controls?: Control[];
   links?: ExtLink[];
+  socials?: SocialLink[];
   sections?: string[];
 }
 const defaultStyling: ProjectStyling = {
@@ -65,6 +66,12 @@ const defaultStyling: ProjectStyling = {
   banner: '',
 };
 
+export interface SocialLink {
+  name: string;
+  url: string;
+  icon?: string;
+  style?: string;
+}
 export interface ExtLink {
   name: string;
   url: string;
@@ -295,35 +302,50 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
     ],
     links: [
       { 
-        name: 'Live Demo', 
+        name: 'Info [ITCH.io]', 
         url: 'https://oprel.itch.io/koo-koo',
         icon: 'Globe',
-        style: 'border-[#D4AF37] border-2 bg-black hover:bg-[#2c435a] text-white'
+        style: 'border-[#D4AF37] border-2 bg-black group-hover:bg-[#e6f1ff] text-white'
       },
-      // { 
-      //   name: 'Epicinium Extended Soundtrack on Steam', 
-      //   url: 'https://store.steampowered.com/app/1442600/Epicinium__Extended_Soundtrack/',
-      //   icon: 'AudioLines',
-      //   style: 'border-[#D4AF37] border-2 bg-[#1b2838] hover:bg-[#2c435a] text-[#e6f1ff]'
-      // },
+      { 
+        name: 'Epicinium Extended OST on Steam', 
+        url: 'https://store.steampowered.com/app/1442600/Epicinium__Extended_Soundtrack/',
+        icon: 'AudioLines',
+        style: 'border-[#D4AF37] border-2 bg-black group-hover:bg-[#e6f1ff] text-white'
+      },
       { 
         name: 'Source Code', 
         url: 'https://github.com/CanPixel/cuckoo',
         icon: 'Github',
-        style: 'border-[#D4AF37] border-2 hover:bg-[#2c435a] text-white bg-black'
-      },
-      { 
-        name: 'ITCH.io', 
-        url: 'https://oprel.itch.io/koo-koo',
-        icon: 'Joystick',
-        style: 'border-[#D4AF37] border-2 bg-black hover:bg-[#2c435a] text-white'
+        style: 'border-[#D4AF37] border-2 bg-black group-hover:bg-[#e6f1ff] text-white'
       },
       { 
         name: 'Article on GameDeveloper.com', 
         url: 'https://www.gamedeveloper.com/marketing/alt-ctrl-gdc-showcase-i-koo-koo-i-',
         icon: 'Newspaper',
-        style: 'border-[#D4AF37] border-2 bg-black hover:bg-[#2c435a] text-white'
+        style: 'border-[#D4AF37] border-2 bg-black group-hover:bg-[#e6f1ff] text-white'
       },
+      { 
+        name: 'GDC Archive [2019]', 
+        url: 'https://gdconf.com/alt-ctrl-gdc-archive/',
+        icon: 'Joystick',
+        style: 'border-[#D4AF37] border-2 bg-black group-hover:bg-[#e6f1ff] text-white'
+      },
+    ],
+    socials: [
+      {
+        name: 'Facebook', 
+        url: 'https://www.facebook.com/KooKooGame/',
+        style: 'border-[#D4AF37] text-white bg-black hover:bg-primary'
+      },
+      {
+        name: 'Instagram', 
+        url: 'https://www.instagram.com/kookoogame',
+        style: 'border-[#D4AF37] text-white bg-black hover:bg-primary'
+      },
+    ],
+    sections: [
+      'KooKoo'
     ]
   },
   'epicinium': {
@@ -469,14 +491,15 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
         name: 'Download Build', 
         url: 'https://downgit.github.io/#/home?url=https://github.com/CanPixel/KernModule/tree/master/Eindopdracht%20Retro/Frisking%20Ruins/Build',
         icon: 'Joystick',
-        style: 'border-[#D4AF37] border-2 bg-[#1b2838] hover:bg-[#2c435a] text-[#e6f1ff]'
       },
       { 
         name: 'Source Code', 
         url: 'https://github.com/CanPixel/KernModule/tree/master/Eindopdracht%20Retro/Frisking%20Ruins',
         icon: 'Github',
-        style: 'border-[#D4AF37] border-2 bg-[#1b2838] hover:bg-[#2c435a] text-[#e6f1ff]'
       },
+    ],
+    sections: [
+      'FriskingRuins'
     ]
   },
   'krautkill': {
@@ -725,20 +748,35 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
         name: 'Live Demo', 
         url: 'https://canpixel.com/BadOptics/',
         icon: 'Joystick',
-        style: 'bg-[#1b2838] hover:bg-[#2c435a] text-white'
       },
       { 
         name: 'Source Code', 
         url: 'https://github.com/CanPixel/BadOptics',
         icon: 'Github',
-        style: 'bg-[#1b2838] hover:bg-[#2c435a] text-white'
       },
       { 
         name: 'Official Game Wiki', 
         url: 'https://github.com/CanPixel/BadOptics/wiki',
         icon: 'Globe',
       },
-    ]
+    ],
+    socials: [
+      {
+        name: 'Facebook', 
+        url: 'https://www.facebook.com/GamifiedPolCompass',
+        style: 'border-[#D4AF37] text-white bg-black hover:bg-gray'
+      },
+      {
+        name: 'Instagram', 
+        url: 'https://www.instagram.com/gamifiedpolcompass/',
+        style: 'border-[#D4AF37] text-white bg-black hover:bg-gray'
+      },
+      {
+        name: 'Reddit', 
+        url: 'https://www.reddit.com/r/BadOptics/',
+        style: 'border-[#D4AF37] text-white bg-black hover:bg-gray'
+      },
+    ],
   },
   'kernel-sweep':
   {

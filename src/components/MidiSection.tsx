@@ -1,4 +1,3 @@
-
 'use client';
 
 import MidiWidget from "@/components/midi-widget";
@@ -52,33 +51,27 @@ export default function MidiSection() {
         setLoading(false);
       }
     };
-
     fetchMidiProjects();
   }, []);
 
   useEffect(() => {
     let projectsToFilter = midiProjects;
-
     if (selectedGenres.length > 0) {
       projectsToFilter = projectsToFilter.filter(project =>
         project.properties?.genre?.some(genre => selectedGenres.includes(genre))
       );
     }
-
     if (selectedTags.length > 0) {
       projectsToFilter = projectsToFilter.filter(project =>
         project.properties?.moodTags?.some(tag => selectedTags.includes(tag))
       );
     }
-
     if (searchTerm) {
       projectsToFilter = projectsToFilter.filter(project =>
         project.title.toLowerCase().includes(searchTerm.toLowerCase())
       );
     }
-
     setFilteredProjects(projectsToFilter);
-
   }, [midiProjects, selectedGenres, selectedTags, searchTerm]);
 
   const handleGenreChange = (genre: string) => {
@@ -151,8 +144,7 @@ export default function MidiSection() {
                 variant={selectedTags.includes(tag) ? "default" : "outline"}
                 onClick={() => handleTagChange(tag)}
                 size="sm"
-                className="rounded-full px-3"
-                >
+                className="rounded-full px-3">
                 {tag}
                 </Button>
             ))}
