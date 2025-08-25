@@ -376,26 +376,37 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
         name: 'View on Steam', 
         url: 'https://store.steampowered.com/app/1286730/Epicinium/',
         icon: 'Steam',
-        style: 'border-[#D4AF37] border-2 bg-[#1b2838] hover:bg-[#2c435a] text-[#e6f1ff]'
       },
       { 
         name: 'Epicinium Extended OST on Steam', 
         url: 'https://store.steampowered.com/app/1442600/Epicinium__Extended_Soundtrack/',
         icon: 'AudioLines',
-        style: 'border-[#D4AF37] border-2 bg-[#1b2838] hover:bg-[#2c435a] text-[#e6f1ff]'
       },
       { 
         name: 'Official Game Website', 
         url: 'https://epicinium.nl/',
         icon: 'Globe',
-        style: 'border-[#D4AF37] border-2 bg-[#1b2838] hover:bg-[#2c435a] text-[#e6f1ff]'
       },
       { 
         name: 'Article on GamingOnLinux.com', 
         url: 'https://www.gamingonlinux.com/2020/09/free-to-play-strategy-epicinium-releases-october-12-with-a-climate-change-gameplay-twist',
         icon: 'Newspaper',
-        style: 'border-[#D4AF37] border-2 bg-[#1b2838] hover:bg-[#2c435a] text-[#e6f1ff]'
       },
+    ],
+    socials: [
+      {
+        name: 'Facebook', 
+        url: 'https://www.facebook.com/EpiciniumStrategy',
+        style: 'border-[#D4AF37] text-white bg-black hover:bg-primary'
+      },
+      {
+        name: 'Instagram', 
+        url: 'https://www.instagram.com/epiciniumgame',
+        style: 'border-[#D4AF37] text-white bg-black hover:bg-primary'
+      },
+    ],
+    sections: [
+      'Epicinium'
     ]
   },
   'pixelthrive': {

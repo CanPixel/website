@@ -10,15 +10,18 @@ import { Button } from '@/components/ui/button';
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 const allGenres = [
-  "Indie", "Progressive Rock", "Instrumental Narrative", "Funk",
+  "Indie", "Progressive Rock", "Progressive Metal", 
+  "Instrumental Narrative", "Funk",
   "Experimental", "Blues", "Metal", "Hardcore", "Symphonic",
+  "Swing", "Punk", "Retro", "Rock"
 ];
 
 const allTags = [
   "War", "Rise", "Bouncy", "Heavy", "Jolly", "Unforgiving", "Brutal",
   "Is Your Computer Okay?", "Chaotic", "Catchy", "Time Limited", "Grungy",
   "Wacky", "Evil", "Funny", "Arena Battle", "Odd", "Dystopic", "Enticing",
-  "Medley", "Confused", "Sneaky", "Epic", "Funky", "Fast", "Groovy"
+  "Medley", "Confused", "Sneaky", "Epic", "Funky", "Fast", "Groovy",
+  "Literally Everything", "Bluesy", "Ancient", "Sneaky", "Unjust"
 ];
 
 
@@ -103,8 +106,13 @@ export default function MidiSection() {
         <h2 className="absolute -top-5 left-1/2 -translate-x-1/2 bg-background px-4 font-headline text-4xl font-bold tracking-tighter text-primary-purple">
             MIDI Sorcery
         </h2>
-        <p className="text-center text-lg text-muted-foreground max-w-3xl mx-auto mb-6">
-            A collection of my old-school audio adventures.
+        <p className="text-center text-md text-muted-foreground max-w-3xl mx-auto mb-6">
+            A collection of my old-school audio adventures.<br></br>
+            <br></br>
+            <small className="text-muted-foreground/70">
+            Arranged in Guitar Pro 5 & Mixed in FL Studio 12.<br></br>
+            Arranged & Composed by Can Ur
+            <br></br>Copyright 2025</small>
         </p>
       
       <div className="mb-6">

@@ -12,8 +12,8 @@ import { Button } from "@/components/ui/button";
 import {
   Play,
   Pause,
-  Pyramid,
 } from "lucide-react";
+import * as LucideIcons from "lucide-react"
 import { Progress } from "@/components/ui/progress";
 
 export default function MidiWidget({midi} : any) {
@@ -80,11 +80,15 @@ export default function MidiWidget({midi} : any) {
     }
   };
 
+  const IconComponent = midi?.icon && (LucideIcons as any)[midi.icon]
+  ? (LucideIcons as any)[midi.icon]
+  : (LucideIcons as any)['Pyramid']; 
+
   return (
     <Card className="w-full max-w-md overflow-hidden shadow-2xl">
       <CardHeader className="p-4 pb-2 flex flex-col items-center">
         <div className="flex items-center gap-2 mb-1">
-          <Pyramid className="text-primary-purple" />
+          <IconComponent className="text-primary-purple" />
           <CardTitle className="font-headline text-xl">{midi.title}</CardTitle>
         </div>
         <CardDescription className="text-xs text-center">

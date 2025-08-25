@@ -77,14 +77,14 @@ export default function ZiggurathSection() {
                 </div>
                 <CardHeader className="text-center pt-0">
                   <CardTitle className="font-serif text-2xl text-gold-200">𝕬𝖘𝖙𝖗𝖆𝖑 𝕰𝖝𝖔𝖗𝖈𝖎𝖘𝖒</CardTitle>
-                  <p className="text-1xl text-gray-300">
+                  <div className="text-1xl text-gray-300">
                     𝖀𝖓𝖗𝖆𝖛𝖊𝖑𝖊𝖉 𝖎𝖓
                     <Badge 
                       variant="secondary"
                       className="bg-background/40 border border-gold-100/40 text-gold-100/90 font-normal font-ziggsub ml-2">
                       June 2024
                     </Badge>
-                  </p>
+                  </div>
                 </CardHeader>
                 <CardContent>
                   <div className="mx-auto p-2 shadow-inner bg-gold-900/20 rounded-lg border border-gold-500/30 [box-shadow:0_0_15px_rgba(0,0,0,0.5)_inset]">

@@ -6,6 +6,8 @@ import Image from 'next/image';
 import { Badge } from '@/components/ui/badge';
 import { Button } from './ui/button';
 import { ArrowRight } from 'lucide-react';
+import { ProjectStyling } from '@/data/projects';
+import SimpleMidiPlayer from "@/components/SimpleMidiPlayer";
 
 export default function OrchestratedOstSection() {
   return (
