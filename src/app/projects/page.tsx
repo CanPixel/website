@@ -149,7 +149,7 @@ export default function ProjectsPage() {
           </Carousel>
       </div>
 
-      <div className="w-[50%] shadow-xl border-2 mx-auto mb-10 h-full border border-sky-400/50 mt-4 mb-1 rounded-xl overflow-hidden"
+      <div className="w-[40%] shadow-xl border-2 mx-auto mb-10 h-full border border-sky-400/50 mt-4 mb-1 rounded-xl overflow-hidden"
       style={{
         boxShadow: '0 0 15px 3px rgba(125, 211, 252, 0.4)'
       }}
@@ -206,7 +206,7 @@ export default function ProjectsPage() {
       </div>
 
 
-      <div className="flex flex-wrap justify-center gap-x-2 gap-y-1 mb-6">
+      <div className="mt-2 flex flex-wrap justify-center gap-x-2 gap-y-1 mb-6">
         <Button
           variant={selectedCategory === null ? "default" : "outline"}
           onClick={() => setSelectedCategory(null)}
