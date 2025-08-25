@@ -358,7 +358,7 @@ export const projectStyles: { [id: string]: Partial<ProjectStyling> } = {
     banner: 'images/epiciniumbanner.png',
     animationClass: 'group-hover:shadow-[0_0_20px_5px_rgba(255,69,0,0.7)]',
     youtube: [
-      'McckFnjHBk8',
+      'WdDASPMD5Ec',
       'XWCuo2E82hM',
       '2oVHkdFOz5w'
     ],

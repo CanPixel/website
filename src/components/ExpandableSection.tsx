@@ -14,6 +14,7 @@ interface ExpandableCardProps {
   iconColor?: string;
   children: React.ReactNode;
   styling: ProjectStyling;
+  className?: string;
 }
 
 export function ExpandableSection({ title, icon: Icon, className, iconColor, children, styling }: ExpandableCardProps) {
@@ -80,7 +81,6 @@ export function ExpandableSection({ title, icon: Icon, className, iconColor, chi
                           className="font-bold text-md w-full pt-2 pb-0 mb-0 hover:opacity-80"
                           style={{
                             backgroundColor: styling.borderColor,
-                            color: styling.textColor,
                             borderColor: styling.borderColor,
                             fontFamily: styling.fontFamily,
                           }}>

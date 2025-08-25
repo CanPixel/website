@@ -31,6 +31,13 @@ export default function OrchestratedOstSection() {
         <Badge className="text-center mx-auto text-sm bg-emerald-600/20 text-emerald-300 border-emerald-500/50">
           Music Composition & Original OST
         </Badge>
+        <br></br>
+        <Badge className="text-center mt-2 mx-auto text-[12px] bg-sky-600/20 text-sky-300 border-sky-500/50">
+          FL Studio 12
+        </Badge>
+        <Badge className="text-center mx-auto text-[12px] bg-indigo-600/20 text-indigo-300 border-indigo-500/50">
+          Guitar Pro 5
+        </Badge>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -101,7 +108,7 @@ export default function OrchestratedOstSection() {
                   />
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
                 </div>
-                 <div className="relative overflow-hidden">
+                <div className="relative overflow-hidden">
                     <Image
                         src="/images/Episteamium.gif"
                         alt="Epicinium game gif"
@@ -110,6 +117,10 @@ export default function OrchestratedOstSection() {
                         className="object-cover transition-transform duration-300 hover:scale-105"
                         loading="lazy"
                     />
+                </div>
+
+                <div className="relative overflow-hidden">
+                  <SimpleMidiPlayer id={'epiciniumseasons'} />
                 </div>
             </CardContent>
           </Card>
