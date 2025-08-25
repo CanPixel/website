@@ -31,7 +31,6 @@ const SimpleMidiPlayer: React.FC<SimpleMidiPlayerProps> = ({ id }) => {
             ...doc.data() as Omit<Project, 'id'>
           }));
           setMidi(projectsList);
-          console.log(projectsList);
         }
       } catch (err: any) {
         setMidi([]);

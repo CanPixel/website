@@ -34,9 +34,11 @@ export default function MidiWidget({midi} : any) {
 
   useEffect(() => {
     if (midi?.properties?.midiFileUrl) {
-      audioRef.current = new Audio(midi.properties.midiFileUrl);
+      const baseUrl = window.location.origin;
+      const absoluteMidiUrl = `${baseUrl}/${midi.properties.midiFileUrl}`;
+      audioRef.current = new Audio(absoluteMidiUrl);
       const audio = audioRef.current;
-
+      
       const updateProgress = () => {
         if (audio.duration > 0) {
           setProgress((audio.currentTime / audio.duration) * 100);
