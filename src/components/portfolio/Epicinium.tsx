@@ -73,11 +73,21 @@ I experimented with MIDI compositions and HQ audio samples of violins, piano, ti
 Mixing and Mastering has also been done by me.
 </p>
                 <div className="w-[60%] mx-auto mb-12 grid grid-cols-1 md:grid-cols-2 gap-4 mt-8 place-items-center">
-                    <SimpleMidiPlayer id={'epiciniumspring'} />
-                    <SimpleMidiPlayer id={'epiciniumsummer'} />
-                    <SimpleMidiPlayer id={'epiciniumautumn'} />
-                    <SimpleMidiPlayer id={'epiciniumwinter'} />
-                    <SimpleMidiPlayer id={'epiciniumcalltoaction'} />
+                    <SimpleMidiPlayer 
+                    color={'accent'}
+                    id={'epiciniumspring'} />
+                    <SimpleMidiPlayer 
+                    color={'accent'}
+                    id={'epiciniumsummer'} />
+                    <SimpleMidiPlayer 
+                    color={'accent'}
+                    id={'epiciniumautumn'} />
+                    <SimpleMidiPlayer 
+                    color={'accent'}
+                    id={'epiciniumwinter'} />
+                    <SimpleMidiPlayer 
+                    color={'accent'}
+                    id={'epiciniumcalltoaction'} />
                 </div>
               </code>
             </CardDescription>
@@ -118,7 +128,7 @@ Mixing and Mastering has also been done by me.
                         loading="eager"
                       />
                     </div>
-                    <SimpleMidiPlayer id={'epiciniumseasons'} />
+                    <SimpleMidiPlayer color={'accent'} id={'epiciniumseasons'} />
                   </div>
                 </div>
               </code>

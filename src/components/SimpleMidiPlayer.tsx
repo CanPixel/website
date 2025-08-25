@@ -8,9 +8,10 @@ import MidiWidget from "@/components/midi-widget";
 
 interface SimpleMidiPlayerProps {
   id: string;
+  color?: string;
 }
 
-const SimpleMidiPlayer: React.FC<SimpleMidiPlayerProps> = ({ id }) => {
+const SimpleMidiPlayer: React.FC<SimpleMidiPlayerProps> = ({ id, color = 'primary-purple' }) => {
   const [midi, setMidi] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -51,7 +52,7 @@ const SimpleMidiPlayer: React.FC<SimpleMidiPlayerProps> = ({ id }) => {
   }
 
   return (
-    <MidiWidget midi={midi[0]} />
+    <MidiWidget color={color} midi={midi[0]} />
   );
 };
 

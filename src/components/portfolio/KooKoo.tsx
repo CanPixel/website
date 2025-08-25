@@ -23,9 +23,12 @@ export default function KooKoo(styling: ProjectStyling) {
                 <p className='text-center'>The sound design and music in Koo-Koo was made by me, mainly in MIDI. Here are the files used in this project.</p>
 
                 <div className="col-span-3 grid grid-cols-1 md:grid-cols-3 gap-4 mt-8 place-items-center">
-                    <SimpleMidiPlayer id={'partyblastkookoo'} />
-                    <SimpleMidiPlayer id={'kookootimeticking'} />
-                    <SimpleMidiPlayer id={'kookoosinister'} />
+                    <SimpleMidiPlayer color={'accent'} 
+                    id={'partyblastkookoo'} />
+                    <SimpleMidiPlayer color={'accent'} 
+                    id={'kookootimeticking'} />
+                    <SimpleMidiPlayer color={'accent'} 
+                    id={'kookoosinister'} />
                 </div>
             </CardDescription> 
         </CardContent>

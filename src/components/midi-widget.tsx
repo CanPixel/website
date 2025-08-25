@@ -16,7 +16,7 @@ import {
 import * as LucideIcons from "lucide-react"
 import { Progress } from "@/components/ui/progress";
 
-export default function MidiWidget({midi} : any) {
+export default function MidiWidget({midi, color = 'primary-purple' } : { midi: any; color?: string }) {
   if (!midi) {
     return null;
   }
@@ -88,7 +88,7 @@ export default function MidiWidget({midi} : any) {
     <Card className="w-full max-w-md overflow-hidden shadow-2xl">
       <CardHeader className="p-4 pb-2 flex flex-col items-center">
         <div className="flex items-center gap-2 mb-1">
-          <IconComponent className="text-primary-purple" />
+          <IconComponent className={`text-${color}`} />
           <CardTitle className="font-headline text-xl">{midi.title}</CardTitle>
         </div>
         <CardDescription className="text-xs text-center">
@@ -107,7 +107,7 @@ export default function MidiWidget({midi} : any) {
         </div>
 
         <div className="flex justify-center items-center gap-4 mt-2">
-          <Button variant="default" size="icon" className="bg-primary-purple hover:bg-primary-purple/80 h-14 w-14 rounded-full" onClick={handlePlayPause}>
+          <Button variant="default" size="icon" className={`bg-${color} hover:bg-${color}/80 h-14 w-14 rounded-full`} onClick={handlePlayPause}>
             {isPlaying ? <Pause size={28} /> : <Play size={28} />}
           </Button>
         </div>
@@ -118,7 +118,7 @@ export default function MidiWidget({midi} : any) {
             {midi.properties?.moodTags?.map((tag: string) => (
               <div
                 key={tag}
-                className="text-left p-1 px-2 rounded-md transition-colors bg-primary-purple/20 text-primary-purple text-xs"
+                className={`text-left p-1 px-2 rounded-md transition-colors bg-${color}/20 text-${color} text-xs`}
               >
                 {tag}
               </div>
