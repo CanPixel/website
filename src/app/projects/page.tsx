@@ -125,8 +125,8 @@ export default function ProjectsPage() {
         </p>
       </header>
 
-      <div className="w-[80%] mx-auto flex">
-        <div className="mb-10 flex justify-end">
+      <div className="w-[80%] mx-auto flex flex-col md:flex-row">
+        <div className="mb-10 flex justify-center lg:justify-end">
             <Carousel className="w-3/4 max-w-sm"
               opts={{
                   loop: true,
@@ -148,7 +148,7 @@ export default function ProjectsPage() {
               <CarouselNext className="text-white hover:text-teal-400 -right-4" />
             </Carousel>
         </div>
-        <div className="w-[45%] shadow-xl border-2 mx-auto mb-10 h-full border border-sky-400/50 mt-4 mb-1 rounded-xl overflow-hidden"
+        <div className="lg:w-[45%] shadow-xl border-2 mx-auto mb-10 h-full border border-sky-400/50 mt-4 mb-1 rounded-xl overflow-hidden"
         style={{
           boxShadow: '0 0 15px 3px rgba(125, 211, 252, 0.4)'
         }}
