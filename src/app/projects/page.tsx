@@ -116,7 +116,7 @@ export default function ProjectsPage() {
   return (
     <div className="container mx-auto px-4 py-16">
       <NavMenu/>
-      <header className="text-center mb-6 mt-12">
+      <header className="text-center mb-8 mt-12">
         <h1 className="font-headline text-6xl font-bold tracking-tighter mb-4 shiny-text">
           REALMS
         </h1>
