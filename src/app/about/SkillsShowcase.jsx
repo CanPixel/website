@@ -241,7 +241,7 @@ export default function SkillsShowcase({ skills }) {
         )}
       </div>
 
-      <div className="mt-3 text-xs text-slate-500"><code>These are estimations and I keep learning every day.</code></div>
+      <div className="mt-3 text-xs text-slate-500"><code>These are estimations as I keep learning every day.</code></div>
     </div>
   );
 }

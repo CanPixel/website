@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import NavMenu from "@/components/navigation";
 import { Button } from "@/components/ui/button";
 import Link from 'next/link';
-import { Download, Gamepad, Globe, Palette, Headphones, Quote, ArrowRight } from 'lucide-react';
+import { CodeXml, Download, Gamepad, Globe, Palette, Headphones, Quote, ArrowRight, SplinePointer } from 'lucide-react';
 import { motion, useInView, useScroll, useSpring, Variants } from 'framer-motion';
 import { useRef, useEffect } from 'react';
 import SkillsShowcase from './SkillsShowcase';
@@ -259,10 +259,10 @@ export default function AboutPage() {
             <p className="text-xl text-purple-500">'Method Developer'</p>
             <small className="text-[12px] text-gold-300/50">Indie Game Developer, Web Developer, Designer, Composer, Musician</small>
             <p className="text-muted-foreground mt-4 leading-relaxed">
-                A philosophically deep thinker at heart, weaving soulful, rebellious, and mysterious narratives through code and sound.
+                Philosophically deep thinker at heart, weaving soulful, rebellious, and mysterious narratives through code and sound.
             </p>
 
-            <small className='text-sm mt-3 text-muted-foreground/60'>In addition to programming, I also enjoy activities such as video editing, art, psychology, composing music, design (for concept phase/prototyping), philosophy, politics, PR & marketing, and concepting for mixed-media projects.</small>
+            <small className='text-sm mt-3 text-muted-foreground/60'>Beyond programming, I enjoy video editing, art, psychology, composing music, and designing. <br></br>I'm also interested in philosophy, politics, PR and marketing, and concepting for mixed-media projects.</small>
 
             <p className="text-muted-foreground/80 text-sm mt-4 leading-relaxed">
               Graduated with Honors @ University of the Arts Utrecht
@@ -300,15 +300,17 @@ export default function AboutPage() {
                 <CardHeader>
                     <CardTitle className="flex items-center gap-3 font-headline text-2xl text-primary">
                         <Quote className="w-8 h-8" />
-                        Game Design Philosophy
+                        Design Philosophy
                     </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4 font-mono text-sm text-muted-foreground leading-relaxed">
-                   <p>The process of building core mechanics into a game system, slowly adding merit, then refining the imminent gameplay by tweaking various interactions between core mechanics (dynamics).</p>
-                   <p>I reject the categories <i>"Applied Gaming"</i> and <i>"Serious Games"</i>, as I find it a self-deprecating sign of failed/hollow/one-dimensional game design. Whenever these terms are mentioned, it's a rather emphatic announcement of a concept implying its own shortcomings.</p>
-                   <p>A good game is <b>insightful, entertaining and educational</b> at the same time.</p>
-                   <p>My drive for creation is constructing experiences that help people learn by having fun, and let people have fun by learning.</p>
-                   <p>Innovation comes from looking at things in new and different ways. By thinking outside the box and being willing to experiment, you can come up with unique solutions, or atleast populate the marketplace of ideas with newer questions.</p>
+                   <p>
+                    Rejected are the categories of <i>"Applied Gaming"</i> and <i>"Serious Games"</i>, 
+                    for I see them as a sign of creative hollows and one-dimensional design.
+                   </p>
+                   <p>A true game is a seamless confluence of the <b>insightful</b>, the <b>entertaining</b>, and the <b>educational</b> as a singular experience.</p>
+                   <p>My drive is to dissolve the very boundaries between amusement and enlightenment.</p>
+                   <p>Innovation is the art of seeing the familiar in a new light. I navigate the conceptual wilderness not merely to find unique solutions, but to populate the world of ideas with new questions.</p>
                 </CardContent>
             </Card>
         </motion.div>
@@ -322,14 +324,15 @@ export default function AboutPage() {
                 <CardHeader>
                     <CardTitle className="flex items-center gap-3 font-headline text-2xl text-accent">
                         <Quote className="w-8 h-8" />
-                        What is Good Design?
+                        Good Design
                     </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4 font-mono text-sm text-muted-foreground leading-relaxed">
-                   <p>A good theme adds conceptual merit and increases the headroom of an idea. We as people like our ideas clearly defined and outlined, yet leaving room for suggestive elements. Imagination is key. But you need a keyhole. We have an affinity for concepts that have a form of consistent thematic 'branding'.</p>
-                   <p>Nihilism indirectly seeps into design, so if you're not motivated enough, the game might reflect that. Treat the game as an extension of you, be the creator <b>and</b> the creation. Opening room for being passionate about your concept, being able to romanticize it fully builds authenticity.</p>
-                   <p>Not unlike method acting, I face my all my output as a <b>"method developer"</b> artistically. For periods I breathe in abstract, I let the concept be me. Me being the vessel for the collected ideas, I eventually converge all of it into one greater whole that I can then sketch out, implement and realize.</p>
-                   <p>This way I can ensure that I'm able to bring my creative visions to life passionately and thoroughly. It's never just a game meant for mass consumption with one goal.</p>
+                   <p>Good design is built on consistency and conceptual depth, with headroom for expansion. 
+Much like a pillar needing a strong foundation, only by elevation itself imagination is captivated. 
+<br></br>The key is imagination, but <i>a keyhole is needed.</i></p>
+                   <p>Nihilism indirectly seeps into creation, as a lack of passion and motivation will reflect in the work. Therefore, treating the creation as an extension of yourself is what adds color to the idea and builds authenticity.</p>
+                   <p>By fully embodying the idea, creative vision and design can be brought to life with thoroughness and passion. Not unlike method acting, I call this a <b>"Method Developer"</b> approach artistically, immersing myself into the concept completely. </p>
                 </CardContent>
             </Card>
         </motion.div>
@@ -366,37 +369,30 @@ export default function AboutPage() {
 
       <SkillsShowcase skills={SKILLS}/>
 
-      {/* <Card className='p-3 bg-gray text-sm font-mono'>
-        <h1 className='text-center text-1xl font-headline text-gold-500 mb-2'>My Interests</h1>
-<ul>
-<li>- Finding new and unique ways to increase replayability through procedural algorithms and random generation. Making playthroughs unique.</li>
-
-<li>- Building AI systems that add nuance and illusive sentience to an existing game meta.</li>
-
-<li>- Experimental Core Mechanics</li>
-
-<li>- Creating new interactive experiences by morphing established design rules into new manifestations.</li>
-
-<li>- I think that the term "Serious Game" is horrendously wrong, and that it ultimately is an admission of failed design. It also suggests a misunderstanding of what the medium can achieve.
-A good game is one of the most powerful educational tools, because they can directly involve people in experiences like no other media form. And let's not fool ourselves, we know that learning by doing is highly effective.</li>
-
-<li>- Gaming is an art form, like music, painting, theatre, film etc. I like to analyze the different ways that gaming can express, and find new ways to push existing boundaries.</li>
-</ul>
-      </Card> */}
-
       <div className="mt-10">
-        <div className='flex justify-between items-center'>
-          <span className="font-headline text-3xl font-bold mb-4 text-accent text-center">Design Gallery</span>
+        <div className='w-[70%] mx-auto flex justify-between items-center text-center'>
+          <span className="font-headline text-3xl font-bold mb-4 text-accent">.Design_Gallery</span>
+          <SplinePointer className="w-8 h-8 text-right text-accent"/>
         </div>
         <Card className="bg-card/50 backdrop-blur-sm border-primary/20 max-w-4xl mx-auto">
-          <CardContent className="p-6 grid grid-cols-2 md:grid-cols-4 gap-4">
-            {['Glasskopf_Poster.jpg', 'Glasskopf_OnePager.jpg', 'GDCPass.jpg', 'AMM_ZelfPortret.jpg'].map((img, i) => (
+          <div className="mt-8 w-[50%] mx-auto rounded-lg">
+            <Image
+              src={`/images/Glasskopf_OnePager.jpg`}
+              alt={`Can Ur developer GlassKopf design poster`}
+              width={1000}
+              height={1000}
+              className="object-cover rounded-lg transition-transform duration-300 group-hover:scale-105"
+            />
+          </div>
+          
+          <CardContent className="p-6 grid grid-cols-3 gap-4">
+            {['Glasskopf_Poster.jpg', 'GDCPass.jpg', 'AMM_ZelfPortret.jpg'].map((img, i) => (
               <div key={i} className="relative aspect-square rounded-lg overflow-hidden group">
                 <Image
                   src={`/images/${img}`}
                   alt={`Can Ur developer ${i + 1}`}
                   fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  className="object-contain transition-transform duration-300 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
                   <div className="absolute inset-0 bg-repeat bg-center opacity-10" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}></div>
@@ -423,14 +419,15 @@ A good game is one of the most powerful educational tools, because they can dire
         </Card>
       </div>
       
-      <div className="mt-10 mb-4">
-        <div className='flex justify-between items-center'>
-          <span className="font-headline text-3xl font-bold mb-4 text-accent text-center">Development Gallery</span>
+      <div className="mt-12 mb-4">
+        <div className='w-[70%] mx-auto flex justify-between items-center'>
+          <span className="font-headline text-3xl font-bold mb-4 text-accent">.devGallery;</span>
+          <CodeXml className="w-8 h-8 text-right text-accent"/>
         </div>
         <Card className="bg-card/50 backdrop-blur-sm border-primary/20 max-w-4xl mx-auto">
-          <CardContent className="p-6 grid grid-cols-2 md:grid-cols-4 gap-4">
+          <CardContent className="p-6 grid grid-cols-2 gap-4">
             {['Planet.jpg', 'planetB.jpg', 'image3.jpg', 'image5.jpg'].map((img, i) => (
-              <div key={i} className="relative aspect-square rounded-lg overflow-hidden group">
+              <div key={i} className="relative aspect-video rounded-lg overflow-hidden group">
                 <Image
                   src={`/images/${img}`}
                   alt={`Can Ur developer ${i + 1}`}
@@ -445,8 +442,7 @@ A good game is one of the most powerful educational tools, because they can dire
         </Card>
       </div>
       <br></br>
-      <hr></hr>
-      <div className="mt-10">
+      <div className="mt-12">
         <Card className="bg-card/50 backdrop-blur-sm border-primary/20 max-w-4xl mx-auto">
           <CardContent className="p-6 grid grid-cols-2 md:grid-cols-4 gap-4">
             {['work.jpg', 'ziggurath/zigg3.JPG', 'Can.jpg', 'Jabrils.jpg'].map((img, i) => (
@@ -464,6 +460,19 @@ A good game is one of the most powerful educational tools, because they can dire
           </CardContent>
         </Card>
       </div>
+
+      <Card className='mt-10 w-[50%] mx-auto p-3 bg-gray text-sm font-mono'>
+        <h1 className='text-center text-1xl font-headline text-gold-500 mb-2'>Interests</h1>
+<ul className='text-[13px] text-muted-foreground/80 text-center leading-loose'>
+  <li>Experimental Core Mechanics</li>
+
+  <li>Unique ways to increase replayability through procedural generation.</li>
+
+  <li>Nuanced AI systems adding illusive sentience to an existing game meta.</li>
+
+  <li>Powerful education through direct experiences. Learning by doing.</li>
+</ul>
+      </Card>
 
       <br></br>
       <div className='w-full mx-auto mt-6 flex justify-center'>
