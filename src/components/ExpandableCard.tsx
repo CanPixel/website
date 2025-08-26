@@ -22,7 +22,7 @@ export function ExpandableCard({ title, icon: Icon, iconColor, children }: Expan
   return (
     <motion.div
       className="w-[70%] mx-auto group"
-      whileHover={{ scale: 1.01, y: -5 }}
+      whileHover={{ scale: 1.01 }}
       transition={{ type: 'spring', stiffness: 300, damping: 20 }}
     >
       <Card 

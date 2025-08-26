@@ -125,42 +125,42 @@ export default function ProjectsPage() {
         </p>
       </header>
 
-      <div className="mb-10 flex justify-center">
-          <Carousel className="w-1/2 max-w-sm"
-            opts={{
-                loop: true,
-            }}
-          >
-            <CarouselContent>
-                {carouselItems.map((item, index) => (
-                    <CarouselItem key={index}>
-                         <div className="aspect-square w-full bg-gray-900/10 flex items-center justify-center rounded-lg border-4 border-teal-500 overflow-hidden">
-                            {item.type === 'image' ? (
-                                <Image src={item.src} alt={`Showcase ${index + 1}`} width={500} height={500} className="object-contain" />
-                            ) : (
-                                <video src={item.src} loop autoPlay muted playsInline className="object-contain w-full h-full" />
-                            )}
-                        </div>
-                    </CarouselItem>
-                ))}
-            </CarouselContent>
-            <CarouselPrevious className="text-white hover:text-teal-400 -left-4" />
-            <CarouselNext className="text-white hover:text-teal-400 -right-4" />
-          </Carousel>
+      <div className="w-[80%] mx-auto flex">
+        <div className="mb-10 flex justify-end">
+            <Carousel className="w-3/4 max-w-sm"
+              opts={{
+                  loop: true,
+              }}>
+              <CarouselContent>
+                  {carouselItems.map((item, index) => (
+                      <CarouselItem key={index}>
+                          <div className="aspect-square w-full bg-gray-900/10 flex items-center justify-center rounded-lg border-4 border-teal-500 overflow-hidden">
+                              {item.type === 'image' ? (
+                                  <Image src={item.src} alt={`Showcase ${index + 1}`} width={500} height={500} className="object-contain" />
+                              ) : (
+                                  <video src={item.src} loop autoPlay muted playsInline className="object-contain w-full h-full" />
+                              )}
+                          </div>
+                      </CarouselItem>
+                  ))}
+              </CarouselContent>
+              <CarouselPrevious className="text-white hover:text-teal-400 -left-4" />
+              <CarouselNext className="text-white hover:text-teal-400 -right-4" />
+            </Carousel>
+        </div>
+        <div className="w-[45%] shadow-xl border-2 mx-auto mb-10 h-full border border-sky-400/50 mt-4 mb-1 rounded-xl overflow-hidden"
+        style={{
+          boxShadow: '0 0 15px 3px rgba(125, 211, 252, 0.4)'
+        }}
+        >
+          <video muted autoPlay loop width="100%" height="100%">
+            <source src='/videos/Showcase.mp4' type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
       </div>
 
-      <div className="w-[40%] shadow-xl border-2 mx-auto mb-10 h-full border border-sky-400/50 mt-4 mb-1 rounded-xl overflow-hidden"
-      style={{
-        boxShadow: '0 0 15px 3px rgba(125, 211, 252, 0.4)'
-      }}
-      >
-        <video muted autoPlay loop width="100%" height="100%">
-          <source src='/videos/Showcase.mp4' type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-
-      <div className="mb-12 flex flex-col items-center gap-4">
+      <div className="mb-14 mt-3 flex flex-col items-center gap-4">
         <ExpandableCard title="Horror Prototypes" icon={Youtube} iconColor="text-red-500">
             <div className="flex flex-col gap-4 p-4">
                 <Card>
