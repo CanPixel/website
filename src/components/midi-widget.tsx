@@ -107,7 +107,7 @@ export default function MidiWidget({midi, color = 'primary-purple' } : { midi: a
         </div>
 
         <div className="flex justify-center items-center gap-4 mt-2">
-          <Button variant="default" size="icon" className={`bg-${color} hover:bg-${color}/80 h-14 w-14 rounded-full`} onClick={handlePlayPause}>
+          <Button variant="default" size="icon" className={`bg-${color} text-${color} hover:bg-${color}/80 h-14 w-14 rounded-full`} onClick={handlePlayPause}>
             {isPlaying ? <Pause size={28} /> : <Play size={28} />}
           </Button>
         </div>
