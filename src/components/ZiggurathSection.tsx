@@ -1,4 +1,3 @@
-
 'use client';
 
 import InstagramEmbed from './InstagramEmbed';
@@ -97,8 +96,10 @@ export default function ZiggurathSection() {
                       loading="lazy"
                     ></iframe>
                   </div>
-                  <p className="text-center text-sm text-gold-200/80 mt-4 leading-relaxed font-serif">
-                    ‘Astral Exorcism’ serves to sweep the listener away through harsh sonic thunder. In a darkening, increasingly unsaturated landscape of metal, this metal element seeks to slam and break the skull of habit itself. We consist of two people and have built this record from the ground up. Fueled by spiritual worship and a strong DIY spirit, we conceived this record within just one year of hard work, starting in the summer of 2023 and the work and its campaign finalized and released on June 8th 2024.
+                  <p className="text-center text-[13px] text-gold-200/80 mt-4 leading-relaxed font-serif">
+                    ‘Astral Exorcism’ serves to sweep the listener away through harsh sonic thunder. In a darkening, increasingly unsaturated landscape of metal, this metal element seeks to slam and break the skull of habit itself. <br></br>
+                    <br></br>
+                    We consist of two people and have built this record from the ground up. Fueled by spiritual worship and a strong DIY spirit, we conceived this record within just one year of hard work, starting in the summer of 2023 and the work and its campaign finalized and released on June 8th 2024.
                   </p>
                 </CardContent>
             </Card>
@@ -108,8 +109,11 @@ export default function ZiggurathSection() {
                 <CardTitle className="font-serif text-2xl text-gold-300">Bio</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gold-200/80 leading-relaxed font-serif text-sm mb-4">
-                  Hailing from the Nether Lands, a furious force of destruction forges a new sound baptized as Black Death ‘n Roll. Embodying unbridled duality in power, fiery currents of bone-crushing pulses are delivered with organic precision. Driven by a distinctly twofold instrumental approach to musical spellcasting, a sonic tapestry is crafted that mesmerizes with intricacy, never once compromised on sheer unrelenting brutality. An ultimate blasphemy to the sound of modernity! For soothing discordants and thrillseekers alike, bear witness to the Voiceless Death Magick.
+                <p className="text-gold-200/80 leading-relaxed font-serif text-[13px] mb-4">
+                  Hailing from the Nether Lands, a furious force of destruction forges a new sound baptized as Black Death ‘n Roll. 
+                  <br></br>Embodying unbridled duality, fiery currents of bone-crushing pulses are delivered with organic precision. 
+                  Driven by a distinctly twofold instrumental approach to musical spellcasting, a sonic tapestry is crafted that mesmerizes with intricacy, never once compromised on sheer unrelenting brutality.<br></br> 
+                  An ultimate blasphemy to the sound of modernity, bear witness to the Voiceless Death Magick!
                 </p>
                 <InstagramEmbed 
                   profileUrl="https://www.instagram.com/ziggurath_nl"
@@ -123,7 +127,14 @@ export default function ZiggurathSection() {
           <Card className="bg-black/50 border-gold-500/50">
               <CardHeader>
                   <CardTitle className="font-serif text-2xl text-gold-300">Live Ritual</CardTitle>
-                  <p className="text-sm text-gray-400 font-ziggsub">Captured March 2024</p>
+                  <div className="text-sm text-gray-300 font-ziggsub">
+                    𝕮𝖆𝖕𝖙𝖚𝖗𝖊𝖉 
+                    <Badge 
+                      variant="secondary"
+                      className="bg-background/40 border border-gold-100/40 text-gold-100/90 font-normal font-ziggsub ml-2">
+                      March 2024
+                    </Badge>
+                  </div>
               </CardHeader>
               <CardContent>
                 <div className="aspect-video rounded-md overflow-hidden border-2 border-gold-800/50">
